@@ -222,7 +222,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Google 로 로그인">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                                    <color key="baseBackgroundColor" name="DeepBlue"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="tapGoogleLoginBtn:" destination="sQY-Ic-RKc" eventType="touchUpInside" id="7AZ-a7-8In"/>
@@ -236,7 +236,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Kakao 로 로그인">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                                    <color key="baseBackgroundColor" name="DeepBlue"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="tapKakaoLoginBtn:" destination="sQY-Ic-RKc" eventType="touchUpInside" id="qxA-QZ-sok"/>
@@ -264,7 +264,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Apple 로 로그인">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                                    <color key="baseBackgroundColor" name="DeepBlue"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="tapAppleLoginBtn:" destination="sQY-Ic-RKc" eventType="touchUpInside" id="O8x-e4-SEY"/>
@@ -276,11 +276,25 @@
                                     <constraint firstAttribute="height" constant="45" id="SnL-zV-sTN"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="OOO 로 로그인">
+                                <buttonConfiguration key="configuration" style="filled" title="Naver 로 로그인">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                                    <color key="baseBackgroundColor" name="DeepBlue"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applelogo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ShX-ek-hUS">
+                                <rect key="frame" x="70" y="356.5" width="35" height="33.5"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="RiJ-kC-a8T"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="applelogo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pV8-UZ-CPb">
+                                <rect key="frame" x="70" y="420.5" width="35" height="33.5"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="7Uj-eU-zer"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VSV-0e-Jay"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -292,7 +306,9 @@
                             <constraint firstItem="VSV-0e-Jay" firstAttribute="trailing" secondItem="nNJ-8N-Ut7" secondAttribute="trailing" constant="40" id="EHk-Gy-St2"/>
                             <constraint firstItem="VSV-0e-Jay" firstAttribute="bottom" secondItem="lEq-dg-mhl" secondAttribute="bottom" constant="30" id="HCp-zc-aNx"/>
                             <constraint firstItem="VSV-0e-Jay" firstAttribute="trailing" secondItem="lEq-dg-mhl" secondAttribute="trailing" constant="100" id="JEr-1G-re4"/>
+                            <constraint firstItem="ShX-ek-hUS" firstAttribute="bottom" secondItem="nNJ-8N-Ut7" secondAttribute="bottom" constant="-5" id="KA7-j9-sR4"/>
                             <constraint firstItem="NfR-ma-dud" firstAttribute="top" secondItem="PBb-On-EfM" secondAttribute="bottom" constant="20" id="KOo-Ca-j9q"/>
+                            <constraint firstItem="ShX-ek-hUS" firstAttribute="leading" secondItem="nNJ-8N-Ut7" secondAttribute="leading" constant="30" id="Kth-bt-t8Z"/>
                             <constraint firstItem="nNJ-8N-Ut7" firstAttribute="top" secondItem="g3I-gO-neu" secondAttribute="bottom" constant="60" id="Ri4-al-C0T"/>
                             <constraint firstItem="VSV-0e-Jay" firstAttribute="trailing" secondItem="xbl-zr-brL" secondAttribute="trailing" constant="40" id="Tno-kv-phW"/>
                             <constraint firstItem="g3I-gO-neu" firstAttribute="top" secondItem="xbl-zr-brL" secondAttribute="bottom" constant="20" id="Xxa-sw-O1k"/>
@@ -310,16 +326,18 @@
                             <constraint firstItem="g3I-gO-neu" firstAttribute="leading" secondItem="VSV-0e-Jay" secondAttribute="leading" constant="40" id="uAb-OC-OGm"/>
                             <constraint firstItem="PBb-On-EfM" firstAttribute="leading" secondItem="VSV-0e-Jay" secondAttribute="leading" constant="40" id="v5G-yJ-VnK"/>
                             <constraint firstItem="VSV-0e-Jay" firstAttribute="trailing" secondItem="pLX-Op-3xm" secondAttribute="trailing" constant="40" id="vXT-2D-CLc"/>
+                            <constraint firstItem="nNJ-8N-Ut7" firstAttribute="top" secondItem="ShX-ek-hUS" secondAttribute="top" constant="-5" id="zIp-QD-xo7"/>
                             <constraint firstItem="nNJ-8N-Ut7" firstAttribute="leading" secondItem="VSV-0e-Jay" secondAttribute="leading" constant="40" id="zy1-Sk-FbP"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5v-vr-Ax1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="94" y="-169"/>
+            <point key="canvasLocation" x="92.753623188405811" y="-169.41964285714286"/>
         </scene>
     </scenes>
     <resources>
+        <image name="applelogo" catalog="system" width="103" height="128"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="eye" catalog="system" width="128" height="81"/>
