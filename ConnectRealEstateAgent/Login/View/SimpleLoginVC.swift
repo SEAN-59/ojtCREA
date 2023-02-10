@@ -20,6 +20,7 @@ class SimpleLoginVC: UIViewController {
 extension SimpleLoginVC {
     
     @IBAction func tapGoogleLoginBtn(_ sender: UIButton) {
+        // Test Change Code
     }
     
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {
