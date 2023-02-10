@@ -25,6 +25,7 @@
 		FB21D2E52990AF1B00F1FA20 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FB21D2E42990AF1B00F1FA20 /* FirebaseFirestore */; };
 		FB21D2E72990AF1B00F1FA20 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FB21D2E62990AF1B00F1FA20 /* FirebaseMessaging */; };
 		FB21D2E92990AF1B00F1FA20 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FB21D2E82990AF1B00F1FA20 /* FirebaseStorage */; };
+		FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		FB21D2C12990996D00F1FA20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB21D2D429909D6F00F1FA20 /* ConnectRealEstateAgent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ConnectRealEstateAgent.entitlements; sourceTree = "<group>"; };
 		FB21D2EB2990BC1700F1FA20 /* ConnectRealEstateAgent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ConnectRealEstateAgent-Bridging-Header.h"; sourceTree = "<group>"; };
+		FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BJDAddressData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				FB21D2D429909D6F00F1FA20 /* ConnectRealEstateAgent.entitlements */,
 				FB21D2AD299098DC00F1FA20 /* AppDelegate.swift */,
 				FB21D2AF299098DC00F1FA20 /* SceneDelegate.swift */,
+				FB47B79E2995EF54006B8068 /* Utils */,
 				FB21D2F12990BF3700F1FA20 /* Login */,
 				FB21D2D82990A9E400F1FA20 /* Swift */,
 				FB21D2D92990AA0200F1FA20 /* Objective-C */,
@@ -129,6 +132,14 @@
 				FB110C922990C66900C4EF53 /* KakaoLogin.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FB47B79E2995EF54006B8068 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +234,7 @@
 				FB21D2AE299098DC00F1FA20 /* AppDelegate.swift in Sources */,
 				FB21D2B0299098DC00F1FA20 /* SceneDelegate.swift in Sources */,
 				FB110C992990EEDB00C4EF53 /* ColorExtension.swift in Sources */,
+				FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */,
 				FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */,
 				FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */,
 			);
