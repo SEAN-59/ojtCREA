@@ -22,6 +22,7 @@ extension SimpleLoginVC {
     @IBAction func tapGoogleLoginBtn(_ sender: UIButton) {
         // Test Change Code
         // Test add Branch
+        // Change Name
     }
     
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {
