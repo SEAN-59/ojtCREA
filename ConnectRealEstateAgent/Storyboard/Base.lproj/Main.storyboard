@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i7C-Pc-QcI">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--FirstVC-->
+        <scene sceneID="7kH-SG-Fb4">
+            <objects>
+                <viewController storyboardIdentifier="FirstVC" title="FirstVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="i7C-Pc-QcI" customClass="FirstVC" customModule="ConnectRealEstateAgent" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G5q-bs-LvL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원하는 정보를" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsa-Sy-rrk">
+                                <rect key="frame" x="201.5" y="430" width="162.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전문가와 이야기 해보세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svt-Za-VKE">
+                                <rect key="frame" x="58.5" y="486" width="305.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RIr-Fc-c6g">
+                                <rect key="frame" x="330" y="552" width="34" height="34"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.right" catalog="system" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="DeepBlue"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="tappedLoginBtn:" destination="i7C-Pc-QcI" eventType="touchUpInside" id="cpc-Wk-Iq2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4Ag-lu-IYD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4Ag-lu-IYD" firstAttribute="trailing" secondItem="RIr-Fc-c6g" secondAttribute="trailing" constant="50" id="8lR-hu-0lM"/>
+                            <constraint firstItem="Svt-Za-VKE" firstAttribute="top" secondItem="Qsa-Sy-rrk" secondAttribute="bottom" constant="20" id="EL3-VJ-jnM"/>
+                            <constraint firstItem="Qsa-Sy-rrk" firstAttribute="centerY" secondItem="G5q-bs-LvL" secondAttribute="centerY" id="PQk-jm-7hF"/>
+                            <constraint firstItem="4Ag-lu-IYD" firstAttribute="trailing" secondItem="Qsa-Sy-rrk" secondAttribute="trailing" constant="50" id="e2m-gq-K4u"/>
+                            <constraint firstItem="4Ag-lu-IYD" firstAttribute="trailing" secondItem="Svt-Za-VKE" secondAttribute="trailing" constant="50" id="mGo-Is-lu1"/>
+                            <constraint firstItem="RIr-Fc-c6g" firstAttribute="top" secondItem="Svt-Za-VKE" secondAttribute="bottom" constant="30" id="u9n-pQ-GJs"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sqv-L5-9vb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-923.1884057971015" y="-301.33928571428572"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.right" catalog="system" width="97" height="128"/>
+        <namedColor name="DeepBlue">
+            <color red="0.12200000137090683" green="0.17299999296665192" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

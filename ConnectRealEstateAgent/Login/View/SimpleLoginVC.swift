@@ -8,10 +8,23 @@
 import UIKit
 
 class SimpleLoginVC: UIViewController {
+    private lazy var backBarbtn = UIBarButtonItem()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+    }
+    
+    @IBAction func tapBackBtn(_ sender: UIBarButtonItem) {
+        print("asd")
+    }
+    
+    
+    @IBAction func tapBackBarBtn(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true)
     }
     
 }
@@ -19,10 +32,13 @@ class SimpleLoginVC: UIViewController {
 //MARK: - LOGIN BUTTON TAPPED
 extension SimpleLoginVC {
     
+    @IBAction func tapAppleLoginBtn(_ sender: UIButton) {
+    }
+    
     @IBAction func tapGoogleLoginBtn(_ sender: UIButton) {
-        // Test Change Code
-        // Test add Branch
-        // Change Name
+    }
+    
+    @IBAction func tapNaverLoginBtn(_ sender: UIButton) {
     }
     
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {
@@ -30,15 +46,14 @@ extension SimpleLoginVC {
         kakaoLogin.loginKakaoAccount()
     }
     
-    @IBAction func tapAppleLoginBtn(_ sender: UIButton) {
-    }
-    
     @IBAction func tapEmailLoginBtn(_ sender: UIButton) {
 
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let storyBoard = UIStoryboard.init(name: "LoginPage", bundle: nil)
         let loginVC =  storyBoard.instantiateViewController(withIdentifier: "EmailLoginVC")
         loginVC.modalPresentationStyle = .fullScreen
+//        loginVC.modalTransitionStyle = .coverVertical
         self.present(loginVC, animated: true, completion: nil)
     }
+    
     
 }
