@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		A75FEBB42997DD28004F49DC /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75FEBB32997DD28004F49DC /* FirstVC.swift */; };
 		A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F1164D2997E2F400905DAA /* LoginPage.storyboard */; };
+		A7F116522998B40400905DAA /* AppleLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F116512998B40400905DAA /* AppleLogin.m */; };
+		A7F116552998B4FE00905DAA /* GoogleLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F116542998B4FE00905DAA /* GoogleLogin.m */; };
+		A7F116582998B52900905DAA /* NaverLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F116572998B52900905DAA /* NaverLogin.m */; };
+		A7F1165B29991C7D00905DAA /* EmailLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F1165A29991C7D00905DAA /* EmailLogin.m */; };
+		A7F1165D2999242600905DAA /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F1165C2999242600905DAA /* SimpleAlert.swift */; };
 		FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB110C8E2990C12000C4EF53 /* SimpleLoginVC.swift */; };
 		FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB110C902990C20500C4EF53 /* EmailLoginVC.swift */; };
 		FB110C932990C66900C4EF53 /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB110C922990C66900C4EF53 /* KakaoLogin.swift */; };
@@ -34,6 +39,15 @@
 /* Begin PBXFileReference section */
 		A75FEBB32997DD28004F49DC /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		A7F1164D2997E2F400905DAA /* LoginPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginPage.storyboard; sourceTree = "<group>"; };
+		A7F116502998B40400905DAA /* AppleLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleLogin.h; sourceTree = "<group>"; };
+		A7F116512998B40400905DAA /* AppleLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppleLogin.m; sourceTree = "<group>"; };
+		A7F116532998B4FE00905DAA /* GoogleLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleLogin.h; sourceTree = "<group>"; };
+		A7F116542998B4FE00905DAA /* GoogleLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoogleLogin.m; sourceTree = "<group>"; };
+		A7F116562998B52900905DAA /* NaverLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NaverLogin.h; sourceTree = "<group>"; };
+		A7F116572998B52900905DAA /* NaverLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NaverLogin.m; sourceTree = "<group>"; };
+		A7F1165929991C7D00905DAA /* EmailLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmailLogin.h; sourceTree = "<group>"; };
+		A7F1165A29991C7D00905DAA /* EmailLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmailLogin.m; sourceTree = "<group>"; };
+		A7F1165C2999242600905DAA /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 		FB110C8E2990C12000C4EF53 /* SimpleLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLoginVC.swift; sourceTree = "<group>"; };
 		FB110C902990C20500C4EF53 /* EmailLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginVC.swift; sourceTree = "<group>"; };
 		FB110C922990C66900C4EF53 /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
@@ -80,6 +94,14 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		A7F1164F2998B3E000905DAA /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				FB110C922990C66900C4EF53 /* KakaoLogin.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
 		FB21D2A1299098DC00F1FA20 = {
 			isa = PBXGroup;
 			children = (
@@ -102,10 +124,9 @@
 				FB21D2D429909D6F00F1FA20 /* ConnectRealEstateAgent.entitlements */,
 				FB21D2AD299098DC00F1FA20 /* AppDelegate.swift */,
 				FB21D2AF299098DC00F1FA20 /* SceneDelegate.swift */,
+				A75FEBB32997DD28004F49DC /* FirstVC.swift */,
 				FB47B79E2995EF54006B8068 /* Utils */,
 				FB21D2F12990BF3700F1FA20 /* Login */,
-				FB21D2D82990A9E400F1FA20 /* Swift */,
-				FB21D2D92990AA0200F1FA20 /* Objective-C */,
 				A75FEBAE2997DA07004F49DC /* Storyboard */,
 				FB21D2B8299098DD00F1FA20 /* LaunchScreen.storyboard */,
 				FB21D2B6299098DD00F1FA20 /* Assets.xcassets */,
@@ -121,7 +142,7 @@
 			children = (
 				FB110C982990EEDB00C4EF53 /* ColorExtension.swift */,
 				FB47B7A1299615EA006B8068 /* ImageExtension.swift */,
-				A75FEBB32997DD28004F49DC /* FirstVC.swift */,
+				A7F1165C2999242600905DAA /* SimpleAlert.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -129,6 +150,14 @@
 		FB21D2D92990AA0200F1FA20 /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
+				A7F1165929991C7D00905DAA /* EmailLogin.h */,
+				A7F1165A29991C7D00905DAA /* EmailLogin.m */,
+				A7F116502998B40400905DAA /* AppleLogin.h */,
+				A7F116512998B40400905DAA /* AppleLogin.m */,
+				A7F116532998B4FE00905DAA /* GoogleLogin.h */,
+				A7F116542998B4FE00905DAA /* GoogleLogin.m */,
+				A7F116562998B52900905DAA /* NaverLogin.h */,
+				A7F116572998B52900905DAA /* NaverLogin.m */,
 			);
 			path = "Objective-C";
 			sourceTree = "<group>";
@@ -136,24 +165,26 @@
 		FB21D2F12990BF3700F1FA20 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				FB21D2F22990BF4800F1FA20 /* View */,
+				A7F1164F2998B3E000905DAA /* Swift */,
+				FB21D2D92990AA0200F1FA20 /* Objective-C */,
+				FB21D2F22990BF4800F1FA20 /* VC */,
 			);
 			path = Login;
 			sourceTree = "<group>";
 		};
-		FB21D2F22990BF4800F1FA20 /* View */ = {
+		FB21D2F22990BF4800F1FA20 /* VC */ = {
 			isa = PBXGroup;
 			children = (
 				FB110C8E2990C12000C4EF53 /* SimpleLoginVC.swift */,
 				FB110C902990C20500C4EF53 /* EmailLoginVC.swift */,
-				FB110C922990C66900C4EF53 /* KakaoLogin.swift */,
 			);
-			path = View;
+			path = VC;
 			sourceTree = "<group>";
 		};
 		FB47B79E2995EF54006B8068 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FB21D2D82990A9E400F1FA20 /* Swift */,
 				FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */,
 			);
 			path = Utils;
@@ -250,10 +281,15 @@
 			files = (
 				FB110C932990C66900C4EF53 /* KakaoLogin.swift in Sources */,
 				FB21D2AE299098DC00F1FA20 /* AppDelegate.swift in Sources */,
+				A7F116552998B4FE00905DAA /* GoogleLogin.m in Sources */,
 				A75FEBB42997DD28004F49DC /* FirstVC.swift in Sources */,
+				A7F1165D2999242600905DAA /* SimpleAlert.swift in Sources */,
 				FB21D2B0299098DC00F1FA20 /* SceneDelegate.swift in Sources */,
+				A7F116522998B40400905DAA /* AppleLogin.m in Sources */,
+				A7F1165B29991C7D00905DAA /* EmailLogin.m in Sources */,
 				FB110C992990EEDB00C4EF53 /* ColorExtension.swift in Sources */,
 				FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */,
+				A7F116582998B52900905DAA /* NaverLogin.m in Sources */,
 				FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */,
 				FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */,
 				FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */,

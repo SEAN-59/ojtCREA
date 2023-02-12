@@ -212,7 +212,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="ew0-jB-LZn">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <action selector="tapBackBarBtn:" destination="zaz-dh-CY0" id="BQS-i0-w9M"/>
+                                                <segue destination="zaz-dh-CY0" kind="unwind" unwindAction="dismissVC:" id="orY-kN-Uyo"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -236,7 +236,7 @@
                                     <constraint firstAttribute="height" constant="48" id="MAD-eu-KjN"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password : 6 ~12" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8gm-hs-ZnS">
                                 <rect key="frame" x="40" y="470.66666666666669" width="313" height="48.000000000000057"/>
@@ -244,7 +244,7 @@
                                     <constraint firstAttribute="height" constant="48" id="uhV-um-wxI"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gyo-gj-itk">
                                 <rect key="frame" x="302.66666666666669" y="470.66666666666669" width="50.333333333333314" height="48.000000000000057"/>
@@ -253,6 +253,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
                                     <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapShowBtn:" destination="VjB-of-Tge" eventType="touchUpInside" id="vSI-EY-8Cj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyW-5K-f0Z">
                                 <rect key="frame" x="225" y="528.66666666666663" width="128" height="34"/>
@@ -261,6 +264,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapAutoLoginBtn:" destination="VjB-of-Tge" eventType="touchUpInside" id="4PC-Cv-Go8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-pK-pM8">
                                 <rect key="frame" x="40" y="582.66666666666663" width="313" height="45"/>
@@ -272,6 +278,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                     <color key="baseBackgroundColor" name="DeepBlue"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapSignInBtn:" destination="VjB-of-Tge" eventType="touchUpInside" id="vF1-Ih-M4r"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4x-qC-AJi">
                                 <rect key="frame" x="206.66666666666666" y="641.33333333333337" width="89.999999999999972" height="28"/>
@@ -280,6 +289,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
                                     <color key="baseForegroundColor" systemColor="linkColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapFindPasswordBtn:" destination="VjB-of-Tge" eventType="touchUpInside" id="EoB-u5-qSe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lBg-Ot-FlH">
                                 <rect key="frame" x="206.66666666666666" y="736.66666666666663" width="65.999999999999972" height="28"/>
@@ -288,6 +300,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="12"/>
                                     <color key="baseForegroundColor" systemColor="linkColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapCreateAccountBtn:" destination="VjB-of-Tge" eventType="touchUpInside" id="hzz-l2-3jM"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정이 없으신가요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skZ-Oz-RF8">
                                 <rect key="frame" x="103.66666666666669" y="743" width="93" height="15"/>
@@ -338,11 +353,17 @@
                             <constraint firstItem="0h4-Nw-Waj" firstAttribute="trailing" secondItem="V7j-Kl-8Nf" secondAttribute="trailing" id="ym5-lc-S75"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="autoLoginBtn" destination="pyW-5K-f0Z" id="aJy-VD-vE0"/>
+                        <outlet property="emailTxf" destination="QlC-2g-rDA" id="pcL-LM-Myp"/>
+                        <outlet property="passwordTxf" destination="8gm-hs-ZnS" id="2xx-1n-R4y"/>
+                        <outlet property="showBtn" destination="Gyo-gj-itk" id="rTA-V2-hXf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZa-BU-Izv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="zaz-dh-CY0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="718" y="5"/>
+            <point key="canvasLocation" x="831" y="5"/>
         </scene>
     </scenes>
     <resources>
