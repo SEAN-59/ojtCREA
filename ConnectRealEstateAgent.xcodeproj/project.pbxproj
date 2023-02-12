@@ -48,6 +48,7 @@
 		A7F1165929991C7D00905DAA /* EmailLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmailLogin.h; sourceTree = "<group>"; };
 		A7F1165A29991C7D00905DAA /* EmailLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmailLogin.m; sourceTree = "<group>"; };
 		A7F1165C2999242600905DAA /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
+		A7F1165E29992CE900905DAA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FB110C8E2990C12000C4EF53 /* SimpleLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLoginVC.swift; sourceTree = "<group>"; };
 		FB110C902990C20500C4EF53 /* EmailLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginVC.swift; sourceTree = "<group>"; };
 		FB110C922990C66900C4EF53 /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
@@ -122,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				FB21D2D429909D6F00F1FA20 /* ConnectRealEstateAgent.entitlements */,
+				A7F1165E29992CE900905DAA /* README.md */,
 				FB21D2AD299098DC00F1FA20 /* AppDelegate.swift */,
 				FB21D2AF299098DC00F1FA20 /* SceneDelegate.swift */,
 				A75FEBB32997DD28004F49DC /* FirstVC.swift */,
