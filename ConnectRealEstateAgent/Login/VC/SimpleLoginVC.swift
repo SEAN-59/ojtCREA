@@ -6,39 +6,34 @@
 //
 
 import UIKit
+//import GoogleLogin
 
 class SimpleLoginVC: UIViewController {
-    private lazy var backBarbtn = UIBarButtonItem()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
     }
     
-    @IBAction func tapBackBtn(_ sender: UIBarButtonItem) {
-        print("asd")
-    }
-    
-    
-    @IBAction func tapBackBarBtn(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true)
-    }
-    
+    @IBAction func dismissVC(_ segue: UIStoryboardSegue) {}
+
 }
 
 //MARK: - LOGIN BUTTON TAPPED
 extension SimpleLoginVC {
     
     @IBAction func tapAppleLoginBtn(_ sender: UIButton) {
+        let appleLogin = AppleLogin()
+        appleLogin.startSignInWithAppleFlow()
     }
     
     @IBAction func tapGoogleLoginBtn(_ sender: UIButton) {
+        let googleLogin = GoogleLogin()
+        googleLogin.googleSignIn(withFirebase: self)
+
+        
     }
     
     @IBAction func tapNaverLoginBtn(_ sender: UIButton) {
+        let naverLogin = NaverLogin()
     }
     
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {
@@ -51,7 +46,6 @@ extension SimpleLoginVC {
         let storyBoard = UIStoryboard.init(name: "LoginPage", bundle: nil)
         let loginVC =  storyBoard.instantiateViewController(withIdentifier: "EmailLoginVC")
         loginVC.modalPresentationStyle = .fullScreen
-//        loginVC.modalTransitionStyle = .coverVertical
         self.present(loginVC, animated: true, completion: nil)
     }
     
