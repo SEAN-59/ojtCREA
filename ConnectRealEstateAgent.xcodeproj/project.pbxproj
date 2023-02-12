@@ -106,6 +106,7 @@
 		FB21D2A1299098DC00F1FA20 = {
 			isa = PBXGroup;
 			children = (
+				A7F1165E29992CE900905DAA /* README.md */,
 				FB21D2AC299098DC00F1FA20 /* ConnectRealEstateAgent */,
 				FB21D2AB299098DC00F1FA20 /* Products */,
 			);
@@ -123,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				FB21D2D429909D6F00F1FA20 /* ConnectRealEstateAgent.entitlements */,
-				A7F1165E29992CE900905DAA /* README.md */,
 				FB21D2AD299098DC00F1FA20 /* AppDelegate.swift */,
 				FB21D2AF299098DC00F1FA20 /* SceneDelegate.swift */,
 				A75FEBB32997DD28004F49DC /* FirstVC.swift */,
