@@ -13,8 +13,8 @@ class SimpleLoginVC: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func dismissVC(_ segue: UIStoryboardSegue) {}
-
+    
+    @IBAction func fromYoutoSimple(_ segue: UIStoryboardSegue) {}
 }
 
 //MARK: - LOGIN BUTTON TAPPED
@@ -28,8 +28,6 @@ extension SimpleLoginVC {
     @IBAction func tapGoogleLoginBtn(_ sender: UIButton) {
         let googleLogin = GoogleLogin()
         googleLogin.googleSignIn(withFirebase: self)
-
-        
     }
     
     @IBAction func tapNaverLoginBtn(_ sender: UIButton) {

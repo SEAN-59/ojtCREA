@@ -18,10 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        // Override point for customization after application launch.
         FirebaseApp.configure()
         KakaoSDK.initSDK(appKey: "896979d43325bf48c27e613590f55a5b")
-//        GIDSignIn.sharedInstance.clientID
+
         return true
     }
 
