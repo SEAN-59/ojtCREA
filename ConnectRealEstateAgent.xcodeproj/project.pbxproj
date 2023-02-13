@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */; };
 		A75FEBB42997DD28004F49DC /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75FEBB32997DD28004F49DC /* FirstVC.swift */; };
 		A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F1164D2997E2F400905DAA /* LoginPage.storyboard */; };
 		A7F116522998B40400905DAA /* AppleLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F116512998B40400905DAA /* AppleLogin.m */; };
@@ -35,7 +36,6 @@
 		FB35BAA6299A2A6100BA6A27 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAA5299A2A6100BA6A27 /* MapVC.swift */; };
 		FB35BAA8299A2A6B00BA6A27 /* MapPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB35BAA7299A2A6B00BA6A27 /* MapPage.storyboard */; };
 		FB35BAB0299A2DB900BA6A27 /* ItemListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAAF299A2DB900BA6A27 /* ItemListVC.swift */; };
-		FB35BAB2299A2DC400BA6A27 /* ItemPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB35BAB1299A2DC400BA6A27 /* ItemPage.storyboard */; };
 		FB35BAB5299A2DEF00BA6A27 /* ItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAB3299A2DEF00BA6A27 /* ItemListCell.swift */; };
 		FB35BAB6299A2DEF00BA6A27 /* ItemListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB35BAB4299A2DEF00BA6A27 /* ItemListCell.xib */; };
 		FB35BAB8299A2E8800BA6A27 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAB7299A2E8800BA6A27 /* AddItemVC.swift */; };
@@ -48,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemPage.storyboard; sourceTree = "<group>"; };
 		A75FEBB32997DD28004F49DC /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		A7F1164D2997E2F400905DAA /* LoginPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginPage.storyboard; sourceTree = "<group>"; };
 		A7F116502998B40400905DAA /* AppleLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleLogin.h; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		FB35BAA5299A2A6100BA6A27 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FB35BAA7299A2A6B00BA6A27 /* MapPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapPage.storyboard; sourceTree = "<group>"; };
 		FB35BAAF299A2DB900BA6A27 /* ItemListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListVC.swift; sourceTree = "<group>"; };
-		FB35BAB1299A2DC400BA6A27 /* ItemPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemPage.storyboard; sourceTree = "<group>"; };
 		FB35BAB3299A2DEF00BA6A27 /* ItemListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListCell.swift; sourceTree = "<group>"; };
 		FB35BAB4299A2DEF00BA6A27 /* ItemListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListCell.xib; sourceTree = "<group>"; };
 		FB35BAB7299A2E8800BA6A27 /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 		FB35BAAB299A2D5F00BA6A27 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				FB35BAB1299A2DC400BA6A27 /* ItemPage.storyboard */,
+				A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */,
 				FB35BABD299A31FC00BA6A27 /* SearchAddressView.xib */,
 				FB35BABF299A331F00BA6A27 /* SearchAddressView.swift */,
 				FB35BAB3299A2DEF00BA6A27 /* ItemListCell.swift */,
@@ -358,11 +358,11 @@
 				FB35BAA8299A2A6B00BA6A27 /* MapPage.storyboard in Resources */,
 				FB21D2BA299098DD00F1FA20 /* LaunchScreen.storyboard in Resources */,
 				FB21D2C22990996D00F1FA20 /* GoogleService-Info.plist in Resources */,
+				A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */,
 				A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */,
 				FB35BAB6299A2DEF00BA6A27 /* ItemListCell.xib in Resources */,
 				FB35BABE299A31FC00BA6A27 /* SearchAddressView.xib in Resources */,
 				FB21D2B7299098DD00F1FA20 /* Assets.xcassets in Resources */,
-				FB35BAB2299A2DC400BA6A27 /* ItemPage.storyboard in Resources */,
 				FB21D2B5299098DC00F1FA20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
