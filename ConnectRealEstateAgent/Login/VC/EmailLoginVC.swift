@@ -8,39 +8,57 @@
 import UIKit
 
 class EmailLoginVC: UIViewController {
+    private let emailLogin = EmailLogin()
     
     @IBOutlet weak var emailTxf: UITextField!
     @IBOutlet weak var passwordTxf: UITextField!
     
     @IBOutlet weak var showBtn: UIButton!
     @IBOutlet weak var autoLoginBtn: UIButton!
-    private let emailLoginObjc = EmailLogin()
+    
+    @IBOutlet weak var loginIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var backPageView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.emailTxf.delegate = self
         self.passwordTxf.delegate = self
+        self.emailLogin.delegate = self
     }
     
+    @IBAction func fromYoutoLogin(_ segue: UIStoryboardSegue) {}
+    
     @IBAction func tapShowBtn(_ sender: UIButton) {
-//        if self.showBtn.titleLabel!.text == "Show" {
-//            self.showBtn.titleLabel!.text = "Hide"
-//        } else if self.showBtn.titleLabel!.text == "Hide" {
-//            self.showBtn.titleLabel!.text = "Show"
-//        }
+        
+        let attribute = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 10.0)]
+        
+        if self.passwordTxf.isSecureTextEntry {
+            self.passwordTxf.isSecureTextEntry = false
+            let title = NSAttributedString(string: "Hide", attributes: attribute)
+            self.showBtn.setAttributedTitle(title, for: .normal)
+            
+        } else {
+            self.passwordTxf.isSecureTextEntry = true
+            let title = NSAttributedString(string: "Show", attributes: attribute)
+            self.showBtn.setAttributedTitle(title, for: .normal)
+        }
     }
     
     @IBAction func tapAutoLoginBtn(_ sender: UIButton) {
+        
     }
     
     @IBAction func tapSignInBtn(_ sender: UIButton) {
         guard let emailText = self.emailTxf.text else { return }
-        let emailCorrect = self.emailLoginObjc.checkEmailTxf(emailText)
+        let emailCorrect = self.emailLogin.checkEmailTxf(emailText)
         if emailCorrect {
             guard let passwordText = self.passwordTxf.text else { return }
-            let pwCorrect = self.emailLoginObjc.checkPasswordTxf(passwordText)
+            let pwCorrect = self.emailLogin.checkPasswordTxf(passwordText)
             if pwCorrect {
-                self.emailLoginObjc.sign(inEmail: emailText, password: passwordText)
+                self.backPageView.isHidden = false
+                self.loginIndicator.isHidden = false
+                self.loginIndicator.startAnimating()
+                self.emailLogin.sign(inEmail: emailText, password: passwordText)
                 
             } else {
                 var actionArray: [UIAlertAction] = []
@@ -71,9 +89,14 @@ class EmailLoginVC: UIViewController {
     }
     
     @IBAction func tapFindPasswordBtn(_ sender: UIButton) {
+        
     }
     
     @IBAction func tapCreateAccountBtn(_ sender: UIButton) {
+        let storyBoard = UIStoryboard.init(name: "LoginPage", bundle: nil)
+        let nextVC =  storyBoard.instantiateViewController(withIdentifier: "CreateAccountVC")
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: true, completion: nil)
     }
     
 }
@@ -81,6 +104,27 @@ class EmailLoginVC: UIViewController {
 extension EmailLoginVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
+    }
+}
+
+extension EmailLoginVC: sendEmailLoginResult {
+    func sendSignResult(result: Bool) {
+        if result {
+            self.backPageView.isHidden = true
+            self.loginIndicator.stopAnimating()
+            self.loginIndicator.isHidden = true
+            
+            let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)
+            guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "MapVC") as? MapVC else { return }
+            nextVC.modalPresentationStyle = .fullScreen
+            guard let presentVC = self.presentingViewController else { return }
+            
+            self.dismiss(animated: false, completion: {
+                presentVC.present(nextVC, animated: true, completion: nil)
+            })
+            
+            
+        }
     }
     
 }

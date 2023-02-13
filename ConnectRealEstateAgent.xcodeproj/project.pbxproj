@@ -34,6 +34,12 @@
 		FB21D2E92990AF1B00F1FA20 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FB21D2E82990AF1B00F1FA20 /* FirebaseStorage */; };
 		FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */; };
 		FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B7A1299615EA006B8068 /* ImageExtension.swift */; };
+		FBF52F5A2999B570006594D1 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F592999B570006594D1 /* CreateAccountVC.swift */; };
+		FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */; };
+		FBF52F642999FE4D006594D1 /* MapPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF52F632999FE4D006594D1 /* MapPage.storyboard */; };
+		FBF52F66299A0204006594D1 /* MapVC_Normal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F65299A0204006594D1 /* MapVC_Normal.swift */; };
+		FBF52F68299A023E006594D1 /* MapVC_Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F67299A023E006594D1 /* MapVC_Business.swift */; };
+		FBF52F6A299A02E7006594D1 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F69299A02E7006594D1 /* MapVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +71,12 @@
 		FB21D2EB2990BC1700F1FA20 /* ConnectRealEstateAgent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ConnectRealEstateAgent-Bridging-Header.h"; sourceTree = "<group>"; };
 		FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BJDAddressData.swift; sourceTree = "<group>"; };
 		FB47B7A1299615EA006B8068 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		FBF52F592999B570006594D1 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAgreeVC.swift; sourceTree = "<group>"; };
+		FBF52F632999FE4D006594D1 /* MapPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapPage.storyboard; sourceTree = "<group>"; };
+		FBF52F65299A0204006594D1 /* MapVC_Normal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC_Normal.swift; sourceTree = "<group>"; };
+		FBF52F67299A023E006594D1 /* MapVC_Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC_Business.swift; sourceTree = "<group>"; };
+		FBF52F69299A02E7006594D1 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,15 +98,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A75FEBAE2997DA07004F49DC /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				FB21D2B3299098DC00F1FA20 /* Main.storyboard */,
-				A7F1164D2997E2F400905DAA /* LoginPage.storyboard */,
-			);
-			path = Storyboard;
-			sourceTree = "<group>";
-		};
 		A7F1164F2998B3E000905DAA /* Swift */ = {
 			isa = PBXGroup;
 			children = (
@@ -127,9 +130,12 @@
 				FB21D2AD299098DC00F1FA20 /* AppDelegate.swift */,
 				FB21D2AF299098DC00F1FA20 /* SceneDelegate.swift */,
 				A75FEBB32997DD28004F49DC /* FirstVC.swift */,
+				FB21D2B3299098DC00F1FA20 /* Main.storyboard */,
 				FB47B79E2995EF54006B8068 /* Utils */,
+				FBF52F5D2999FD9B006594D1 /* Map */,
+				FBF52F5E2999FDAB006594D1 /* Data */,
+				FBF52F5F2999FDC9006594D1 /* Chat */,
 				FB21D2F12990BF3700F1FA20 /* Login */,
-				A75FEBAE2997DA07004F49DC /* Storyboard */,
 				FB21D2B8299098DD00F1FA20 /* LaunchScreen.storyboard */,
 				FB21D2B6299098DD00F1FA20 /* Assets.xcassets */,
 				FB21D2BB299098DD00F1FA20 /* Info.plist */,
@@ -167,6 +173,7 @@
 		FB21D2F12990BF3700F1FA20 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				A7F1164D2997E2F400905DAA /* LoginPage.storyboard */,
 				A7F1164F2998B3E000905DAA /* Swift */,
 				FB21D2D92990AA0200F1FA20 /* Objective-C */,
 				FB21D2F22990BF4800F1FA20 /* VC */,
@@ -179,6 +186,8 @@
 			children = (
 				FB110C8E2990C12000C4EF53 /* SimpleLoginVC.swift */,
 				FB110C902990C20500C4EF53 /* EmailLoginVC.swift */,
+				FBF52F592999B570006594D1 /* CreateAccountVC.swift */,
+				FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -190,6 +199,55 @@
 				FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FBF52F5D2999FD9B006594D1 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				FBF52F632999FE4D006594D1 /* MapPage.storyboard */,
+				FBF52F602999FDDE006594D1 /* Swift */,
+				FBF52F612999FE1E006594D1 /* Objective-C */,
+				FBF52F622999FE33006594D1 /* VC */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		FBF52F5E2999FDAB006594D1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FBF52F5F2999FDC9006594D1 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		FBF52F602999FDDE006594D1 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		FBF52F612999FE1E006594D1 /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Objective-C";
+			sourceTree = "<group>";
+		};
+		FBF52F622999FE33006594D1 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				FBF52F65299A0204006594D1 /* MapVC_Normal.swift */,
+				FBF52F67299A023E006594D1 /* MapVC_Business.swift */,
+				FBF52F69299A02E7006594D1 /* MapVC.swift */,
+			);
+			path = VC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBF52F642999FE4D006594D1 /* MapPage.storyboard in Resources */,
 				FB21D2BA299098DD00F1FA20 /* LaunchScreen.storyboard in Resources */,
 				FB21D2C22990996D00F1FA20 /* GoogleService-Info.plist in Resources */,
 				A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */,
@@ -289,12 +348,17 @@
 				FB21D2B0299098DC00F1FA20 /* SceneDelegate.swift in Sources */,
 				A7F116522998B40400905DAA /* AppleLogin.m in Sources */,
 				A7F1165B29991C7D00905DAA /* EmailLogin.m in Sources */,
+				FBF52F5A2999B570006594D1 /* CreateAccountVC.swift in Sources */,
+				FBF52F66299A0204006594D1 /* MapVC_Normal.swift in Sources */,
+				FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */,
+				FBF52F6A299A02E7006594D1 /* MapVC.swift in Sources */,
 				FB110C992990EEDB00C4EF53 /* ColorExtension.swift in Sources */,
 				FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */,
 				A7F116582998B52900905DAA /* NaverLogin.m in Sources */,
 				FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */,
 				FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */,
 				FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */,
+				FBF52F68299A023E006594D1 /* MapVC_Business.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

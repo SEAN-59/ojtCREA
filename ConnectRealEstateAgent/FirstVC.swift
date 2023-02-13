@@ -15,9 +15,22 @@ class FirstVC: UIViewController {
     
     
     @IBAction func tappedLoginBtn(_ sender: UIButton) {
-        let loginStoryboard = UIStoryboard.init(name: "LoginPage", bundle: nil)
-        let simpleLoginVC = loginStoryboard.instantiateViewController(withIdentifier: "SimpleLoginVC")
-        simpleLoginVC.modalPresentationStyle = .fullScreen
-        self.present(simpleLoginVC, animated: true, completion: nil)
+        
+        let storyBoard = UIStoryboard.init(name: "LoginPage", bundle: nil)
+        
+        guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "SimpleLoginVC") as? SimpleLoginVC else { return }
+        
+
+//        guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "AccountAgreeVC") as? AccountAgreeVC else { return }
+        
+        
+        nextVC.modalPresentationStyle = .fullScreen
+        
+        
+        self.present(nextVC, animated: true, completion: {
+            guard let presentVC = self.presentingViewController else { return }
+            presentVC.dismiss(animated: false, completion: nil)
+        })
+        
     }
 }
