@@ -20,9 +20,6 @@ class FirstVC: UIViewController {
         
         guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "SimpleLoginVC") as? SimpleLoginVC else { return }
         
-
-//        guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "AccountAgreeVC") as? AccountAgreeVC else { return }
-        
         
         nextVC.modalPresentationStyle = .fullScreen
         
