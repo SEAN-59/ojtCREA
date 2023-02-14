@@ -20,13 +20,13 @@ import NMapsMap
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    //
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         FirebaseApp.configure()
-        KakaoSDK.initSDK(appKey: "896979d43325bf48c27e613590f55a5b")
-        NMFAuthManager.shared().clientId = "cicssxqn82"
+        let keyData = KeyData()
+        KakaoSDK.initSDK(appKey: "\(keyData.kakaoKey)")
+        NMFAuthManager.shared().clientId = "\(keyData.naverID)"
 
         return true
     }
