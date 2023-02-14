@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2D-gc-zso">
+                            <view contentMode="scaleToFill" restorationIdentifier="MainMap" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2D-gc-zso" customClass="NMFMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="802"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -121,8 +121,8 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="R2D-gc-zso" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3wj-Fg-O9n"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="R2D-gc-zso" secondAttribute="trailing" id="6Eq-vK-kXl"/>
+                            <constraint firstItem="R2D-gc-zso" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="3wj-Fg-O9n"/>
+                            <constraint firstAttribute="trailing" secondItem="R2D-gc-zso" secondAttribute="trailing" id="6Eq-vK-kXl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Dhk-Fo-WVa" secondAttribute="trailing" constant="20" id="F7u-qd-JIb"/>
                             <constraint firstItem="Dhk-Fo-WVa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="WeR-GL-Daj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MP9-id-czE" secondAttribute="trailing" id="aQr-df-Dsh"/>
@@ -134,6 +134,9 @@
                             <constraint firstItem="R2D-gc-zso" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wQ8-C7-X40"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mainMapView" destination="R2D-gc-zso" id="JHh-gW-sMd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

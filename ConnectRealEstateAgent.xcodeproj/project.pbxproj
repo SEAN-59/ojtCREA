@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A648BA9AC537923C75C9D2CC /* Pods_ConnectRealEstateAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14196BF2A1A50E61D2528D9 /* Pods_ConnectRealEstateAgent.framework */; };
 		A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */; };
 		A75FEBB42997DD28004F49DC /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75FEBB32997DD28004F49DC /* FirstVC.swift */; };
 		A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F1164D2997E2F400905DAA /* LoginPage.storyboard */; };
@@ -39,15 +40,17 @@
 		FB35BAB5299A2DEF00BA6A27 /* ItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAB3299A2DEF00BA6A27 /* ItemListCell.swift */; };
 		FB35BAB6299A2DEF00BA6A27 /* ItemListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB35BAB4299A2DEF00BA6A27 /* ItemListCell.xib */; };
 		FB35BAB8299A2E8800BA6A27 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAB7299A2E8800BA6A27 /* AddItemVC.swift */; };
-		FB35BABE299A31FC00BA6A27 /* SearchAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB35BABD299A31FC00BA6A27 /* SearchAddressView.xib */; };
 		FB35BAC0299A331F00BA6A27 /* SearchAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BABF299A331F00BA6A27 /* SearchAddressView.swift */; };
 		FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */; };
 		FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B7A1299615EA006B8068 /* ImageExtension.swift */; };
+		FBE13B71299B1337008FA404 /* ComposeMap.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE13B70299B1337008FA404 /* ComposeMap.m */; };
 		FBF52F5A2999B570006594D1 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F592999B570006594D1 /* CreateAccountVC.swift */; };
 		FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A007FB0549A2C4D49C7B1D3 /* Pods-ConnectRealEstateAgent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectRealEstateAgent.debug.xcconfig"; path = "Target Support Files/Pods-ConnectRealEstateAgent/Pods-ConnectRealEstateAgent.debug.xcconfig"; sourceTree = "<group>"; };
+		72EDF291842113FA2CD01799 /* Pods-ConnectRealEstateAgent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectRealEstateAgent.release.xcconfig"; path = "Target Support Files/Pods-ConnectRealEstateAgent/Pods-ConnectRealEstateAgent.release.xcconfig"; sourceTree = "<group>"; };
 		A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemPage.storyboard; sourceTree = "<group>"; };
 		A75FEBB32997DD28004F49DC /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		A7F1164D2997E2F400905DAA /* LoginPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginPage.storyboard; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		A7F1165A29991C7D00905DAA /* EmailLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmailLogin.m; sourceTree = "<group>"; };
 		A7F1165C2999242600905DAA /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 		A7F1165E29992CE900905DAA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E14196BF2A1A50E61D2528D9 /* Pods_ConnectRealEstateAgent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectRealEstateAgent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB110C8E2990C12000C4EF53 /* SimpleLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLoginVC.swift; sourceTree = "<group>"; };
 		FB110C902990C20500C4EF53 /* EmailLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailLoginVC.swift; sourceTree = "<group>"; };
 		FB110C922990C66900C4EF53 /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
@@ -81,10 +85,11 @@
 		FB35BAB3299A2DEF00BA6A27 /* ItemListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListCell.swift; sourceTree = "<group>"; };
 		FB35BAB4299A2DEF00BA6A27 /* ItemListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListCell.xib; sourceTree = "<group>"; };
 		FB35BAB7299A2E8800BA6A27 /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
-		FB35BABD299A31FC00BA6A27 /* SearchAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAddressView.xib; sourceTree = "<group>"; };
 		FB35BABF299A331F00BA6A27 /* SearchAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressView.swift; sourceTree = "<group>"; };
 		FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BJDAddressData.swift; sourceTree = "<group>"; };
 		FB47B7A1299615EA006B8068 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		FBE13B6F299B1337008FA404 /* ComposeMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeMap.h; sourceTree = "<group>"; };
+		FBE13B70299B1337008FA404 /* ComposeMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeMap.m; sourceTree = "<group>"; };
 		FBF52F592999B570006594D1 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAgreeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +107,7 @@
 				FB21D2E92990AF1B00F1FA20 /* FirebaseStorage in Frameworks */,
 				FB21D2E12990AF1B00F1FA20 /* FirebaseAuth in Frameworks */,
 				FB21D2E52990AF1B00F1FA20 /* FirebaseFirestore in Frameworks */,
+				A648BA9AC537923C75C9D2CC /* Pods_ConnectRealEstateAgent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,12 +122,31 @@
 			path = Swift;
 			sourceTree = "<group>";
 		};
+		B5CCA523E04E1AB05368F0DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E14196BF2A1A50E61D2528D9 /* Pods_ConnectRealEstateAgent.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BCAB225F87D3BA36998CBD50 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A007FB0549A2C4D49C7B1D3 /* Pods-ConnectRealEstateAgent.debug.xcconfig */,
+				72EDF291842113FA2CD01799 /* Pods-ConnectRealEstateAgent.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FB21D2A1299098DC00F1FA20 = {
 			isa = PBXGroup;
 			children = (
 				A7F1165E29992CE900905DAA /* README.md */,
 				FB21D2AC299098DC00F1FA20 /* ConnectRealEstateAgent */,
 				FB21D2AB299098DC00F1FA20 /* Products */,
+				BCAB225F87D3BA36998CBD50 /* Pods */,
+				B5CCA523E04E1AB05368F0DB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,8 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				FB35BAA7299A2A6B00BA6A27 /* MapPage.storyboard */,
-				FB35BAAA299A2ACF00BA6A27 /* Swift */,
-				FB35BAA9299A2AC100BA6A27 /* Objective-C */,
+				FBE13B6A299B0FE6008FA404 /* Objective-C */,
 				FB35BAA4299A2A5600BA6A27 /* VC */,
 			);
 			path = Map;
@@ -220,25 +244,10 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
-		FB35BAA9299A2AC100BA6A27 /* Objective-C */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Objective-C";
-			sourceTree = "<group>";
-		};
-		FB35BAAA299A2ACF00BA6A27 /* Swift */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Swift;
-			sourceTree = "<group>";
-		};
 		FB35BAAB299A2D5F00BA6A27 /* List */ = {
 			isa = PBXGroup;
 			children = (
 				A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */,
-				FB35BABD299A31FC00BA6A27 /* SearchAddressView.xib */,
 				FB35BABF299A331F00BA6A27 /* SearchAddressView.swift */,
 				FB35BAB3299A2DEF00BA6A27 /* ItemListCell.swift */,
 				FB35BAB4299A2DEF00BA6A27 /* ItemListCell.xib */,
@@ -281,6 +290,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		FBE13B6A299B0FE6008FA404 /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				FBE13B6F299B1337008FA404 /* ComposeMap.h */,
+				FBE13B70299B1337008FA404 /* ComposeMap.m */,
+			);
+			name = "Objective-C";
+			path = "Objective-C/Objective-C";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,9 +307,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB21D2BE299098DD00F1FA20 /* Build configuration list for PBXNativeTarget "ConnectRealEstateAgent" */;
 			buildPhases = (
+				D9139EDFEA6F90210A8701B4 /* [CP] Check Pods Manifest.lock */,
 				FB21D2A6299098DC00F1FA20 /* Sources */,
 				FB21D2A7299098DC00F1FA20 /* Frameworks */,
 				FB21D2A8299098DC00F1FA20 /* Resources */,
+				A4BB5890D34214DE3A64FFCC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -361,13 +382,54 @@
 				A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */,
 				A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */,
 				FB35BAB6299A2DEF00BA6A27 /* ItemListCell.xib in Resources */,
-				FB35BABE299A31FC00BA6A27 /* SearchAddressView.xib in Resources */,
 				FB21D2B7299098DD00F1FA20 /* Assets.xcassets in Resources */,
 				FB21D2B5299098DC00F1FA20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A4BB5890D34214DE3A64FFCC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ConnectRealEstateAgent/Pods-ConnectRealEstateAgent-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ConnectRealEstateAgent/Pods-ConnectRealEstateAgent-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ConnectRealEstateAgent/Pods-ConnectRealEstateAgent-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9139EDFEA6F90210A8701B4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ConnectRealEstateAgent-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FB21D2A6299098DC00F1FA20 /* Sources */ = {
@@ -387,6 +449,7 @@
 				FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */,
 				FB35BAA6299A2A6100BA6A27 /* MapVC.swift in Sources */,
 				FB110C992990EEDB00C4EF53 /* ColorExtension.swift in Sources */,
+				FBE13B71299B1337008FA404 /* ComposeMap.m in Sources */,
 				FB35BAC0299A331F00BA6A27 /* SearchAddressView.swift in Sources */,
 				FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */,
 				FB35BAB0299A2DB900BA6A27 /* ItemListVC.swift in Sources */,
@@ -538,6 +601,7 @@
 		};
 		FB21D2BF299098DD00F1FA20 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A007FB0549A2C4D49C7B1D3 /* Pods-ConnectRealEstateAgent.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -572,6 +636,7 @@
 		};
 		FB21D2C0299098DD00F1FA20 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72EDF291842113FA2CD01799 /* Pods-ConnectRealEstateAgent.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
