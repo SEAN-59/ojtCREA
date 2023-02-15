@@ -6,24 +6,48 @@
 //
 
 import UIKit
+import NMapsMap
 
 class MapVC: UIViewController {
 
+    @IBOutlet weak var addItemBtn: UIButton!
+    
+    @IBOutlet weak var mainMapView: NMFMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.layout()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func layout() {
+        self.addItemBtn.backgroundColor = UIColor.init(named: "DeepBlue")?.withAlphaComponent(0.4)
+        self.addItemBtn.layer.borderWidth = 1.5
+        self.addItemBtn.layer.borderColor = UIColor.init(named: "DeepBlue")?.cgColor
+        self.addItemBtn.layer.cornerRadius = self.addItemBtn.frame.width/2
     }
-    */
+}
+private extension MapVC {
 
+    @IBAction func tapSearchAddressBtn(_ sender: UIButton) {
+    }
+    
+    @IBAction func tapNotiBtn(_ sender: UIButton) {
+    }
+    
+    @IBAction func tapSettingBtn(_ sender: UIButton) {
+    }
+    
+    @IBAction func tapAddItemBtn(_ sender: UIButton) {
+    }
+    
+    @IBAction func tapHomeBtn(_ sender: UIButton) {
+    }
+    
+    @IBAction func tapItemListBtn(_ sender: UIButton) {
+    }
+    
+    @IBAction func tapChatListBtn(_ sender: UIButton) {
+    }
+    
 }

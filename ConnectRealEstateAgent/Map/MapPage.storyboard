@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R2D-gc-zso">
+                            <view contentMode="scaleToFill" restorationIdentifier="MainMap" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2D-gc-zso" customClass="NMFMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="802"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -30,24 +29,33 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="house" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" name="DeepBlue"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapHomeBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZT5-Oz-wND"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5UQ-V1-TdX">
                                         <rect key="frame" x="138" y="0.0" width="138" height="50"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="list.bullet.rectangle.portrait" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" name="DeepBlue"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapItemListBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cCF-lm-6lI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbg-li-4LG">
                                         <rect key="frame" x="276" y="0.0" width="138" height="50"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="bubble.right" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="20"/>
-                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseForegroundColor" name="DeepBlue"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapChatListBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2eg-s9-TKL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -61,14 +69,14 @@
                                     <constraint firstAttribute="height" constant="70" id="T7L-ju-pFg"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
-                                    <backgroundConfiguration key="background">
-                                        <color key="strokeColor" name="DeepBlue"/>
-                                    </backgroundConfiguration>
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="26"/>
-                                    <color key="baseForegroundColor" name="DeepBlue"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tapAddItemBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RwL-eT-tpW"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dhk-Fo-WVa">
                                 <rect key="frame" x="284" y="54" width="110" height="30"/>
@@ -86,6 +94,9 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="21"/>
                                             <color key="baseForegroundColor" name="DeepBlue"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapSearchAddressBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jbV-kI-Szq"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="brW-hB-8Pc">
                                         <rect key="frame" x="40" y="0.0" width="30" height="30"/>
@@ -100,6 +111,9 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="21"/>
                                             <color key="baseForegroundColor" name="DeepBlue"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapNotiBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="O2p-Sg-ODt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Om9-se-eTw">
                                         <rect key="frame" x="80" y="0.0" width="30" height="30"/>
@@ -114,6 +128,9 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="21"/>
                                             <color key="baseForegroundColor" name="DeepBlue"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapSettingBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PIO-MH-YzG"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -121,8 +138,8 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="R2D-gc-zso" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3wj-Fg-O9n"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="R2D-gc-zso" secondAttribute="trailing" id="6Eq-vK-kXl"/>
+                            <constraint firstItem="R2D-gc-zso" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="3wj-Fg-O9n"/>
+                            <constraint firstAttribute="trailing" secondItem="R2D-gc-zso" secondAttribute="trailing" id="6Eq-vK-kXl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Dhk-Fo-WVa" secondAttribute="trailing" constant="20" id="F7u-qd-JIb"/>
                             <constraint firstItem="Dhk-Fo-WVa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="WeR-GL-Daj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MP9-id-czE" secondAttribute="trailing" id="aQr-df-Dsh"/>
@@ -134,6 +151,10 @@
                             <constraint firstItem="R2D-gc-zso" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wQ8-C7-X40"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addItemBtn" destination="HTI-2P-hLG" id="mYi-jU-e4I"/>
+                        <outlet property="mainMapView" destination="R2D-gc-zso" id="JHh-gW-sMd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

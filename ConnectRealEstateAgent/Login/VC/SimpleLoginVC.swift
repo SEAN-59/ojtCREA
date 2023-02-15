@@ -31,7 +31,18 @@ extension SimpleLoginVC {
     }
     
     @IBAction func tapNaverLoginBtn(_ sender: UIButton) {
-        let naverLogin = NaverLogin()
+//        let naverLogin = NaverLogin()
+        
+        let searchAddress = SearchAddress()
+        searchAddress.delegate = self
+//        searchAddress.choiceRoad()
+//        searchAddress.choiceBuildSggCd("44133", bjdCd: "10200", bun: "0835", ji: "0001")
+        
+//        var bjdKorea: Korea = .init(selectCityNm: "", selectSggNm: "", selectEmdNm: "")
+//
+//        guard let result = bjdKorea.cityNm.firstIndex(of: "강원도") else { return }
+//        
+//        print(result)
     }
     
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {
@@ -48,4 +59,11 @@ extension SimpleLoginVC {
     }
     
     
+}
+
+
+extension SimpleLoginVC: SendAPIDataDelegate {
+    func getAPIData(json data: Any) {
+        print("Load End")
+    }
 }

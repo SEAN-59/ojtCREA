@@ -16,9 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 - (void) sendCreateResult: (BOOL)result;
-/*
- dsdsds
- */
+
 - (void) sendSignResult: (BOOL)result NS_SWIFT_NAME(sendSignResult(result:));
 
 @end
