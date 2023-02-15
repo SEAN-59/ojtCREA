@@ -39,6 +39,11 @@ private extension MapVC {
     }
     
     @IBAction func tapAddItemBtn(_ sender: UIButton) {
+        
+        let storyBoard = UIStoryboard.init(name: "ItemPage", bundle: nil)
+        let nextVC = storyBoard.instantiateViewController(withIdentifier: "AddItemVC")
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: true, completion: nil)
     }
     
     @IBAction func tapHomeBtn(_ sender: UIButton) {

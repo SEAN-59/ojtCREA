@@ -9,7 +9,7 @@ import Foundation
 
 
 @objc class URLDatas: NSObject {
-    @objc let buildService = "https://apis.data.go.kr/1613000/BldRgstService_v2/getBrBasisOulnInfo?"
+    @objc let buildService = "https://apis.data.go.kr/1613000/BldRgstService_v2/getBrTitleInfo?"
     
     @objc let naverGeocode = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode?"
     

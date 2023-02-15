@@ -21,10 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) id <SendAPIDataDelegate> delegate;
 
--(void) choiceRoad;
-//-(void) choiceBuildSggCd: (NSString*)sggCd BjdCd: (NSString*)bjdCd Bun: (NSString*)bun Ji: (NSString*)ji;
+-(void) choiceRoad: (NSString*) address;
 
--(void) choiceBuild: (NSMutableDictionary*) param;
+-(void) choiceBuild: (NSDictionary*) param;
 
 
 

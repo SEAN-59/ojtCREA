@@ -16,6 +16,9 @@ class AddItemVC: UIViewController {
     }
     
 
+    @IBAction func tapGoBackBtn(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
     /*
     // MARK: - Navigation
 
