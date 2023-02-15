@@ -10,44 +10,46 @@
 
 @interface SearchAddress () <NSXMLParserDelegate>
 
--(void) searchAddressURL: (NSString*)url Parameters: (NSMutableDictionary*) param;
+-(void) searchAddressURL: (NSString*)url Parameters: (NSMutableDictionary*) param Type: (NSString*) type;
 -(NSMutableDictionary*) createRoad: (NSString*) key Address: (NSString*) address;
 -(NSMutableDictionary*) createBuild: (NSString*) key SggCd: (NSString*)sggCd BjdCd: (NSString*)bjdCd Bun: (NSString*)bun Ji: (NSString*)ji;
 
 -(NSMutableDictionary*) roadParsingData: (NSDictionary*) data;
+-(NSMutableDictionary*) buildParsingData: (NSDictionary*) data;
 
 @end
 
 @implementation SearchAddress
 
-- (void)choiceRoad {
+// MARK: - CALL PARTS
+- (void)choiceRoad:(NSString *)address {
     KeyData* keys = [[KeyData alloc] init];
     NSString* roadKey = [NSString stringWithString: keys.roadKey];
     URLDatas* urls = [[URLDatas alloc] init];
     NSString* roadURL = [NSString stringWithString: urls.roadAddress];
     
-    NSString* address = @"충청남도 천안시 서북구 성정동 835-1번지";
-    
     NSMutableDictionary* roadParam = [NSMutableDictionary dictionaryWithDictionary: [self createRoad:roadKey Address:address]];
     
-    [self searchAddressURL:roadURL Parameters:roadParam];
+    [self searchAddressURL:roadURL Parameters:roadParam Type:@"road"];
 }
 
--(void)choiceBuild:(NSMutableDictionary *)param {
+- (void)choiceBuild:(NSDictionary *)param {
     KeyData* keys = [[KeyData alloc] init];
     NSString* buildKey = [NSString stringWithString: keys.decodingKey];
     URLDatas* urls = [[URLDatas alloc] init];
     NSString* buildURL = [NSString stringWithString: urls.buildService];
     
-    NSString*(^checkZero)(id) =  ^(id dictValue) {
-        NSString* value = [NSString stringWithFormat:@"%@",dictValue];
-        while(1){
-            if ([value length] != 4) {
-                value = @"0" + value;
-            } else {
-                return value;
+    NSString*(^checkZero)(NSString*) =  ^(NSString* dictValue) {
+        NSString* value = @"0000";
+
+        if (dictValue != nil) {
+            value = [NSString stringWithFormat:@"%@",dictValue];
+            while([value length] != 4){
+                value = [@"0" stringByAppendingString:value];
             }
         }
+        
+        return value;
     };
     
     NSMutableDictionary* buildParam = [NSMutableDictionary dictionaryWithDictionary:
@@ -58,9 +60,11 @@
                                                       Ji:checkZero([param objectForKey:@"ji"])
                                        ]];
     
-    [self searchAddressURL:buildURL Parameters:buildParam];
+    [self searchAddressURL:buildURL Parameters:buildParam Type: @"build"];
 }
-- (void)searchAddressURL:(NSString *)url Parameters:(NSMutableDictionary *)param {
+// MARK: - NETWORKING PART
+
+- (void)searchAddressURL:(NSString *)url Parameters:(NSMutableDictionary *)param Type:(NSString *)type{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -72,24 +76,28 @@
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
     
-        [self.delegate getAPIData:responseObject];
-        NSDictionary* roadParam = [self roadParsingData:responseObject];
-        [self choiceBuild:roadParam];
+        if ([type isEqualToString: @"road"]) {
+            NSDictionary* roadParam = [self roadParsingData:responseObject];
+            [self choiceBuild:roadParam];
+        } else if ([type isEqualToString: @"build"]) {
+            NSDictionary* buildParam = [self buildParsingData:responseObject];
+            NSLog(@"%@",buildParam);
+        }
         
     }
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"ERROR: %@", error);
     }];
 }
+// MARK: - CREATE PARAMETER
 
 - (NSMutableDictionary*)createRoad:(NSString *)key Address:(NSString *)address {
     NSMutableDictionary* urlParameters = [[NSMutableDictionary alloc] init];
     [urlParameters setObject:key forKey:@"confmKey"];
+    [urlParameters setObject:address forKey:@"keyword"];
     [urlParameters setObject:@1 forKey:@"currentPage"];
     [urlParameters setObject:@1 forKey:@"currentPerPage"];
-    [urlParameters setObject:address forKey:@"keyword"];
     [urlParameters setObject:@"json" forKey:@"resultType"];
-    
     
     return urlParameters;
 }
@@ -102,25 +110,38 @@
     [urlParameters setObject:bun forKey:@"bun"];
     [urlParameters setObject:ji forKey:@"ji"];
     [urlParameters setObject:@"json" forKey:@"_type"];
-//    NSLog(@"%@", urlParameters);
+    
     return urlParameters;
 }
+
+// MARK: - DATA PARSING
 
 - (NSMutableDictionary *)roadParsingData:(NSDictionary *)data {
     NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
     NSDictionary *juso = [[data objectForKey:@"results"] objectForKey:@"juso"][0];
     
     [result setObject: [[juso objectForKey:@"admCd"] substringWithRange: NSMakeRange(0, 5)] forKey:@"sggCd"];
-    [result setObject: [[juso objectForKey:@"admCd"] substringFromIndex:5] forKey:@"emdCd"];
+    [result setObject: [[juso objectForKey:@"admCd"] substringFromIndex:5] forKey:@"bjdCd"];
+    [result setObject: [juso objectForKey:@"lnbrMnnm"] forKey:@"bun"];
+    [result setObject: [juso objectForKey:@"lnbrSlno"] forKey:@"ji"];
     
-    [result setObject:[juso objectForKey:@"lnbrMnnm"] forKey:@"lnbrMnnm"];
-    
-    if ([juso objectForKey:@"lnbrSlno"] == nil) {
-        [result setObject: @"0000" forKey:@"lnbrSlno"];
-    } else {
-        [result setObject:[juso objectForKey:@"lnbrSlno"] forKey:@"lnbrSlno"];
-    }
-    
+    return result;
+}
+
+- (NSMutableDictionary *)buildParsingData:(NSDictionary *)data {
+    NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
+    NSDictionary *item = [[[[data objectForKey:@"response"] objectForKey:@"body"] objectForKey:@"items"] objectForKey: @"item"];
+    [result setObject: [item objectForKey:@"platPlc"] forKey:@"oldAddress"];
+    [result setObject: [item objectForKey:@"newPlatPlc"] forKey:@"newAddress"];
+    [result setObject: [item objectForKey:@"platArea"] forKey:@"platArea"];
+    [result setObject: [item objectForKey:@"archArea"] forKey:@"archArea"];
+    [result setObject: [item objectForKey:@"bcRat"] forKey:@"bcRat"];
+    [result setObject: [item objectForKey:@"totArea"] forKey:@"totArea"];
+    [result setObject: [item objectForKey:@"vlRat"] forKey:@"vlRat"];
+    [result setObject: [item objectForKey:@"mainPurpsCdNm"] forKey:@"purpsNm"];
+    [result setObject: [item objectForKey:@"grndFlrCnt"] forKey:@"grndFlrCnt"];
+    [result setObject: [item objectForKey:@"ugrndFlrCnt"] forKey:@"ugrndFlrCnt"];
+    [result setObject: [item objectForKey:@"useAprDay"] forKey:@"useAprDay"];
     
     return result;
 }

@@ -35,6 +35,7 @@ extension SimpleLoginVC {
         
         let searchAddress = SearchAddress()
         searchAddress.delegate = self
+        searchAddress.choiceRoad("충청남도 천안시 서북구 성정동 835-1번지")
 //        searchAddress.choiceRoad()
 //        searchAddress.choiceBuildSggCd("44133", bjdCd: "10200", bun: "0835", ji: "0001")
         
