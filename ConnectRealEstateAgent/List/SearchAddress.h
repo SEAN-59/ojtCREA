@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol SendAPIDataDelegate <NSObject>
 
 @optional
-- (void) getAPIData: (id)data NS_SWIFT_NAME(getAPIData(json:));
+- (void) getAPIData: (NSDictionary*)data NS_SWIFT_NAME(getAPIData(json:));
 
 @end
 

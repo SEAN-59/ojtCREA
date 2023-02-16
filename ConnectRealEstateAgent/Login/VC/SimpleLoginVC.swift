@@ -9,12 +9,18 @@ import UIKit
 //import GoogleLogin
 
 class SimpleLoginVC: UIViewController {
+    
+    @IBOutlet weak var naverLoginBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    @IBOutlet weak var testLbl: UILabel!
     
     @IBAction func fromYoutoSimple(_ segue: UIStoryboardSegue) {}
+    
 }
 
 //MARK: - LOGIN BUTTON TAPPED
@@ -30,20 +36,19 @@ extension SimpleLoginVC {
         googleLogin.googleSignIn(withFirebase: self)
     }
     
+    
     @IBAction func tapNaverLoginBtn(_ sender: UIButton) {
+        let storyBoard = UIStoryboard.init(name: "ItemPage", bundle: nil)
+        let nextVC = storyBoard.instantiateViewController(withIdentifier: "AddItemVC")
+        nextVC.modalPresentationStyle = .fullScreen
+        self.present(nextVC, animated: true, completion: nil)
 //        let naverLogin = NaverLogin()
         
-        let searchAddress = SearchAddress()
-        searchAddress.delegate = self
-        searchAddress.choiceRoad("충청남도 천안시 서북구 성정동 835-1번지")
-//        searchAddress.choiceRoad()
-//        searchAddress.choiceBuildSggCd("44133", bjdCd: "10200", bun: "0835", ji: "0001")
+//        let searchAddress = SearchAddress()
+//        searchAddress.delegate = self
+//        searchAddress.choiceRoad("충청남도 천안시 서북구 성정동 835-1번지")
         
-//        var bjdKorea: Korea = .init(selectCityNm: "", selectSggNm: "", selectEmdNm: "")
-//
-//        guard let result = bjdKorea.cityNm.firstIndex(of: "강원도") else { return }
-//        
-//        print(result)
+        
     }
     
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {
@@ -64,7 +69,7 @@ extension SimpleLoginVC {
 
 
 extension SimpleLoginVC: SendAPIDataDelegate {
-    func getAPIData(json data: Any) {
+    func getAPIData(json data: [AnyHashable : Any]) {
         print("Load End")
     }
 }

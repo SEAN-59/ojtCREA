@@ -78,10 +78,15 @@
     
         if ([type isEqualToString: @"road"]) {
             NSDictionary* roadParam = [self roadParsingData:responseObject];
-            [self choiceBuild:roadParam];
+            if (roadParam == nil) {
+                [self.delegate getAPIData:nil];
+            } else {
+                [self choiceBuild:roadParam];
+            }
         } else if ([type isEqualToString: @"build"]) {
             NSDictionary* buildParam = [self buildParsingData:responseObject];
-            NSLog(@"%@",buildParam);
+            [self.delegate getAPIData:buildParam];
+            // delegate에 Dictionary 값으로 넘어가니까 잘 언래핑해서 사용하면 된다.
         }
         
     }
@@ -118,6 +123,12 @@
 
 - (NSMutableDictionary *)roadParsingData:(NSDictionary *)data {
     NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
+    
+    int roadCode = [[[[data objectForKey:@"results"] objectForKey:@"common"] objectForKey:@"totalCount"] intValue];
+    if (roadCode != 1) {
+        return nil;
+    }
+    
     NSDictionary *juso = [[data objectForKey:@"results"] objectForKey:@"juso"][0];
     
     [result setObject: [[juso objectForKey:@"admCd"] substringWithRange: NSMakeRange(0, 5)] forKey:@"sggCd"];
@@ -131,11 +142,12 @@
 - (NSMutableDictionary *)buildParsingData:(NSDictionary *)data {
     NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
     NSDictionary *item = [[[[data objectForKey:@"response"] objectForKey:@"body"] objectForKey:@"items"] objectForKey: @"item"];
+    
     [result setObject: [item objectForKey:@"platPlc"] forKey:@"oldAddress"];
     [result setObject: [item objectForKey:@"newPlatPlc"] forKey:@"newAddress"];
     [result setObject: [item objectForKey:@"platArea"] forKey:@"platArea"];
     [result setObject: [item objectForKey:@"archArea"] forKey:@"archArea"];
-    [result setObject: [item objectForKey:@"bcRat"] forKey:@"bcRat"];
+//    [result setObject: [item objectForKey:@"bcRat"] forKey:@"bcRat"];
     [result setObject: [item objectForKey:@"totArea"] forKey:@"totArea"];
     [result setObject: [item objectForKey:@"vlRat"] forKey:@"vlRat"];
     [result setObject: [item objectForKey:@"mainPurpsCdNm"] forKey:@"purpsNm"];

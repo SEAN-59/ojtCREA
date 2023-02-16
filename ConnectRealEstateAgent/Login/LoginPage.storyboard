@@ -150,6 +150,12 @@
                                     <action selector="tapEmailLoginBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lhz-1Q-BzS"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hb0-eJ-oKC">
+                                <rect key="frame" x="50" y="180" width="314" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -174,19 +180,27 @@
                             <constraint firstItem="5NA-hJ-raq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="dUc-9m-nal"/>
                             <constraint firstItem="UyV-nW-2k7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="eA1-s7-hlv"/>
                             <constraint firstItem="sEU-oR-KBj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="ess-dK-CIL"/>
+                            <constraint firstItem="hb0-eJ-oKC" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="hLD-cy-xhV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hb0-eJ-oKC" secondAttribute="trailing" constant="50" id="jMQ-8g-j32"/>
                             <constraint firstItem="bjb-ds-DOC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="lkY-Fk-T5a"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TQh-ZX-2cr" secondAttribute="trailing" constant="60" id="n8P-cd-3pm"/>
                             <constraint firstItem="h9o-9U-cIs" firstAttribute="leading" secondItem="TQh-ZX-2cr" secondAttribute="leading" constant="20" id="nxT-AG-pS7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JR1-D8-FYo" secondAttribute="trailing" constant="40" id="o6U-RD-jHJ"/>
                             <constraint firstItem="JR1-D8-FYo" firstAttribute="top" secondItem="UyV-nW-2k7" secondAttribute="bottom" constant="120" id="p4w-Rq-MSv"/>
+                            <constraint firstItem="hb0-eJ-oKC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="pdv-l1-vQ5"/>
                             <constraint firstItem="Mws-mb-gu3" firstAttribute="centerY" secondItem="bjb-ds-DOC" secondAttribute="centerY" id="pgb-Zy-Axi"/>
                             <constraint firstItem="bjb-ds-DOC" firstAttribute="top" secondItem="sEU-oR-KBj" secondAttribute="bottom" constant="15" id="pgd-kK-IET"/>
                             <constraint firstItem="TQh-ZX-2cr" firstAttribute="top" secondItem="brT-Ym-Qww" secondAttribute="bottom" constant="15" id="q3C-69-d0m"/>
+                            <constraint firstItem="hb0-eJ-oKC" firstAttribute="top" secondItem="UyV-nW-2k7" secondAttribute="bottom" constant="40" id="tTe-3J-cHc"/>
                             <constraint firstItem="W0l-ix-wUo" firstAttribute="leading" secondItem="sEU-oR-KBj" secondAttribute="leading" constant="20" id="x7n-VO-fdy"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sEU-oR-KBj" secondAttribute="trailing" constant="60" id="xrz-xI-TbS"/>
                             <constraint firstItem="UyV-nW-2k7" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="zxy-DQ-Qrw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="naverLoginBtn" destination="brT-Ym-Qww" id="5XI-hR-kqV"/>
+                        <outlet property="testLbl" destination="hb0-eJ-oKC" id="BN0-ZM-M9G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,10 +10,6 @@
 		A648BA9AC537923C75C9D2CC /* Pods_ConnectRealEstateAgent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14196BF2A1A50E61D2528D9 /* Pods_ConnectRealEstateAgent.framework */; };
 		A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */; };
 		A75FEBB42997DD28004F49DC /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75FEBB32997DD28004F49DC /* FirstVC.swift */; };
-		A7C443ED299D17F9001EA428 /* DropBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C443EC299D17F9001EA428 /* DropBox.swift */; };
-		A7C443EF299D1802001EA428 /* DropBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C443EE299D1802001EA428 /* DropBox.xib */; };
-		A7C443F3299D1883001EA428 /* DropBoxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C443F1299D1883001EA428 /* DropBoxCell.swift */; };
-		A7C443F4299D1883001EA428 /* DropBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7C443F2299D1883001EA428 /* DropBoxCell.xib */; };
 		A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F1164D2997E2F400905DAA /* LoginPage.storyboard */; };
 		A7F116522998B40400905DAA /* AppleLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F116512998B40400905DAA /* AppleLogin.m */; };
 		A7F116552998B4FE00905DAA /* GoogleLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F116542998B4FE00905DAA /* GoogleLogin.m */; };
@@ -38,6 +34,9 @@
 		FB21D2E52990AF1B00F1FA20 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FB21D2E42990AF1B00F1FA20 /* FirebaseFirestore */; };
 		FB21D2E72990AF1B00F1FA20 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FB21D2E62990AF1B00F1FA20 /* FirebaseMessaging */; };
 		FB21D2E92990AF1B00F1FA20 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FB21D2E82990AF1B00F1FA20 /* FirebaseStorage */; };
+		FB23F86E299DBFEF0023C752 /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = FB23F86D299DBFEF0023C752 /* DropDown */; };
+		FB23F870299E10ED0023C752 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23F86F299E10ED0023C752 /* InformationView.swift */; };
+		FB23F872299E119E0023C752 /* InformationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB23F871299E119E0023C752 /* InformationView.xib */; };
 		FB35BAA6299A2A6100BA6A27 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAA5299A2A6100BA6A27 /* MapVC.swift */; };
 		FB35BAA8299A2A6B00BA6A27 /* MapPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB35BAA7299A2A6B00BA6A27 /* MapPage.storyboard */; };
 		FB35BAB0299A2DB900BA6A27 /* ItemListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAAF299A2DB900BA6A27 /* ItemListVC.swift */; };
@@ -60,10 +59,6 @@
 		72EDF291842113FA2CD01799 /* Pods-ConnectRealEstateAgent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectRealEstateAgent.release.xcconfig"; path = "Target Support Files/Pods-ConnectRealEstateAgent/Pods-ConnectRealEstateAgent.release.xcconfig"; sourceTree = "<group>"; };
 		A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemPage.storyboard; sourceTree = "<group>"; };
 		A75FEBB32997DD28004F49DC /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
-		A7C443EC299D17F9001EA428 /* DropBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropBox.swift; sourceTree = "<group>"; };
-		A7C443EE299D1802001EA428 /* DropBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropBox.xib; sourceTree = "<group>"; };
-		A7C443F1299D1883001EA428 /* DropBoxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropBoxCell.swift; sourceTree = "<group>"; };
-		A7C443F2299D1883001EA428 /* DropBoxCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropBoxCell.xib; sourceTree = "<group>"; };
 		A7F1164D2997E2F400905DAA /* LoginPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginPage.storyboard; sourceTree = "<group>"; };
 		A7F116502998B40400905DAA /* AppleLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleLogin.h; sourceTree = "<group>"; };
 		A7F116512998B40400905DAA /* AppleLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppleLogin.m; sourceTree = "<group>"; };
@@ -90,6 +85,8 @@
 		FB21D2C12990996D00F1FA20 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB21D2D429909D6F00F1FA20 /* ConnectRealEstateAgent.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ConnectRealEstateAgent.entitlements; sourceTree = "<group>"; };
 		FB21D2EB2990BC1700F1FA20 /* ConnectRealEstateAgent-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ConnectRealEstateAgent-Bridging-Header.h"; sourceTree = "<group>"; };
+		FB23F86F299E10ED0023C752 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		FB23F871299E119E0023C752 /* InformationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationView.xib; sourceTree = "<group>"; };
 		FB35BAA5299A2A6100BA6A27 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FB35BAA7299A2A6B00BA6A27 /* MapPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapPage.storyboard; sourceTree = "<group>"; };
 		FB35BAAF299A2DB900BA6A27 /* ItemListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListVC.swift; sourceTree = "<group>"; };
@@ -123,6 +120,7 @@
 				FB21D2E12990AF1B00F1FA20 /* FirebaseAuth in Frameworks */,
 				FB21D2E52990AF1B00F1FA20 /* FirebaseFirestore in Frameworks */,
 				A648BA9AC537923C75C9D2CC /* Pods_ConnectRealEstateAgent.framework in Frameworks */,
+				FB23F86E299DBFEF0023C752 /* DropDown in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				FB42B1D6299B20E800CBADC9 /* SearchAddressView.xib */,
+				FB23F871299E119E0023C752 /* InformationView.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -141,19 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				FB35BABF299A331F00BA6A27 /* SearchAddressView.swift */,
+				FB23F86F299E10ED0023C752 /* InformationView.swift */,
 			);
 			name = Swift;
-			sourceTree = "<group>";
-		};
-		A7C443F0299D1814001EA428 /* DropBox */ = {
-			isa = PBXGroup;
-			children = (
-				A7C443EE299D1802001EA428 /* DropBox.xib */,
-				A7C443F2299D1883001EA428 /* DropBoxCell.xib */,
-				A7C443EC299D17F9001EA428 /* DropBox.swift */,
-				A7C443F1299D1883001EA428 /* DropBoxCell.swift */,
-			);
-			name = DropBox;
 			sourceTree = "<group>";
 		};
 		A7F1164F2998B3E000905DAA /* Swift */ = {
@@ -320,7 +309,6 @@
 		FB47B79E2995EF54006B8068 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				A7C443F0299D1814001EA428 /* DropBox */,
 				FB21D2D82990A9E400F1FA20 /* Swift */,
 				FB42B1DE299B39F000CBADC9 /* KeyData.swift */,
 				FB42B1E0299B3A8600CBADC9 /* URLData.swift */,
@@ -366,6 +354,7 @@
 				FB21D2E62990AF1B00F1FA20 /* FirebaseMessaging */,
 				FB21D2E82990AF1B00F1FA20 /* FirebaseStorage */,
 				FB42B1D9299B36A300CBADC9 /* AFNetworking */,
+				FB23F86D299DBFEF0023C752 /* DropDown */,
 			);
 			productName = ConnectRealEstateAgent;
 			productReference = FB21D2AA299098DC00F1FA20 /* ConnectRealEstateAgent.app */;
@@ -401,6 +390,7 @@
 				FB21D2DA2990AE0400F1FA20 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				FB21D2DD2990AF1B00F1FA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FB42B1D8299B36A300CBADC9 /* XCRemoteSwiftPackageReference "AFNetworking" */,
+				FB23F86C299DBFEF0023C752 /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = FB21D2AB299098DC00F1FA20 /* Products */;
 			projectDirPath = "";
@@ -416,15 +406,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB23F872299E119E0023C752 /* InformationView.xib in Resources */,
 				FB35BAA8299A2A6B00BA6A27 /* MapPage.storyboard in Resources */,
 				FB21D2BA299098DD00F1FA20 /* LaunchScreen.storyboard in Resources */,
 				FB21D2C22990996D00F1FA20 /* GoogleService-Info.plist in Resources */,
 				A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */,
 				A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */,
 				FB42B1D7299B20E800CBADC9 /* SearchAddressView.xib in Resources */,
-				A7C443F4299D1883001EA428 /* DropBoxCell.xib in Resources */,
 				FB21D2B7299098DD00F1FA20 /* Assets.xcassets in Resources */,
-				A7C443EF299D1802001EA428 /* DropBox.xib in Resources */,
 				FB21D2B5299098DC00F1FA20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,14 +481,13 @@
 				FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */,
 				FB35BAA6299A2A6100BA6A27 /* MapVC.swift in Sources */,
 				FB42B1E1299B3A8600CBADC9 /* URLData.swift in Sources */,
-				A7C443F3299D1883001EA428 /* DropBoxCell.swift in Sources */,
 				FB110C992990EEDB00C4EF53 /* ColorExtension.swift in Sources */,
 				FBE13B71299B1337008FA404 /* ComposeMap.m in Sources */,
 				FB35BAC0299A331F00BA6A27 /* SearchAddressView.swift in Sources */,
-				A7C443ED299D17F9001EA428 /* DropBox.swift in Sources */,
 				FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */,
 				FB35BAB0299A2DB900BA6A27 /* ItemListVC.swift in Sources */,
 				FB35BAB8299A2E8800BA6A27 /* AddItemVC.swift in Sources */,
+				FB23F870299E10ED0023C752 /* InformationView.swift in Sources */,
 				A7F116582998B52900905DAA /* NaverLogin.m in Sources */,
 				FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */,
 				FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */,
@@ -762,6 +750,14 @@
 				kind = branch;
 			};
 		};
+		FB23F86C299DBFEF0023C752 /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		FB42B1D8299B36A300CBADC9 /* XCRemoteSwiftPackageReference "AFNetworking" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AFNetworking/AFNetworking.git";
@@ -812,6 +808,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FB21D2DD2990AF1B00F1FA20 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		FB23F86D299DBFEF0023C752 /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB23F86C299DBFEF0023C752 /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
 		};
 		FB42B1D9299B36A300CBADC9 /* AFNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
