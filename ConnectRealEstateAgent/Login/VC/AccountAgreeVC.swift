@@ -91,16 +91,6 @@ extension AccountAgreeVC{
     
     @IBAction func tapCreateAccountBtn(_ sender: UIButton) {
         
-//            guard let presentingVC = self.presentingViewController else { return }
-//            print(presentingVC.title)
-////            presentingVC.dismiss(animated: true, completion: nil)
-//            self.dismiss(animated: true, completion: {
-//                self.dismiss(animated: true, completion: nil)
-//            })
-//
-//        if false {
-//
-            
         let falseCheck = self.checkBoxArray.filter({
             
             $0 == false
@@ -126,11 +116,16 @@ extension AccountAgreeVC{
                                     actionArray: actionArray)
 
         }
-
-//    }
-        
     }
-    
+}
+
+extension AccountAgreeVC {
+    private func dismissCreateAccount() {
+        guard let presentingVC = self.presentingViewController else { return }
+        self.dismiss(animated: true, completion:{
+            presentingVC.dismiss(animated: false, completion: nil)
+        })
+    }
 }
 
 extension AccountAgreeVC: sendEmailLoginResult{
@@ -140,11 +135,7 @@ extension AccountAgreeVC: sendEmailLoginResult{
         self.createIndicator.stopAnimating()
         
         if result {
-            guard let presentingVC = self.presentingViewController else { return }
-            print(presentingVC.title)
-            presentingVC.dismiss(animated: true, completion: nil)
-            self.dismiss(animated: true, completion: nil)
-            
+            self.dismissCreateAccount()
         } else {
             var actionArray: [UIAlertAction] = []
             let errorAction = UIAlertAction(title: "확인",

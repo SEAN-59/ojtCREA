@@ -50,6 +50,9 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="21"/>
                                             <color key="baseForegroundColor" name="DeepBlue"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tapSaveBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fxe-KG-Vog"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물건 등록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xi3-I8-dnC">
                                         <rect key="frame" x="60" y="14.5" width="294" height="25.5"/>
@@ -71,12 +74,12 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소 검색" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8g-Kp-16L">
-                                <rect key="frame" x="30" y="104" width="64" height="21"/>
+                                <rect key="frame" x="30" y="99" width="64" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L4N-Q6-J2q">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L4N-Q6-J2q" customClass="InvestInputView" customModule="ConnectRealEstateAgent" customModuleProvider="target">
                                 <rect key="frame" x="30" y="611" width="354" height="241"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
                             </view>
@@ -111,14 +114,13 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="L4N-Q6-J2q" secondAttribute="bottom" constant="10" id="NF1-Mp-jpG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0g8-Ke-1Qm" secondAttribute="trailing" constant="30" id="NbJ-T7-9TD"/>
                             <constraint firstItem="wms-lO-Yvn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="OjA-aY-8Hm"/>
-                            <constraint firstItem="G8g-Kp-16L" firstAttribute="top" secondItem="R9y-Sv-LnR" secondAttribute="bottom" constant="10" id="SDH-z0-NRO"/>
+                            <constraint firstItem="G8g-Kp-16L" firstAttribute="top" secondItem="R9y-Sv-LnR" secondAttribute="bottom" constant="5" id="SDH-z0-NRO"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NWh-Rb-bn2" secondAttribute="trailing" constant="30" id="T5W-0O-BPO"/>
                             <constraint firstItem="R9y-Sv-LnR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="T8q-au-wAD"/>
                             <constraint firstItem="R9y-Sv-LnR" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="WGe-4v-piG"/>
                             <constraint firstItem="NWh-Rb-bn2" firstAttribute="top" secondItem="AKJ-51-MBZ" secondAttribute="bottom" constant="10" id="Xx9-ib-msN"/>
-                            <constraint firstItem="0g8-Ke-1Qm" firstAttribute="top" secondItem="G8g-Kp-16L" secondAttribute="bottom" constant="10" id="YiI-o3-7ob"/>
+                            <constraint firstItem="0g8-Ke-1Qm" firstAttribute="top" secondItem="G8g-Kp-16L" secondAttribute="bottom" constant="10" id="bam-sf-fLc"/>
                             <constraint firstItem="0g8-Ke-1Qm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="dTD-2M-H6l"/>
-                            <constraint firstItem="AKJ-51-MBZ" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="eTq-sc-chH"/>
                             <constraint firstItem="R9y-Sv-LnR" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="f4j-ve-zlq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AKJ-51-MBZ" secondAttribute="trailing" constant="30" id="jtv-XF-nRC"/>
                             <constraint firstItem="L4N-Q6-J2q" firstAttribute="top" secondItem="NWh-Rb-bn2" secondAttribute="bottom" constant="10" id="liT-hG-wzG"/>
@@ -130,6 +132,7 @@
                     </view>
                     <connections>
                         <outlet property="informationView" destination="AKJ-51-MBZ" id="S1w-Mv-ZRt"/>
+                        <outlet property="investInputView" destination="L4N-Q6-J2q" id="Hp0-Oz-4fX"/>
                         <outlet property="searchView" destination="0g8-Ke-1Qm" id="84v-BP-764"/>
                     </connections>
                 </viewController>

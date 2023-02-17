@@ -23,10 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void) choiceRoad: (NSString*) address;
 
--(void) choiceBuild: (NSDictionary*) param;
-
-
-
 @end
 
 NS_ASSUME_NONNULL_END

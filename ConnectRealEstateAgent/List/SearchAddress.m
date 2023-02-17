@@ -8,9 +8,11 @@
 #import "SearchAddress.h"
 #import "ConnectRealEstateAgent-Swift.h"
 
-@interface SearchAddress () <NSXMLParserDelegate>
+@interface SearchAddress ()
 
 -(void) searchAddressURL: (NSString*)url Parameters: (NSMutableDictionary*) param Type: (NSString*) type;
+-(void) choiceBuild: (NSDictionary*) param;
+
 -(NSMutableDictionary*) createRoad: (NSString*) key Address: (NSString*) address;
 -(NSMutableDictionary*) createBuild: (NSString*) key SggCd: (NSString*)sggCd BjdCd: (NSString*)bjdCd Bun: (NSString*)bun Ji: (NSString*)ji;
 
@@ -147,7 +149,6 @@
     [result setObject: [item objectForKey:@"newPlatPlc"] forKey:@"newAddress"];
     [result setObject: [item objectForKey:@"platArea"] forKey:@"platArea"];
     [result setObject: [item objectForKey:@"archArea"] forKey:@"archArea"];
-//    [result setObject: [item objectForKey:@"bcRat"] forKey:@"bcRat"];
     [result setObject: [item objectForKey:@"totArea"] forKey:@"totArea"];
     [result setObject: [item objectForKey:@"vlRat"] forKey:@"vlRat"];
     [result setObject: [item objectForKey:@"mainPurpsCdNm"] forKey:@"purpsNm"];

@@ -9,13 +9,14 @@ import UIKit
 import DropDown
 
 protocol EndSearchAddress{
-    func checkData(data: Dictionary<AnyHashable, Any>, check: Bool)
+    func checkData(data: Dictionary<AnyHashable, Any>, check: Bool, addressCd: String)
 }
 
 final class SearchAddressView: UIView {
     var delegate: EndSearchAddress?
     
-    
+    private var cityCd: Int = 0
+    private var sggCd: Int = 0
     private let dropdown = DropDown()
     private var korea = Korea(selectCityNm: "", selectSggNm: "", selectEmdNm: "")
     
@@ -50,6 +51,8 @@ extension SearchAddressView {
         initDropdown(button: sender, data: list)
         
         dropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.cityCd = index
+            self?.sggCd = 0
             self?.korea.selectCityNm = item
             self?.korea.selectSggNm = ""
             self?.korea.selectEmdNm = ""
@@ -64,6 +67,7 @@ extension SearchAddressView {
         let list = korea.selectSgg()
         initDropdown(button: sender, data: list)
         dropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.sggCd = index
             self?.korea.selectSggNm = item
             self?.korea.selectEmdNm = ""
             self?.setupTxf()
@@ -118,10 +122,11 @@ extension SearchAddressView {
 extension SearchAddressView: SendAPIDataDelegate {
     func getAPIData(json data: [AnyHashable : Any]) {
         print("load END")
+        let addressCd = "\(String(format: "%02d", self.cityCd))\(String(format:"%02d",self.sggCd))"
         if data.isEmpty {
-            self.delegate?.checkData(data: data, check: false)
+            self.delegate?.checkData(data: data, check: false,addressCd: addressCd)
         } else {
-            self.delegate?.checkData(data: data, check: true)
+            self.delegate?.checkData(data: data, check: true,addressCd: addressCd)
         }
         
     }

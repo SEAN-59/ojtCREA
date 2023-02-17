@@ -8,10 +8,13 @@
 import UIKit
 
 class AddItemVC: UIViewController {
+    
+    private var addressData: Dictionary<AnyHashable, Any> = [:]
+    private var addressCd: String = ""
 
     @IBOutlet weak var searchView: SearchAddressView!
-    
     @IBOutlet weak var informationView: InformationView!
+    @IBOutlet weak var investInputView: InvestInputView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,25 +44,33 @@ class AddItemVC: UIViewController {
     }
     
     private func layout() {
-        self.searchView.layer.borderWidth = 1
-        self.searchView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.2).cgColor
-        self.searchView.layer.cornerRadius = 5
-        
-        self.informationView.layer.borderWidth = 1
-        self.informationView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.2).cgColor
-        self.informationView.layer.cornerRadius = 5
+        [
+            self.searchView.layer,
+            self.informationView.layer,
+            self.investInputView.layer
+        ].forEach({
+            $0.borderWidth = 1
+            $0.borderColor = UIColor.lightGray.withAlphaComponent(0.2).cgColor
+            $0.cornerRadius = 5
+        })
     }
 
     @IBAction func tapGoBackBtn(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
-
+    
+// MARK: - SAVE PART
+    @IBAction func tapSaveBtn(_ sender: UIButton) {
+        let saveInvest = self.investInputView.saveData()
+        // 여기서 투자 분석 정보 받아 왔으니 DB 저장 하면 됨
+    }
 }
 
 extension AddItemVC: EndSearchAddress {
-    func checkData(data: Dictionary<AnyHashable, Any>, check: Bool) {
+    func checkData(data: Dictionary<AnyHashable, Any>, check: Bool, addressCd: String) {
         if check {
-            // 데이터 받아오면 여기서 이제 갈랒
+            self.addressData = data
+            self.addressCd = addressCd
             self.informationView.getData(data: data)
         } else {
             var actionArray: [UIAlertAction] = []
@@ -84,5 +95,3 @@ extension AddItemVC: UITextFieldDelegate {
     
 }
 
-
-//

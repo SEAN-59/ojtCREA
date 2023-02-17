@@ -38,10 +38,20 @@ extension SimpleLoginVC {
     
     
     @IBAction func tapNaverLoginBtn(_ sender: UIButton) {
-        let storyBoard = UIStoryboard.init(name: "ItemPage", bundle: nil)
-        let nextVC = storyBoard.instantiateViewController(withIdentifier: "AddItemVC")
-        nextVC.modalPresentationStyle = .fullScreen
-        self.present(nextVC, animated: true, completion: nil)
+        let dbManager = DatabaseManager()
+        let testDict: Dictionary = [
+            "test1": 1,
+            "test2": 2,
+            "test3": 3,
+            "test4": 4,
+            "test5": 5,
+        ]
+        dbManager.writeData(input: testDict)
+//        let storyBoard = UIStoryboard.init(name: "ItemPage", bundle: nil)
+//        let nextVC = storyBoard.instantiateViewController(withIdentifier: "AddItemVC")
+//        nextVC.modalPresentationStyle = .fullScreen
+//        self.present(nextVC, animated: true, completion: nil)
+        
 //        let naverLogin = NaverLogin()
         
 //        let searchAddress = SearchAddress()

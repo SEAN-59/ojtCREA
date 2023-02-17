@@ -47,13 +47,34 @@ class InformationView: UIView {
 extension InformationView {
     private func setLabelData() {
         self.addressLbl.text = self.apiData["oldAddress"] as? String
-        self.platAreaLbl.text = self.apiData["platArea"] as? String
-        self.archAreaLbl.text = self.apiData["archArea"] as? String
-        self.totAreaLbl.text = self.apiData["totArea"] as? String
-        self.vlRatLbl.text = self.apiData["vlRat"] as? String
-        self.mainPurpsLbl.text = self.apiData["mainPurpsCdNm"] as? String
-        self.grndFlrLbl.text = self.apiData["grndFlrCnt"] as? String
-        self.ugrndFlrLbl.text = self.apiData["ugrndFlrCnt"] as? String
-        self.useAprLbl.text = self.apiData["useAprDay"] as? String
+        self.platAreaLbl.text = "\(String(describing: self.apiData["platArea"]!)) ㎡"
+        self.archAreaLbl.text = "\(String(describing: self.apiData["archArea"]!)) ㎡"
+        self.totAreaLbl.text = "\(String(describing: self.apiData["totArea"]!)) ㎡"
+        self.vlRatLbl.text = "\(String(describing: self.apiData["vlRat"]!)) %"
+        self.grndFlrLbl.text = "\(String(describing: self.apiData["grndFlrCnt"]!)) 층"
+        self.ugrndFlrLbl.text = "\(String(describing: self.apiData["ugrndFlrCnt"]!)) 층"
+        
+        let useApr = self.dayChangeToString(day: String(describing: self.apiData["useAprDay"]!))
+        
+        if useApr != "" {
+            self.useAprLbl.text = "\(useApr)"
+        } else {
+            self.useAprLbl.text = "확인 되지 않음"
+        }
+        
+        self.mainPurpsLbl.text = "\(String(describing: self.apiData["purpsNm"]!))"
+    }
+    
+    private func dayChangeToString(day: String) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        
+        formatter.dateFormat = "yyyyMMdd"
+        guard let stringToDate = formatter.date(from: day) else { return "" }
+        
+        formatter.dateFormat = "yyyy년 MM월 dd일"
+        let dateToString = formatter.string(from: stringToDate)
+        
+        return dateToString
     }
 }

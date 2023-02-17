@@ -42,11 +42,11 @@
                         </label>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="h0H-NJ-UTS">
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="h0H-NJ-UTS">
                     <rect key="frame" x="5" y="30.5" width="438" height="20.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7TE-cT-tW7">
-                            <rect key="frame" x="0.0" y="0.0" width="214" height="20.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="219" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="대지 면적 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0p-Dq-i7u">
                                     <rect key="frame" x="0.0" y="0.0" width="72.5" height="20.5"/>
@@ -55,7 +55,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="대지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NS-6j-SWQ">
-                                    <rect key="frame" x="77.5" y="0.0" width="136.5" height="20.5"/>
+                                    <rect key="frame" x="77.5" y="0.0" width="141.5" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -63,7 +63,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DqQ-5R-UtK">
-                            <rect key="frame" x="224" y="0.0" width="214" height="20.5"/>
+                            <rect key="frame" x="219" y="0.0" width="219" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="건축 면적 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wtA-DZ-zZJ">
                                     <rect key="frame" x="0.0" y="0.0" width="72.5" height="20.5"/>
@@ -72,7 +72,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="건물" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37u-6V-1ur">
-                                    <rect key="frame" x="77.5" y="0.0" width="136.5" height="20.5"/>
+                                    <rect key="frame" x="77.5" y="0.0" width="141.5" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -81,11 +81,11 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="teK-bR-5yA">
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="teK-bR-5yA">
                     <rect key="frame" x="5" y="56" width="438" height="20.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pkF-cU-25m">
-                            <rect key="frame" x="0.0" y="0.0" width="214" height="20.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="219" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="연 면적 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDu-sz-WbA">
                                     <rect key="frame" x="0.0" y="0.0" width="57.5" height="20.5"/>
@@ -94,7 +94,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwA-0h-jVP">
-                                    <rect key="frame" x="62.5" y="0.0" width="151.5" height="20.5"/>
+                                    <rect key="frame" x="62.5" y="0.0" width="156.5" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -102,7 +102,7 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mOY-GY-sfw">
-                            <rect key="frame" x="224" y="0.0" width="214" height="20.5"/>
+                            <rect key="frame" x="219" y="0.0" width="219" height="20.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="용적률 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjY-RU-F0h">
                                     <rect key="frame" x="0.0" y="0.0" width="53.5" height="20.5"/>
@@ -111,7 +111,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="용적" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jca-XR-mnx">
-                                    <rect key="frame" x="58.5" y="0.0" width="155.5" height="20.5"/>
+                                    <rect key="frame" x="58.5" y="0.0" width="160.5" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
