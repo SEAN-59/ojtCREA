@@ -8,7 +8,10 @@
 import UIKit
 
 class EmailLoginVC: UIViewController {
+    
+    
     private let emailLogin = EmailLogin()
+    
     
     @IBOutlet weak var emailTxf: UITextField!
     @IBOutlet weak var passwordTxf: UITextField!
@@ -21,6 +24,7 @@ class EmailLoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboard()
         self.emailTxf.delegate = self
         self.passwordTxf.delegate = self
         self.emailLogin.delegate = self

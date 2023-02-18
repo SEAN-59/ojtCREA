@@ -140,7 +140,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzI-BQ-TOm">
-                                <rect key="frame" x="150.5" y="771" width="113" height="31"/>
+                                <rect key="frame" x="150.5" y="786" width="113" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="이메일로 로그인">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
@@ -158,7 +158,7 @@
                             <constraint firstItem="sEU-oR-KBj" firstAttribute="top" secondItem="5NA-hJ-raq" secondAttribute="bottom" constant="60" id="4CB-zG-6Ic"/>
                             <constraint firstItem="3AI-wr-muV" firstAttribute="leading" secondItem="brT-Ym-Qww" secondAttribute="leading" constant="20" id="82g-sJ-6ep"/>
                             <constraint firstItem="UyV-nW-2k7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8zm-3c-NVY"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PzI-BQ-TOm" secondAttribute="bottom" constant="60" id="ENA-DM-6HN"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PzI-BQ-TOm" secondAttribute="bottom" constant="45" id="ENA-DM-6HN"/>
                             <constraint firstItem="W0l-ix-wUo" firstAttribute="centerY" secondItem="sEU-oR-KBj" secondAttribute="centerY" id="ET5-bA-EZJ"/>
                             <constraint firstItem="PzI-BQ-TOm" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="EUL-Pk-bde"/>
                             <constraint firstItem="brT-Ym-Qww" firstAttribute="top" secondItem="bjb-ds-DOC" secondAttribute="bottom" constant="15" id="Idn-am-gYp"/>
@@ -187,6 +187,9 @@
                             <constraint firstItem="UyV-nW-2k7" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="zxy-DQ-Qrw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="naverLoginBtn" destination="brT-Ym-Qww" id="5XI-hR-kqV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -417,7 +420,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail : email@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1bz-pK-HLH">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email2@email.com" borderStyle="roundedRect" placeholder="E-mail : email@email.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1bz-pK-HLH">
                                 <rect key="frame" x="40" y="393" width="334" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="orE-Cw-XR2"/>
@@ -425,7 +428,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password : 6 ~12" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dfC-q0-n53">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="qweqwe" borderStyle="roundedRect" placeholder="password : 6 ~12" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dfC-q0-n53">
                                 <rect key="frame" x="40" y="456" width="334" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="oDF-Co-ugI"/>
@@ -444,7 +447,7 @@
                                     <action selector="tapShowPasswordBtn:" destination="ain-T5-avQ" eventType="touchUpInside" id="DrL-ya-JQ4"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password check : 6 ~12" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTb-sg-Y6D">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="qweqwe" borderStyle="roundedRect" placeholder="password check : 6 ~12" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MTb-sg-Y6D">
                                 <rect key="frame" x="40" y="519" width="334" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="37B-gh-c0U"/>

@@ -6,8 +6,10 @@
 //
 
 import UIKit
-import FirebaseCore
 import Firebase
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 import GoogleSignIn
 
@@ -62,3 +64,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension UIViewController {
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InvestInputView" customModule="ConnectRealEstateAgent" customModuleProvider="target">
+            <connections>
+                <outlet property="depositValueTxf" destination="BzV-Cc-IrP" id="OMG-3W-nPQ"/>
+                <outlet property="incomeValueTxf" destination="A7a-ft-3ed" id="K9f-kH-iPx"/>
+                <outlet property="loanRatTxf" destination="WHO-0V-PnA" id="80E-7W-c6f"/>
+                <outlet property="loanValueTxf" destination="eYC-X7-5OM" id="zm2-6b-1jc"/>
+                <outlet property="sellValueTxf" destination="ptM-ZF-4UH" id="cXp-Gb-rTy"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="674" height="242"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1On-3X-FKR">
+                    <rect key="frame" x="5" y="5" width="664" height="92"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="매매 금액 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4a-tD-7JO">
+                            <rect key="frame" x="0.0" y="36" width="74" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="74" id="BXj-OO-oQX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* 단위:(만원)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ptM-ZF-4UH">
+                            <rect key="frame" x="82" y="31" width="544" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="JTI-ow-HzD"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="만원" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0K-Fh-elO">
+                            <rect key="frame" x="634" y="36" width="30" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="fIt-iB-J4y"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1sl-cM-P5F">
+                    <rect key="frame" x="5" y="40" width="664" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="보증금 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbN-sl-6VZ">
+                            <rect key="frame" x="0.0" y="5" width="74" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="74" id="jdP-tc-ORu"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* 단위:(만원)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BzV-Cc-IrP">
+                            <rect key="frame" x="82" y="0.0" width="544" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Rn0-oF-NXk"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="만원" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnp-W1-MgV">
+                            <rect key="frame" x="634" y="5" width="30" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="fRd-Td-xmW"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3jU-oP-nmE">
+                    <rect key="frame" x="5" y="75" width="664" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="대출 금액 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FL-Wu-fpF">
+                            <rect key="frame" x="0.0" y="5" width="74" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="74" id="158-WJ-dUC"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* 단위:(만원)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eYC-X7-5OM">
+                            <rect key="frame" x="82" y="0.0" width="544" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="ESO-L7-iar"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="만원" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt1-GL-1Ec">
+                            <rect key="frame" x="634" y="5" width="30" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="1wN-zX-YtA"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-Gm-Wfl">
+                    <rect key="frame" x="5" y="110" width="664" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="이자율 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9g-sc-OE3">
+                            <rect key="frame" x="0.0" y="5" width="74" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="74" id="nXe-Ln-vez"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* 단위:(%)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WHO-0V-PnA">
+                            <rect key="frame" x="82" y="0.0" width="544" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="we8-2Z-Ec4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEt-Aa-Ksl">
+                            <rect key="frame" x="634" y="5" width="30" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="ccK-k1-dAw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ocW-bp-152">
+                    <rect key="frame" x="5" y="145" width="664" height="30"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="수입 (월) :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZx-gl-xjf">
+                            <rect key="frame" x="0.0" y="5" width="74" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="74" id="egV-aN-Ngg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="* 단위:(만원)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A7a-ft-3ed">
+                            <rect key="frame" x="82" y="0.0" width="544" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="iQ1-2V-CHl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                        </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="만원" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsS-jJ-aMj">
+                            <rect key="frame" x="634" y="5" width="30" height="20.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="mBh-te-TvT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="1On-3X-FKR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="1xQ-di-Gs0"/>
+                <constraint firstAttribute="bottom" secondItem="ocW-bp-152" secondAttribute="bottom" constant="5" id="4Pn-Yp-9nP"/>
+                <constraint firstAttribute="trailing" secondItem="vXz-Gm-Wfl" secondAttribute="trailing" constant="5" id="8kL-Q4-z9T"/>
+                <constraint firstItem="3jU-oP-nmE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="ENU-UX-F5D"/>
+                <constraint firstAttribute="trailing" secondItem="ocW-bp-152" secondAttribute="trailing" constant="5" id="IQX-6M-VQF"/>
+                <constraint firstItem="vXz-Gm-Wfl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="LBu-cF-hDf"/>
+                <constraint firstItem="ocW-bp-152" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="SY2-t5-5ov"/>
+                <constraint firstItem="1sl-cM-P5F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="WY5-uh-yHC"/>
+                <constraint firstItem="1sl-cM-P5F" firstAttribute="top" secondItem="1On-3X-FKR" secondAttribute="bottom" constant="5" id="axb-xz-hdV"/>
+                <constraint firstAttribute="trailing" secondItem="3jU-oP-nmE" secondAttribute="trailing" constant="5" id="btT-JJ-xYH"/>
+                <constraint firstItem="1On-3X-FKR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="ftH-XE-Mvd"/>
+                <constraint firstItem="3jU-oP-nmE" firstAttribute="top" secondItem="1sl-cM-P5F" secondAttribute="bottom" constant="5" id="iEb-6G-Sjl"/>
+                <constraint firstItem="ocW-bp-152" firstAttribute="top" secondItem="vXz-Gm-Wfl" secondAttribute="bottom" constant="5" id="lZo-n6-hcP"/>
+                <constraint firstAttribute="trailing" secondItem="1On-3X-FKR" secondAttribute="trailing" constant="5" id="qTl-lS-BUr"/>
+                <constraint firstAttribute="trailing" secondItem="1sl-cM-P5F" secondAttribute="trailing" constant="5" id="qu2-oG-QTw"/>
+                <constraint firstItem="vXz-Gm-Wfl" firstAttribute="top" secondItem="3jU-oP-nmE" secondAttribute="bottom" constant="5" id="wq9-Ru-IMl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="194.20289855072465" y="-128.57142857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
