@@ -8,6 +8,7 @@
 import UIKit
 
 class AccountAgreeVC: UIViewController {
+    let dbManager = DatabaseManager()
     var checkBoxArray: [Bool] = [false, false, false, false]
     var email: String = ""
     var password: String = ""

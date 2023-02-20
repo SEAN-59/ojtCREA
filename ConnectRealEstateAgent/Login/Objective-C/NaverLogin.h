@@ -6,11 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LoginProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NaverLogin : NSObject
-
+@property (strong, nonatomic) id<SendSocialLoginResult> delegate;
 @end
 
 NS_ASSUME_NONNULL_END

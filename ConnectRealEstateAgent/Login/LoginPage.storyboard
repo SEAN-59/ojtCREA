@@ -150,25 +150,48 @@
                                     <action selector="tapEmailLoginBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lhz-1Q-BzS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8uw-GE-h4S">
+                                <rect key="frame" x="174" y="686" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="logout:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ctE-f7-G3J"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyF-sh-2GV">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" restorationIdentifier="loginIndicator" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fdM-U2-IDx">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5NA-hJ-raq" firstAttribute="top" secondItem="JR1-D8-FYo" secondAttribute="bottom" constant="10" id="2K0-BV-vYs"/>
                             <constraint firstItem="sEU-oR-KBj" firstAttribute="top" secondItem="5NA-hJ-raq" secondAttribute="bottom" constant="60" id="4CB-zG-6Ic"/>
+                            <constraint firstItem="fdM-U2-IDx" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="5VH-Aq-UR5"/>
                             <constraint firstItem="3AI-wr-muV" firstAttribute="leading" secondItem="brT-Ym-Qww" secondAttribute="leading" constant="20" id="82g-sJ-6ep"/>
                             <constraint firstItem="UyV-nW-2k7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8zm-3c-NVY"/>
+                            <constraint firstItem="hyF-sh-2GV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Abj-48-gZs"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="PzI-BQ-TOm" secondAttribute="bottom" constant="45" id="ENA-DM-6HN"/>
                             <constraint firstItem="W0l-ix-wUo" firstAttribute="centerY" secondItem="sEU-oR-KBj" secondAttribute="centerY" id="ET5-bA-EZJ"/>
                             <constraint firstItem="PzI-BQ-TOm" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="EUL-Pk-bde"/>
                             <constraint firstItem="brT-Ym-Qww" firstAttribute="top" secondItem="bjb-ds-DOC" secondAttribute="bottom" constant="15" id="Idn-am-gYp"/>
                             <constraint firstItem="brT-Ym-Qww" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="JIG-Ug-NJf"/>
                             <constraint firstItem="JR1-D8-FYo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="Nhq-Lh-qx1"/>
+                            <constraint firstItem="hyF-sh-2GV" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="OhM-r1-qWp"/>
                             <constraint firstItem="3AI-wr-muV" firstAttribute="centerY" secondItem="brT-Ym-Qww" secondAttribute="centerY" id="Qn9-Gb-Jz4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bjb-ds-DOC" secondAttribute="trailing" constant="60" id="RxB-QI-aYq"/>
                             <constraint firstItem="TQh-ZX-2cr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="60" id="UdH-Ad-jLt"/>
                             <constraint firstItem="h9o-9U-cIs" firstAttribute="centerY" secondItem="TQh-ZX-2cr" secondAttribute="centerY" id="Wgo-t5-DnO"/>
+                            <constraint firstItem="fdM-U2-IDx" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="YbY-PS-KMQ"/>
+                            <constraint firstAttribute="bottom" secondItem="hyF-sh-2GV" secondAttribute="bottom" id="b20-yV-gFO"/>
                             <constraint firstAttribute="trailing" secondItem="brT-Ym-Qww" secondAttribute="trailing" constant="60" id="c1t-Bc-38R"/>
+                            <constraint firstItem="hyF-sh-2GV" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ceM-pq-kSI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5NA-hJ-raq" secondAttribute="trailing" constant="40" id="coM-VX-neN"/>
                             <constraint firstItem="Mws-mb-gu3" firstAttribute="leading" secondItem="bjb-ds-DOC" secondAttribute="leading" constant="20" id="dT1-gk-Cag"/>
                             <constraint firstItem="5NA-hJ-raq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="dUc-9m-nal"/>
@@ -188,6 +211,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backPageView" destination="hyF-sh-2GV" id="jfu-hK-QIh"/>
+                        <outlet property="loginIndicator" destination="fdM-U2-IDx" id="v9B-hS-TmU"/>
                         <outlet property="naverLoginBtn" destination="brT-Ym-Qww" id="5XI-hR-kqV"/>
                     </connections>
                 </viewController>

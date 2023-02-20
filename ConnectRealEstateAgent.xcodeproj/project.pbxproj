@@ -40,6 +40,7 @@
 		FB23F874299F04280023C752 /* InvestInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB23F873299F04280023C752 /* InvestInputView.xib */; };
 		FB23F87A299F4BC70023C752 /* InvestInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23F879299F4BC70023C752 /* InvestInputView.swift */; };
 		FB23F87E299F4CFB0023C752 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB23F87D299F4CFB0023C752 /* DatabaseManager.m */; };
+		FB23F88229A329F10023C752 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23F88129A329F00023C752 /* EnumCollection.swift */; };
 		FB35BAA6299A2A6100BA6A27 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAA5299A2A6100BA6A27 /* MapVC.swift */; };
 		FB35BAA8299A2A6B00BA6A27 /* MapPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB35BAA7299A2A6B00BA6A27 /* MapPage.storyboard */; };
 		FB35BAB0299A2DB900BA6A27 /* ItemListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAAF299A2DB900BA6A27 /* ItemListVC.swift */; };
@@ -95,6 +96,8 @@
 		FB23F87C299F4CFB0023C752 /* DatabaseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		FB23F87D299F4CFB0023C752 /* DatabaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		FB23F880299F677C0023C752 /* Database Struct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Database Struct.md"; sourceTree = "<group>"; };
+		FB23F88129A329F00023C752 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
+		FB23F88329A366E30023C752 /* LoginProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginProtocol.h; sourceTree = "<group>"; };
 		FB35BAA5299A2A6100BA6A27 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FB35BAA7299A2A6B00BA6A27 /* MapPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapPage.storyboard; sourceTree = "<group>"; };
 		FB35BAAF299A2DB900BA6A27 /* ItemListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListVC.swift; sourceTree = "<group>"; };
@@ -228,6 +231,7 @@
 				FB110C982990EEDB00C4EF53 /* ColorExtension.swift */,
 				FB47B7A1299615EA006B8068 /* ImageExtension.swift */,
 				A7F1165C2999242600905DAA /* SimpleAlert.swift */,
+				FB23F88129A329F00023C752 /* EnumCollection.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -243,6 +247,7 @@
 				A7F116542998B4FE00905DAA /* GoogleLogin.m */,
 				A7F116562998B52900905DAA /* NaverLogin.h */,
 				A7F116572998B52900905DAA /* NaverLogin.m */,
+				FB23F88329A366E30023C752 /* LoginProtocol.h */,
 			);
 			path = "Objective-C";
 			sourceTree = "<group>";
@@ -501,6 +506,7 @@
 				FB23F87E299F4CFB0023C752 /* DatabaseManager.m in Sources */,
 				FB42B1DF299B39F000CBADC9 /* KeyData.swift in Sources */,
 				FB110C932990C66900C4EF53 /* KakaoLogin.swift in Sources */,
+				FB23F88229A329F10023C752 /* EnumCollection.swift in Sources */,
 				FB21D2AE299098DC00F1FA20 /* AppDelegate.swift in Sources */,
 				A7F116552998B4FE00905DAA /* GoogleLogin.m in Sources */,
 				A75FEBB42997DD28004F49DC /* FirstVC.swift in Sources */,

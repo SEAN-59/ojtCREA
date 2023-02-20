@@ -65,8 +65,14 @@
                              completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
         
         if (error == nil) {
+            NSLog(@"%@",authResult);
+            NSLog(@"%@",authResult.user.uid);
+            
+            [[DatabaseManager alloc]createData:user
+                                          Data:authResult.user.uid];
+            
             [self.delegate sendCreateResult:TRUE];
-        // 여기서 DB 에 회원 정보 더해주는 동작을 추가해주면 됨
+            
         } else { // 계정을 만들다 발생하는 오류
             [self.delegate sendCreateResult:FALSE];
         }
