@@ -33,8 +33,8 @@ class InvestInputView: UIView {
         self.addSubview(nibView)
     }
     
-    func saveData() -> InvestData {
-        var result: InvestData = .init(sellValue: 0, depositValue: 0, loanValue: 0, loanRat: 0, incomeValue: 0)
+    func saveData() -> Dictionary<AnyHashable, Any>{
+        var result: [String: Double] = [:]
         
         let doubleArray: [Double] = [
             self.sellValueTxf.text,
@@ -48,20 +48,15 @@ class InvestInputView: UIView {
             return doubleValue
         })
         
-        result.sellValue = doubleArray[0]
-        result.depositValue = doubleArray[1]
-        result.loanValue = doubleArray[2]
-        result.loanRat = doubleArray[3]
-        result.incomeValue = doubleArray[4]
+        result = ["sell":doubleArray[0],
+                  "deposit": doubleArray[1],
+                  "loan": doubleArray[2],
+                  "loanRat": doubleArray[3],
+                  "income": doubleArray[4]
+        ]
+        
         return result
+        
     }
 }
 
-
-struct InvestData {
-    var sellValue,
-        depositValue,
-        loanValue,
-        loanRat,
-        incomeValue :Double
-}

@@ -6,9 +6,8 @@
 //
 
 import UIKit
-//import GoogleLogin
 
-import FirebaseAuth
+//import FirebaseAuth
 //import FirebaseCore
 
 class SimpleLoginVC: UIViewController {
@@ -44,6 +43,8 @@ extension SimpleLoginVC {
     
     @IBAction func tapAppleLoginBtn(_ sender: UIButton) {
         let appleLogin = AppleLogin()
+        appleLogin.delegate = self
+        self.startIndicator()
         appleLogin.startSignInWithAppleFlow()
     }
     
@@ -56,19 +57,27 @@ extension SimpleLoginVC {
     
     
     @IBAction func tapNaverLoginBtn(_ sender: UIButton) {
+//        let naverLogin = NaverLogin()
+//        naverLogin.delegate = self
+//        self.startIndicator()
+        
         let dbManager = DatabaseManager()
-        let testDict: Dictionary = [
-            "test1": 1,
-            "test2": 2,
-            "test3": 3,
-            "test4": 4,
-            "test5": 5,
-        ]
-        dbManager.writeData(input: testDict)
+        dbManager.testData(["name":"value","name2":"value2"])
+
+//        let dbManager = DatabaseManager()
+//        let testDict: Dictionary = [
+//            "test1": 1,
+//            "test2": 2,
+//            "test3": 3,
+//            "test4": 4,
+//            "test5": 5,
+//        ]
+//        dbManager.writeData(input: testDict)
     }
     
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {
         let kakaoLogin = KakaoLogin()
+        kakaoLogin.delegate = self
         kakaoLogin.loginKakaoAccount()
     }
     
@@ -91,7 +100,7 @@ extension SimpleLoginVC: SendAPIDataDelegate {
 }
 
 extension SimpleLoginVC: SendSocialLoginResult {
-    func sendSignInResutl(result: Bool) {
+    func sendSignInResult(result: Bool) {
         if result {
             self.backPageView.isHidden = true
             self.loginIndicator.stopAnimating()
@@ -106,7 +115,7 @@ extension SimpleLoginVC: SendSocialLoginResult {
                 presentVC.present(nextVC, animated: false, completion: nil)
             })
             
-            
+
         }
     }
 }

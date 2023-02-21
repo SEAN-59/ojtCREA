@@ -97,7 +97,6 @@
 		FB23F87D299F4CFB0023C752 /* DatabaseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		FB23F880299F677C0023C752 /* Database Struct.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Database Struct.md"; sourceTree = "<group>"; };
 		FB23F88129A329F00023C752 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
-		FB23F88329A366E30023C752 /* LoginProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginProtocol.h; sourceTree = "<group>"; };
 		FB35BAA5299A2A6100BA6A27 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FB35BAA7299A2A6B00BA6A27 /* MapPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapPage.storyboard; sourceTree = "<group>"; };
 		FB35BAAF299A2DB900BA6A27 /* ItemListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListVC.swift; sourceTree = "<group>"; };
@@ -110,6 +109,7 @@
 		FB42B1E0299B3A8600CBADC9 /* URLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLData.swift; sourceTree = "<group>"; };
 		FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BJDAddressData.swift; sourceTree = "<group>"; };
 		FB47B7A1299615EA006B8068 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		FB950B1029A4444800431FDA /* LoginProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginProtocol.h; sourceTree = "<group>"; };
 		FBE13B6F299B1337008FA404 /* ComposeMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeMap.h; sourceTree = "<group>"; };
 		FBE13B70299B1337008FA404 /* ComposeMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeMap.m; sourceTree = "<group>"; };
 		FBF52F592999B570006594D1 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
@@ -247,7 +247,7 @@
 				A7F116542998B4FE00905DAA /* GoogleLogin.m */,
 				A7F116562998B52900905DAA /* NaverLogin.h */,
 				A7F116572998B52900905DAA /* NaverLogin.m */,
-				FB23F88329A366E30023C752 /* LoginProtocol.h */,
+				FB950B1029A4444800431FDA /* LoginProtocol.h */,
 			);
 			path = "Objective-C";
 			sourceTree = "<group>";

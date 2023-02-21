@@ -13,12 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, DatabaseType) {
-    user,
-    area,
-    item,
-    chat
-};
+typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 
 @interface DatabaseManager : NSObject
 
@@ -26,6 +21,8 @@ typedef NS_ENUM(NSInteger, DatabaseType) {
 @property (strong, nonatomic) FIRAuth *handle;
 - (void) createData: (DatabaseType) type Data: (id) data NS_SWIFT_NAME(createData(type:data:));
 - (void) writeData: (NSDictionary*) inputDict NS_SWIFT_NAME(writeData(input:));
+
+- (void) testData: (id)data;
 //-
 @end
 

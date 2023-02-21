@@ -62,6 +62,12 @@ class AddItemVC: UIViewController {
 // MARK: - SAVE PART
     @IBAction func tapSaveBtn(_ sender: UIButton) {
         let saveInvest = self.investInputView.saveData()
+        let dbManger = DatabaseManager()
+        let allDict = self.addressData.merging(saveInvest, uniquingKeysWith: {(_, new) in new}).merging(["addressCd":self.addressCd], uniquingKeysWith: {(_, new) in new})
+        dbManger.createData(type: .area, data: self.addressCd)
+        dbManger.createData(type: .item, data: allDict)
+        /// self.addressCd 는 areaData 의 구분을 위해서 사용
+        /// self.addressData 는 itemData 에 저장을 위해서 사용
         // 여기서 투자 분석 정보 받아 왔으니 DB 저장 하면 됨
     }
 }

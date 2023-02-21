@@ -9,8 +9,9 @@ import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
 
-class KakaoLogin {
-    let
+class KakaoLogin : NSObject{
+    var delegate: SendSocialLoginResult?
+    
 //    func canOpenKakaoLogin() { // 카카오 톡으로 로그인
 //        if (UserApi.isKakaoTalkLoginAvailable()) {
 //            UserApi.shared.loginwithkakaotalk
@@ -34,6 +35,4 @@ class KakaoLogin {
 }
 
 extension KakaoLogin: SendSocialLoginResult {
-    
-    
 }

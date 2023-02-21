@@ -88,7 +88,7 @@
         } else if ([type isEqualToString: @"build"]) {
             NSDictionary* buildParam = [self buildParsingData:responseObject];
             [self.delegate getAPIData:buildParam];
-            // delegate에 Dictionary 값으로 넘어가니까 잘 언래핑해서 사용하면 된다.
+            // delegate에 Dictionary 값으로 넘어가니까 잘 풀어서 사용하면 된다.
         }
         
     }
