@@ -81,11 +81,9 @@
                             </label>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L4N-Q6-J2q" customClass="InvestInputView" customModule="ConnectRealEstateAgent" customModuleProvider="target">
                                 <rect key="frame" x="30" y="611" width="354" height="241"/>
-                                <color key="backgroundColor" systemColor="separatorColor"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKJ-51-MBZ" customClass="InformationView" customModule="ConnectRealEstateAgent" customModuleProvider="target">
                                 <rect key="frame" x="30" y="326" width="354" height="244"/>
-                                <color key="backgroundColor" systemColor="separatorColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="주소 검색" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWh-Rb-bn2">
                                 <rect key="frame" x="30" y="580" width="354" height="21"/>
@@ -103,6 +101,14 @@
                                 <rect key="frame" x="30" y="135" width="354" height="150"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
                             </view>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zlv-t3-oYc">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" restorationIdentifier="loginIndicator" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="F3B-6w-peB">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -113,12 +119,18 @@
                             <constraint firstItem="NWh-Rb-bn2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="JSq-zk-J5w"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="L4N-Q6-J2q" secondAttribute="bottom" constant="10" id="NF1-Mp-jpG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0g8-Ke-1Qm" secondAttribute="trailing" constant="30" id="NbJ-T7-9TD"/>
+                            <constraint firstItem="zlv-t3-oYc" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="OJX-0I-7Qe"/>
                             <constraint firstItem="wms-lO-Yvn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="OjA-aY-8Hm"/>
+                            <constraint firstItem="F3B-6w-peB" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="PPT-iw-2jF"/>
                             <constraint firstItem="G8g-Kp-16L" firstAttribute="top" secondItem="R9y-Sv-LnR" secondAttribute="bottom" constant="5" id="SDH-z0-NRO"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NWh-Rb-bn2" secondAttribute="trailing" constant="30" id="T5W-0O-BPO"/>
                             <constraint firstItem="R9y-Sv-LnR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="T8q-au-wAD"/>
                             <constraint firstItem="R9y-Sv-LnR" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="WGe-4v-piG"/>
+                            <constraint firstAttribute="bottom" secondItem="zlv-t3-oYc" secondAttribute="bottom" id="XCP-a9-Kfk"/>
+                            <constraint firstItem="zlv-t3-oYc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XsA-Rg-ddV"/>
                             <constraint firstItem="NWh-Rb-bn2" firstAttribute="top" secondItem="AKJ-51-MBZ" secondAttribute="bottom" constant="10" id="Xx9-ib-msN"/>
+                            <constraint firstItem="F3B-6w-peB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Yyw-1t-Egr"/>
+                            <constraint firstItem="zlv-t3-oYc" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="Zn5-3F-FAa"/>
                             <constraint firstItem="0g8-Ke-1Qm" firstAttribute="top" secondItem="G8g-Kp-16L" secondAttribute="bottom" constant="10" id="bam-sf-fLc"/>
                             <constraint firstItem="0g8-Ke-1Qm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="dTD-2M-H6l"/>
                             <constraint firstItem="R9y-Sv-LnR" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="f4j-ve-zlq"/>
@@ -131,8 +143,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backView" destination="zlv-t3-oYc" id="pQb-hZ-vCE"/>
                         <outlet property="informationView" destination="AKJ-51-MBZ" id="S1w-Mv-ZRt"/>
                         <outlet property="investInputView" destination="L4N-Q6-J2q" id="Hp0-Oz-4fX"/>
+                        <outlet property="searchIndicator" destination="F3B-6w-peB" id="ucs-fm-DmY"/>
                         <outlet property="searchView" destination="0g8-Ke-1Qm" id="84v-BP-764"/>
                     </connections>
                 </viewController>

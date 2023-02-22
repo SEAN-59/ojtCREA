@@ -54,15 +54,19 @@ class EmailLoginVC: UIViewController {
     
     @IBAction func tapSignInBtn(_ sender: UIButton) {
         guard let emailText = self.emailTxf.text else { return }
+        
+        /// email 입력 형식 확인
         let emailCorrect = self.emailLogin.checkEmailTxf(emailText)
         if emailCorrect {
             guard let passwordText = self.passwordTxf.text else { return }
+            
+            /// 비밀번호 입력 형식 확인
             let pwCorrect = self.emailLogin.checkPasswordTxf(passwordText)
             if pwCorrect {
                 self.backPageView.isHidden = false
                 self.loginIndicator.isHidden = false
                 self.loginIndicator.startAnimating()
-                self.emailLogin.sign(inEmail: emailText, password: passwordText)
+                self.emailLogin.signInEmail(email: emailText, password: passwordText)
                 
             } else {
                 var actionArray: [UIAlertAction] = []
@@ -92,6 +96,7 @@ class EmailLoginVC: UIViewController {
         }
     }
     
+    /// 비밀번호 찾기
     @IBAction func tapFindPasswordBtn(_ sender: UIButton) {
         
     }
@@ -113,11 +118,11 @@ extension EmailLoginVC: UITextFieldDelegate {
 
 extension EmailLoginVC: sendEmailLoginResult {
     func sendSignResult(result: Bool) {
+        self.backPageView.isHidden = true
+        self.loginIndicator.stopAnimating()
+        self.loginIndicator.isHidden = true
+        
         if result {
-            self.backPageView.isHidden = true
-            self.loginIndicator.stopAnimating()
-            self.loginIndicator.isHidden = true
-            
             let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)
             guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "MapVC") as? MapVC else { return }
             nextVC.modalPresentationStyle = .fullScreen
@@ -126,7 +131,17 @@ extension EmailLoginVC: sendEmailLoginResult {
             self.dismiss(animated: false, completion: {
                 presentVC.present(nextVC, animated: true, completion: nil)
             })
-            
+        } else {
+            /// 로그인 실패하게 되었을 경우에 작업
+            var actionArray: [UIAlertAction] = []
+            let errorAction = UIAlertAction(title: "확인",
+                                            style: .default,
+                                            handler: nil)
+            actionArray.append(errorAction)
+            SimpleAlert().makeAlert(vc: self,
+                                    title: "로그인 오류",
+                                    message: "로그인 중 오류가 발생하였습니다.",
+                                    actionArray: actionArray)
             
         }
     }

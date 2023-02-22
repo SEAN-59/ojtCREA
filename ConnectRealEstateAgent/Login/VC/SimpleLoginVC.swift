@@ -62,17 +62,6 @@ extension SimpleLoginVC {
 //        self.startIndicator()
         
         let dbManager = DatabaseManager()
-        dbManager.testData(["name":"value","name2":"value2"])
-
-//        let dbManager = DatabaseManager()
-//        let testDict: Dictionary = [
-//            "test1": 1,
-//            "test2": 2,
-//            "test3": 3,
-//            "test4": 4,
-//            "test5": 5,
-//        ]
-//        dbManager.writeData(input: testDict)
     }
     
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {

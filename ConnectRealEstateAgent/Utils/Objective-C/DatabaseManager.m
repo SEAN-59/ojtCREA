@@ -7,8 +7,6 @@
 
 #import "DatabaseManager.h"
 
-
-
 @interface DatabaseManager ()
 -(NSString*) currentUser;
 
@@ -16,9 +14,6 @@
 - (void) createAreaData: (NSString*) data;
 - (void) createItemData: (id) data;
 - (void) createChatData;
-
-
-
 
 @end
 
@@ -143,35 +138,8 @@
     NSString* uid = [self currentUser];
     if (uid == nil) { return; }
     
-    NSString* path = [NSString stringWithFormat:@"/UserData/%@/Items/%@/",uid,[data objectForKey:@"addressCd"]];
-    
-//    /// 데이터 중복 체크를 위해서 DB의 값 확인 부
-//    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
-//        if (error == nil ) {
-//            /// 중복 확인
-//            if ([snapshot.value class] != [NSNull class]) {
-//
-//            }
-//            /// 중복 안됨
-//            else {
-//
-//            }
-//
-//        }
-//
-//    }];
-    
-    
-    
-    path = [NSString stringWithFormat:@"/UserData/%@/Items/%@", uid,[data objectForKey:@"addressCd"]];
-    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
-        if (error == nil && [snapshot.value class] == [NSNull class]) {
-            
-        }
-    }];
-    
     NSString* itemCd = self.ref.childByAutoId.key;
-    path = [NSString stringWithFormat:@"/ItemData/%@/Information/",itemCd];
+    NSString* path = [NSString stringWithFormat:@"/ItemData/%@/Information/",itemCd];
     
     [[[[[self.ref child:@"ItemData"] child:itemCd] child:@"Information"] child:@"oldAddress"]setValue: [data objectForKey:@"oldAddress"]];
     
@@ -207,34 +175,43 @@
     
     [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"income"].key]: [data objectForKey:@"income"]}];
     
-    
+    /// AreaData_{addressCd}_Item 구성
     path = [NSString stringWithFormat:@"/AreaData/%@/Item/",[data objectForKey:@"addressCd"]];
     
     [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
         // 처음 생성 되는 경우
         if (error == nil && [snapshot.value class] == [NSNull class]) {
             [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"0"].key]: itemCd}];
+            
         // 이후 생성되는 부분에서는 저장되어있는 수 만큼 key 변경
         } else if (error == nil && [snapshot.value class] != [NSNull class]) {
             NSString* count = [NSString stringWithFormat:@"%lu",(unsigned long)[snapshot.value count]];
             [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child: count].key]: itemCd}];
+            
+        } else {
+            // 에러 발생시
+            
+        }
+    }];
+    
+    /// UserData_{UID}_Item_{addressCd}_{itemCd}  구성
+    path = [NSString stringWithFormat:@"/UserData/%@/Item/%@/",uid, [data objectForKey:@"addressCd"]];
+    
+    /// 중복되는거를 이렇게 판단해서 끝내려고 했는데 중복을 일단은 배제를 하고 진행을 해야 다른걸 건들 수 있을것 같음
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value class] == [NSNull class]) {
+                [self.ref updateChildValues:@{[path stringByAppendingString: [self.ref child:@"0"].key]:itemCd}];
+            } else {
+                NSString* count = [NSString stringWithFormat:@"%lu",(unsigned long)[snapshot.value count]];
+                [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child: count].key]: itemCd}];
+            }
         } else {
             // 에러 발생시
         }
     }];
     
-    path = [NSString stringWithFormat:@"/UserData/%@/Item/",uid];
-    
-    /// 이부분 넣어야 함
-    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
-        if (error == nil) {
-            if ([snapshot.value class] == [NSNull class]) {
-                [self.ref updateChildValues:@{[path stringByAppendingString: [self.ref child: [data objectForKey:@"addressCd"]].key]:itemCd}];
-            } else {
-                
-            }
-        }
-    }];
+    [self.delegate successSaveDB:TRUE];
     
 }
 

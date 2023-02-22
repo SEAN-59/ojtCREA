@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL) checkEmailTxf: (NSString*) email;
 - (BOOL) checkPasswordTxf: (NSString*) password;
 
-- (void) signInEmail: (NSString*) email password: (NSString*) password;
+- (void) signInEmail: (NSString*) email password: (NSString*) password NS_SWIFT_NAME(signInEmail(email:password:));
 
 - (void) createEmail: (NSString*) email password: (NSString*) password;
 

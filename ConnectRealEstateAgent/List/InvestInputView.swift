@@ -8,7 +8,8 @@
 import UIKit
 
 class InvestInputView: UIView {
-
+    @IBOutlet var investView: UIView!
+    
     @IBOutlet weak var sellValueTxf: UITextField!
     @IBOutlet weak var depositValueTxf: UITextField!
     @IBOutlet weak var loanValueTxf: UITextField!

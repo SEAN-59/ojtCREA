@@ -72,11 +72,9 @@
                                           Data:authResult.user.uid];
             
             [self.delegate sendCreateResult:TRUE];
-            
         } else { // 계정을 만들다 발생하는 오류
             [self.delegate sendCreateResult:FALSE];
         }
-        
     }];
 }
 
