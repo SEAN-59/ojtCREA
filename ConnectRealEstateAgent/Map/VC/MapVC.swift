@@ -12,7 +12,7 @@ class MapVC: UIViewController {
 
     @IBOutlet weak var addItemBtn: UIButton!
     
-    @IBOutlet weak var mainMapView: NMFMapView!
+    @IBOutlet weak var mainMapView: MapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -53,7 +53,8 @@
 		FB42B1E1299B3A8600CBADC9 /* URLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42B1E0299B3A8600CBADC9 /* URLData.swift */; };
 		FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */; };
 		FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B7A1299615EA006B8068 /* ImageExtension.swift */; };
-		FBE13B71299B1337008FA404 /* ComposeMap.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE13B70299B1337008FA404 /* ComposeMap.m */; };
+		FB7B3B8129A5D49200A58D8E /* MainMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7B3B8029A5D49200A58D8E /* MainMapView.xib */; };
+		FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7B3B8329A5D8FD00A58D8E /* MapView.m */; };
 		FBF52F5A2999B570006594D1 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F592999B570006594D1 /* CreateAccountVC.swift */; };
 		FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */; };
 /* End PBXBuildFile section */
@@ -109,9 +110,10 @@
 		FB42B1E0299B3A8600CBADC9 /* URLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLData.swift; sourceTree = "<group>"; };
 		FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BJDAddressData.swift; sourceTree = "<group>"; };
 		FB47B7A1299615EA006B8068 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		FB7B3B8029A5D49200A58D8E /* MainMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMapView.xib; sourceTree = "<group>"; };
+		FB7B3B8229A5D8FD00A58D8E /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
+		FB7B3B8329A5D8FD00A58D8E /* MapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		FB950B1029A4444800431FDA /* LoginProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginProtocol.h; sourceTree = "<group>"; };
-		FBE13B6F299B1337008FA404 /* ComposeMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeMap.h; sourceTree = "<group>"; };
-		FBE13B70299B1337008FA404 /* ComposeMap.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeMap.m; sourceTree = "<group>"; };
 		FBF52F592999B570006594D1 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAgreeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -353,8 +355,9 @@
 		FBE13B6A299B0FE6008FA404 /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
-				FBE13B6F299B1337008FA404 /* ComposeMap.h */,
-				FBE13B70299B1337008FA404 /* ComposeMap.m */,
+				FB7B3B8029A5D49200A58D8E /* MainMapView.xib */,
+				FB7B3B8229A5D8FD00A58D8E /* MapView.h */,
+				FB7B3B8329A5D8FD00A58D8E /* MapView.m */,
 			);
 			name = "Objective-C";
 			path = "Objective-C/Objective-C";
@@ -444,6 +447,7 @@
 				FB35BAA8299A2A6B00BA6A27 /* MapPage.storyboard in Resources */,
 				FB21D2BA299098DD00F1FA20 /* LaunchScreen.storyboard in Resources */,
 				FB21D2C22990996D00F1FA20 /* GoogleService-Info.plist in Resources */,
+				FB7B3B8129A5D49200A58D8E /* MainMapView.xib in Resources */,
 				FB23F874299F04280023C752 /* InvestInputView.xib in Resources */,
 				A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */,
 				A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */,
@@ -519,7 +523,6 @@
 				FB35BAA6299A2A6100BA6A27 /* MapVC.swift in Sources */,
 				FB42B1E1299B3A8600CBADC9 /* URLData.swift in Sources */,
 				FB110C992990EEDB00C4EF53 /* ColorExtension.swift in Sources */,
-				FBE13B71299B1337008FA404 /* ComposeMap.m in Sources */,
 				FB35BAC0299A331F00BA6A27 /* SearchAddressView.swift in Sources */,
 				FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */,
 				FB35BAB0299A2DB900BA6A27 /* ItemListVC.swift in Sources */,
@@ -527,6 +530,7 @@
 				FB23F870299E10ED0023C752 /* InformationView.swift in Sources */,
 				A7F116582998B52900905DAA /* NaverLogin.m in Sources */,
 				FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */,
+				FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */,
 				FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */,
 				FB23F87A299F4BC70023C752 /* InvestInputView.swift in Sources */,
 				FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */,

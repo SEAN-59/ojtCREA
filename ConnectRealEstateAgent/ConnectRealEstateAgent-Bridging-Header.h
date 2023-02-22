@@ -13,3 +13,5 @@
 #import "DatabaseManager.h"
 
 #import "LoginProtocol.h"
+
+#import "MapView.h"
