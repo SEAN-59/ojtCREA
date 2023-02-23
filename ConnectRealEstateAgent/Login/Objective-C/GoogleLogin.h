@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @interface GoogleLogin : NSObject 
-@property (strong, nonatomic) id<SendSocialLoginResult> delegate;
+@property (strong, nonatomic) id<SendLoginResultDelegate> delegate;
 
 -(void) googleSignInWithFirebase: (UIViewController*)vc ;
 

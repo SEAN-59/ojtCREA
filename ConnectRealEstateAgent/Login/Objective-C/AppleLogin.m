@@ -7,7 +7,7 @@
 
 #import "AppleLogin.h"
 
-@interface AppleLogin () <SendSocialLoginResult>
+@interface AppleLogin () <SendLoginResultDelegate>
 
 
 @end

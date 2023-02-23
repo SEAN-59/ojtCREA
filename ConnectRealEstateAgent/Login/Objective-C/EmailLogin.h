@@ -7,24 +7,25 @@
 
 #import <Foundation/Foundation.h>
 #import "DatabaseManager.h"
+#import "LoginProtocol.h"
 
 @import Firebase;
 @import FirebaseCore;
 @import FirebaseAuth;
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol sendEmailLoginResult <NSObject>
+//@protocol sendEmailLoginResult <NSObject>
+//
+//@optional
+//- (void) sendCreateResult: (BOOL)result;
+//
+//- (void) sendSignInResult: (BOOL)result NS_SWIFT_NAME(sendSignInResult(result:));
+//
+//@end
 
-@optional
-- (void) sendCreateResult: (BOOL)result;
-
-- (void) sendSignResult: (BOOL)result NS_SWIFT_NAME(sendSignResult(result:));
-
-@end
-
-@interface EmailLogin : NSObject <sendEmailLoginResult>
+@interface EmailLogin : NSObject <SendLoginResultDelegate>
 //@property (strong, nonatomic) DatabaseManager* dbManager;
-@property (weak, nonatomic) id<sendEmailLoginResult> delegate;
+@property (weak, nonatomic) id<SendLoginResultDelegate> delegate;
 
 
 - (BOOL) checkEmailTxf: (NSString*) email;

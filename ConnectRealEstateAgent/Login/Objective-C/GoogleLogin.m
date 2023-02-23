@@ -7,7 +7,7 @@
 
 #import "GoogleLogin.h"
 
-@interface GoogleLogin () <SendSocialLoginResult>
+@interface GoogleLogin () <SendLoginResultDelegate>
 
 @end
 
@@ -28,11 +28,12 @@
             [[FIRAuth auth] signInWithCredential:credential
                                       completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
                 if (error == nil) {
-                    [self.delegate sendSignInResult:TRUE];
+                    
                     [[DatabaseManager alloc]createData:user
                                                   Data:authResult.user.uid];
                 }
             }];
+            [self.delegate sendSignInResult:TRUE];
         } else {
             // error
       }

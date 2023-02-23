@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" restorationIdentifier="MainMap" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2D-gc-zso" customClass="MapView">
+                            <view contentMode="scaleToFill" restorationIdentifier="MainMap" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2D-gc-zso" customClass="NMFMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="802"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
@@ -152,6 +152,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="ItemListBtn" destination="5UQ-V1-TdX" id="mbQ-To-7Ib"/>
                         <outlet property="addItemBtn" destination="HTI-2P-hLG" id="mYi-jU-e4I"/>
                         <outlet property="mainMapView" destination="R2D-gc-zso" id="JHh-gW-sMd"/>
                     </connections>

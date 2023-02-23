@@ -20,6 +20,11 @@ typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 @optional
 - (void) successSaveDB: (BOOL)result NS_SWIFT_NAME(successSaveDB(result:));
 
+/// TRUE 면 사업자 / FALSE 면 일반
+- (void) successReadUser: (BOOL)result NS_SWIFT_NAME(successReadUser(result:));
+
+- (void) successReadArea: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadArea(result:data:));
+
 @end
 
 @interface DatabaseManager : NSObject
@@ -30,7 +35,8 @@ typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 
 - (void) createData: (DatabaseType) type Data: (id) data NS_SWIFT_NAME(createData(type:data:));
 
-- (void) writeData: (NSDictionary*) inputDict NS_SWIFT_NAME(writeData(input:));
+- (void) readUserData: (NSString*) uid NS_SWIFT_NAME(readUserData(uid:));
+- (void) readAreaData;
 
 - (void) testData: (id)data;
 //-

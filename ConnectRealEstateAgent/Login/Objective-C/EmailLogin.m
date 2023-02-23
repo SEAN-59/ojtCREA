@@ -52,9 +52,9 @@
                            password:password
                          completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
         if (error == nil) {
-            [self.delegate sendSignResult:true];
+            [self.delegate sendSignInResult:true];
         } else {
-            [self.delegate sendSignResult:false];
+            [self.delegate sendSignInResult:false];
         }
     }];
 }

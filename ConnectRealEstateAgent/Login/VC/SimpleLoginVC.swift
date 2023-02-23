@@ -10,17 +10,16 @@ import UIKit
 //import FirebaseAuth
 //import FirebaseCore
 
-class SimpleLoginVC: UIViewController {
+class SimpleLoginVC: CREA_UIViewController {
+    private let dbManager = DatabaseManager()
     
     @IBOutlet weak var backPageView: UIView!
     @IBOutlet weak var loginIndicator: UIActivityIndicatorView!
-    
-    
     @IBOutlet weak var naverLoginBtn: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.dbManager.delegate = self
     }
     
     @IBOutlet weak var testLbl: UILabel!
@@ -43,8 +42,8 @@ extension SimpleLoginVC {
     
     @IBAction func tapAppleLoginBtn(_ sender: UIButton) {
         let appleLogin = AppleLogin()
-        appleLogin.delegate = self
-        self.startIndicator()
+//        appleLogin.delegate = self
+//        self.startIndicator()
         appleLogin.startSignInWithAppleFlow()
     }
     
@@ -61,12 +60,12 @@ extension SimpleLoginVC {
 //        naverLogin.delegate = self
 //        self.startIndicator()
         
-        let dbManager = DatabaseManager()
     }
     
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {
         let kakaoLogin = KakaoLogin()
-        kakaoLogin.delegate = self
+//        kakaoLogin.delegate = self
+//        self.startIndicator()
         kakaoLogin.loginKakaoAccount()
     }
     
@@ -81,30 +80,45 @@ extension SimpleLoginVC {
     
 }
 
-
-extension SimpleLoginVC: SendAPIDataDelegate {
-    func getAPIData(json data: [AnyHashable : Any]) {
-        print("Load End")
-    }
-}
-
-extension SimpleLoginVC: SendSocialLoginResult {
+extension SimpleLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
     func sendSignInResult(result: Bool) {
+        
         if result {
-            self.backPageView.isHidden = true
-            self.loginIndicator.stopAnimating()
-            self.loginIndicator.isHidden = true
-            
-            let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)
-            guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "MapVC") as? MapVC else { return }
-            nextVC.modalPresentationStyle = .fullScreen
-            guard let presentVC = self.presentingViewController else { return }
-            
-            self.dismiss(animated: false, completion: {
-                presentVC.present(nextVC, animated: false, completion: nil)
-            })
-            
-
+            guard let user = Auth.auth().currentUser else {return}
+            print("UserId: \(user.uid)")
+            self.dbManager.readUserData(uid: user.uid)
+        } else {
+            /// 로그인 실패하게 되었을 경우에 작업
+            var actionArray: [UIAlertAction] = []
+            let errorAction = UIAlertAction(title: "확인",
+                                            style: .default,
+                                            handler: nil)
+            actionArray.append(errorAction)
+            SimpleAlert().makeAlert(vc: self,
+                                    title: "로그인 오류",
+                                    message: "로그인 중 오류가 발생하였습니다.",
+                                    actionArray: actionArray)
         }
+        
     }
+    
+    
+    func successReadUser(result: Bool) {
+        self.backPageView.isHidden = true
+        self.loginIndicator.stopAnimating()
+        self.loginIndicator.isHidden = true
+        
+        let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)
+        guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "MapVC") as? MapVC else { return }
+        nextVC.modalPresentationStyle = .fullScreen
+        guard let presentVC = self.presentingViewController else { return }
+        
+        self.dismiss(animated: false, completion: {
+            nextVC.userType = result
+            presentVC.present(nextVC, animated: true, completion: nil)
+        })
+    }
+        
+    
+    
 }

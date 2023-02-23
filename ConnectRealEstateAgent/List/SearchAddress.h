@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol SendAPIDataDelegate <NSObject>
 
 @optional
-- (void) getAPIData: (NSDictionary*)data NS_SWIFT_NAME(getAPIData(json:));
+- (void) getAddressAPI: (nullable NSDictionary*)data NS_SWIFT_NAME(getAddressAPI(json:));
+- (void) getGeocodingAPI: (NSDictionary*)data NS_SWIFT_NAME(getGeocodingAPI(json:));
 
 @end
 
@@ -22,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) id <SendAPIDataDelegate> delegate;
 
 -(void) choiceRoad: (NSString*) address;
+
+-(void) checkGeocode: (NSString*) address;
 
 @end
 

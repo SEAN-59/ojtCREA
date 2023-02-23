@@ -216,11 +216,36 @@
 }
 
 - (void)createChatData {
-    
 }
 
-
-- (void)writeData:(NSDictionary *)inputDict {
+- (void)readUserData:(NSString *)uid {
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/userNm",uid];
+    NSLog(@"%@",path);
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isEqual: @"고객"]) { // 일반 고객
+                [self.delegate successReadUser:FALSE];
+            } else if ([snapshot.value isEqual: @"사업자"]) { // 사업자 고객
+                [self.delegate successReadUser:TRUE];
+            }
+        }
+    }];
 }
+
+- (void)readAreaData {
+    NSString* path = @"/AreaData/";
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass: [NSNull class]]) {
+                // 아무것도 없음
+                NSArray* result = [[NSArray alloc] init];
+                [self.delegate successReadArea:false data:result];
+            } else {
+                [self.delegate successReadArea:TRUE data:[snapshot.value allKeys]];
+            }
+        }
+    }];
+}
+
 
 @end

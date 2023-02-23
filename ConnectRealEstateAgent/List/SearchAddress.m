@@ -11,13 +11,17 @@
 @interface SearchAddress ()
 
 -(void) searchAddressURL: (NSString*)url Parameters: (NSMutableDictionary*) param Type: (NSString*) type;
+-(void) searchNaverGeocoding: (NSString*)url Parameters:(NSMutableDictionary*) param;
+
 -(void) choiceBuild: (NSDictionary*) param;
 
--(NSMutableDictionary*) createRoad: (NSString*) key Address: (NSString*) address;
--(NSMutableDictionary*) createBuild: (NSString*) key SggCd: (NSString*)sggCd BjdCd: (NSString*)bjdCd Bun: (NSString*)bun Ji: (NSString*)ji;
+-(NSMutableDictionary*) createRoadParameters: (NSString*) key Address: (NSString*) address;
+-(NSMutableDictionary*) createBuildParameters: (NSString*) key SggCd: (NSString*)sggCd BjdCd: (NSString*)bjdCd Bun: (NSString*)bun Ji: (NSString*)ji;
+-(NSMutableDictionary*) createNaverGeoParameters: (NSString*) naverId key: (NSString*) key Address: (NSString*) address;
 
 -(NSMutableDictionary*) roadParsingData: (NSDictionary*) data;
 -(NSMutableDictionary*) buildParsingData: (NSDictionary*) data;
+-(NSMutableDictionary*) geoParsingData: (NSDictionary*) data;
 
 @end
 
@@ -30,7 +34,7 @@
     URLDatas* urls = [[URLDatas alloc] init];
     NSString* roadURL = [NSString stringWithString: urls.roadAddress];
     
-    NSMutableDictionary* roadParam = [NSMutableDictionary dictionaryWithDictionary: [self createRoad:roadKey Address:address]];
+    NSMutableDictionary* roadParam = [NSMutableDictionary dictionaryWithDictionary: [self createRoadParameters:roadKey Address:address]];
     
     [self searchAddressURL:roadURL Parameters:roadParam Type:@"road"];
 }
@@ -55,7 +59,7 @@
     };
     
     NSMutableDictionary* buildParam = [NSMutableDictionary dictionaryWithDictionary:
-                                       [self createBuild:buildKey
+                                       [self createBuildParameters:buildKey
                                                    SggCd:[param objectForKey:@"sggCd"]
                                                    BjdCd:[param objectForKey:@"bjdCd"]
                                                      Bun:checkZero([param objectForKey:@"bun"])
@@ -64,8 +68,20 @@
     
     [self searchAddressURL:buildURL Parameters:buildParam Type: @"build"];
 }
-// MARK: - NETWORKING PART
 
+- (void)checkGeocode:(NSString *)address {
+    KeyData* keys = [[KeyData alloc] init];
+    NSString* naverKey = [NSString stringWithString: keys.naverKey];
+    NSString* naverID = [NSString stringWithString: keys.naverID];
+    URLDatas* urls = [[URLDatas alloc] init];
+    NSString* naverURL = [NSString stringWithString: urls.naverGeocode];
+    
+    NSMutableDictionary* naverGeoParm = [NSMutableDictionary dictionaryWithDictionary:[self createNaverGeoParameters:naverID key:naverKey Address:address]];
+    
+    [self searchNaverGeocoding:naverURL Parameters:naverGeoParm];
+    
+}
+// MARK: - NETWORKING PART
 - (void)searchAddressURL:(NSString *)url Parameters:(NSMutableDictionary *)param Type:(NSString *)type{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
@@ -79,15 +95,15 @@
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
     
         if ([type isEqualToString: @"road"]) {
-            NSDictionary* roadParam = [self roadParsingData:responseObject];
-            if (roadParam == nil) {
-                [self.delegate getAPIData:nil];
+            NSDictionary* roadData = [self roadParsingData:responseObject];
+            if (roadData == nil) {
+                [self.delegate getAddressAPI:nil];
             } else {
-                [self choiceBuild:roadParam];
+                [self choiceBuild:roadData];
             }
         } else if ([type isEqualToString: @"build"]) {
-            NSDictionary* buildParam = [self buildParsingData:responseObject];
-            [self.delegate getAPIData:buildParam];
+            NSDictionary* buildData = [self buildParsingData:responseObject];
+            [self.delegate getAddressAPI:buildData];
             // delegate에 Dictionary 값으로 넘어가니까 잘 풀어서 사용하면 된다.
         }
         
@@ -96,9 +112,30 @@
         NSLog(@"ERROR: %@", error);
     }];
 }
+
+- (void)searchNaverGeocoding:(NSString *)url Parameters:(NSMutableDictionary *)param {
+    AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    [manager GET:url
+      parameters:param
+         headers:nil
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSDictionary* geoData = [self geoParsingData:responseObject];
+        
+        [self.delegate getGeocodingAPI:geoData];
+    }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"ERROR: %@", error);
+    }];
+    
+}
+
 // MARK: - CREATE PARAMETER
 
-- (NSMutableDictionary*)createRoad:(NSString *)key Address:(NSString *)address {
+- (NSMutableDictionary*)createRoadParameters:(NSString *)key Address:(NSString *)address {
     NSMutableDictionary* urlParameters = [[NSMutableDictionary alloc] init];
     [urlParameters setObject:key forKey:@"confmKey"];
     [urlParameters setObject:address forKey:@"keyword"];
@@ -109,7 +146,7 @@
     return urlParameters;
 }
 
-- (NSMutableDictionary *)createBuild:(NSString *)key SggCd:(NSString *)sggCd BjdCd:(NSString *)bjdCd Bun:(NSString *)bun Ji:(NSString *)ji{
+- (NSMutableDictionary *)createBuildParameters:(NSString *)key SggCd:(NSString *)sggCd BjdCd:(NSString *)bjdCd Bun:(NSString *)bun Ji:(NSString *)ji{
     NSMutableDictionary* urlParameters = [[NSMutableDictionary alloc] init];
     [urlParameters setObject:key forKey:@"serviceKey"];
     [urlParameters setObject:sggCd forKey:@"sigunguCd"];
@@ -121,6 +158,14 @@
     return urlParameters;
 }
 
+- (NSMutableDictionary *)createNaverGeoParameters:(NSString *)naverId key:(NSString *)key Address:(NSString *)address {
+    NSMutableDictionary* urlParameters = [[NSMutableDictionary alloc] init];
+    [urlParameters setObject:naverId forKey:@"X-NCP-APIGW-API-KEY-ID"];
+    [urlParameters setObject:key forKey:@"X-NCP-APIGW-API-KEY"];
+    [urlParameters setObject:address forKey:@"query"];
+    
+    return urlParameters;
+}
 // MARK: - DATA PARSING
 
 - (NSMutableDictionary *)roadParsingData:(NSDictionary *)data {
@@ -157,6 +202,17 @@
     [result setObject: [item objectForKey:@"useAprDay"] forKey:@"useAprDay"];
     
     return result;
+}
+
+-(NSMutableDictionary *)geoParsingData:(NSDictionary *)data {
+    NSMutableDictionary* result = [[NSMutableDictionary alloc] init];
+    NSDictionary *geo = [data objectForKey:@"addresses"][0];
+    
+    [result setObject:[geo objectForKey:@"x"] forKey:@"lon"];
+    [result setObject:[geo objectForKey:@"y"] forKey:@"lat"];
+
+    return result;
+    
 }
 
 @end

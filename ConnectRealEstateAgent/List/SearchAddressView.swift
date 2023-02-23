@@ -18,6 +18,7 @@ final class SearchAddressView: UIView {
     
     private var cityCd: Int = 0
     private var sggCd: Int = 0
+    private var emdCd: Int = 0
     private let dropdown = DropDown()
     private var korea = Korea(selectCityNm: "", selectSggNm: "", selectEmdNm: "")
     
@@ -54,6 +55,7 @@ extension SearchAddressView {
         dropdown.selectionAction = { [weak self] (index: Int, item: String) in
             self?.cityCd = index
             self?.sggCd = 0
+            self?.emdCd = 0
             self?.korea.selectCityNm = item
             self?.korea.selectSggNm = ""
             self?.korea.selectEmdNm = ""
@@ -69,6 +71,7 @@ extension SearchAddressView {
         initDropdown(button: sender, data: list)
         dropdown.selectionAction = { [weak self] (index: Int, item: String) in
             self?.sggCd = index
+            self?.emdCd = 0
             self?.korea.selectSggNm = item
             self?.korea.selectEmdNm = ""
             self?.setupTxf()
@@ -80,6 +83,7 @@ extension SearchAddressView {
         let list = korea.selectEmd()
         initDropdown(button: sender, data: list)
         dropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.emdCd = index
             self?.korea.selectEmdNm = item
             self?.setupTxf()
             self?.dropdown.clearSelection()
@@ -91,7 +95,6 @@ extension SearchAddressView {
         search.delegate = self
         guard let etcText = etcTxf.text else { return }
         let address = "\(korea.selectCityNm) \(korea.selectSggNm) \(korea.selectEmdNm) \(etcText)"
-        print(address)
         self.delegate?.startSearch()
         search.choiceRoad(address)
     }
@@ -122,9 +125,9 @@ extension SearchAddressView {
 }
 
 extension SearchAddressView: SendAPIDataDelegate {
-    func getAPIData(json data: [AnyHashable : Any]) {
-        print("load END")
-        let addressCd = "\(String(format: "%02d", self.cityCd))\(String(format:"%02d",self.sggCd))"
+    func getAddressAPI(json data: [AnyHashable : Any]?) {
+        guard let data = data else { return }
+        let addressCd = "\(String(format: "%02d", self.cityCd))\(String(format:"%02d",self.sggCd))\(String(format:"%02d",self.emdCd))"
         if data.isEmpty {
             self.delegate?.checkData(data: data, check: false,addressCd: addressCd)
         } else {

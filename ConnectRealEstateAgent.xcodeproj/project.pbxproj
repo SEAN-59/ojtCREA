@@ -53,8 +53,8 @@
 		FB42B1E1299B3A8600CBADC9 /* URLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42B1E0299B3A8600CBADC9 /* URLData.swift */; };
 		FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */; };
 		FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B7A1299615EA006B8068 /* ImageExtension.swift */; };
-		FB7B3B8129A5D49200A58D8E /* MainMapView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB7B3B8029A5D49200A58D8E /* MainMapView.xib */; };
 		FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7B3B8329A5D8FD00A58D8E /* MapView.m */; };
+		FBEB6FDD29A743AD00445EF9 /* CREA_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB6FDC29A743AD00445EF9 /* CREA_UIViewController.swift */; };
 		FBF52F5A2999B570006594D1 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F592999B570006594D1 /* CreateAccountVC.swift */; };
 		FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */; };
 /* End PBXBuildFile section */
@@ -110,10 +110,10 @@
 		FB42B1E0299B3A8600CBADC9 /* URLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLData.swift; sourceTree = "<group>"; };
 		FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BJDAddressData.swift; sourceTree = "<group>"; };
 		FB47B7A1299615EA006B8068 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
-		FB7B3B8029A5D49200A58D8E /* MainMapView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMapView.xib; sourceTree = "<group>"; };
 		FB7B3B8229A5D8FD00A58D8E /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		FB7B3B8329A5D8FD00A58D8E /* MapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		FB950B1029A4444800431FDA /* LoginProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginProtocol.h; sourceTree = "<group>"; };
+		FBEB6FDC29A743AD00445EF9 /* CREA_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CREA_UIViewController.swift; sourceTree = "<group>"; };
 		FBF52F592999B570006594D1 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAgreeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,6 +229,7 @@
 		FB21D2D82990A9E400F1FA20 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				FBEB6FDC29A743AD00445EF9 /* CREA_UIViewController.swift */,
 				FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */,
 				FB110C982990EEDB00C4EF53 /* ColorExtension.swift */,
 				FB47B7A1299615EA006B8068 /* ImageExtension.swift */,
@@ -355,7 +356,6 @@
 		FBE13B6A299B0FE6008FA404 /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
-				FB7B3B8029A5D49200A58D8E /* MainMapView.xib */,
 				FB7B3B8229A5D8FD00A58D8E /* MapView.h */,
 				FB7B3B8329A5D8FD00A58D8E /* MapView.m */,
 			);
@@ -447,7 +447,6 @@
 				FB35BAA8299A2A6B00BA6A27 /* MapPage.storyboard in Resources */,
 				FB21D2BA299098DD00F1FA20 /* LaunchScreen.storyboard in Resources */,
 				FB21D2C22990996D00F1FA20 /* GoogleService-Info.plist in Resources */,
-				FB7B3B8129A5D49200A58D8E /* MainMapView.xib in Resources */,
 				FB23F874299F04280023C752 /* InvestInputView.xib in Resources */,
 				A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */,
 				A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */,
@@ -529,6 +528,7 @@
 				FB35BAB8299A2E8800BA6A27 /* AddItemVC.swift in Sources */,
 				FB23F870299E10ED0023C752 /* InformationView.swift in Sources */,
 				A7F116582998B52900905DAA /* NaverLogin.m in Sources */,
+				FBEB6FDD29A743AD00445EF9 /* CREA_UIViewController.swift in Sources */,
 				FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */,
 				FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */,
 				FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */,
