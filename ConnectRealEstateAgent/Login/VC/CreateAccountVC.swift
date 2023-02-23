@@ -113,7 +113,6 @@ extension CreateAccountVC {
     private func moveToNextPage(email: String, password: String) {
         let storyBoard = UIStoryboard.init(name: "LoginPage", bundle: nil)
         guard let nextVC = storyBoard.instantiateViewController(withIdentifier: "AccountAgreeVC") as? AccountAgreeVC else { return }
-//        guard let presentVC = self.presentingViewController else { return }
         
         nextVC.modalPresentationStyle = .fullScreen
         
@@ -121,12 +120,6 @@ extension CreateAccountVC {
             nextVC.email = email
             nextVC.password = password
         })
-//        self.dismiss(animated: false, completion: {
-//            presentVC.present(nextVC, animated: true, completion: {
-//                nextVC.email = email
-//                nextVC.password = password
-//            })
-//        })
     }
     
 }

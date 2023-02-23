@@ -12,6 +12,7 @@
                 <outlet property="addressLbl" destination="FHj-ea-WDp" id="qFD-qD-IdE"/>
                 <outlet property="archAreaLbl" destination="37u-6V-1ur" id="Mcy-3H-W93"/>
                 <outlet property="grndFlrLbl" destination="xFJ-Pz-ZGW" id="PwG-02-VrU"/>
+                <outlet property="informationView" destination="iN0-l3-epB" id="CBB-w8-KZY"/>
                 <outlet property="mainPurpsLbl" destination="adx-YB-XHQ" id="bTW-HJ-fqb"/>
                 <outlet property="platAreaLbl" destination="1NS-6j-SWQ" id="7eS-dg-21Y"/>
                 <outlet property="totAreaLbl" destination="HwA-0h-jVP" id="IBe-m6-Eu3"/>

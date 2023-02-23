@@ -7,6 +7,10 @@
 
 #import "NaverLogin.h"
 
+@interface NaverLogin () <SendSocialLoginResult>
+
+@end
+
 @implementation NaverLogin
 
 @end

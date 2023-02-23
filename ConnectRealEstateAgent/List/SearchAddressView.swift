@@ -10,6 +10,7 @@ import DropDown
 
 protocol EndSearchAddress{
     func checkData(data: Dictionary<AnyHashable, Any>, check: Bool, addressCd: String)
+    func startSearch()
 }
 
 final class SearchAddressView: UIView {
@@ -91,6 +92,7 @@ extension SearchAddressView {
         guard let etcText = etcTxf.text else { return }
         let address = "\(korea.selectCityNm) \(korea.selectSggNm) \(korea.selectEmdNm) \(etcText)"
         print(address)
+        self.delegate?.startSearch()
         search.choiceRoad(address)
     }
 }

@@ -9,6 +9,9 @@ import UIKit
 
 class InformationView: UIView {
     private var apiData: Dictionary <AnyHashable, Any> = [:]
+    
+    @IBOutlet var informationView: UIView!
+    
     @IBOutlet weak var addressLbl: UILabel!
     @IBOutlet weak var platAreaLbl: UILabel!
     @IBOutlet weak var archAreaLbl: UILabel!
@@ -23,6 +26,7 @@ class InformationView: UIView {
         super.init(frame: frame)
         self.loadNib()
     }
+    
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -45,6 +49,7 @@ class InformationView: UIView {
 }
 
 extension InformationView {
+    
     private func setLabelData() {
         self.addressLbl.text = self.apiData["oldAddress"] as? String
         self.platAreaLbl.text = "\(String(describing: self.apiData["platArea"]!)) ㎡"

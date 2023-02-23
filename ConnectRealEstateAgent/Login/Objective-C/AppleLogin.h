@@ -6,7 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <AuthenticationService/AuthenticationServices.h>
+#import "LoginProtocol.h"
+
 
 @import AuthenticationServices;
 @import CommonCrypto;
@@ -20,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AppleLogin : NSObject <ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding>
 
 @property NSString* currentNonce;
+@property (strong, nonatomic) id<SendSocialLoginResult> delegate;
 
 - (NSString*) randomNonce: (NSInteger)length ;
 - (NSString*) stringBySha256HashingString: (NSString*)input ;

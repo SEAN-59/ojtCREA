@@ -6,6 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DatabaseManager.h"
+#import "LoginProtocol.h"
 
 @import Firebase;
 @import FirebaseCore;
@@ -15,9 +17,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GoogleLogin : NSObject
+
+@interface GoogleLogin : NSObject 
+@property (strong, nonatomic) id<SendSocialLoginResult> delegate;
 
 -(void) googleSignInWithFirebase: (UIViewController*)vc ;
+
 
 @end
 

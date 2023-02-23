@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DatabaseManager.h"
 
 @import Firebase;
 @import FirebaseCore;
@@ -22,12 +23,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 @interface EmailLogin : NSObject <sendEmailLoginResult>
+//@property (strong, nonatomic) DatabaseManager* dbManager;
 @property (weak, nonatomic) id<sendEmailLoginResult> delegate;
+
 
 - (BOOL) checkEmailTxf: (NSString*) email;
 - (BOOL) checkPasswordTxf: (NSString*) password;
 
-- (void) signInEmail: (NSString*) email password: (NSString*) password;
+- (void) signInEmail: (NSString*) email password: (NSString*) password NS_SWIFT_NAME(signInEmail(email:password:));
 
 - (void) createEmail: (NSString*) email password: (NSString*) password;
 

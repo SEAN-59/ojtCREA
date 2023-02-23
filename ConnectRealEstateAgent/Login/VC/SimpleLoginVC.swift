@@ -6,9 +6,15 @@
 //
 
 import UIKit
-//import GoogleLogin
+
+//import FirebaseAuth
+//import FirebaseCore
 
 class SimpleLoginVC: UIViewController {
+    
+    @IBOutlet weak var backPageView: UIView!
+    @IBOutlet weak var loginIndicator: UIActivityIndicatorView!
+    
     
     @IBOutlet weak var naverLoginBtn: UIButton!
     
@@ -21,6 +27,15 @@ class SimpleLoginVC: UIViewController {
     
     @IBAction func fromYoutoSimple(_ segue: UIStoryboardSegue) {}
     
+    @IBAction func logout(_ sender: UIButton) {
+        try? Auth.auth().signOut()
+    }
+    
+    private func startIndicator() {
+        self.backPageView.isHidden = false
+        self.loginIndicator.startAnimating()
+        self.loginIndicator.isHidden = false
+    }
 }
 
 //MARK: - LOGIN BUTTON TAPPED
@@ -28,41 +43,30 @@ extension SimpleLoginVC {
     
     @IBAction func tapAppleLoginBtn(_ sender: UIButton) {
         let appleLogin = AppleLogin()
+        appleLogin.delegate = self
+        self.startIndicator()
         appleLogin.startSignInWithAppleFlow()
     }
     
     @IBAction func tapGoogleLoginBtn(_ sender: UIButton) {
         let googleLogin = GoogleLogin()
+        googleLogin.delegate = self
+        self.startIndicator()
         googleLogin.googleSignIn(withFirebase: self)
     }
     
     
     @IBAction func tapNaverLoginBtn(_ sender: UIButton) {
-        let dbManager = DatabaseManager()
-        let testDict: Dictionary = [
-            "test1": 1,
-            "test2": 2,
-            "test3": 3,
-            "test4": 4,
-            "test5": 5,
-        ]
-        dbManager.writeData(input: testDict)
-//        let storyBoard = UIStoryboard.init(name: "ItemPage", bundle: nil)
-//        let nextVC = storyBoard.instantiateViewController(withIdentifier: "AddItemVC")
-//        nextVC.modalPresentationStyle = .fullScreen
-//        self.present(nextVC, animated: true, completion: nil)
-        
 //        let naverLogin = NaverLogin()
+//        naverLogin.delegate = self
+//        self.startIndicator()
         
-//        let searchAddress = SearchAddress()
-//        searchAddress.delegate = self
-//        searchAddress.choiceRoad("충청남도 천안시 서북구 성정동 835-1번지")
-        
-        
+        let dbManager = DatabaseManager()
     }
     
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {
         let kakaoLogin = KakaoLogin()
+        kakaoLogin.delegate = self
         kakaoLogin.loginKakaoAccount()
     }
     
@@ -81,5 +85,26 @@ extension SimpleLoginVC {
 extension SimpleLoginVC: SendAPIDataDelegate {
     func getAPIData(json data: [AnyHashable : Any]) {
         print("Load End")
+    }
+}
+
+extension SimpleLoginVC: SendSocialLoginResult {
+    func sendSignInResult(result: Bool) {
+        if result {
+            self.backPageView.isHidden = true
+            self.loginIndicator.stopAnimating()
+            self.loginIndicator.isHidden = true
+            
+            let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)
+            guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "MapVC") as? MapVC else { return }
+            nextVC.modalPresentationStyle = .fullScreen
+            guard let presentVC = self.presentingViewController else { return }
+            
+            self.dismiss(animated: false, completion: {
+                presentVC.present(nextVC, animated: false, completion: nil)
+            })
+            
+
+        }
     }
 }

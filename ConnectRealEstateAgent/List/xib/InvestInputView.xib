@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="depositValueTxf" destination="BzV-Cc-IrP" id="OMG-3W-nPQ"/>
                 <outlet property="incomeValueTxf" destination="A7a-ft-3ed" id="K9f-kH-iPx"/>
+                <outlet property="investView" destination="iN0-l3-epB" id="G0z-ae-MRp"/>
                 <outlet property="loanRatTxf" destination="WHO-0V-PnA" id="80E-7W-c6f"/>
                 <outlet property="loanValueTxf" destination="eYC-X7-5OM" id="zm2-6b-1jc"/>
                 <outlet property="sellValueTxf" destination="ptM-ZF-4UH" id="cXp-Gb-rTy"/>
