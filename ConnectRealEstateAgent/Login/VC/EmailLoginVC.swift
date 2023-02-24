@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmailLoginVC: CREA_UIViewController {
+class EmailLoginVC: CREAViewController {
     private let emailLogin = EmailLogin()
     private let dbManager = DatabaseManager()
     

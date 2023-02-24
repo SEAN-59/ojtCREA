@@ -1,0 +1,29 @@
+//
+//  InfoMarkerViewController.h
+//  ConnectRealEstateAgent
+//
+//  Created by TAnine on 2023/02/24.
+//
+
+#import <UIKit/UIKit.h>
+
+#import "InfoMarkerTableViewCell.h"
+
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface InfoMarkerViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property UINib* cellNib;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *addrTitleLbl;
+@property (weak, nonatomic) IBOutlet UILabel *likePersonLbl;
+@property (weak, nonatomic) IBOutlet UITableView *itemListTabelView;
+
+- (IBAction)tapConnectbtn:(UIButton *)sender;
+
+- (IBAction)tapDismissBtn:(UIButton *)sender;
+
+@end
+
+NS_ASSUME_NONNULL_END

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AccountAgreeVC: CREA_UIViewController {
+class AccountAgreeVC: CREAViewController {
     let dbManager = DatabaseManager()
     var checkBoxArray: [Bool] = [false, false, false, false]
     var email: String = ""

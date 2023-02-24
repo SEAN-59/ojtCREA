@@ -6,6 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "URLData.h"
+#import "KEYData.h"
 
 @import AFNetworking;
 
@@ -14,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 - (void) getAddressAPI: (nullable NSDictionary*)data NS_SWIFT_NAME(getAddressAPI(json:));
-- (void) getGeocodingAPI: (NSDictionary*)data NS_SWIFT_NAME(getGeocodingAPI(json:));
+- (void) getGeocodingAPI: (NSDictionary*)data addrCd: (NSString*) addrCd address: (NSString*) address NS_SWIFT_NAME(getGeocodingAPI(geo:addrcd:address:));
 
 @end
 
@@ -24,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void) choiceRoad: (NSString*) address;
 
--(void) checkGeocode: (NSString*) address;
+-(void) checkGeocode: (NSString*) address addrCd: (NSString*)addrCd;
 
 @end
 

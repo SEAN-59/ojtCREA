@@ -220,12 +220,11 @@
 
 - (void)readUserData:(NSString *)uid {
     NSString* path = [NSString stringWithFormat:@"/UserData/%@/userNm",uid];
-    NSLog(@"%@",path);
     [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
         if (error == nil) {
-            if ([snapshot.value isEqual: @"고객"]) { // 일반 고객
+            if ([snapshot.value isEqual: @"고객"]) { // 일반 고객 = FALSE
                 [self.delegate successReadUser:FALSE];
-            } else if ([snapshot.value isEqual: @"사업자"]) { // 사업자 고객
+            } else if ([snapshot.value isEqual: @"사업자"]) { // 사업자 고객 = TRUE
                 [self.delegate successReadUser:TRUE];
             }
         }
@@ -246,6 +245,21 @@
         }
     }];
 }
+
+- (void)readUserItemaData {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/Item",uid];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass:[NSNull class]]) {
+                [self.delegate successReadUserItem:FALSE data:[[NSArray alloc] init]];
+            } else {
+                [self.delegate successReadUserItem:TRUE data:[snapshot.value allKeys]];
+            }
+        }
+    }];
+}
+
 
 
 @end

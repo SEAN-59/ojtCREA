@@ -11,7 +11,7 @@
 @interface SearchAddress ()
 
 -(void) searchAddressURL: (NSString*)url Parameters: (NSMutableDictionary*) param Type: (NSString*) type;
--(void) searchNaverGeocoding: (NSString*)url Parameters:(NSMutableDictionary*) param;
+-(void) searchNaverGeocoding:(NSMutableDictionary*) param addrCd: (NSString*) addrCd address: (NSString*) address;
 
 -(void) choiceBuild: (NSDictionary*) param;
 
@@ -29,22 +29,13 @@
 
 // MARK: - CALL PARTS
 - (void)choiceRoad:(NSString *)address {
-    KeyData* keys = [[KeyData alloc] init];
-    NSString* roadKey = [NSString stringWithString: keys.roadKey];
-    URLDatas* urls = [[URLDatas alloc] init];
-    NSString* roadURL = [NSString stringWithString: urls.roadAddress];
     
-    NSMutableDictionary* roadParam = [NSMutableDictionary dictionaryWithDictionary: [self createRoadParameters:roadKey Address:address]];
+    NSMutableDictionary* roadParam = [NSMutableDictionary dictionaryWithDictionary: [self createRoadParameters:ROAD_KEY Address:address]];
     
-    [self searchAddressURL:roadURL Parameters:roadParam Type:@"road"];
+    [self searchAddressURL:ROAD_ADDRESS_URL Parameters:roadParam Type:@"road"];
 }
 
 - (void)choiceBuild:(NSDictionary *)param {
-    KeyData* keys = [[KeyData alloc] init];
-    NSString* buildKey = [NSString stringWithString: keys.decodingKey];
-    URLDatas* urls = [[URLDatas alloc] init];
-    NSString* buildURL = [NSString stringWithString: urls.buildService];
-    
     NSString*(^checkZero)(NSString*) =  ^(NSString* dictValue) {
         NSString* value = @"0000";
 
@@ -59,26 +50,20 @@
     };
     
     NSMutableDictionary* buildParam = [NSMutableDictionary dictionaryWithDictionary:
-                                       [self createBuildParameters:buildKey
+                                       [self createBuildParameters:DECODING_KEY
                                                    SggCd:[param objectForKey:@"sggCd"]
                                                    BjdCd:[param objectForKey:@"bjdCd"]
                                                      Bun:checkZero([param objectForKey:@"bun"])
                                                       Ji:checkZero([param objectForKey:@"ji"])
                                        ]];
     
-    [self searchAddressURL:buildURL Parameters:buildParam Type: @"build"];
+    [self searchAddressURL:BUILD_SERVICE_URL Parameters:buildParam Type: @"build"];
 }
 
-- (void)checkGeocode:(NSString *)address {
-    KeyData* keys = [[KeyData alloc] init];
-    NSString* naverKey = [NSString stringWithString: keys.naverKey];
-    NSString* naverID = [NSString stringWithString: keys.naverID];
-    URLDatas* urls = [[URLDatas alloc] init];
-    NSString* naverURL = [NSString stringWithString: urls.naverGeocode];
+- (void)checkGeocode:(NSString *)address addrCd:(NSString *)addrCd {
+    NSMutableDictionary* naverGeoParm = [NSMutableDictionary dictionaryWithDictionary:[self createNaverGeoParameters:NAVER_ID key:NAVER_KEY Address:address]];
     
-    NSMutableDictionary* naverGeoParm = [NSMutableDictionary dictionaryWithDictionary:[self createNaverGeoParameters:naverID key:naverKey Address:address]];
-    
-    [self searchNaverGeocoding:naverURL Parameters:naverGeoParm];
+    [self searchNaverGeocoding:naverGeoParm addrCd:addrCd address:address];
     
 }
 // MARK: - NETWORKING PART
@@ -113,19 +98,18 @@
     }];
 }
 
-- (void)searchNaverGeocoding:(NSString *)url Parameters:(NSMutableDictionary *)param {
+- (void)searchNaverGeocoding:(NSMutableDictionary *)param addrCd:(NSString *)addrCd address:(NSString *)address {
     AFHTTPSessionManager* manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
-    [manager GET:url
+    [manager GET:NAVER_GEO_CODE_URL
       parameters:param
          headers:nil
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSDictionary* geoData = [self geoParsingData:responseObject];
-        
-        [self.delegate getGeocodingAPI:geoData];
+        NSDictionary* geoData = [self geoParsingData:responseObject];        
+        [self.delegate getGeocodingAPI:geoData addrCd:addrCd address:address];
     }
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"ERROR: %@", error);

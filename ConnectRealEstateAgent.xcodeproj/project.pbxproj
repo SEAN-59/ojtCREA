@@ -49,12 +49,16 @@
 		FB42B1D7299B20E800CBADC9 /* SearchAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB42B1D6299B20E800CBADC9 /* SearchAddressView.xib */; };
 		FB42B1DA299B36A300CBADC9 /* AFNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = FB42B1D9299B36A300CBADC9 /* AFNetworking */; };
 		FB42B1DD299B36C600CBADC9 /* SearchAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = FB42B1DC299B36C600CBADC9 /* SearchAddress.m */; };
-		FB42B1DF299B39F000CBADC9 /* KeyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42B1DE299B39F000CBADC9 /* KeyData.swift */; };
-		FB42B1E1299B3A8600CBADC9 /* URLData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB42B1E0299B3A8600CBADC9 /* URLData.swift */; };
 		FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */; };
 		FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B7A1299615EA006B8068 /* ImageExtension.swift */; };
 		FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7B3B8329A5D8FD00A58D8E /* MapView.m */; };
-		FBEB6FDD29A743AD00445EF9 /* CREA_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB6FDC29A743AD00445EF9 /* CREA_UIViewController.swift */; };
+		FB8505B529A8929F0053311D /* InfoMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8505B429A8929F0053311D /* InfoMarkerViewController.xib */; };
+		FB8505B929A89AE60053311D /* InfoMarkerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8505B729A89AE60053311D /* InfoMarkerTableViewCell.m */; };
+		FB8505BA29A89AE60053311D /* InfoMarkerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8505B829A89AE60053311D /* InfoMarkerTableViewCell.xib */; };
+		FBBBD19029A8766100F6A0CA /* InfoMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBBD18E29A8766100F6A0CA /* InfoMarkerViewController.m */; };
+		FBBBD19829A8826700F6A0CA /* DetailMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBBD19629A8826700F6A0CA /* DetailMarkerViewController.m */; };
+		FBBBD19929A8826700F6A0CA /* DetailMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBBBD19729A8826700F6A0CA /* DetailMarkerViewController.xib */; };
+		FBEB6FDD29A743AD00445EF9 /* CREAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB6FDC29A743AD00445EF9 /* CREAViewController.swift */; };
 		FBF52F5A2999B570006594D1 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F592999B570006594D1 /* CreateAccountVC.swift */; };
 		FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */; };
 /* End PBXBuildFile section */
@@ -106,14 +110,23 @@
 		FB42B1D6299B20E800CBADC9 /* SearchAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAddressView.xib; sourceTree = "<group>"; };
 		FB42B1DB299B36C600CBADC9 /* SearchAddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchAddress.h; path = ConnectRealEstateAgent/List/SearchAddress.h; sourceTree = SOURCE_ROOT; };
 		FB42B1DC299B36C600CBADC9 /* SearchAddress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SearchAddress.m; path = ConnectRealEstateAgent/List/SearchAddress.m; sourceTree = SOURCE_ROOT; };
-		FB42B1DE299B39F000CBADC9 /* KeyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyData.swift; sourceTree = "<group>"; };
-		FB42B1E0299B3A8600CBADC9 /* URLData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLData.swift; sourceTree = "<group>"; };
 		FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BJDAddressData.swift; sourceTree = "<group>"; };
 		FB47B7A1299615EA006B8068 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		FB7B3B8229A5D8FD00A58D8E /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		FB7B3B8329A5D8FD00A58D8E /* MapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
+		FB8505B429A8929F0053311D /* InfoMarkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoMarkerViewController.xib; sourceTree = "<group>"; };
+		FB8505B629A89AE60053311D /* InfoMarkerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoMarkerTableViewCell.h; sourceTree = "<group>"; };
+		FB8505B729A89AE60053311D /* InfoMarkerTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoMarkerTableViewCell.m; sourceTree = "<group>"; };
+		FB8505B829A89AE60053311D /* InfoMarkerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoMarkerTableViewCell.xib; sourceTree = "<group>"; };
 		FB950B1029A4444800431FDA /* LoginProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginProtocol.h; sourceTree = "<group>"; };
-		FBEB6FDC29A743AD00445EF9 /* CREA_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CREA_UIViewController.swift; sourceTree = "<group>"; };
+		FBBBD18B29A869F300F6A0CA /* URLData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLData.h; sourceTree = "<group>"; };
+		FBBBD18C29A86E6D00F6A0CA /* KEYData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KEYData.h; sourceTree = "<group>"; };
+		FBBBD18D29A8766100F6A0CA /* InfoMarkerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoMarkerViewController.h; sourceTree = "<group>"; };
+		FBBBD18E29A8766100F6A0CA /* InfoMarkerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoMarkerViewController.m; sourceTree = "<group>"; };
+		FBBBD19529A8826700F6A0CA /* DetailMarkerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailMarkerViewController.h; sourceTree = "<group>"; };
+		FBBBD19629A8826700F6A0CA /* DetailMarkerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailMarkerViewController.m; sourceTree = "<group>"; };
+		FBBBD19729A8826700F6A0CA /* DetailMarkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMarkerViewController.xib; sourceTree = "<group>"; };
+		FBEB6FDC29A743AD00445EF9 /* CREAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CREAViewController.swift; sourceTree = "<group>"; };
 		FBF52F592999B570006594D1 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAgreeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,7 +242,7 @@
 		FB21D2D82990A9E400F1FA20 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				FBEB6FDC29A743AD00445EF9 /* CREA_UIViewController.swift */,
+				FBEB6FDC29A743AD00445EF9 /* CREAViewController.swift */,
 				FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */,
 				FB110C982990EEDB00C4EF53 /* ColorExtension.swift */,
 				FB47B7A1299615EA006B8068 /* ImageExtension.swift */,
@@ -280,6 +293,8 @@
 		FB23F87B299F4CD60023C752 /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
+				FBBBD18C29A86E6D00F6A0CA /* KEYData.h */,
+				FBBBD18B29A869F300F6A0CA /* URLData.h */,
 				FB23F87C299F4CFB0023C752 /* DatabaseManager.h */,
 				FB23F87D299F4CFB0023C752 /* DatabaseManager.m */,
 			);
@@ -345,12 +360,23 @@
 		FB47B79E2995EF54006B8068 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				FB42B1DE299B39F000CBADC9 /* KeyData.swift */,
-				FB42B1E0299B3A8600CBADC9 /* URLData.swift */,
 				FB21D2D82990A9E400F1FA20 /* Swift */,
 				FB23F87B299F4CD60023C752 /* Objective-C */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FB8505BB29A89AEF0053311D /* InfoMarker */ = {
+			isa = PBXGroup;
+			children = (
+				FBBBD18D29A8766100F6A0CA /* InfoMarkerViewController.h */,
+				FBBBD18E29A8766100F6A0CA /* InfoMarkerViewController.m */,
+				FB8505B429A8929F0053311D /* InfoMarkerViewController.xib */,
+				FB8505B629A89AE60053311D /* InfoMarkerTableViewCell.h */,
+				FB8505B729A89AE60053311D /* InfoMarkerTableViewCell.m */,
+				FB8505B829A89AE60053311D /* InfoMarkerTableViewCell.xib */,
+			);
+			path = InfoMarker;
 			sourceTree = "<group>";
 		};
 		FBE13B6A299B0FE6008FA404 /* Objective-C */ = {
@@ -358,6 +384,10 @@
 			children = (
 				FB7B3B8229A5D8FD00A58D8E /* MapView.h */,
 				FB7B3B8329A5D8FD00A58D8E /* MapView.m */,
+				FB8505BB29A89AEF0053311D /* InfoMarker */,
+				FBBBD19529A8826700F6A0CA /* DetailMarkerViewController.h */,
+				FBBBD19629A8826700F6A0CA /* DetailMarkerViewController.m */,
+				FBBBD19729A8826700F6A0CA /* DetailMarkerViewController.xib */,
 			);
 			name = "Objective-C";
 			path = "Objective-C/Objective-C";
@@ -449,10 +479,13 @@
 				FB21D2C22990996D00F1FA20 /* GoogleService-Info.plist in Resources */,
 				FB23F874299F04280023C752 /* InvestInputView.xib in Resources */,
 				A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */,
+				FB8505B529A8929F0053311D /* InfoMarkerViewController.xib in Resources */,
+				FB8505BA29A89AE60053311D /* InfoMarkerTableViewCell.xib in Resources */,
 				A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */,
 				FB42B1D7299B20E800CBADC9 /* SearchAddressView.xib in Resources */,
 				FB21D2B7299098DD00F1FA20 /* Assets.xcassets in Resources */,
 				FB21D2B5299098DC00F1FA20 /* Main.storyboard in Resources */,
+				FBBBD19929A8826700F6A0CA /* DetailMarkerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,9 +540,9 @@
 			files = (
 				FB42B1DD299B36C600CBADC9 /* SearchAddress.m in Sources */,
 				FB23F87E299F4CFB0023C752 /* DatabaseManager.m in Sources */,
-				FB42B1DF299B39F000CBADC9 /* KeyData.swift in Sources */,
 				FB110C932990C66900C4EF53 /* KakaoLogin.swift in Sources */,
 				FB23F88229A329F10023C752 /* EnumCollection.swift in Sources */,
+				FBBBD19829A8826700F6A0CA /* DetailMarkerViewController.m in Sources */,
 				FB21D2AE299098DC00F1FA20 /* AppDelegate.swift in Sources */,
 				A7F116552998B4FE00905DAA /* GoogleLogin.m in Sources */,
 				A75FEBB42997DD28004F49DC /* FirstVC.swift in Sources */,
@@ -520,7 +553,6 @@
 				FBF52F5A2999B570006594D1 /* CreateAccountVC.swift in Sources */,
 				FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */,
 				FB35BAA6299A2A6100BA6A27 /* MapVC.swift in Sources */,
-				FB42B1E1299B3A8600CBADC9 /* URLData.swift in Sources */,
 				FB110C992990EEDB00C4EF53 /* ColorExtension.swift in Sources */,
 				FB35BAC0299A331F00BA6A27 /* SearchAddressView.swift in Sources */,
 				FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */,
@@ -528,11 +560,13 @@
 				FB35BAB8299A2E8800BA6A27 /* AddItemVC.swift in Sources */,
 				FB23F870299E10ED0023C752 /* InformationView.swift in Sources */,
 				A7F116582998B52900905DAA /* NaverLogin.m in Sources */,
-				FBEB6FDD29A743AD00445EF9 /* CREA_UIViewController.swift in Sources */,
+				FBEB6FDD29A743AD00445EF9 /* CREAViewController.swift in Sources */,
+				FB8505B929A89AE60053311D /* InfoMarkerTableViewCell.m in Sources */,
 				FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */,
 				FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */,
 				FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */,
 				FB23F87A299F4BC70023C752 /* InvestInputView.swift in Sources */,
+				FBBBD19029A8766100F6A0CA /* InfoMarkerViewController.m in Sources */,
 				FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,8 +717,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ConnectRealEstateAgent/ConnectRealEstateAgent.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 45MYH7ZHUQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ConnectRealEstateAgent/Info.plist;
@@ -702,6 +738,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seonkyu.kim.ConnectRealEstateAgent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ConnectRealEstateAgent/ConnectRealEstateAgent-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -718,8 +755,10 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = ConnectRealEstateAgent/ConnectRealEstateAgent.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 45MYH7ZHUQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ConnectRealEstateAgent/Info.plist;
@@ -737,6 +776,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.seonkyu.kim.ConnectRealEstateAgent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "ConnectRealEstateAgent/ConnectRealEstateAgent-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

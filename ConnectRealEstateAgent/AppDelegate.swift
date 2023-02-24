@@ -20,15 +20,15 @@ import NMapsMap
 
 
 
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         FirebaseApp.configure()
-        let keyData = KeyData()
-        KakaoSDK.initSDK(appKey: "\(keyData.kakaoKey)")
-        NMFAuthManager.shared().clientId = "\(keyData.naverID)"
+        KakaoSDK.initSDK(appKey: KAKAO_KEY)
+        NMFAuthManager.shared().clientId = NAVER_ID
 
         return true
     }
@@ -62,17 +62,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
-}
-
-extension UIViewController {
-//    func hideKeyboard() {
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-//                                                                 action: #selector(dismissKeyboard))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//    }
-//
-//    @objc func dismissKeyboard() {
-//        view.endEditing(true)
-//    }
 }

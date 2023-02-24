@@ -8,11 +8,14 @@
 import UIKit
 import NMapsMap
 
-class MapVC: CREA_UIViewController {
+class MapVC: CREAViewController {
+    /// 일반
     var userType: Bool = false
     
     private let mapView = MapView()
     private let dbManager = DatabaseManager()
+    private let searchAPI = SearchAddress()
+    
     
     @IBOutlet weak var addItemBtn: UIButton!
     @IBOutlet weak var ItemListBtn: UIButton!
@@ -23,7 +26,10 @@ class MapVC: CREA_UIViewController {
         super.viewDidLoad()
         self.layout()
         self.dbManager.delegate = self
+        self.searchAPI.delegate = self
+        self.mapView.userType = self.userType
         self.mapView.moveToNowLocation(map: self.mainMapView)
+        
     }
     
     private func layout() {
@@ -69,7 +75,12 @@ private extension MapVC {
     @IBAction func tapHomeBtn(_ sender: UIButton) {
 //        [self.mapView moveTest(self.mainMapView)]
 //        self.mapView.moveTest(self.mainMapView)
-        self.dbManager.readAreaData()
+        if self.userType {
+            self.dbManager.readUserItemaData()
+        } else {
+            self.dbManager.readAreaData()
+        }
+        
     }
     
     @IBAction func tapItemListBtn(_ sender: UIButton) {
@@ -82,33 +93,50 @@ private extension MapVC {
 
 
 extension MapVC: SendAPIDataDelegate {
-    func getGeocodingAPI(json data: [AnyHashable : Any]) {
+    func getGeocodingAPI(geo data: [AnyHashable : Any], addrcd addrCd: String, address: String) {
+        guard let lat = data["lat"] as? String else { return print("Convert Error lat") }
+        guard let lon = data["lon"] as? String else { return print("Convert Error lon")}
+        self.mapView.makeMarker(view: self ,map: self.mainMapView, lat: Double(lat)!, lon: Double(lon)!, addrCd:addrCd, address: address)
         
-        ///apu 는 잘 받는거 같은데 여기 안들온다??
-        print(data)
+        
     }
 }
 extension MapVC: DatabaseCallDelegate {
+    func successReadUserItem(result: Bool, data: [Any]) {
+        if result {
+            self.businessTypeMarker(data: data)
+        }
+    }
     func successReadArea(result: Bool, data: [Any]) {
         if result {
-            for i in 0..<data.count {
-                let areaNum: String = data[i] as! String
-                
-                var korea = Korea.init(selectCityNm: "", selectSggNm: "", selectEmdNm: "")
-                korea.selectCityNm = korea.cityNm[Int(areaNum.prefix(2))!]
-                korea.selectSggNm = korea.selectSgg()[Int(areaNum.prefix(4).suffix(2))!]
-                korea.selectEmdNm = korea.selectEmd()[Int(areaNum.suffix(2))!]
-                print(korea.selectCityNm)
-                print(korea.selectSggNm)
-                print(korea.selectEmdNm)
-                /// 여기서 Gecode 호출 하면 되는것
-                SearchAddress().checkGeocode("\(korea.selectCityNm) \(korea.selectSggNm) \(korea.selectEmdNm)")
-            }
-            /// 있음
-            /// data = NSArray
-            ///
-        } else {
-            /// 없음
+            self.personalTypeMarker(data: data)
         }
+    }
+    
+    private func personalTypeMarker(data: [Any]) {
+        for i in 0..<data.count {
+            let areaNum: String = data[i] as! String
+            
+            var korea = Korea.init(selectCityNm: "", selectSggNm: "", selectEmdNm: "")
+            korea.selectCityNm = korea.cityNm[Int(areaNum.prefix(2))!]
+            korea.selectSggNm = korea.selectSgg()[Int(areaNum.prefix(4).suffix(2))!]
+            korea.selectEmdNm = korea.selectEmd()[Int(areaNum.suffix(2))!]
+            /// 여기서 Gecode 호출 하면 되는것
+            self.searchAPI.checkGeocode("\(korea.selectCityNm) \(korea.selectSggNm) \(korea.selectEmdNm)",addrCd: areaNum)
+        }
+    }
+    
+    private func businessTypeMarker(data: [Any]) {
+        for i in 0..<data.count {
+            let areaNum: String = data[i] as! String
+            
+            var korea = Korea.init(selectCityNm: "", selectSggNm: "", selectEmdNm: "")
+            korea.selectCityNm = korea.cityNm[Int(areaNum.prefix(2))!]
+            korea.selectSggNm = korea.selectSgg()[Int(areaNum.prefix(4).suffix(2))!]
+            korea.selectEmdNm = korea.selectEmd()[Int(areaNum.suffix(2))!]
+            /// 여기서 Gecode 호출 하면 되는것
+            self.searchAPI.checkGeocode("\(korea.selectCityNm) \(korea.selectSggNm) \(korea.selectEmdNm)", addrCd: areaNum)
+        }
+        
     }
 }

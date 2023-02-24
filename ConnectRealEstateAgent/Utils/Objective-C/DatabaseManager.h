@@ -25,6 +25,8 @@ typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 
 - (void) successReadArea: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadArea(result:data:));
 
+- (void) successReadUserItem: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadUserItem(result:data:));
+
 @end
 
 @interface DatabaseManager : NSObject
@@ -36,6 +38,8 @@ typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 - (void) createData: (DatabaseType) type Data: (id) data NS_SWIFT_NAME(createData(type:data:));
 
 - (void) readUserData: (NSString*) uid NS_SWIFT_NAME(readUserData(uid:));
+
+- (void) readUserItemaData;
 - (void) readAreaData;
 
 - (void) testData: (id)data;

@@ -1,5 +1,5 @@
 //
-//  CREA_UIViewController.swift
+//  CREAViewController.swift
 //  ConnectRealEstateAgent
 //
 //  Created by TAnine on 2023/02/23.
@@ -7,7 +7,8 @@
 
 import UIKit
 
-class CREA_UIViewController: UIViewController {
+class CREAViewController: UIViewController {
+    
     func hideKeyboard() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                                  action: #selector(dismissKeyboard))

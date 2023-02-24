@@ -10,7 +10,7 @@ import UIKit
 //import FirebaseAuth
 //import FirebaseCore
 
-class SimpleLoginVC: CREA_UIViewController {
+class SimpleLoginVC: CREAViewController {
     private let dbManager = DatabaseManager()
     
     @IBOutlet weak var backPageView: UIView!
