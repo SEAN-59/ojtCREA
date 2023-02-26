@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,8 +14,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InfoMarkerViewController">
             <connections>
                 <outlet property="addrTitleLbl" destination="SQC-Bq-V7k" id="fR0-9b-rxt"/>
+                <outlet property="backView" destination="eqA-NZ-a6x" id="Lh8-Mc-beV"/>
                 <outlet property="itemListTabelView" destination="nya-MG-cKa" id="Jpc-72-oTm"/>
                 <outlet property="likePersonLbl" destination="Gi9-9K-d0k" id="yQL-Ub-5rd"/>
+                <outlet property="loadingIndicator" destination="8FU-Qi-9Ns" id="Hk0-Yz-bSh"/>
                 <outlet property="view" destination="iN0-l3-epB" id="cMz-ML-nVs"/>
             </connections>
         </placeholder>
@@ -24,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1zU-H0-VWG">
-                    <rect key="frame" x="0.0" y="54" width="414" height="50"/>
+                    <rect key="frame" x="0.0" y="58" width="414" height="50"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77t-nm-QTA">
                             <rect key="frame" x="20" y="10" width="30" height="30"/>
@@ -43,7 +46,7 @@
                                 <action selector="tapDismissBtn:" destination="-1" eventType="touchUpInside" id="n5E-qd-L3Q"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소 입력" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-Bq-V7k">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQC-Bq-V7k">
                             <rect key="frame" x="60" y="14.5" width="294" height="25.5"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                             <nil key="textColor"/>
@@ -61,7 +64,7 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nya-MG-cKa">
-                    <rect key="frame" x="20" y="205" width="374" height="572"/>
+                    <rect key="frame" x="20" y="209" width="374" height="568"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="khs-9R-XpV">
@@ -82,7 +85,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C32-kl-wCW">
-                    <rect key="frame" x="98" y="124" width="218.5" height="51"/>
+                    <rect key="frame" x="98" y="128" width="218.5" height="51"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="해당 지역을 선호하는 고객 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QU-gZ-kF5">
                             <rect key="frame" x="0.0" y="15" width="184" height="21"/>
@@ -107,18 +110,32 @@
                         <constraint firstAttribute="bottom" secondItem="6QU-gZ-kF5" secondAttribute="bottom" constant="15" id="toQ-6y-oif"/>
                     </constraints>
                 </view>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqA-NZ-a6x">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" restorationIdentifier="loginIndicator" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8FU-Qi-9Ns">
+                    <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                    <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="nya-MG-cKa" secondAttribute="trailing" constant="20" id="0KL-w5-aU0"/>
+                <constraint firstAttribute="bottom" secondItem="eqA-NZ-a6x" secondAttribute="bottom" id="4e1-LN-y2P"/>
                 <constraint firstItem="khs-9R-XpV" firstAttribute="top" secondItem="nya-MG-cKa" secondAttribute="bottom" constant="20" id="5hR-HM-Xbm"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="khs-9R-XpV" secondAttribute="bottom" constant="20" id="Gng-mf-VcP"/>
                 <constraint firstItem="1zU-H0-VWG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="MY7-nP-PkN"/>
                 <constraint firstItem="khs-9R-XpV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="QID-nY-Q8u"/>
+                <constraint firstItem="8FU-Qi-9Ns" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="R3Y-wQ-9wH"/>
+                <constraint firstItem="eqA-NZ-a6x" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="UcY-GS-WPW"/>
                 <constraint firstItem="nya-MG-cKa" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Uu1-St-jKi"/>
+                <constraint firstItem="eqA-NZ-a6x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Z2L-sK-Z4N"/>
                 <constraint firstItem="1zU-H0-VWG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="aGK-fg-0JW"/>
+                <constraint firstItem="eqA-NZ-a6x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="gtx-Fp-KMA"/>
                 <constraint firstItem="C32-kl-wCW" firstAttribute="bottom" secondItem="nya-MG-cKa" secondAttribute="top" constant="-30" id="h8u-Je-jtv"/>
+                <constraint firstItem="8FU-Qi-9Ns" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hFE-lf-Zqt"/>
                 <constraint firstAttribute="trailing" secondItem="1zU-H0-VWG" secondAttribute="trailing" id="jqP-yw-qiA"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="khs-9R-XpV" secondAttribute="trailing" constant="40" id="lqn-1W-OYj"/>
                 <constraint firstItem="C32-kl-wCW" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rNh-pM-bpJ"/>
@@ -128,7 +145,7 @@
         </view>
     </objects>
     <resources>
-        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <namedColor name="DeepBlue">
             <color red="0.12200000137090683" green="0.17299999296665192" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

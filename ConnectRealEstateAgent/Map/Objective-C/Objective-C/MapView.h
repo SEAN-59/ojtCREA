@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property BOOL userType;
 
+
 -(void) callInitMap;
 
 -(void) moveToNowLocation: (NMFMapView*) map NS_SWIFT_NAME(moveToNowLocation(map:));

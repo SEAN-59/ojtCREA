@@ -63,12 +63,16 @@
     NMFOverlayTouchHandler handler = ^BOOL(NMFOverlay *overlay) {
 //        if (marker.)
         /// 마커가 겹쳐지면 클릭 안되게 하는 구간이 필요할 것 같음
-        /// 
         if (self.userType) {
             InfoMarkerViewController* infoMarkerVC = [[InfoMarkerViewController alloc] initWithNibName:@"InfoMarkerViewController" bundle:nil];
+            
+            
             [view presentViewController:infoMarkerVC
                                animated:TRUE
-                             completion:nil];
+                             completion:^{
+                [infoMarkerVC setAnyThings:address addrCd:addrCd];
+            }];
+            
         }else {
             DetailMarkerViewController* detailMarkerVC = [[DetailMarkerViewController alloc] initWithNibName:@"DetailMarkerViewController" bundle:nil];
             [view presentViewController:detailMarkerVC

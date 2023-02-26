@@ -108,8 +108,8 @@
 		FB35BAB7299A2E8800BA6A27 /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		FB35BABF299A331F00BA6A27 /* SearchAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressView.swift; sourceTree = "<group>"; };
 		FB42B1D6299B20E800CBADC9 /* SearchAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAddressView.xib; sourceTree = "<group>"; };
-		FB42B1DB299B36C600CBADC9 /* SearchAddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchAddress.h; path = ConnectRealEstateAgent/List/SearchAddress.h; sourceTree = SOURCE_ROOT; };
-		FB42B1DC299B36C600CBADC9 /* SearchAddress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SearchAddress.m; path = ConnectRealEstateAgent/List/SearchAddress.m; sourceTree = SOURCE_ROOT; };
+		FB42B1DB299B36C600CBADC9 /* SearchAddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchAddress.h; path = "ConnectRealEstateAgent/Utils/Objective-C/SearchAddress.h"; sourceTree = SOURCE_ROOT; };
+		FB42B1DC299B36C600CBADC9 /* SearchAddress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SearchAddress.m; path = "ConnectRealEstateAgent/Utils/Objective-C/SearchAddress.m"; sourceTree = SOURCE_ROOT; };
 		FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BJDAddressData.swift; sourceTree = "<group>"; };
 		FB47B7A1299615EA006B8068 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		FB7B3B8229A5D8FD00A58D8E /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
@@ -297,6 +297,8 @@
 				FBBBD18B29A869F300F6A0CA /* URLData.h */,
 				FB23F87C299F4CFB0023C752 /* DatabaseManager.h */,
 				FB23F87D299F4CFB0023C752 /* DatabaseManager.m */,
+				FB42B1DB299B36C600CBADC9 /* SearchAddress.h */,
+				FB42B1DC299B36C600CBADC9 /* SearchAddress.m */,
 			);
 			path = "Objective-C";
 			sourceTree = "<group>";
@@ -333,7 +335,6 @@
 				A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */,
 				A7C443E8299D161C001EA428 /* xib */,
 				A7C443E9299D1638001EA428 /* Swift */,
-				FB42B1D5299B1F8800CBADC9 /* Objective-C */,
 				FB35BAAC299A2D8700BA6A27 /* VC */,
 			);
 			path = List;
@@ -346,15 +347,6 @@
 				FB35BAB7299A2E8800BA6A27 /* AddItemVC.swift */,
 			);
 			path = VC;
-			sourceTree = "<group>";
-		};
-		FB42B1D5299B1F8800CBADC9 /* Objective-C */ = {
-			isa = PBXGroup;
-			children = (
-				FB42B1DB299B36C600CBADC9 /* SearchAddress.h */,
-				FB42B1DC299B36C600CBADC9 /* SearchAddress.m */,
-			);
-			path = "Objective-C";
 			sourceTree = "<group>";
 		};
 		FB47B79E2995EF54006B8068 /* Utils */ = {

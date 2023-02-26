@@ -76,7 +76,7 @@ private extension MapVC {
 //        [self.mapView moveTest(self.mainMapView)]
 //        self.mapView.moveTest(self.mainMapView)
         if self.userType {
-            self.dbManager.readUserItemaData()
+            self.dbManager.readUserItemKeyData()
         } else {
             self.dbManager.readAreaData()
         }

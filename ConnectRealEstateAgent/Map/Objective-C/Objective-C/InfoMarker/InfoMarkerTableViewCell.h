@@ -10,6 +10,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface InfoMarkerTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *addressLbl;
+@property (weak, nonatomic) IBOutlet UILabel *sellLbl;
+@property (weak, nonatomic) IBOutlet UILabel *incomeLbl;
+@property (weak, nonatomic) IBOutlet UILabel *loanLbl;
 
 @end
 
