@@ -8,47 +8,91 @@
 #import "MapView.h"
 
 
-@interface MapView ()
--(void) customInit;
--(void) layout;
+@interface MapView () 
+-(void) moveToMapCamera: (NMFMapView*) map lat: (double) latitude lon: (double) longitude NS_SWIFT_NAME(moveToMapCamera(map:lat:lon:));
+
+
 @end
 
 
 @implementation MapView
 
-- (instancetype)initWithCoder:(NSCoder *)coder {
-    self = [super initWithCoder:coder];
-    if (self) {
-        [self customInit];
+//MARK: - PRIVATE
+- (void)moveToMapCamera:(NMFMapView *)map lat:(double)latitude lon:(double)longitude{
+    NMFCameraUpdate *cameraUpdate = [NMFCameraUpdate cameraUpdateWithScrollTo:NMGLatLngMake(latitude, longitude)];
+    [map moveCamera:cameraUpdate];
+}
+
+
+- (void)callInitMap {
+    
+}
+
+/// 현재 위치 받아서 Location 으로 넘겨주는 메서드
+/// 가장 처음 시작은 이 부분으로 할 것 같음
+- (void)moveToNowLocation:(NMFMapView *)map {
+    self.locationManager = [[CLLocationManager alloc] init];
+    
+    [self.locationManager setDelegate:self];
+    [self.locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
+    [self.locationManager requestAlwaysAuthorization];
+    
+    if ([CLLocationManager locationServicesEnabled]) {
+        [self.locationManager startUpdatingLocation];
+        [self moveToMapCamera:map
+                          lat: self.locationManager.location.coordinate.latitude
+                          lon: self.locationManager.location.coordinate.longitude];
+    } else {
+        NSLog(@"OFF!");
     }
-    return self;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self customInit];
-    }
-    return self;
-}
-
-- (void)customInit {
-    [[NSBundle mainBundle] loadNibNamed:@"MainMapView" owner:self options:nil];
-//    NMFMapView* naverMapView = [[NMFMapView alloc] initWithFrame:self.frame];
-    NMFMapView* naverMapView = [[NMFMapView alloc] initWithFrame:self.contentView.frame];
-    
-    [self addSubview: self.contentView];
-    self.contentView.frame = self.bounds;
-
-    [self.contentView addSubview:naverMapView];
-    naverMapView.frame = self.contentView.bounds;
-    
-
-}
-
-- (void)layout {
     
 }
+
+
+/// 마커를 만들어 주는 메서드
+/// 용도에 따라서 마커의 생성 위치와 갯수가 다름
+- (void)makeMarker:(UIViewController *)view map:(NMFMapView *)map lat:(double)lat lon:(double)lon addrCd:(NSString *)addrCd address:(NSString *)address {
+    
+    NMFMarker* marker = [NMFMarker new];
+    marker.position = NMGLatLngMake(lat, lon);
+    marker.mapView = map;
+    marker.isHideCollidedSymbols = TRUE;
+    marker.isHideCollidedMarkers = TRUE;
+    marker.isHideCollidedCaptions = TRUE;
+    
+    NMFOverlayTouchHandler handler = ^BOOL(NMFOverlay *overlay) {
+//        if (marker.)
+        /// 마커가 겹쳐지면 클릭 안되게 하는 구간이 필요할 것 같음
+        if (self.userType) {
+            InfoMarkerViewController* infoMarkerVC = [[InfoMarkerViewController alloc] initWithNibName:@"InfoMarkerViewController" bundle:nil];
+            
+            
+            [view presentViewController:infoMarkerVC
+                               animated:TRUE
+                             completion:^{
+                [infoMarkerVC setAnyThings:address addrCd:addrCd];
+            }];
+            
+        }else {
+            DetailMarkerViewController* detailMarkerVC = [[DetailMarkerViewController alloc] initWithNibName:@"DetailMarkerViewController" bundle:nil];
+            [view presentViewController:detailMarkerVC
+                               animated:TRUE
+                             completion:nil];
+        }
+        return TRUE;
+    };
+    
+    marker.touchHandler = handler;
+}
+
+
+- (void)moveTest:(NMFMapView *)map {
+//    [self moveToMapCamera:map lat:37.5572864 lon:126.9793216];
+    [self moveToMapCamera:map lat:36.878467 lon:127.154648];
+    
+
+}
+
 
 
 @end

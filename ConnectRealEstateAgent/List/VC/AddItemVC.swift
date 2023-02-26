@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddItemVC: UIViewController {
+class AddItemVC: CREAViewController {
     
     private var addressData: Dictionary<AnyHashable, Any> = [:]
     private var addressCd: String = ""

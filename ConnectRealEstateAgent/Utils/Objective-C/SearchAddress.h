@@ -6,6 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "URLData.h"
+#import "KEYData.h"
 
 @import AFNetworking;
 
@@ -13,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol SendAPIDataDelegate <NSObject>
 
 @optional
-- (void) getAPIData: (NSDictionary*)data NS_SWIFT_NAME(getAPIData(json:));
+- (void) getAddressAPI: (nullable NSDictionary*)data NS_SWIFT_NAME(getAddressAPI(json:));
+- (void) getGeocodingAPI: (NSDictionary*)data addrCd: (NSString*) addrCd address: (NSString*) address NS_SWIFT_NAME(getGeocodingAPI(geo:addrcd:address:));
 
 @end
 
@@ -22,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) id <SendAPIDataDelegate> delegate;
 
 -(void) choiceRoad: (NSString*) address;
+
+-(void) checkGeocode: (NSString*) address addrCd: (NSString*)addrCd;
 
 @end
 

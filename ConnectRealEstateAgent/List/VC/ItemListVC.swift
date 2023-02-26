@@ -7,7 +7,8 @@
 
 import UIKit
 
-class ItemListVC: UIViewController {
+class ItemListVC: CREAViewController {
+    var userType: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()

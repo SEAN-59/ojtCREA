@@ -7,11 +7,9 @@
 
 import UIKit
 
-class EmailLoginVC: UIViewController {
-    
-    
+class EmailLoginVC: CREAViewController {
     private let emailLogin = EmailLogin()
-    
+    private let dbManager = DatabaseManager()
     
     @IBOutlet weak var emailTxf: UITextField!
     @IBOutlet weak var passwordTxf: UITextField!
@@ -28,6 +26,7 @@ class EmailLoginVC: UIViewController {
         self.emailTxf.delegate = self
         self.passwordTxf.delegate = self
         self.emailLogin.delegate = self
+        self.dbManager.delegate = self
     }
     
     @IBAction func fromYoutoLogin(_ segue: UIStoryboardSegue) {}
@@ -116,21 +115,12 @@ extension EmailLoginVC: UITextFieldDelegate {
     }
 }
 
-extension EmailLoginVC: sendEmailLoginResult {
-    func sendSignResult(result: Bool) {
-        self.backPageView.isHidden = true
-        self.loginIndicator.stopAnimating()
-        self.loginIndicator.isHidden = true
+extension EmailLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
+    func sendSignInResult(result: Bool) {
         
         if result {
-            let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)
-            guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "MapVC") as? MapVC else { return }
-            nextVC.modalPresentationStyle = .fullScreen
-            guard let presentVC = self.presentingViewController else { return }
-            
-            self.dismiss(animated: false, completion: {
-                presentVC.present(nextVC, animated: true, completion: nil)
-            })
+            guard let user = Auth.auth().currentUser else {return}
+            self.dbManager.readUserData(uid: user.uid)
         } else {
             /// 로그인 실패하게 되었을 경우에 작업
             var actionArray: [UIAlertAction] = []
@@ -142,8 +132,25 @@ extension EmailLoginVC: sendEmailLoginResult {
                                     title: "로그인 오류",
                                     message: "로그인 중 오류가 발생하였습니다.",
                                     actionArray: actionArray)
-            
         }
+        
     }
     
+    
+    func successReadUser(result: Bool) {
+        self.backPageView.isHidden = true
+        self.loginIndicator.stopAnimating()
+        self.loginIndicator.isHidden = true
+        
+        let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)
+        guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "MapVC") as? MapVC else { return }
+        nextVC.modalPresentationStyle = .fullScreen
+        guard let presentVC = self.presentingViewController else { return }
+        
+        self.dismiss(animated: false, completion: {
+            nextVC.userType = result
+            presentVC.present(nextVC, animated: true, completion: nil)
+        })
+    }
+        
 }

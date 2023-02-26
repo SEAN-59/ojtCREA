@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreateAccountVC: UIViewController {
+class CreateAccountVC: CREAViewController {
     
     
     @IBOutlet weak var emailTxf: UITextField!

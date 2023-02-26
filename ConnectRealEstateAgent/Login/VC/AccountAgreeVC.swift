@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AccountAgreeVC: UIViewController {
+class AccountAgreeVC: CREAViewController {
     let dbManager = DatabaseManager()
     var checkBoxArray: [Bool] = [false, false, false, false]
     var email: String = ""
@@ -129,7 +129,7 @@ extension AccountAgreeVC {
     }
 }
 
-extension AccountAgreeVC: sendEmailLoginResult{
+extension AccountAgreeVC: SendLoginResultDelegate{
     func sendCreateResult(_ result: Bool) {
         self.backPageView.isHidden = true
         self.createIndicator.isHidden = true

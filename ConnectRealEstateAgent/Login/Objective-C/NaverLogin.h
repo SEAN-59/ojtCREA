@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NaverLogin : NSObject
-@property (strong, nonatomic) id<SendSocialLoginResult> delegate;
+@property (strong, nonatomic) id<SendLoginResultDelegate> delegate;
 @end
 
 NS_ASSUME_NONNULL_END

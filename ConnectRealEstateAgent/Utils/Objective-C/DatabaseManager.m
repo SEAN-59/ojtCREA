@@ -44,8 +44,6 @@
 - (void)createData:(DatabaseType)type Data:(id)data {
     self.ref =[[FIRDatabase database] reference];
     
-//    NSString* changeString = [NSString stringWithFormat:@"%@",data];
-    
     switch (type) {
         case user:
             [self createUserData:data];
@@ -55,7 +53,6 @@
             break;
         case item:
             [self createItemData:data];
-//            [self.ref child:@"itemData"] child:<#(nonnull NSString *)#>
             break;
         case chat:
 //            [self.ref child:@"chatData"] child:<#(nonnull NSString *)#>
@@ -67,7 +64,6 @@
 }
 
 - (void)testData:(id)data {
-    
     
     NSString* uid = [self currentUser];
     if (uid == nil) { return; }
@@ -90,14 +86,13 @@
 }
 
 - (void)createUserData:(NSString*) data {
-    
-    NSString* path = [NSString stringWithFormat:@"/UserData/%@/",data];
+//    NSString* path = [NSString stringWithFormat:@"/UserData/%@/",data];
     
     [[[[self.ref child:@"UserData"] child:data] child:@"userNm"] setValue:@"고객"];
     
 //    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"businessNum"].key]: @""}];
     
-//    [self.ref updateChildValues:@{[[path stringByAppendingString:@"Items/"] stringByAppendingString:[self.ref child:@"0"].key]: @""}];
+//    [self.ref updateChildValues:@{[[path stringByAppendingString:@"Items/"] stringByAppendingString:[self.ref child:@"0"].key]: @""}];z
 //
 //    [self.ref updateChildValues:@{[[path stringByAppendingString:@"Chats/"] stringByAppendingString:[self.ref child:@"0"].key]: @""}];
 //
@@ -216,11 +211,83 @@
 }
 
 - (void)createChatData {
-    
 }
 
+- (void)readUserData:(NSString *)uid {
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/userNm",uid];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isEqual: @"고객"]) { // 일반 고객 = FALSE
+                [self.delegate successReadUser:FALSE];
+            } else if ([snapshot.value isEqual: @"사업자"]) { // 사업자 고객 = TRUE
+                [self.delegate successReadUser:TRUE];
+            }
+        }
+    }];
+}
 
-- (void)writeData:(NSDictionary *)inputDict {
+- (void)readAreaData {
+    NSString* path = @"/AreaData/";
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass: [NSNull class]]) {
+                // 아무것도 없음
+                NSArray* result = [[NSArray alloc] init];
+                [self.delegate successReadArea:false data:result];
+            } else {
+                [self.delegate successReadArea:TRUE data:[snapshot.value allKeys]];
+            }
+        }
+    }];
+}
+
+- (void)readUserItemKeyData {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/Item",uid];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass:[NSNull class]]) {
+                [self.delegate successReadUserItem:FALSE data:[[NSArray alloc] init]];
+            } else {
+                [self.delegate successReadUserItem:TRUE data:[snapshot.value allKeys]];
+            }
+        }
+    }];
+}
+
+- (void)readUserItemValueData:(NSString *)addrCd {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/Item/%@/",uid,addrCd];
+    
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+            if (error == nil) {
+                if ([snapshot.value isKindOfClass:[NSNull class]]) {
+                    [self.delegate successReadUserItemValue:FALSE data:[NSArray new]];
+                } else {
+                    
+                    /// 이부분 진행 중인데 왜 배열값이 안넘어오는지 모르겠네???
+                    NSLog(@"%@",[snapshot.value allValues]);
+                    NSLog(@"%@",[[snapshot.value allValues] class]);
+                    NSArray* arr = [NSMutableArray arrayWithObject:[snapshot.value allValues]];
+                    NSLog(@"%@", arr);
+                    [self.delegate successReadUserItemValue:TRUE data:arr];
+                }
+            }
+    }];
+}
+
+- (void)readItemData:(NSString *)itemCd number:(NSInteger)number{
+    NSString* path = [NSString stringWithFormat:@"/ItemData/%@/",itemCd];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass:[NSNull class]]) {
+                [self.delegate successReadItem:FALSE data:[NSDictionary new] number:0];
+            } else {
+                [self.delegate successReadItem:TRUE data:snapshot.value number:number];
+            }
+        }
+    }];
+    
 }
 
 @end
