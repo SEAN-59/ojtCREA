@@ -25,11 +25,13 @@ typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 
 - (void) successReadArea: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadArea(result:data:));
 
-- (void) successReadItem: (BOOL)result data: (nullable NSDictionary*) data number: (NSInteger) number NS_SWIFT_NAME(successReadItem(result:data:number:));
+- (void) successReadItemMarker: (BOOL)result data: (nullable NSDictionary*) data number: (int) number itemCd: (NSString*) itemCd NS_SWIFT_NAME(successReadItem(result:data:number:itemCd:));
 
 - (void) successReadUserItem: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadUserItem(result:data:));
 
 - (void) successReadUserItemValue: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadUserItemValue(result:data:));
+- (void) successReadAreaLike: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadAreaLike(result:data:));
+- (void) successReadAreaItem: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadAreaItem(result:data:));
 
 @end
 
@@ -43,13 +45,15 @@ typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 
 - (void) readUserData: (NSString*) uid NS_SWIFT_NAME(readUserData(uid:));
 
-- (void) readItemData: (NSString*) itemCd number: (NSInteger) number NS_SWIFT_NAME(readItemData(itemCd:number:));
+- (void) readItemData: (NSString*) itemCd  NS_SWIFT_NAME(readItemData(itemCd:));
 
 - (void) readUserItemKeyData;
 - (void) readAreaData;
 - (void) readUserItemValueData: (NSString*) addrCd;
 
-
+- (void) readItemDataMarker:(NSString *)itemCd number:(int)number NS_SWIFT_NAME(readItemDataMarker(itemCd:number:));
+- (void) readAreaDataLike:(NSString*) addrCd NS_SWIFT_NAME(readAreaDataLike(addrCd:));
+- (void) readAreaDataItem:(NSString*) addrCd NS_SWIFT_NAME(readAreaDataItem(addrCd:));
 
 
 

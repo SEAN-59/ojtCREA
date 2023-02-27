@@ -66,7 +66,6 @@
         if (self.userType) {
             InfoMarkerViewController* infoMarkerVC = [[InfoMarkerViewController alloc] initWithNibName:@"InfoMarkerViewController" bundle:nil];
             
-            
             [view presentViewController:infoMarkerVC
                                animated:TRUE
                              completion:^{
@@ -74,10 +73,15 @@
             }];
             
         }else {
+            
             DetailMarkerViewController* detailMarkerVC = [[DetailMarkerViewController alloc] initWithNibName:@"DetailMarkerViewController" bundle:nil];
+            detailMarkerVC.modalPresentationStyle = UIModalPresentationAutomatic;
+            
             [view presentViewController:detailMarkerVC
                                animated:TRUE
-                             completion:nil];
+                             completion:^{
+                [detailMarkerVC openPage:address addrCd:addrCd];
+            }];
         }
         return TRUE;
     };
@@ -92,6 +96,12 @@
     
 
 }
+
+
+- (void)sheetPresentationControllerDidChangeSelectedDetentIdentifier:(UISheetPresentationController *)sheetPresentationController {
+    
+}
+
 
 
 

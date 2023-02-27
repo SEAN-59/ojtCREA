@@ -66,6 +66,10 @@
     [self searchNaverGeocoding:naverGeoParm addrCd:addrCd address:address];
     
 }
+static void extracted(SearchAddress *object, NSDictionary *buildData) {
+    [object.delegate getAddressAPI:buildData];
+}
+
 // MARK: - NETWORKING PART
 - (void)searchAddressURL:(NSString *)url Parameters:(NSMutableDictionary *)param Type:(NSString *)type{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -88,7 +92,7 @@
             }
         } else if ([type isEqualToString: @"build"]) {
             NSDictionary* buildData = [self buildParsingData:responseObject];
-            [self.delegate getAddressAPI:buildData];
+            extracted(self, buildData);
             // delegate에 Dictionary 값으로 넘어가니까 잘 풀어서 사용하면 된다.
         }
         

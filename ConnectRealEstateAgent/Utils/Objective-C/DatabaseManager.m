@@ -15,6 +15,8 @@
 - (void) createItemData: (id) data;
 - (void) createChatData;
 
+
+
 @end
 
 @implementation DatabaseManager
@@ -213,6 +215,9 @@
 - (void)createChatData {
 }
 
+// MARK:- READ
+
+
 - (void)readUserData:(NSString *)uid {
     NSString* path = [NSString stringWithFormat:@"/UserData/%@/userNm",uid];
     [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
@@ -241,6 +246,20 @@
     }];
 }
 
+- (void)readItemData:(NSString *)itemCd {
+    NSString* path = [NSString stringWithFormat:@"/ItemData/%@",itemCd];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass:[NSNull class]]) {
+//                [self.delegate successReadItem:FALSE data:[NSDictionary new] number:0 itemCd:itemCd];
+            } else {
+//                [self.delegate successReadItem:TRUE data:snapshot.value number:number itemCd: itemCd];
+            }
+        }
+    }];
+    
+}
+
 - (void)readUserItemKeyData {
     NSString* uid = [self currentUser];
     NSString* path = [NSString stringWithFormat:@"/UserData/%@/Item",uid];
@@ -264,30 +283,58 @@
                 if ([snapshot.value isKindOfClass:[NSNull class]]) {
                     [self.delegate successReadUserItemValue:FALSE data:[NSArray new]];
                 } else {
-                    
-                    /// 이부분 진행 중인데 왜 배열값이 안넘어오는지 모르겠네???
-                    NSLog(@"%@",[snapshot.value allValues]);
-                    NSLog(@"%@",[[snapshot.value allValues] class]);
-                    NSArray* arr = [NSMutableArray arrayWithObject:[snapshot.value allValues]];
-                    NSLog(@"%@", arr);
-                    [self.delegate successReadUserItemValue:TRUE data:arr];
+                    [self.delegate successReadUserItemValue:TRUE data:snapshot.value];
                 }
             }
     }];
 }
 
-- (void)readItemData:(NSString *)itemCd number:(NSInteger)number{
-    NSString* path = [NSString stringWithFormat:@"/ItemData/%@/",itemCd];
+- (void)readItemDataMarker:(NSString *)itemCd number:(int)number {
+    NSString* path = [NSString stringWithFormat:@"/ItemData/%@",itemCd];
     [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
         if (error == nil) {
             if ([snapshot.value isKindOfClass:[NSNull class]]) {
-                [self.delegate successReadItem:FALSE data:[NSDictionary new] number:0];
+                [self.delegate successReadItemMarker:FALSE data:[NSDictionary new] number:0 itemCd:itemCd];
             } else {
-                [self.delegate successReadItem:TRUE data:snapshot.value number:number];
+                [self.delegate successReadItemMarker:TRUE data:snapshot.value number:number itemCd: itemCd];
             }
         }
     }];
     
 }
+
+
+- (void)readAreaDataLike:(NSString *)addrCd {
+    NSString* path = [NSString stringWithFormat:@"/AreaData/%@/Like", addrCd];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass: [NSNull class]]) {
+                // 아무것도 없음
+                NSArray* result = [[NSArray alloc] init];
+                [self.delegate successReadAreaLike:false data:result];
+            } else {
+                NSLog(@"%@",snapshot.value);
+                [self.delegate successReadAreaLike:TRUE data:snapshot.value];
+            }
+        }
+    }];
+}
+
+- (void)readAreaDataItem:(NSString *)addrCd {
+    NSString* path = [NSString stringWithFormat:@"/AreaData/%@/Item", addrCd];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass: [NSNull class]]) {
+                // 아무것도 없음
+                NSArray* result = [[NSArray alloc] init];
+                [self.delegate successReadAreaItem:false data:result];
+            } else {
+                NSLog(@"%@",snapshot.value);
+                [self.delegate successReadAreaItem:TRUE data:snapshot.value];
+            }
+        }
+    }];
+}
+
 
 @end

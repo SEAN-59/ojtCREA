@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MapView : NSObject <CLLocationManagerDelegate>
+@interface MapView : NSObject <CLLocationManagerDelegate, UISheetPresentationControllerDelegate>
 
 @property (strong, nonatomic) CLLocationManager* locationManager;
 @property BOOL userType;
