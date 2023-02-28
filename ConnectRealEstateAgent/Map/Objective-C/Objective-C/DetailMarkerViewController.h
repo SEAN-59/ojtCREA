@@ -16,7 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString* address;
 @property NSString* addrCd;
 
-@property NSInteger count;
+@property NSInteger itemCount;
+
+
+@property BOOL isLike;
 
 
 @property (weak, nonatomic) IBOutlet UILabel *addrTitleLbl;

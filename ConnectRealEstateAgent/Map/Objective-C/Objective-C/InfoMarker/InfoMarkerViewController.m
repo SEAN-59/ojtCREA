@@ -128,9 +128,11 @@
             [self.loadingIndicator setHidden:TRUE];
             self.addrTitleLbl.text = self.address;
         }
-        
     }
-    
 }
+
+//- (void)successReadAreaLike:(BOOL)result data:(NSArray *)data {
+//
+//}
 
 @end

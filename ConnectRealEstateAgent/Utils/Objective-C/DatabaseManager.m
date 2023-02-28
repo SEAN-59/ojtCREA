@@ -8,7 +8,7 @@
 #import "DatabaseManager.h"
 
 @interface DatabaseManager ()
--(NSString*) currentUser;
+//-(NSString*) currentUser;
 
 - (void) createUserData: (NSString*) data;
 - (void) createAreaData: (NSString*) data;
@@ -214,9 +214,96 @@
 
 - (void)createChatData {
 }
+// MARK:- UPDATE
+- (void)updateAreaLikeData:(NSString *)addrCd type:(BOOL)type {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/AreaData/%@/Like/",addrCd];
+    
+    NSLog(@"------");
+    NSLog(@"%@", path);
+    
+    NSLog(@"------");
+    
+    ///  TRUE  라는 것은 추가가 되어있는 상태
+    ///  FALSE 라는 것은 추가 안되어있는 상태
+    ///
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == Nil) {
+            if (type) {
+                NSDictionary* snapDict = snapshot.valueInExportFormat;
+                NSArray* keysForValue = [snapDict allKeysForObject:uid];
+                if (keysForValue.count > 0) {
+                    [[[self.ref child:path] child: [NSString stringWithFormat:@"%@",keysForValue[0]]] setValue:nil];
+                }
+                
+            } else {
+                if ([snapshot.value isKindOfClass:[NSNull class]]) {
+                    [[[self.ref child: path] child:@"0"] setValue:uid];
+                } else {
+                    NSDictionary* snapDict = snapshot.valueInExportFormat;
+                    NSArray* keys = [snapDict allKeys];
+                    NSNumber* areaCount = [NSNumber numberWithInteger: keys.count];
+                    
+                    @try {
+                        id countCheck = keys[keys.count]; // 에러 발생 유도
+                    }
+                    
+                    @catch (NSException *exception) {
+                        for (int i = 0; i < keys.count; i ++) {
+                            if (i != [keys[i] intValue]) {
+                                areaCount = [NSNumber numberWithInt:i];
+                            }
+                        }
+                    }
+                    //
+                    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child: [NSString stringWithFormat:@"%@", areaCount]].key]: uid}];
+                }
+            }
+            
+        }
+    }];
+        
+    path = [NSString stringWithFormat:@"/UserData/%@/Like/area/",uid];
+    [[self.ref child:path ] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == Nil) {
+            if (type) {
+                NSDictionary* snapDict = snapshot.valueInExportFormat;
+                
+                NSArray* keysForValue = [snapDict allKeysForObject:addrCd];
+                
+                if (keysForValue.count > 0) {
+                    [[[self.ref child:path] child: [NSString stringWithFormat:@"%@",keysForValue[0]]] setValue:nil];
+                }
+                
+            } else {
+                if ([snapshot.value isKindOfClass:[NSNull class]]) {
+                    [[[self.ref child: path] child:@"0"] setValue:addrCd];
+                } else {
+                    NSDictionary* snapDict = snapshot.valueInExportFormat;
+                    NSArray* keys = [snapDict allKeys];
+                    NSNumber* userCount = [NSNumber numberWithInteger: keys.count];
+
+                    @try {
+                        id countCheck = keys[keys.count]; // 에러 발생 유도
+                    }
+
+                    @catch (NSException *exception) {
+                        for (int i = 0; i < keys.count; i ++) {
+                            if (i != [keys[i] intValue]) {
+                                userCount = [NSNumber numberWithInt:i];
+                            }
+                        }
+                    }
+                    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:[NSString stringWithFormat:@"%@", userCount]].key] : addrCd}];
+                }
+            }
+        }
+    }];
+    
+}
+
 
 // MARK:- READ
-
 
 - (void)readUserData:(NSString *)uid {
     NSString* path = [NSString stringWithFormat:@"/UserData/%@/userNm",uid];
@@ -313,7 +400,7 @@
                 NSArray* result = [[NSArray alloc] init];
                 [self.delegate successReadAreaLike:false data:result];
             } else {
-                NSLog(@"%@",snapshot.value);
+//                NSLog(@"%@",snapshot.value);
                 [self.delegate successReadAreaLike:TRUE data:snapshot.value];
             }
         }

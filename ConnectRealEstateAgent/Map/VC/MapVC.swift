@@ -30,6 +30,12 @@ class MapVC: CREAViewController {
         self.mapView.userType = self.userType
         self.mapView.moveToNowLocation(map: self.mainMapView)
         
+        if self.userType {
+            self.dbManager.readUserItemKeyData()
+        } else {
+            self.dbManager.readAreaData()
+        }
+        
     }
     
     private func layout() {
@@ -73,13 +79,6 @@ private extension MapVC {
     }
     
     @IBAction func tapHomeBtn(_ sender: UIButton) {
-//        [self.mapView moveTest(self.mainMapView)]
-//        self.mapView.moveTest(self.mainMapView)
-        if self.userType {
-            self.dbManager.readUserItemKeyData()
-        } else {
-            self.dbManager.readAreaData()
-        }
         
     }
     
