@@ -7,8 +7,8 @@
 
 import UIKit
 
-//import FirebaseAuth
-//import FirebaseCore
+import FirebaseAuth
+import FirebaseCore
 
 class SimpleLoginVC: CREAViewController {
     private let dbManager = DatabaseManager()
@@ -30,10 +30,14 @@ class SimpleLoginVC: CREAViewController {
         try? Auth.auth().signOut()
     }
     
-    private func startIndicator() {
-        self.backPageView.isHidden = false
-        self.loginIndicator.startAnimating()
-        self.loginIndicator.isHidden = false
+    private func toggleIndicator() {
+        self.backPageView.isHidden.toggle()
+        self.loginIndicator.isHidden.toggle()
+        if loginIndicator.isHidden == true {
+            self.loginIndicator.stopAnimating()
+        } else {
+            self.loginIndicator.startAnimating()
+        }
     }
 }
 
@@ -50,7 +54,6 @@ extension SimpleLoginVC {
     @IBAction func tapGoogleLoginBtn(_ sender: UIButton) {
         let googleLogin = GoogleLogin()
         googleLogin.delegate = self
-        self.startIndicator()
         googleLogin.googleSignIn(withFirebase: self)
     }
     
@@ -82,7 +85,6 @@ extension SimpleLoginVC {
 
 extension SimpleLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
     func sendSignInResult(result: Bool) {
-        
         if result {
             guard let user = Auth.auth().currentUser else {return}
             print("UserId: \(user.uid)")
@@ -92,8 +94,11 @@ extension SimpleLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
             var actionArray: [UIAlertAction] = []
             let errorAction = UIAlertAction(title: "확인",
                                             style: .default,
-                                            handler: nil)
+                                            handler: {_ in
+                self.toggleIndicator()
+            })
             actionArray.append(errorAction)
+            
             SimpleAlert().makeAlert(vc: self,
                                     title: "로그인 오류",
                                     message: "로그인 중 오류가 발생하였습니다.",
@@ -104,9 +109,7 @@ extension SimpleLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
     
     
     func successReadUser(result: Bool) {
-        self.backPageView.isHidden = true
-        self.loginIndicator.stopAnimating()
-        self.loginIndicator.isHidden = true
+        self.toggleIndicator()
         
         let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)
         guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "MapVC") as? MapVC else { return }
