@@ -59,16 +59,17 @@ extension SimpleLoginVC {
     
     
     @IBAction func tapNaverLoginBtn(_ sender: UIButton) {
-//        let naverLogin = NaverLogin()
-//        naverLogin.delegate = self
+        let naverLogin = NaverLogin()
+        naverLogin.delegate = self
+        naverLogin.naverSignIn()
 //        self.startIndicator()
         
     }
     
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {
         let kakaoLogin = KakaoLogin()
-//        kakaoLogin.delegate = self
-//        self.startIndicator()
+        kakaoLogin.delegate = self
+        self.toggleIndicator()
         kakaoLogin.loginKakaoAccount()
     }
     

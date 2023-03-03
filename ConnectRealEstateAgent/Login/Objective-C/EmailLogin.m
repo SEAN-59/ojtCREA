@@ -65,9 +65,6 @@
                              completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
         
         if (error == nil) {
-            NSLog(@"%@",authResult);
-            NSLog(@"%@",authResult.user.uid);
-            
             [[DatabaseManager alloc]createData:user
                                           Data:authResult.user.uid];
             

@@ -17,18 +17,35 @@ import KakaoSDKCommon
 import KakaoSDKAuth
 
 import NMapsMap
+import NaverThirdPartyLogin
 
  
-
+//let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+//    let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         FirebaseApp.configure()
         KakaoSDK.initSDK(appKey: KAKAO_KEY)
         NMFAuthManager.shared().clientId = NAVER_ID
+
+        
+        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+        instance?.isNaverAppOauthEnable = true
+        instance?.isInAppOauthEnable = true
+        instance?.setOnlyPortraitSupportInIphone(true)
+        
+        
+        // 네이버 아이디로 로그인하기 설정
+        
+        instance?.serviceUrlScheme = kServiceAppUrlScheme
+        instance?.consumerKey = kConsumerKey
+        instance?.consumerSecret = kConsumerSecret
+        instance?.appName = kServiceAppName
 
         return true
     }
@@ -52,12 +69,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var returnValue = false
         var kakaoReturn = false
         var googleReturn = false
+        var naverReturn = false
         if (AuthApi.isKakaoTalkLoginUrl(url)) {
             kakaoReturn = AuthController.handleOpenUrl(url: url)
         }
         googleReturn = GIDSignIn.sharedInstance.handle(url)
+        naverReturn = NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
         
-        returnValue = kakaoReturn && googleReturn
+        returnValue = kakaoReturn && googleReturn && naverReturn
         return returnValue
     }
 

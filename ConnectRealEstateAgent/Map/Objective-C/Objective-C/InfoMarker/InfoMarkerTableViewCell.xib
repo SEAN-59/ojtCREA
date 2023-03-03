@@ -20,13 +20,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YY1-TI-oVT">
                         <rect key="frame" x="5" y="5" width="406" height="141"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRO-Rb-J2h">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="주소 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRO-Rb-J2h">
                                 <rect key="frame" x="5" y="5" width="38.5" height="131"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GH-gA-FGi">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="6GH-gA-FGi">
                                 <rect key="frame" x="48.5" y="60.5" width="62.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -36,6 +36,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bRO-Rb-J2h" firstAttribute="top" secondItem="YY1-TI-oVT" secondAttribute="top" constant="5" id="8lB-Dr-dVd"/>
+                            <constraint firstAttribute="trailing" secondItem="6GH-gA-FGi" secondAttribute="trailing" constant="5" id="RLU-l2-MWp"/>
                             <constraint firstItem="6GH-gA-FGi" firstAttribute="leading" secondItem="bRO-Rb-J2h" secondAttribute="trailing" constant="5" id="XoQ-BT-ynB"/>
                             <constraint firstItem="bRO-Rb-J2h" firstAttribute="leading" secondItem="YY1-TI-oVT" secondAttribute="leading" constant="5" id="eXg-Ra-yvt"/>
                             <constraint firstItem="6GH-gA-FGi" firstAttribute="centerY" secondItem="bRO-Rb-J2h" secondAttribute="centerY" id="lWP-7O-SBp"/>
