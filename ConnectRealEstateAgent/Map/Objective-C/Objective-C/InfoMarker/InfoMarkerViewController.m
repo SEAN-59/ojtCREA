@@ -8,39 +8,47 @@
 #import "InfoMarkerViewController.h"
 
 @interface InfoMarkerViewController () <DatabaseCallDelegate>
+{
+    NSMutableDictionary* tableViewDataDictionary;
+}
 -(void) tableViewInit;
+
 
 @end
 
 @implementation InfoMarkerViewController
 
-NSString *cellIdentity = @"InfoMarkerTableViewCell";
+
 
 
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.cellIdentity = @"InfoMarkerTableViewCell";
     [self tableViewInit];
     self.dbManager = [[DatabaseManager alloc] init];
     [self.dbManager setDelegate:self];
+    tableViewDataDictionary = [[NSMutableDictionary alloc] init];
 }
 
 - (void)tableViewInit {
     [self.itemListTabelView setDelegate:self];
     [self.itemListTabelView setDataSource:self];
     
-    self.cellNib = [UINib nibWithNibName:cellIdentity
+    self.cellNib = [UINib nibWithNibName:self.cellIdentity
                                   bundle:nil];
     
     [self.itemListTabelView registerNib:self.cellNib
-                 forCellReuseIdentifier:cellIdentity];
+                 forCellReuseIdentifier:self.cellIdentity];
     
 }
 
 - (void)setAnyThings:(NSString *)address addrCd:(NSString *)addrCd {
     
     [self.dbManager readUserItemValueData:addrCd];
+    [self.dbManager readAreaDataLike:addrCd];
+    self.addrCd = addrCd;
     self.address = address;
 }
 
@@ -62,31 +70,46 @@ NSString *cellIdentity = @"InfoMarkerTableViewCell";
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    InfoMarkerTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentity forIndexPath:indexPath];
-    NSString* index = [NSString stringWithFormat:@"%li", (long)indexPath];
-    cell.addressLbl = [[self.tableViewDataDictionary objectForKey:index] objectForKey:@"address"];
-    cell.sellLbl = [[self.tableViewDataDictionary objectForKey:index] objectForKey:@"sell"];
-    cell.incomeLbl = [[self.tableViewDataDictionary objectForKey:index] objectForKey:@"income"];
-    cell.loanLbl = [[self.tableViewDataDictionary objectForKey:index] objectForKey:@"loan"];
+    InfoMarkerTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentity forIndexPath:indexPath];
     
+    
+    if (self.cellCount > 0 ) {
+        NSString* index = [NSString stringWithFormat:@"%ld", (long)indexPath.item];
+        
+        NSDictionary* cellData = [tableViewDataDictionary objectForKey:index];
+        
+        cell.addressLbl.text = [NSString stringWithFormat:@"%@", [cellData objectForKey:@"address"]];
+        cell.sellLbl.text = [NSString stringWithFormat:@"%@", [cellData objectForKey:@"sell"]];
+        cell.incomeLbl.text = [NSString stringWithFormat:@"%@", [cellData objectForKey:@"income"]];
+        cell.loanLbl.text = [NSString stringWithFormat:@"%@", [cellData objectForKey:@"loan"]];
+        cell.itemCd = [NSString stringWithFormat:@"%@", [cellData objectForKey:@"itemCd"]];
+    }
     
     return cell;
 }
 
 //MARK: - DATABASE_DELEGATE
+- (void) successReadAreaLike:(BOOL)result data:(NSArray *)data {
+    if (result) {
+        NSString* count = [NSString stringWithFormat:@"%lu", (unsigned long)data.count];
+        self.likePersonLbl.text = [NSString stringWithFormat:@"%@", count];
+    } else {
+        self.likePersonLbl.text = @"0";
+    }
+}
 
 - (void)successReadUserItemValue:(BOOL)result data:(NSArray *)data {
     if (result) {
         self.cellCount = data.count;
-        for (int i = 0 ; i <= data.count; i ++){
-            [self.dbManager readItemData:data[i] number:i];
+        for (int i = 0 ; i < data.count; i ++){
+            [self.dbManager readItemDataMarker:data[i] number:i];
         }
     } else {
         
     }
 }
 
-- (void)successReadItem:(BOOL)result data:(NSDictionary *)data number:(NSInteger)number {
+- (void)successReadItemMarker:(BOOL)result data:(NSDictionary *)data number:(int)number itemCd:(NSString *)itemCd {
     
     if (result) {
         NSMutableDictionary* dict = [[NSMutableDictionary alloc] init];
@@ -94,19 +117,22 @@ NSString *cellIdentity = @"InfoMarkerTableViewCell";
         [dict setObject:[[data objectForKey:@"Invest"] objectForKey:@"sell"] forKey:@"sell"];
         [dict setObject:[[data objectForKey:@"Invest"] objectForKey:@"income"] forKey:@"income"];
         [dict setObject:[[data objectForKey:@"Invest"] objectForKey:@"loan"] forKey:@"loan"];
+        [dict setObject:itemCd forKey:@"itemCd"];
         
-        [self.tableViewDataDictionary setObject:dict forKey:[NSString stringWithFormat:@"%li", (long)number]];
+        [tableViewDataDictionary setObject:dict forKey:[NSString stringWithFormat:@"%d", number]];
         
-        if ([self.tableViewDataDictionary allKeys].count == self.cellCount) {
+        if ([tableViewDataDictionary allKeys].count == self.cellCount) {
             [self.itemListTabelView reloadData];
             [self.backView setHidden:TRUE];
             [self.loadingIndicator stopAnimating];
             [self.loadingIndicator setHidden:TRUE];
             self.addrTitleLbl.text = self.address;
         }
-        
     }
-    
 }
+
+//- (void)successReadAreaLike:(BOOL)result data:(NSArray *)data {
+//
+//}
 
 @end

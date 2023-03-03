@@ -126,8 +126,12 @@ extension SearchAddressView {
 
 extension SearchAddressView: SendAPIDataDelegate {
     func getAddressAPI(json data: [AnyHashable : Any]?) {
-        guard let data = data else { return }
         let addressCd = "\(String(format: "%02d", self.cityCd))\(String(format:"%02d",self.sggCd))\(String(format:"%02d",self.emdCd))"
+        guard let data = data else {
+            self.delegate?.checkData(data: [:], check: false,addressCd: addressCd)
+            return
+            
+        }
         if data.isEmpty {
             self.delegate?.checkData(data: data, check: false,addressCd: addressCd)
         } else {

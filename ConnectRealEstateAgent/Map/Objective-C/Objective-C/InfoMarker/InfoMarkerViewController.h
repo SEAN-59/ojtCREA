@@ -18,10 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) DatabaseManager* dbManager;
 
 @property NSString* address;
+@property NSString* addrCd;
+@property NSString* cellIdentity;
 @property NSInteger cellCount;
-@property NSMutableDictionary* tableViewDataDictionary;
-
 @property UINib* cellNib;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *addrTitleLbl;
 @property (weak, nonatomic) IBOutlet UILabel *likePersonLbl;

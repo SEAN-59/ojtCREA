@@ -29,6 +29,18 @@ class EmailLoginVC: CREAViewController {
         self.dbManager.delegate = self
     }
     
+    private func toggleIndicator() {
+        self.backPageView.isHidden.toggle()
+        self.loginIndicator.isHidden.toggle()
+        if loginIndicator.isHidden == true {
+            self.loginIndicator.stopAnimating()
+        } else {
+            self.loginIndicator.startAnimating()
+        }
+    }
+}
+extension EmailLoginVC {
+    
     @IBAction func fromYoutoLogin(_ segue: UIStoryboardSegue) {}
     
     @IBAction func tapShowBtn(_ sender: UIButton) {
@@ -52,6 +64,7 @@ class EmailLoginVC: CREAViewController {
     }
     
     @IBAction func tapSignInBtn(_ sender: UIButton) {
+        
         guard let emailText = self.emailTxf.text else { return }
         
         /// email 입력 형식 확인
@@ -62,9 +75,8 @@ class EmailLoginVC: CREAViewController {
             /// 비밀번호 입력 형식 확인
             let pwCorrect = self.emailLogin.checkPasswordTxf(passwordText)
             if pwCorrect {
-                self.backPageView.isHidden = false
-                self.loginIndicator.isHidden = false
-                self.loginIndicator.startAnimating()
+                // 아무 이상 없을 경우에 여기서 로그인을 진행함
+                self.toggleIndicator()
                 self.emailLogin.signInEmail(email: emailText, password: passwordText)
                 
             } else {
@@ -73,6 +85,7 @@ class EmailLoginVC: CREAViewController {
                                                 style: .default,
                                                 handler: {_ in
                     self.passwordTxf.text = ""
+                    self.toggleIndicator()
                 })
                 actionArray.append(errorAction)
                 SimpleAlert().makeAlert(vc: self,
@@ -86,6 +99,7 @@ class EmailLoginVC: CREAViewController {
                                             style: .default,
                                             handler: {_ in
                 self.emailTxf.text = ""
+                self.toggleIndicator()
             })
             actionArray.append(errorAction)
             SimpleAlert().makeAlert(vc: self,
@@ -107,6 +121,7 @@ class EmailLoginVC: CREAViewController {
         self.present(nextVC, animated: true, completion: nil)
     }
     
+    
 }
 
 extension EmailLoginVC: UITextFieldDelegate {
@@ -117,7 +132,6 @@ extension EmailLoginVC: UITextFieldDelegate {
 
 extension EmailLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
     func sendSignInResult(result: Bool) {
-        
         if result {
             guard let user = Auth.auth().currentUser else {return}
             self.dbManager.readUserData(uid: user.uid)
@@ -126,7 +140,9 @@ extension EmailLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
             var actionArray: [UIAlertAction] = []
             let errorAction = UIAlertAction(title: "확인",
                                             style: .default,
-                                            handler: nil)
+                                            handler: {_ in
+                self.toggleIndicator()
+            })
             actionArray.append(errorAction)
             SimpleAlert().makeAlert(vc: self,
                                     title: "로그인 오류",
@@ -138,9 +154,7 @@ extension EmailLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
     
     
     func successReadUser(result: Bool) {
-        self.backPageView.isHidden = true
-        self.loginIndicator.stopAnimating()
-        self.loginIndicator.isHidden = true
+        
         
         let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)
         guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "MapVC") as? MapVC else { return }
@@ -148,6 +162,7 @@ extension EmailLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
         guard let presentVC = self.presentingViewController else { return }
         
         self.dismiss(animated: false, completion: {
+            self.toggleIndicator()
             nextVC.userType = result
             presentVC.present(nextVC, animated: true, completion: nil)
         })

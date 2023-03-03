@@ -8,12 +8,14 @@
 #import "DatabaseManager.h"
 
 @interface DatabaseManager ()
--(NSString*) currentUser;
+//-(NSString*) currentUser;
 
 - (void) createUserData: (NSString*) data;
 - (void) createAreaData: (NSString*) data;
 - (void) createItemData: (id) data;
 - (void) createChatData;
+
+
 
 @end
 
@@ -212,6 +214,96 @@
 
 - (void)createChatData {
 }
+// MARK:- UPDATE
+- (void)updateAreaLikeData:(NSString *)addrCd type:(BOOL)type {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/AreaData/%@/Like/",addrCd];
+    
+    NSLog(@"------");
+    NSLog(@"%@", path);
+    
+    NSLog(@"------");
+    
+    ///  TRUE  라는 것은 추가가 되어있는 상태
+    ///  FALSE 라는 것은 추가 안되어있는 상태
+    ///
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == Nil) {
+            if (type) {
+                NSDictionary* snapDict = snapshot.valueInExportFormat;
+                NSArray* keysForValue = [snapDict allKeysForObject:uid];
+                if (keysForValue.count > 0) {
+                    [[[self.ref child:path] child: [NSString stringWithFormat:@"%@",keysForValue[0]]] setValue:nil];
+                }
+                
+            } else {
+                if ([snapshot.value isKindOfClass:[NSNull class]]) {
+                    [[[self.ref child: path] child:@"0"] setValue:uid];
+                } else {
+                    NSDictionary* snapDict = snapshot.valueInExportFormat;
+                    NSArray* keys = [snapDict allKeys];
+                    NSNumber* areaCount = [NSNumber numberWithInteger: keys.count];
+                    
+                    @try {
+                        id countCheck = keys[keys.count]; // 에러 발생 유도
+                    }
+                    
+                    @catch (NSException *exception) {
+                        for (int i = 0; i < keys.count; i ++) {
+                            if (i != [keys[i] intValue]) {
+                                areaCount = [NSNumber numberWithInt:i];
+                            }
+                        }
+                    }
+                    //
+                    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child: [NSString stringWithFormat:@"%@", areaCount]].key]: uid}];
+                }
+            }
+            
+        }
+    }];
+        
+    path = [NSString stringWithFormat:@"/UserData/%@/Like/area/",uid];
+    [[self.ref child:path ] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == Nil) {
+            if (type) {
+                NSDictionary* snapDict = snapshot.valueInExportFormat;
+                
+                NSArray* keysForValue = [snapDict allKeysForObject:addrCd];
+                
+                if (keysForValue.count > 0) {
+                    [[[self.ref child:path] child: [NSString stringWithFormat:@"%@",keysForValue[0]]] setValue:nil];
+                }
+                
+            } else {
+                if ([snapshot.value isKindOfClass:[NSNull class]]) {
+                    [[[self.ref child: path] child:@"0"] setValue:addrCd];
+                } else {
+                    NSDictionary* snapDict = snapshot.valueInExportFormat;
+                    NSArray* keys = [snapDict allKeys];
+                    NSNumber* userCount = [NSNumber numberWithInteger: keys.count];
+
+                    @try {
+                        id countCheck = keys[keys.count]; // 에러 발생 유도
+                    }
+
+                    @catch (NSException *exception) {
+                        for (int i = 0; i < keys.count; i ++) {
+                            if (i != [keys[i] intValue]) {
+                                userCount = [NSNumber numberWithInt:i];
+                            }
+                        }
+                    }
+                    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:[NSString stringWithFormat:@"%@", userCount]].key] : addrCd}];
+                }
+            }
+        }
+    }];
+    
+}
+
+
+// MARK:- READ
 
 - (void)readUserData:(NSString *)uid {
     NSString* path = [NSString stringWithFormat:@"/UserData/%@/userNm",uid];
@@ -241,6 +333,20 @@
     }];
 }
 
+- (void)readItemData:(NSString *)itemCd {
+    NSString* path = [NSString stringWithFormat:@"/ItemData/%@",itemCd];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass:[NSNull class]]) {
+//                [self.delegate successReadItem:FALSE data:[NSDictionary new] number:0 itemCd:itemCd];
+            } else {
+//                [self.delegate successReadItem:TRUE data:snapshot.value number:number itemCd: itemCd];
+            }
+        }
+    }];
+    
+}
+
 - (void)readUserItemKeyData {
     NSString* uid = [self currentUser];
     NSString* path = [NSString stringWithFormat:@"/UserData/%@/Item",uid];
@@ -264,30 +370,58 @@
                 if ([snapshot.value isKindOfClass:[NSNull class]]) {
                     [self.delegate successReadUserItemValue:FALSE data:[NSArray new]];
                 } else {
-                    
-                    /// 이부분 진행 중인데 왜 배열값이 안넘어오는지 모르겠네???
-                    NSLog(@"%@",[snapshot.value allValues]);
-                    NSLog(@"%@",[[snapshot.value allValues] class]);
-                    NSArray* arr = [NSMutableArray arrayWithObject:[snapshot.value allValues]];
-                    NSLog(@"%@", arr);
-                    [self.delegate successReadUserItemValue:TRUE data:arr];
+                    [self.delegate successReadUserItemValue:TRUE data:snapshot.value];
                 }
             }
     }];
 }
 
-- (void)readItemData:(NSString *)itemCd number:(NSInteger)number{
-    NSString* path = [NSString stringWithFormat:@"/ItemData/%@/",itemCd];
+- (void)readItemDataMarker:(NSString *)itemCd number:(int)number {
+    NSString* path = [NSString stringWithFormat:@"/ItemData/%@",itemCd];
     [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
         if (error == nil) {
             if ([snapshot.value isKindOfClass:[NSNull class]]) {
-                [self.delegate successReadItem:FALSE data:[NSDictionary new] number:0];
+                [self.delegate successReadItemMarker:FALSE data:[NSDictionary new] number:0 itemCd:itemCd];
             } else {
-                [self.delegate successReadItem:TRUE data:snapshot.value number:number];
+                [self.delegate successReadItemMarker:TRUE data:snapshot.value number:number itemCd: itemCd];
             }
         }
     }];
     
 }
+
+
+- (void)readAreaDataLike:(NSString *)addrCd {
+    NSString* path = [NSString stringWithFormat:@"/AreaData/%@/Like", addrCd];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass: [NSNull class]]) {
+                // 아무것도 없음
+                NSArray* result = [[NSArray alloc] init];
+                [self.delegate successReadAreaLike:false data:result];
+            } else {
+//                NSLog(@"%@",snapshot.value);
+                [self.delegate successReadAreaLike:TRUE data:snapshot.value];
+            }
+        }
+    }];
+}
+
+- (void)readAreaDataItem:(NSString *)addrCd {
+    NSString* path = [NSString stringWithFormat:@"/AreaData/%@/Item", addrCd];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass: [NSNull class]]) {
+                // 아무것도 없음
+                NSArray* result = [[NSArray alloc] init];
+                [self.delegate successReadAreaItem:false data:result];
+            } else {
+                NSLog(@"%@",snapshot.value);
+                [self.delegate successReadAreaItem:TRUE data:snapshot.value];
+            }
+        }
+    }];
+}
+
 
 @end

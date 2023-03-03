@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *incomeLbl;
 @property (weak, nonatomic) IBOutlet UILabel *loanLbl;
 
+@property (strong, nonatomic) NSString* itemCd;
 @end
 
 NS_ASSUME_NONNULL_END

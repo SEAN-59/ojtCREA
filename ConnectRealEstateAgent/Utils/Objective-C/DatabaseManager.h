@@ -19,17 +19,16 @@ typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 
 @optional
 - (void) successSaveDB: (BOOL)result NS_SWIFT_NAME(successSaveDB(result:));
-
-/// TRUE 면 사업자 / FALSE 면 일반
 - (void) successReadUser: (BOOL)result NS_SWIFT_NAME(successReadUser(result:));
-
 - (void) successReadArea: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadArea(result:data:));
 
-- (void) successReadItem: (BOOL)result data: (nullable NSDictionary*) data number: (NSInteger) number NS_SWIFT_NAME(successReadItem(result:data:number:));
+- (void) successReadItemMarker: (BOOL)result data: (nullable NSDictionary*) data number: (int) number itemCd: (NSString*) itemCd NS_SWIFT_NAME(successReadItem(result:data:number:itemCd:));
 
 - (void) successReadUserItem: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadUserItem(result:data:));
-
 - (void) successReadUserItemValue: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadUserItemValue(result:data:));
+
+- (void) successReadAreaLike: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadAreaLike(result:data:));
+- (void) successReadAreaItem: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadAreaItem(result:data:));
 
 @end
 
@@ -38,18 +37,23 @@ typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property (strong, nonatomic) FIRAuth *handle;
 @property (strong, nonatomic) id<DatabaseCallDelegate> delegate;
+- (NSString*) currentUser;
 
 - (void) createData: (DatabaseType) type Data: (id) data NS_SWIFT_NAME(createData(type:data:));
 
+- (void) updateAreaLikeData: (NSString*) addrCd type: (BOOL) type NS_SWIFT_NAME(updateAreaLikeData(addrCd:type:));
+
 - (void) readUserData: (NSString*) uid NS_SWIFT_NAME(readUserData(uid:));
 
-- (void) readItemData: (NSString*) itemCd number: (NSInteger) number NS_SWIFT_NAME(readItemData(itemCd:number:));
+- (void) readItemData: (NSString*) itemCd  NS_SWIFT_NAME(readItemData(itemCd:));
 
 - (void) readUserItemKeyData;
 - (void) readAreaData;
 - (void) readUserItemValueData: (NSString*) addrCd;
 
-
+- (void) readItemDataMarker:(NSString *)itemCd number:(int)number NS_SWIFT_NAME(readItemDataMarker(itemCd:number:));
+- (void) readAreaDataLike:(NSString*) addrCd NS_SWIFT_NAME(readAreaDataLike(addrCd:));
+- (void) readAreaDataItem:(NSString*) addrCd NS_SWIFT_NAME(readAreaDataItem(addrCd:));
 
 
 
