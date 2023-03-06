@@ -51,6 +51,12 @@
 		FB42B1DD299B36C600CBADC9 /* SearchAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = FB42B1DC299B36C600CBADC9 /* SearchAddress.m */; };
 		FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */; };
 		FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B7A1299615EA006B8068 /* ImageExtension.swift */; };
+		FB5EAA3129B5B52C00D29612 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EAA2F29B5B52C00D29612 /* SettingViewController.swift */; };
+		FB5EAA3229B5B52C00D29612 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5EAA3029B5B52C00D29612 /* SettingViewController.xib */; };
+		FB5EAA3F29B5D72400D29612 /* ChangeTypeFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EAA3D29B5D72300D29612 /* ChangeTypeFViewController.swift */; };
+		FB5EAA4029B5D72400D29612 /* ChangeTypeFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5EAA3E29B5D72400D29612 /* ChangeTypeFViewController.xib */; };
+		FB5EAA4329B5DA4900D29612 /* ChangeTypeTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EAA4129B5DA4900D29612 /* ChangeTypeTViewController.swift */; };
+		FB5EAA4429B5DA4900D29612 /* ChangeTypeTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5EAA4229B5DA4900D29612 /* ChangeTypeTViewController.xib */; };
 		FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7B3B8329A5D8FD00A58D8E /* MapView.m */; };
 		FB8505B529A8929F0053311D /* InfoMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8505B429A8929F0053311D /* InfoMarkerViewController.xib */; };
 		FB8505B929A89AE60053311D /* InfoMarkerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8505B729A89AE60053311D /* InfoMarkerTableViewCell.m */; };
@@ -58,6 +64,8 @@
 		FBBBD19029A8766100F6A0CA /* InfoMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBBD18E29A8766100F6A0CA /* InfoMarkerViewController.m */; };
 		FBBBD19829A8826700F6A0CA /* DetailMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBBD19629A8826700F6A0CA /* DetailMarkerViewController.m */; };
 		FBBBD19929A8826700F6A0CA /* DetailMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBBBD19729A8826700F6A0CA /* DetailMarkerViewController.xib */; };
+		FBE0F89429B57AC6008240C5 /* AddrSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE0F89329B57AC6008240C5 /* AddrSearchView.swift */; };
+		FBE0F89629B57CE2008240C5 /* AddrSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBE0F89529B57CE2008240C5 /* AddrSearchView.xib */; };
 		FBEB6FDD29A743AD00445EF9 /* CREAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBEB6FDC29A743AD00445EF9 /* CREAViewController.swift */; };
 		FBF52F5A2999B570006594D1 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F592999B570006594D1 /* CreateAccountVC.swift */; };
 		FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */; };
@@ -112,6 +120,12 @@
 		FB42B1DC299B36C600CBADC9 /* SearchAddress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SearchAddress.m; path = "ConnectRealEstateAgent/Utils/Objective-C/SearchAddress.m"; sourceTree = SOURCE_ROOT; };
 		FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BJDAddressData.swift; sourceTree = "<group>"; };
 		FB47B7A1299615EA006B8068 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		FB5EAA2F29B5B52C00D29612 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		FB5EAA3029B5B52C00D29612 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		FB5EAA3D29B5D72300D29612 /* ChangeTypeFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTypeFViewController.swift; sourceTree = "<group>"; };
+		FB5EAA3E29B5D72400D29612 /* ChangeTypeFViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeTypeFViewController.xib; sourceTree = "<group>"; };
+		FB5EAA4129B5DA4900D29612 /* ChangeTypeTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTypeTViewController.swift; sourceTree = "<group>"; };
+		FB5EAA4229B5DA4900D29612 /* ChangeTypeTViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeTypeTViewController.xib; sourceTree = "<group>"; };
 		FB7B3B8229A5D8FD00A58D8E /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		FB7B3B8329A5D8FD00A58D8E /* MapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		FB8505B429A8929F0053311D /* InfoMarkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoMarkerViewController.xib; sourceTree = "<group>"; };
@@ -126,6 +140,8 @@
 		FBBBD19529A8826700F6A0CA /* DetailMarkerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailMarkerViewController.h; sourceTree = "<group>"; };
 		FBBBD19629A8826700F6A0CA /* DetailMarkerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailMarkerViewController.m; sourceTree = "<group>"; };
 		FBBBD19729A8826700F6A0CA /* DetailMarkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailMarkerViewController.xib; sourceTree = "<group>"; };
+		FBE0F89329B57AC6008240C5 /* AddrSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddrSearchView.swift; sourceTree = "<group>"; };
+		FBE0F89529B57CE2008240C5 /* AddrSearchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddrSearchView.xib; sourceTree = "<group>"; };
 		FBEB6FDC29A743AD00445EF9 /* CREAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CREAViewController.swift; sourceTree = "<group>"; };
 		FBF52F592999B570006594D1 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		FBF52F5B2999B65C006594D1 /* AccountAgreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAgreeVC.swift; sourceTree = "<group>"; };
@@ -225,6 +241,7 @@
 				FB21D2AD299098DC00F1FA20 /* AppDelegate.swift */,
 				FB21D2AF299098DC00F1FA20 /* SceneDelegate.swift */,
 				A75FEBB32997DD28004F49DC /* FirstVC.swift */,
+				FBEB6FDC29A743AD00445EF9 /* CREAViewController.swift */,
 				FB21D2B3299098DC00F1FA20 /* Main.storyboard */,
 				FB47B79E2995EF54006B8068 /* Utils */,
 				FB35BAAB299A2D5F00BA6A27 /* List */,
@@ -242,7 +259,6 @@
 		FB21D2D82990A9E400F1FA20 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				FBEB6FDC29A743AD00445EF9 /* CREAViewController.swift */,
 				FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */,
 				FB110C982990EEDB00C4EF53 /* ColorExtension.swift */,
 				FB47B7A1299615EA006B8068 /* ImageExtension.swift */,
@@ -325,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				FB35BAA5299A2A6100BA6A27 /* MapVC.swift */,
+				FBE0F88D29B56605008240C5 /* AddressSearch */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -371,15 +388,54 @@
 			path = InfoMarker;
 			sourceTree = "<group>";
 		};
+		FBE0F88629B565BA008240C5 /* Maker */ = {
+			isa = PBXGroup;
+			children = (
+				FBBBD19529A8826700F6A0CA /* DetailMarkerViewController.h */,
+				FBBBD19629A8826700F6A0CA /* DetailMarkerViewController.m */,
+				FBBBD19729A8826700F6A0CA /* DetailMarkerViewController.xib */,
+				FB8505BB29A89AEF0053311D /* InfoMarker */,
+			);
+			path = Maker;
+			sourceTree = "<group>";
+		};
+		FBE0F88D29B56605008240C5 /* AddressSearch */ = {
+			isa = PBXGroup;
+			children = (
+				FBE0F89329B57AC6008240C5 /* AddrSearchView.swift */,
+				FBE0F89529B57CE2008240C5 /* AddrSearchView.xib */,
+			);
+			path = AddressSearch;
+			sourceTree = "<group>";
+		};
+		FBE0F89729B59C77008240C5 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				FBE0F8A029B5A96B008240C5 /* subViews */,
+				FB5EAA2F29B5B52C00D29612 /* SettingViewController.swift */,
+				FB5EAA3029B5B52C00D29612 /* SettingViewController.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		FBE0F8A029B5A96B008240C5 /* subViews */ = {
+			isa = PBXGroup;
+			children = (
+				FB5EAA3D29B5D72300D29612 /* ChangeTypeFViewController.swift */,
+				FB5EAA3E29B5D72400D29612 /* ChangeTypeFViewController.xib */,
+				FB5EAA4129B5DA4900D29612 /* ChangeTypeTViewController.swift */,
+				FB5EAA4229B5DA4900D29612 /* ChangeTypeTViewController.xib */,
+			);
+			path = subViews;
+			sourceTree = "<group>";
+		};
 		FBE13B6A299B0FE6008FA404 /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
 				FB7B3B8229A5D8FD00A58D8E /* MapView.h */,
 				FB7B3B8329A5D8FD00A58D8E /* MapView.m */,
-				FB8505BB29A89AEF0053311D /* InfoMarker */,
-				FBBBD19529A8826700F6A0CA /* DetailMarkerViewController.h */,
-				FBBBD19629A8826700F6A0CA /* DetailMarkerViewController.m */,
-				FBBBD19729A8826700F6A0CA /* DetailMarkerViewController.xib */,
+				FBE0F88629B565BA008240C5 /* Maker */,
+				FBE0F89729B59C77008240C5 /* Setting */,
 			);
 			name = "Objective-C";
 			path = "Objective-C/Objective-C";
@@ -467,15 +523,19 @@
 			files = (
 				FB23F872299E119E0023C752 /* InformationView.xib in Resources */,
 				FB35BAA8299A2A6B00BA6A27 /* MapPage.storyboard in Resources */,
+				FB5EAA3229B5B52C00D29612 /* SettingViewController.xib in Resources */,
 				FB21D2BA299098DD00F1FA20 /* LaunchScreen.storyboard in Resources */,
 				FB21D2C22990996D00F1FA20 /* GoogleService-Info.plist in Resources */,
 				FB23F874299F04280023C752 /* InvestInputView.xib in Resources */,
 				A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */,
 				FB8505B529A8929F0053311D /* InfoMarkerViewController.xib in Resources */,
+				FBE0F89629B57CE2008240C5 /* AddrSearchView.xib in Resources */,
 				FB8505BA29A89AE60053311D /* InfoMarkerTableViewCell.xib in Resources */,
+				FB5EAA4429B5DA4900D29612 /* ChangeTypeTViewController.xib in Resources */,
 				A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */,
 				FB42B1D7299B20E800CBADC9 /* SearchAddressView.xib in Resources */,
 				FB21D2B7299098DD00F1FA20 /* Assets.xcassets in Resources */,
+				FB5EAA4029B5D72400D29612 /* ChangeTypeFViewController.xib in Resources */,
 				FB21D2B5299098DC00F1FA20 /* Main.storyboard in Resources */,
 				FBBBD19929A8826700F6A0CA /* DetailMarkerViewController.xib in Resources */,
 			);
@@ -538,6 +598,7 @@
 				FB21D2AE299098DC00F1FA20 /* AppDelegate.swift in Sources */,
 				A7F116552998B4FE00905DAA /* GoogleLogin.m in Sources */,
 				A75FEBB42997DD28004F49DC /* FirstVC.swift in Sources */,
+				FBE0F89429B57AC6008240C5 /* AddrSearchView.swift in Sources */,
 				A7F1165D2999242600905DAA /* SimpleAlert.swift in Sources */,
 				FB21D2B0299098DC00F1FA20 /* SceneDelegate.swift in Sources */,
 				A7F116522998B40400905DAA /* AppleLogin.m in Sources */,
@@ -550,13 +611,16 @@
 				FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */,
 				FB35BAB0299A2DB900BA6A27 /* ItemListVC.swift in Sources */,
 				FB35BAB8299A2E8800BA6A27 /* AddItemVC.swift in Sources */,
+				FB5EAA3F29B5D72400D29612 /* ChangeTypeFViewController.swift in Sources */,
 				FB23F870299E10ED0023C752 /* InformationView.swift in Sources */,
+				FB5EAA3129B5B52C00D29612 /* SettingViewController.swift in Sources */,
 				A7F116582998B52900905DAA /* NaverLogin.m in Sources */,
 				FBEB6FDD29A743AD00445EF9 /* CREAViewController.swift in Sources */,
 				FB8505B929A89AE60053311D /* InfoMarkerTableViewCell.m in Sources */,
 				FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */,
 				FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */,
 				FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */,
+				FB5EAA4329B5DA4900D29612 /* ChangeTypeTViewController.swift in Sources */,
 				FB23F87A299F4BC70023C752 /* InvestInputView.swift in Sources */,
 				FBBBD19029A8766100F6A0CA /* InfoMarkerViewController.m in Sources */,
 				FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */,

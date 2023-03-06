@@ -9,7 +9,9 @@
     
 
 @interface NaverLogin () <SendLoginResultDelegate>
-
+{
+    NaverThirdPartyLoginConnection* connection;
+}
 
 @end
 
@@ -38,11 +40,11 @@
 }
 
 - (void)requestThirdpartyLogin {
-    NaverThirdPartyLoginConnection* connection = [NaverThirdPartyLoginConnection getSharedInstance];
-//    connection.delegate = self;
-//    connection.isNaverAppOauthEnable = TRUE;
-//    connection.isInAppOauthEnable = TRUE;
-//    [connection setOnlyPortraitSupportInIphone:TRUE];
+    connection = [NaverThirdPartyLoginConnection getSharedInstance];
+    connection.delegate = self;
+    connection.isNaverAppOauthEnable = TRUE;
+    connection.isInAppOauthEnable = TRUE;
+    [connection setOnlyPortraitSupportInIphone:TRUE];
     [connection setConsumerKey: kConsumerKey];
     NSLog(@"%@",kConsumerKey);
     [connection setConsumerSecret:kConsumerSecret];

@@ -17,13 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원하는 정보를" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsa-Sy-rrk">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전문가와" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsa-Sy-rrk">
                                 <rect key="frame" x="50" y="430" width="314" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전문가와 이야기 해보세요." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svt-Za-VKE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이야기 해보세요." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Svt-Za-VKE">
                                 <rect key="frame" x="50" y="486" width="314" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
@@ -42,6 +42,12 @@
                                     <action selector="tappedLoginBtn:" destination="i7C-Pc-QcI" eventType="touchUpInside" id="3a1-kS-tLy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원하는 정보를" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yG-14-1ET">
+                                <rect key="frame" x="50" y="374" width="314" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4Ag-lu-IYD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -50,7 +56,10 @@
                             <constraint firstItem="Svt-Za-VKE" firstAttribute="top" secondItem="Qsa-Sy-rrk" secondAttribute="bottom" constant="20" id="EL3-VJ-jnM"/>
                             <constraint firstItem="Qsa-Sy-rrk" firstAttribute="centerY" secondItem="G5q-bs-LvL" secondAttribute="centerY" id="PQk-jm-7hF"/>
                             <constraint firstItem="Svt-Za-VKE" firstAttribute="leading" secondItem="4Ag-lu-IYD" secondAttribute="leading" constant="50" id="PRa-G3-aH1"/>
+                            <constraint firstItem="9yG-14-1ET" firstAttribute="leading" secondItem="4Ag-lu-IYD" secondAttribute="leading" constant="50" id="Pwb-nX-mcl"/>
                             <constraint firstItem="4Ag-lu-IYD" firstAttribute="trailing" secondItem="Qsa-Sy-rrk" secondAttribute="trailing" constant="50" id="e2m-gq-K4u"/>
+                            <constraint firstItem="4Ag-lu-IYD" firstAttribute="trailing" secondItem="9yG-14-1ET" secondAttribute="trailing" constant="50" id="fkD-2o-Eme"/>
+                            <constraint firstItem="Qsa-Sy-rrk" firstAttribute="top" secondItem="9yG-14-1ET" secondAttribute="bottom" constant="20" id="hbw-9t-BvG"/>
                             <constraint firstItem="Qsa-Sy-rrk" firstAttribute="leading" secondItem="4Ag-lu-IYD" secondAttribute="leading" constant="50" id="l24-es-fmJ"/>
                             <constraint firstItem="4Ag-lu-IYD" firstAttribute="trailing" secondItem="Svt-Za-VKE" secondAttribute="trailing" constant="50" id="mGo-Is-lu1"/>
                             <constraint firstItem="RIr-Fc-c6g" firstAttribute="top" secondItem="Svt-Za-VKE" secondAttribute="bottom" constant="30" id="u9n-pQ-GJs"/>

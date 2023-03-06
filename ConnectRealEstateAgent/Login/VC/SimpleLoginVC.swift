@@ -61,7 +61,7 @@ extension SimpleLoginVC {
     @IBAction func tapNaverLoginBtn(_ sender: UIButton) {
         let naverLogin = NaverLogin()
         naverLogin.delegate = self
-        naverLogin.naverSignIn()
+//        naverLogin.naverSignIn()
 //        self.startIndicator()
         
     }

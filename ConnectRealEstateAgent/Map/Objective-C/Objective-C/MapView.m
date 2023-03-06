@@ -89,12 +89,9 @@
     marker.touchHandler = handler;
 }
 
-
-- (void)moveTest:(NMFMapView *)map {
-//    [self moveToMapCamera:map lat:37.5572864 lon:126.9793216];
-    [self moveToMapCamera:map lat:36.878467 lon:127.154648];
+- (void)moveMap:(NMFMapView *)map lat:(double)lat lon:(double)lon {
+    [self moveToMapCamera:map lat:lat lon:lon];
     
-
 }
 
 

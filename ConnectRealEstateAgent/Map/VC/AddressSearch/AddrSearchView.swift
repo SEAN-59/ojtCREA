@@ -1,31 +1,30 @@
 //
-//  SearchAddressView.swift
+//  AddressSearchView.swift
 //  ConnectRealEstateAgent
 //
-//  Created by TAnine on 2023/02/13.
+//  Created by TAnine on 2023/03/06.
 //
 
 import UIKit
 import DropDown
-
-protocol EndSearchAddress{
-    func checkData(data: Dictionary<AnyHashable, Any>, check: Bool, addressCd: String)
-    func startSearch()
+protocol MoveMapDelegate {
+    func getSearchGeo(lat: Double, lon: Double)
 }
 
-final class SearchAddressView: UIView {
-    var delegate: EndSearchAddress?
+
+class AddrSearchView: UIView {
+    var delegate: MoveMapDelegate?
+    private let dropdown = DropDown()
+    private var korea = Korea(selectCityNm: "", selectSggNm: "", selectEmdNm: "")
+    private let searchAPI = SearchAddress()
     
     private var cityCd: Int = 0
     private var sggCd: Int = 0
     private var emdCd: Int = 0
-    private let dropdown = DropDown()
-    private var korea = Korea(selectCityNm: "", selectSggNm: "", selectEmdNm: "")
     
     @IBOutlet weak var cityTxf: UITextField!
     @IBOutlet weak var sggTxf: UITextField!
     @IBOutlet weak var emdTxf: UITextField!
-    @IBOutlet weak var etcTxf: UITextField!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -43,35 +42,25 @@ final class SearchAddressView: UIView {
         guard let nibView = nibs?.first as? UIView else { return }
         nibView.frame = self.bounds
         self.addSubview(nibView)
+        self.searchAPI.delegate = self
     }
     
-    
-}
-extension SearchAddressView {
     @IBAction func tapCityBtn(_ sender: UIButton) {
         let list = korea.cityNm
         initDropdown(button: sender, data: list)
-        
         dropdown.selectionAction = { [weak self] (index: Int, item: String) in
-            self?.cityCd = index
-            self?.sggCd = 0
-            self?.emdCd = 0
             self?.korea.selectCityNm = item
             self?.korea.selectSggNm = ""
             self?.korea.selectEmdNm = ""
             self?.setupTxf()
             self?.dropdown.clearSelection()
         }
-        
-        
     }
     
     @IBAction func tapSggBtn(_ sender: UIButton) {
         let list = korea.selectSgg()
         initDropdown(button: sender, data: list)
         dropdown.selectionAction = { [weak self] (index: Int, item: String) in
-            self?.sggCd = index
-            self?.emdCd = 0
             self?.korea.selectSggNm = item
             self?.korea.selectEmdNm = ""
             self?.setupTxf()
@@ -83,7 +72,6 @@ extension SearchAddressView {
         let list = korea.selectEmd()
         initDropdown(button: sender, data: list)
         dropdown.selectionAction = { [weak self] (index: Int, item: String) in
-            self?.emdCd = index
             self?.korea.selectEmdNm = item
             self?.setupTxf()
             self?.dropdown.clearSelection()
@@ -91,16 +79,18 @@ extension SearchAddressView {
     }
     
     @IBAction func tapSearchBtn(_ sender: UIButton) {
-        let search = SearchAddress()
-        search.delegate = self
-        guard let etcText = etcTxf.text else { return }
-        let address = "\(korea.selectCityNm) \(korea.selectSggNm) \(korea.selectEmdNm) \(etcText)"
-        self.delegate?.startSearch()
-        search.choiceRoad(address)
+        if !korea.selectCityNm.isEmpty {
+            if !korea.selectSggNm.isEmpty {
+                if !korea.selectEmdNm.isEmpty {
+                    self.searchAPI.checkGeocode("\(korea.selectCityNm) \(korea.selectSggNm) \(korea.selectEmdNm)",addrCd: "00")
+                    self.initTextfield()
+                    
+                }
+            }
+        }
     }
-}
-
-extension SearchAddressView {
+    
+    
     private func initDropdown(button: UIButton, data: [String]) {
         dropdown.dataSource = data
         dropdown.anchorView = button
@@ -114,31 +104,20 @@ extension SearchAddressView {
         self.cityTxf.text = korea.selectCityNm
         self.sggTxf.text = korea.selectSggNm
         self.emdTxf.text = korea.selectEmdNm
-        self.etcTxf.text = ""
     }
     
     func initTextfield() {
         self.korea = .init(selectCityNm: "", selectSggNm: "", selectEmdNm: "")
         self.setupTxf()
     }
-
 }
 
-extension SearchAddressView: SendAPIDataDelegate {
-    func getAddressAPI(json data: [AnyHashable : Any]?) {
-        let addressCd = "\(String(format: "%02d", self.cityCd))\(String(format:"%02d",self.sggCd))\(String(format:"%02d",self.emdCd))"
-        guard let data = data else {
-            self.delegate?.checkData(data: [:], check: false,addressCd: addressCd)
-            return
-            
-        }
-        if data.isEmpty {
-            self.delegate?.checkData(data: data, check: false,addressCd: addressCd)
-        } else {
-            self.delegate?.checkData(data: data, check: true,addressCd: addressCd)
-        }
+extension AddrSearchView: SendAPIDataDelegate {
+    func getGeocodingAPI(geo data: [AnyHashable : Any], addrcd addrCd: String, address: String) {
+        guard let lat = data["lat"] as? String else { return print("Convert Error lat") }
+        guard let lon = data["lon"] as? String else { return print("Convert Error lon")}
         
+        self.delegate?.getSearchGeo(lat: Double(lat)!,
+                                    lon: Double(lon)!)
     }
 }
-
-

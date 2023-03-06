@@ -17,16 +17,21 @@ class MapVC: CREAViewController {
     private let searchAPI = SearchAddress()
     
     
+    
+
     @IBOutlet weak var addItemBtn: UIButton!
     @IBOutlet weak var ItemListBtn: UIButton!
     
     @IBOutlet weak var mainMapView: NMFMapView!
+    @IBOutlet weak var backView: UIButton!
+    @IBOutlet weak var addrSearchView: AddrSearchView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.layout()
         self.dbManager.delegate = self
         self.searchAPI.delegate = self
+        self.addrSearchView.delegate = self
         self.mapView.userType = self.userType
         self.mapView.moveToNowLocation(map: self.mainMapView)
         
@@ -62,12 +67,26 @@ class MapVC: CREAViewController {
 private extension MapVC {
 
     @IBAction func tapSearchAddressBtn(_ sender: UIButton) {
+        self.addrSearchView.isHidden = false
+        self.backView.isHidden = false
+    }
+    @IBAction func tapBackViewBtn(_ sender: UIButton) {
+        self.addrSearchView.isHidden = true
+        self.backView.isHidden = true
     }
     
     @IBAction func tapNotiBtn(_ sender: UIButton) {
     }
     
     @IBAction func tapSettingBtn(_ sender: UIButton) {
+        let settingVC = SettingViewController.init(nibName: "SettingViewController",
+                                               bundle: nil)
+        settingVC.modalPresentationStyle = UIModalPresentationStyle.automatic
+        settingVC.getUserType(type: self.userType)
+        self.present(settingVC, animated: true, completion: {
+            
+        })
+
     }
     
     @IBAction func tapAddItemBtn(_ sender: UIButton) {
@@ -79,7 +98,6 @@ private extension MapVC {
     }
     
     @IBAction func tapHomeBtn(_ sender: UIButton) {
-        
     }
     
     @IBAction func tapItemListBtn(_ sender: UIButton) {
@@ -138,4 +156,12 @@ extension MapVC: DatabaseCallDelegate {
         }
         
     }
+}
+extension MapVC: MoveMapDelegate {
+    func getSearchGeo(lat: Double, lon: Double) {
+        self.backView.isHidden = true
+        self.addrSearchView.isHidden = true
+        self.mapView.moveMap(map: mainMapView, lat: lat, lon: lon)
+    }
+
 }
