@@ -13,6 +13,11 @@
 #define NAVER_ID @"cicssxqn82"
 #define NAVER_KEY @"U8DnlgLvUOdzY4WUteYZRjtXZhsXgfG1U5QeNcfE"
 
+#define NAVER_CLIENT_ID @"9IqihgIj8r4GpRt9p_s2"     // ConsumerKey
+#define NAVER_CLIENT_SECRET @"1YeeerKr6b"           // SecretKey
+#define NAVER_SCHEME @"naverlogin"                  // UrlScheme
+#define NAVER_APP_NAME @"CREA"                      // appName
+
 #define ENCODING_KEY @"ig4K9fE2jaXcIQr6A2wj8obHs08p%2BuuzNNFFUPGHkpTOasVY1aeIW4q0rbjOMGu3uSv1%2FFwATuN0poADwOBFow%3D%3D"
 #define DECODING_KEY @"ig4K9fE2jaXcIQr6A2wj8obHs08p+uuzNNFFUPGHkpTOasVY1aeIW4q0rbjOMGu3uSv1/FwATuN0poADwOBFow=="
 

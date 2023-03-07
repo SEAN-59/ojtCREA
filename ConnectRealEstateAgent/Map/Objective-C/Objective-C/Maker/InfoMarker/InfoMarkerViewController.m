@@ -18,11 +18,6 @@
 
 @implementation InfoMarkerViewController
 
-
-
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.cellIdentity = @"InfoMarkerTableViewCell";

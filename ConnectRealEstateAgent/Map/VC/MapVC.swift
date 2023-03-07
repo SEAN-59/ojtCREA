@@ -17,28 +17,25 @@ class MapVC: CREAViewController {
     private let searchAPI = SearchAddress()
     
     
+    
+
     @IBOutlet weak var addItemBtn: UIButton!
     @IBOutlet weak var ItemListBtn: UIButton!
     
     @IBOutlet weak var mainMapView: NMFMapView!
+    @IBOutlet weak var backView: UIButton!
+    @IBOutlet weak var addrSearchView: AddrSearchView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.layout()
         self.dbManager.delegate = self
         self.searchAPI.delegate = self
-        self.mapView.userType = self.userType
+        self.addrSearchView.delegate = self
+        self.layout()
         self.mapView.moveToNowLocation(map: self.mainMapView)
-        
-        if self.userType {
-            self.dbManager.readUserItemKeyData()
-        } else {
-            self.dbManager.readAreaData()
-        }
-        
     }
     
-    private func layout() {
+    func layout() {
         if self.userType {
             /// add 버튼 색상 입힘
             self.addItemBtn.backgroundColor = UIColor.init(named: "DeepBlue")?.withAlphaComponent(0.4)
@@ -49,12 +46,18 @@ class MapVC: CREAViewController {
             /// 요소 보이게 하기
             self.ItemListBtn.isHidden = false
             self.addItemBtn.isHidden = false
+            
+            
+            self.dbManager.readUserItemKeyData()
         } else {
             /// 요소 감추기
             self.ItemListBtn.isHidden = true
             self.addItemBtn.isHidden = true
             
+            self.dbManager.readAreaData()
         }
+        
+        self.mapView.userType = self.userType
         
         
     }
@@ -62,16 +65,29 @@ class MapVC: CREAViewController {
 private extension MapVC {
 
     @IBAction func tapSearchAddressBtn(_ sender: UIButton) {
+        self.addrSearchView.isHidden = false
+        self.backView.isHidden = false
+    }
+    @IBAction func tapBackViewBtn(_ sender: UIButton) {
+        self.addrSearchView.isHidden = true
+        self.backView.isHidden = true
     }
     
     @IBAction func tapNotiBtn(_ sender: UIButton) {
     }
     
     @IBAction func tapSettingBtn(_ sender: UIButton) {
+        let settingVC = SettingViewController.init(nibName: "SettingViewController",
+                                                   bundle: nil)
+        settingVC.modalPresentationStyle = UIModalPresentationStyle.automatic
+        settingVC.userType = self.userType
+        self.present(settingVC, animated: true, completion: {
+            
+        })
+
     }
     
     @IBAction func tapAddItemBtn(_ sender: UIButton) {
-        
         let storyBoard = UIStoryboard.init(name: "ItemPage", bundle: nil)
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "AddItemVC")
         nextVC.modalPresentationStyle = .fullScreen
@@ -79,10 +95,15 @@ private extension MapVC {
     }
     
     @IBAction func tapHomeBtn(_ sender: UIButton) {
-        
     }
     
     @IBAction func tapItemListBtn(_ sender: UIButton) {
+        let listVC = ItemListViewController.init(nibName: "ItemListViewController", bundle: nil)
+        guard let presentVC = self.presentingViewController else { return }
+        listVC.modalPresentationStyle = .fullScreen
+        self.present(listVC, animated: true, completion: {
+            presentVC.dismiss(animated: false, completion: nil)
+        })
     }
     
     @IBAction func tapChatListBtn(_ sender: UIButton) {
@@ -138,4 +159,17 @@ extension MapVC: DatabaseCallDelegate {
         }
         
     }
+    
+    func successUpdateUserType(_ result: Bool) {
+        self.userType = result
+        self.layout()
+    }
+}
+extension MapVC: MoveMapDelegate {
+    func getSearchGeo(lat: Double, lon: Double) {
+        self.backView.isHidden = true
+        self.addrSearchView.isHidden = true
+        self.mapView.moveMap(map: mainMapView, lat: lat, lon: lon)
+    }
+
 }

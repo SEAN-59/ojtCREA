@@ -33,12 +33,8 @@
     if (self.handle.currentUser) {
         FIRUser *user = self.handle.currentUser;
         NSString *uid = user.uid;
-        NSLog(@"%@",uid);
         return uid;
-        
-        
     } else {
-        NSLog(@"Do not connect.");
         return nil;
     }
 }
@@ -69,7 +65,6 @@
     
     NSString* uid = [self currentUser];
     if (uid == nil) { return; }
-    NSLog(@"%@",uid);
     
     NSString* path = @"/asd/";
     
@@ -77,8 +72,6 @@
     
     [[self.ref child:path ] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
             if (error == Nil) {
-//                NSLog(@"%@",snapshot.);
-                NSLog(@"%@",[snapshot.value class]);
                 if ([snapshot.value class] == [NSNull class]) {
                     NSLog(@"nil?");
                 }
@@ -90,7 +83,7 @@
 - (void)createUserData:(NSString*) data {
 //    NSString* path = [NSString stringWithFormat:@"/UserData/%@/",data];
     
-    [[[[self.ref child:@"UserData"] child:data] child:@"userNm"] setValue:@"고객"];
+    [[[[self.ref child:@"UserData"] child:data] child:@"userType"] setValue:@"고객"];
     
 //    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"businessNum"].key]: @""}];
     
@@ -214,15 +207,10 @@
 
 - (void)createChatData {
 }
-// MARK:- UPDATE
+// MARK: - UPDATE
 - (void)updateAreaLikeData:(NSString *)addrCd type:(BOOL)type {
     NSString* uid = [self currentUser];
     NSString* path = [NSString stringWithFormat:@"/AreaData/%@/Like/",addrCd];
-    
-    NSLog(@"------");
-    NSLog(@"%@", path);
-    
-    NSLog(@"------");
     
     ///  TRUE  라는 것은 추가가 되어있는 상태
     ///  FALSE 라는 것은 추가 안되어있는 상태
@@ -303,20 +291,64 @@
 }
 
 
-// MARK:- READ
+- (void)updateUserDataName:(NSString *)name {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/",uid];
+    
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"userName"].key]: name}];
+    
+}
 
-- (void)readUserData:(NSString *)uid {
-    NSString* path = [NSString stringWithFormat:@"/UserData/%@/userNm",uid];
+- (void)updateUserDataLike:(NSString *)income sell:(NSString *)sell {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/Like/",uid];
+    
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"income"].key]: income}];
+    
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"sell"].key]: sell}];
+}
+
+- (void)updateUserDataType:(NSString*)type {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/",uid];
+    
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"userType"].key]: type}];
+    
+    if ([type  isEqual: @"고객"]) {
+        [self.delegate successUpdateUserType:FALSE];
+    } else if ([type  isEqual: @"사업자"]) {
+        [self.delegate successUpdateUserType:TRUE];
+    }
+}
+
+- (void)updateUserDataTag:(NSString *)addr name:(NSString *)name {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/",uid];
+    
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"businessAddr"].key]: addr}];
+    
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"businessName"].key]: name}];
+    
+}
+
+// MARK: - READ
+- (void)readUserData {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/",uid];
     [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
         if (error == nil) {
-            if ([snapshot.value isEqual: @"고객"]) { // 일반 고객 = FALSE
-                [self.delegate successReadUser:FALSE];
-            } else if ([snapshot.value isEqual: @"사업자"]) { // 사업자 고객 = TRUE
-                [self.delegate successReadUser:TRUE];
+            if ([snapshot.value isKindOfClass: [NSNull class]]) {
+                // 아무것도 없음
+                NSDictionary* result = [[NSDictionary alloc] init];
+                [self.delegate successReadUser:FALSE data:result];
+            } else {
+                [self.delegate successReadUser:TRUE data:snapshot.value];
             }
         }
     }];
+    
 }
+
 
 - (void)readAreaData {
     NSString* path = @"/AreaData/";
@@ -345,6 +377,19 @@
         }
     }];
     
+}
+
+- (void)readUserDataUserType:(NSString *)uid {
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/userType",uid];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isEqual: @"고객"]) { // 일반 고객 = FALSE
+                [self.delegate successReadUserType:FALSE];
+            } else if ([snapshot.value isEqual: @"사업자"]) { // 사업자 고객 = TRUE
+                [self.delegate successReadUserType:TRUE];
+            }
+        }
+    }];
 }
 
 - (void)readUserItemKeyData {
@@ -400,7 +445,6 @@
                 NSArray* result = [[NSArray alloc] init];
                 [self.delegate successReadAreaLike:false data:result];
             } else {
-//                NSLog(@"%@",snapshot.value);
                 [self.delegate successReadAreaLike:TRUE data:snapshot.value];
             }
         }
@@ -416,12 +460,43 @@
                 NSArray* result = [[NSArray alloc] init];
                 [self.delegate successReadAreaItem:false data:result];
             } else {
-                NSLog(@"%@",snapshot.value);
                 [self.delegate successReadAreaItem:TRUE data:snapshot.value];
             }
         }
     }];
 }
 
+
+- (void)readUserDataName {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/userName", uid];
+    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+        if (error == nil) {
+            if ([snapshot.value isKindOfClass: [NSNull class]]) {
+                NSString* result = @"";
+                [self.delegate successReadUserName:false data:result];
+            } else {
+                [self.delegate successReadUserName:TRUE data:snapshot.value];
+            }
+        }
+    }];
+}
+
+
+
+//- (void)readUserDataLike {
+//    NSString* uid = [self currentUser];
+//    NSString* path = [NSString stringWithFormat:@"/UserData/%@/", uid];
+//    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
+//        if (error == nil) {
+//            if ([snapshot.value isKindOfClass: [NSNull class]]) {
+//                NSString* result = @"";
+//                [self.delegate successReadUserName:false data:result];
+//            } else {
+//                [self.delegate successReadUserName:TRUE data:snapshot.value];
+//            }
+//        }
+//    }];
+//}
 
 @end

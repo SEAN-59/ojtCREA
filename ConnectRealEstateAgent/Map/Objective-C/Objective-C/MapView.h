@@ -25,8 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void) moveToNowLocation: (NMFMapView*) map NS_SWIFT_NAME(moveToNowLocation(map:));
 -(void) makeMarker: (UIViewController *)view map: (NMFMapView *)map lat: (double) lat lon: (double) lon addrCd: (NSString*) addrCd address:(NSString*) address NS_SWIFT_NAME(makeMarker(view:map:lat:lon:addrCd:address:));
+-(void) moveMap: (NMFMapView*) map lat: (double) lat lon: (double) lon NS_SWIFT_NAME(moveMap(map:lat:lon:));
 
--(void) moveTest: (NMFMapView*) map;
 
 @end
 

@@ -99,13 +99,14 @@
 - (void)btnShapeChange {
     self.addLikeBtn.layer.cornerRadius = 5.0;
     if (self.isLike) {
-        self.addLikeBtn.titleLabel.text = @"선호 지역 제거";
+        [self.addLikeBtn setTitle:@"선호 지역 제거" forState:UIControlStateNormal];
         self.addLikeBtn.titleLabel.tintColor = UIColor.systemRedColor;
         self.addLikeBtn.backgroundColor = UIColor.whiteColor;
         self.addLikeBtn.layer.borderColor = UIColor.systemRedColor.CGColor;
         self.addLikeBtn.layer.borderWidth = 1.0;
     } else {
-        self.addLikeBtn.titleLabel.text = @"선호 지역 추가";
+        [self.addLikeBtn setTitle:@"선호 지역 추가" forState:UIControlStateNormal];
+
         self.addLikeBtn.titleLabel.tintColor = UIColor.whiteColor;
         self.addLikeBtn.backgroundColor = [UIColor colorNamed:@"DeepBlue"];
         self.addLikeBtn.layer.borderColor = UIColor.clearColor.CGColor;
@@ -129,7 +130,6 @@
 
 - (void)successReadAreaItem:(BOOL)result data:(NSArray *)data {
     if (result) {
-        
         self.itemCount = data.count;
         for (int i = 0; i < data.count; i++) {
             [self.dbManager readItemDataMarker:data[i] number:i];
@@ -159,8 +159,7 @@
 
 - (void)successReadAreaLike:(BOOL)result data:(NSArray *)data {
     NSString* uid = [self.dbManager currentUser];
-//    NSLog(@"@@@@@@@@@@");
-//    NSLog(@"%@",data);
+    
     for (int i = 0; i < data.count; i++) {
         if ([[NSString stringWithFormat:@"%@", data[i]] isEqualToString:uid]) {
             self.isLike = TRUE;

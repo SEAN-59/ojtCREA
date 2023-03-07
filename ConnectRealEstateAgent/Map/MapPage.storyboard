@@ -134,6 +134,22 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button hidden="YES" opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIU-8H-iv1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="tapBackViewBtn:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VCl-S5-KO2"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="AddressSearchView" translatesAutoresizingMaskIntoConstraints="NO" id="akr-Su-X4W" customClass="AddrSearchView" customModule="ConnectRealEstateAgent" customModuleProvider="target">
+                                <rect key="frame" x="10" y="54" width="394" height="260"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="ngz-ol-YC5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -141,19 +157,28 @@
                             <constraint firstItem="R2D-gc-zso" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="3wj-Fg-O9n"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="R2D-gc-zso" secondAttribute="bottom" constant="60" id="55S-XV-jYm"/>
                             <constraint firstAttribute="trailing" secondItem="R2D-gc-zso" secondAttribute="trailing" id="6Eq-vK-kXl"/>
+                            <constraint firstItem="akr-Su-X4W" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="93t-cx-Hz1"/>
+                            <constraint firstAttribute="bottom" secondItem="PIU-8H-iv1" secondAttribute="bottom" id="Acb-HS-zMC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Dhk-Fo-WVa" secondAttribute="trailing" constant="20" id="F7u-qd-JIb"/>
                             <constraint firstItem="Dhk-Fo-WVa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="WeR-GL-Daj"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MP9-id-czE" secondAttribute="trailing" id="aQr-df-Dsh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="akr-Su-X4W" secondAttribute="trailing" constant="10" id="Z91-1W-aWy"/>
                             <constraint firstItem="MP9-id-czE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="b6Q-9j-Y1T"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="MP9-id-czE" secondAttribute="bottom" constant="10" id="dam-Mp-erV"/>
                             <constraint firstItem="MP9-id-czE" firstAttribute="top" secondItem="HTI-2P-hLG" secondAttribute="bottom" constant="60" id="f6z-P1-NBF"/>
+                            <constraint firstItem="PIU-8H-iv1" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="f8D-Ad-lnA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="MP9-id-czE" secondAttribute="bottom" constant="10" id="jJT-4z-E31"/>
+                            <constraint firstItem="akr-Su-X4W" firstAttribute="top" secondItem="Dhk-Fo-WVa" secondAttribute="top" id="k17-RU-tQu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MP9-id-czE" secondAttribute="trailing" id="qeW-TJ-Vp7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PIU-8H-iv1" secondAttribute="trailing" id="rHw-gG-YXn"/>
                             <constraint firstItem="HTI-2P-hLG" firstAttribute="centerX" secondItem="wbg-li-4LG" secondAttribute="centerX" id="rkw-xz-Kc2"/>
                             <constraint firstItem="R2D-gc-zso" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wQ8-C7-X40"/>
+                            <constraint firstItem="PIU-8H-iv1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="y6N-T8-r5E"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="ItemListBtn" destination="5UQ-V1-TdX" id="mbQ-To-7Ib"/>
                         <outlet property="addItemBtn" destination="HTI-2P-hLG" id="mYi-jU-e4I"/>
+                        <outlet property="addrSearchView" destination="akr-Su-X4W" id="m7e-mi-Wko"/>
+                        <outlet property="backView" destination="PIU-8H-iv1" id="NaA-t1-4Py"/>
                         <outlet property="mainMapView" destination="R2D-gc-zso" id="JHh-gW-sMd"/>
                     </connections>
                 </viewController>
@@ -173,6 +198,9 @@
         <namedColor name="DeepBlue">
             <color red="0.12200000137090683" green="0.17299999296665192" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
