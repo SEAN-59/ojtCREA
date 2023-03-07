@@ -79,6 +79,9 @@
                         <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="tapChangeTypeFBtn:" destination="-1" eventType="touchUpInside" id="XhG-4S-XCG"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

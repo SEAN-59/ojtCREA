@@ -69,7 +69,6 @@ extension SimpleLoginVC {
     @IBAction func tapKakaoLoginBtn(_ sender: UIButton) {
         let kakaoLogin = KakaoLogin()
         kakaoLogin.delegate = self
-        self.toggleIndicator()
         kakaoLogin.loginKakaoAccount()
     }
     
@@ -89,7 +88,7 @@ extension SimpleLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
         if result {
             guard let user = Auth.auth().currentUser else {return}
             print("UserId: \(user.uid)")
-            self.dbManager.readUserData(uid: user.uid)
+            self.dbManager.readUserDataUserType(uid: user.uid)
         } else {
             /// 로그인 실패하게 되었을 경우에 작업
             var actionArray: [UIAlertAction] = []
@@ -109,7 +108,7 @@ extension SimpleLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
     }
     
     
-    func successReadUser(result: Bool) {
+    func successReadUserType(result: Bool) {
         self.toggleIndicator()
         
         let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)

@@ -15,10 +15,19 @@ class ChangeTypeTViewController: CREAViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.nameTxf.delegate = self
+        self.numberTxf.delegate = self
+        self.dateTxf.delegate = self
     }
 
     @IBAction func tapBackBtn(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension ChangeTypeTViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+    }
 }

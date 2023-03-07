@@ -28,22 +28,14 @@ class MapVC: CREAViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.layout()
         self.dbManager.delegate = self
         self.searchAPI.delegate = self
         self.addrSearchView.delegate = self
-        self.mapView.userType = self.userType
+        self.layout()
         self.mapView.moveToNowLocation(map: self.mainMapView)
-        
-        if self.userType {
-            self.dbManager.readUserItemKeyData()
-        } else {
-            self.dbManager.readAreaData()
-        }
-        
     }
     
-    private func layout() {
+    func layout() {
         if self.userType {
             /// add 버튼 색상 입힘
             self.addItemBtn.backgroundColor = UIColor.init(named: "DeepBlue")?.withAlphaComponent(0.4)
@@ -54,12 +46,18 @@ class MapVC: CREAViewController {
             /// 요소 보이게 하기
             self.ItemListBtn.isHidden = false
             self.addItemBtn.isHidden = false
+            
+            
+            self.dbManager.readUserItemKeyData()
         } else {
             /// 요소 감추기
             self.ItemListBtn.isHidden = true
             self.addItemBtn.isHidden = true
             
+            self.dbManager.readAreaData()
         }
+        
+        self.mapView.userType = self.userType
         
         
     }
@@ -80,9 +78,9 @@ private extension MapVC {
     
     @IBAction func tapSettingBtn(_ sender: UIButton) {
         let settingVC = SettingViewController.init(nibName: "SettingViewController",
-                                               bundle: nil)
+                                                   bundle: nil)
         settingVC.modalPresentationStyle = UIModalPresentationStyle.automatic
-        settingVC.getUserType(type: self.userType)
+        settingVC.userType = self.userType
         self.present(settingVC, animated: true, completion: {
             
         })
@@ -90,7 +88,6 @@ private extension MapVC {
     }
     
     @IBAction func tapAddItemBtn(_ sender: UIButton) {
-        
         let storyBoard = UIStoryboard.init(name: "ItemPage", bundle: nil)
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "AddItemVC")
         nextVC.modalPresentationStyle = .fullScreen
@@ -101,6 +98,12 @@ private extension MapVC {
     }
     
     @IBAction func tapItemListBtn(_ sender: UIButton) {
+        let listVC = ItemListViewController.init(nibName: "ItemListViewController", bundle: nil)
+        guard let presentVC = self.presentingViewController else { return }
+        listVC.modalPresentationStyle = .fullScreen
+        self.present(listVC, animated: true, completion: {
+            presentVC.dismiss(animated: false, completion: nil)
+        })
     }
     
     @IBAction func tapChatListBtn(_ sender: UIButton) {
@@ -155,6 +158,11 @@ extension MapVC: DatabaseCallDelegate {
             self.searchAPI.checkGeocode("\(korea.selectCityNm) \(korea.selectSggNm) \(korea.selectEmdNm)", addrCd: areaNum)
         }
         
+    }
+    
+    func successUpdateUserType(_ result: Bool) {
+        self.userType = result
+        self.layout()
     }
 }
 extension MapVC: MoveMapDelegate {

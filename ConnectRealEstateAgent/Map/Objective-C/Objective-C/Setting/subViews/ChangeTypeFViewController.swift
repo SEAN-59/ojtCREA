@@ -8,7 +8,7 @@
 import UIKit
 
 class ChangeTypeFViewController: CREAViewController {
-
+    let dbManager = DatabaseManager()
     
     
     override func viewDidLoad() {
@@ -21,14 +21,21 @@ class ChangeTypeFViewController: CREAViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func tapChangeTypeFBtn(_ sender: UIButton) {
+        // 여기는 무조건 TRUE > FALSE
+        self.dbManager.updateUserDataType(type: "고객")
+        guard let presentingVC = self.presentingViewController else { return }
+        guard let p_presentingVC = presentingVC.presentingViewController as? MapVC else { return }
+        
+        p_presentingVC.userType = false
+        p_presentingVC.layout()
+        self.dismiss(animated: true, completion: {
+            presentingVC.dismiss(animated: true, completion: nil)
+        })
+        
+        
+        
     }
-    */
 
 }
+

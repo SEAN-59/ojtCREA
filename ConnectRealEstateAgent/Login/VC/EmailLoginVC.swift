@@ -134,7 +134,7 @@ extension EmailLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
     func sendSignInResult(result: Bool) {
         if result {
             guard let user = Auth.auth().currentUser else {return}
-            self.dbManager.readUserData(uid: user.uid)
+            self.dbManager.readUserDataUserType(uid: user.uid)
         } else {
             /// 로그인 실패하게 되었을 경우에 작업
             var actionArray: [UIAlertAction] = []
@@ -153,9 +153,7 @@ extension EmailLoginVC: SendLoginResultDelegate, DatabaseCallDelegate {
     }
     
     
-    func successReadUser(result: Bool) {
-        
-        
+    func successReadUserType(result: Bool) {
         let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)
         guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "MapVC") as? MapVC else { return }
         nextVC.modalPresentationStyle = .fullScreen

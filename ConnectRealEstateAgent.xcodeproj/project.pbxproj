@@ -43,12 +43,17 @@
 		FB23F88229A329F10023C752 /* EnumCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB23F88129A329F00023C752 /* EnumCollection.swift */; };
 		FB35BAA6299A2A6100BA6A27 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAA5299A2A6100BA6A27 /* MapVC.swift */; };
 		FB35BAA8299A2A6B00BA6A27 /* MapPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB35BAA7299A2A6B00BA6A27 /* MapPage.storyboard */; };
-		FB35BAB0299A2DB900BA6A27 /* ItemListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAAF299A2DB900BA6A27 /* ItemListVC.swift */; };
 		FB35BAB8299A2E8800BA6A27 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BAB7299A2E8800BA6A27 /* AddItemVC.swift */; };
 		FB35BAC0299A331F00BA6A27 /* SearchAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB35BABF299A331F00BA6A27 /* SearchAddressView.swift */; };
 		FB42B1D7299B20E800CBADC9 /* SearchAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB42B1D6299B20E800CBADC9 /* SearchAddressView.xib */; };
 		FB42B1DA299B36A300CBADC9 /* AFNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = FB42B1D9299B36A300CBADC9 /* AFNetworking */; };
 		FB42B1DD299B36C600CBADC9 /* SearchAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = FB42B1DC299B36C600CBADC9 /* SearchAddress.m */; };
+		FB43F8CB29B714AC000F16C1 /* ItemListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB43F8C929B714AC000F16C1 /* ItemListTableViewCell.m */; };
+		FB43F8CC29B714AC000F16C1 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB43F8CA29B714AC000F16C1 /* ItemListTableViewCell.xib */; };
+		FB43F8CF29B7286C000F16C1 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB43F8CD29B7286C000F16C1 /* ItemListViewController.swift */; };
+		FB43F8D029B7286C000F16C1 /* ItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB43F8CE29B7286C000F16C1 /* ItemListViewController.xib */; };
+		FB43F8D829B73105000F16C1 /* ItemListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB43F8D729B73105000F16C1 /* ItemListTableView.m */; };
+		FB43F8DA29B7310F000F16C1 /* ItemListTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB43F8D929B7310F000F16C1 /* ItemListTableView.xib */; };
 		FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */; };
 		FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B7A1299615EA006B8068 /* ImageExtension.swift */; };
 		FB5EAA3129B5B52C00D29612 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EAA2F29B5B52C00D29612 /* SettingViewController.swift */; };
@@ -57,6 +62,12 @@
 		FB5EAA4029B5D72400D29612 /* ChangeTypeFViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5EAA3E29B5D72400D29612 /* ChangeTypeFViewController.xib */; };
 		FB5EAA4329B5DA4900D29612 /* ChangeTypeTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EAA4129B5DA4900D29612 /* ChangeTypeTViewController.swift */; };
 		FB5EAA4429B5DA4900D29612 /* ChangeTypeTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5EAA4229B5DA4900D29612 /* ChangeTypeTViewController.xib */; };
+		FB5EAA4729B6B75700D29612 /* ChangeLikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EAA4529B6B75700D29612 /* ChangeLikeViewController.swift */; };
+		FB5EAA4829B6B75700D29612 /* ChangeLikeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5EAA4629B6B75700D29612 /* ChangeLikeViewController.xib */; };
+		FB5EAA4B29B6B77900D29612 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EAA4929B6B77900D29612 /* ChangeNameViewController.swift */; };
+		FB5EAA4C29B6B77900D29612 /* ChangeNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5EAA4A29B6B77900D29612 /* ChangeNameViewController.xib */; };
+		FB5EAA4F29B6B8A400D29612 /* ChangeTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EAA4D29B6B8A400D29612 /* ChangeTagViewController.swift */; };
+		FB5EAA5029B6B8A400D29612 /* ChangeTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5EAA4E29B6B8A400D29612 /* ChangeTagViewController.xib */; };
 		FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7B3B8329A5D8FD00A58D8E /* MapView.m */; };
 		FB8505B529A8929F0053311D /* InfoMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8505B429A8929F0053311D /* InfoMarkerViewController.xib */; };
 		FB8505B929A89AE60053311D /* InfoMarkerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8505B729A89AE60053311D /* InfoMarkerTableViewCell.m */; };
@@ -112,12 +123,19 @@
 		FB23F88129A329F00023C752 /* EnumCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumCollection.swift; sourceTree = "<group>"; };
 		FB35BAA5299A2A6100BA6A27 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FB35BAA7299A2A6B00BA6A27 /* MapPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapPage.storyboard; sourceTree = "<group>"; };
-		FB35BAAF299A2DB900BA6A27 /* ItemListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListVC.swift; sourceTree = "<group>"; };
 		FB35BAB7299A2E8800BA6A27 /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
 		FB35BABF299A331F00BA6A27 /* SearchAddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressView.swift; sourceTree = "<group>"; };
 		FB42B1D6299B20E800CBADC9 /* SearchAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAddressView.xib; sourceTree = "<group>"; };
 		FB42B1DB299B36C600CBADC9 /* SearchAddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchAddress.h; path = "ConnectRealEstateAgent/Utils/Objective-C/SearchAddress.h"; sourceTree = SOURCE_ROOT; };
 		FB42B1DC299B36C600CBADC9 /* SearchAddress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SearchAddress.m; path = "ConnectRealEstateAgent/Utils/Objective-C/SearchAddress.m"; sourceTree = SOURCE_ROOT; };
+		FB43F8C829B714AC000F16C1 /* ItemListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemListTableViewCell.h; sourceTree = "<group>"; };
+		FB43F8C929B714AC000F16C1 /* ItemListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemListTableViewCell.m; sourceTree = "<group>"; };
+		FB43F8CA29B714AC000F16C1 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableViewCell.xib; sourceTree = "<group>"; };
+		FB43F8CD29B7286C000F16C1 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
+		FB43F8CE29B7286C000F16C1 /* ItemListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListViewController.xib; sourceTree = "<group>"; };
+		FB43F8D629B73105000F16C1 /* ItemListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemListTableView.h; sourceTree = "<group>"; };
+		FB43F8D729B73105000F16C1 /* ItemListTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemListTableView.m; sourceTree = "<group>"; };
+		FB43F8D929B7310F000F16C1 /* ItemListTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableView.xib; sourceTree = "<group>"; };
 		FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BJDAddressData.swift; sourceTree = "<group>"; };
 		FB47B7A1299615EA006B8068 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		FB5EAA2F29B5B52C00D29612 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +144,13 @@
 		FB5EAA3E29B5D72400D29612 /* ChangeTypeFViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeTypeFViewController.xib; sourceTree = "<group>"; };
 		FB5EAA4129B5DA4900D29612 /* ChangeTypeTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTypeTViewController.swift; sourceTree = "<group>"; };
 		FB5EAA4229B5DA4900D29612 /* ChangeTypeTViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeTypeTViewController.xib; sourceTree = "<group>"; };
+		FB5EAA4529B6B75700D29612 /* ChangeLikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeLikeViewController.swift; sourceTree = "<group>"; };
+		FB5EAA4629B6B75700D29612 /* ChangeLikeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeLikeViewController.xib; sourceTree = "<group>"; };
+		FB5EAA4929B6B77900D29612 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		FB5EAA4A29B6B77900D29612 /* ChangeNameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeNameViewController.xib; sourceTree = "<group>"; };
+		FB5EAA4D29B6B8A400D29612 /* ChangeTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTagViewController.swift; sourceTree = "<group>"; };
+		FB5EAA4E29B6B8A400D29612 /* ChangeTagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeTagViewController.xib; sourceTree = "<group>"; };
+		FB5EAA5129B6BDBB00D29612 /* DBProtocolDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBProtocolDelegate.h; sourceTree = "<group>"; };
 		FB7B3B8229A5D8FD00A58D8E /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		FB7B3B8329A5D8FD00A58D8E /* MapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		FB8505B429A8929F0053311D /* InfoMarkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoMarkerViewController.xib; sourceTree = "<group>"; };
@@ -185,6 +210,8 @@
 				FB35BABF299A331F00BA6A27 /* SearchAddressView.swift */,
 				FB23F86F299E10ED0023C752 /* InformationView.swift */,
 				FB23F879299F4BC70023C752 /* InvestInputView.swift */,
+				FB43F8CD29B7286C000F16C1 /* ItemListViewController.swift */,
+				FB43F8CE29B7286C000F16C1 /* ItemListViewController.xib */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -313,6 +340,7 @@
 				FBBBD18B29A869F300F6A0CA /* URLData.h */,
 				FB23F87C299F4CFB0023C752 /* DatabaseManager.h */,
 				FB23F87D299F4CFB0023C752 /* DatabaseManager.m */,
+				FB5EAA5129B6BDBB00D29612 /* DBProtocolDelegate.h */,
 				FB42B1DB299B36C600CBADC9 /* SearchAddress.h */,
 				FB42B1DC299B36C600CBADC9 /* SearchAddress.m */,
 			);
@@ -351,6 +379,7 @@
 			children = (
 				A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */,
 				A7C443E8299D161C001EA428 /* xib */,
+				FB43F8BD29B70F4E000F16C1 /* Objective-C */,
 				A7C443E9299D1638001EA428 /* Swift */,
 				FB35BAAC299A2D8700BA6A27 /* VC */,
 			);
@@ -360,10 +389,22 @@
 		FB35BAAC299A2D8700BA6A27 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				FB35BAAF299A2DB900BA6A27 /* ItemListVC.swift */,
 				FB35BAB7299A2E8800BA6A27 /* AddItemVC.swift */,
 			);
 			path = VC;
+			sourceTree = "<group>";
+		};
+		FB43F8BD29B70F4E000F16C1 /* Objective-C */ = {
+			isa = PBXGroup;
+			children = (
+				FB43F8C829B714AC000F16C1 /* ItemListTableViewCell.h */,
+				FB43F8C929B714AC000F16C1 /* ItemListTableViewCell.m */,
+				FB43F8CA29B714AC000F16C1 /* ItemListTableViewCell.xib */,
+				FB43F8D629B73105000F16C1 /* ItemListTableView.h */,
+				FB43F8D729B73105000F16C1 /* ItemListTableView.m */,
+				FB43F8D929B7310F000F16C1 /* ItemListTableView.xib */,
+			);
+			path = "Objective-C";
 			sourceTree = "<group>";
 		};
 		FB47B79E2995EF54006B8068 /* Utils */ = {
@@ -425,6 +466,12 @@
 				FB5EAA3E29B5D72400D29612 /* ChangeTypeFViewController.xib */,
 				FB5EAA4129B5DA4900D29612 /* ChangeTypeTViewController.swift */,
 				FB5EAA4229B5DA4900D29612 /* ChangeTypeTViewController.xib */,
+				FB5EAA4529B6B75700D29612 /* ChangeLikeViewController.swift */,
+				FB5EAA4629B6B75700D29612 /* ChangeLikeViewController.xib */,
+				FB5EAA4929B6B77900D29612 /* ChangeNameViewController.swift */,
+				FB5EAA4A29B6B77900D29612 /* ChangeNameViewController.xib */,
+				FB5EAA4D29B6B8A400D29612 /* ChangeTagViewController.swift */,
+				FB5EAA4E29B6B8A400D29612 /* ChangeTagViewController.xib */,
 			);
 			path = subViews;
 			sourceTree = "<group>";
@@ -525,18 +572,24 @@
 				FB35BAA8299A2A6B00BA6A27 /* MapPage.storyboard in Resources */,
 				FB5EAA3229B5B52C00D29612 /* SettingViewController.xib in Resources */,
 				FB21D2BA299098DD00F1FA20 /* LaunchScreen.storyboard in Resources */,
+				FB43F8D029B7286C000F16C1 /* ItemListViewController.xib in Resources */,
 				FB21D2C22990996D00F1FA20 /* GoogleService-Info.plist in Resources */,
 				FB23F874299F04280023C752 /* InvestInputView.xib in Resources */,
 				A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */,
 				FB8505B529A8929F0053311D /* InfoMarkerViewController.xib in Resources */,
 				FBE0F89629B57CE2008240C5 /* AddrSearchView.xib in Resources */,
+				FB5EAA5029B6B8A400D29612 /* ChangeTagViewController.xib in Resources */,
 				FB8505BA29A89AE60053311D /* InfoMarkerTableViewCell.xib in Resources */,
 				FB5EAA4429B5DA4900D29612 /* ChangeTypeTViewController.xib in Resources */,
 				A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */,
 				FB42B1D7299B20E800CBADC9 /* SearchAddressView.xib in Resources */,
+				FB43F8DA29B7310F000F16C1 /* ItemListTableView.xib in Resources */,
+				FB5EAA4829B6B75700D29612 /* ChangeLikeViewController.xib in Resources */,
 				FB21D2B7299098DD00F1FA20 /* Assets.xcassets in Resources */,
+				FB5EAA4C29B6B77900D29612 /* ChangeNameViewController.xib in Resources */,
 				FB5EAA4029B5D72400D29612 /* ChangeTypeFViewController.xib in Resources */,
 				FB21D2B5299098DC00F1FA20 /* Main.storyboard in Resources */,
+				FB43F8CC29B714AC000F16C1 /* ItemListTableViewCell.xib in Resources */,
 				FBBBD19929A8826700F6A0CA /* DetailMarkerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +651,7 @@
 				FB21D2AE299098DC00F1FA20 /* AppDelegate.swift in Sources */,
 				A7F116552998B4FE00905DAA /* GoogleLogin.m in Sources */,
 				A75FEBB42997DD28004F49DC /* FirstVC.swift in Sources */,
+				FB43F8CF29B7286C000F16C1 /* ItemListViewController.swift in Sources */,
 				FBE0F89429B57AC6008240C5 /* AddrSearchView.swift in Sources */,
 				A7F1165D2999242600905DAA /* SimpleAlert.swift in Sources */,
 				FB21D2B0299098DC00F1FA20 /* SceneDelegate.swift in Sources */,
@@ -605,22 +659,26 @@
 				A7F1165B29991C7D00905DAA /* EmailLogin.m in Sources */,
 				FBF52F5A2999B570006594D1 /* CreateAccountVC.swift in Sources */,
 				FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */,
+				FB5EAA4B29B6B77900D29612 /* ChangeNameViewController.swift in Sources */,
 				FB35BAA6299A2A6100BA6A27 /* MapVC.swift in Sources */,
 				FB110C992990EEDB00C4EF53 /* ColorExtension.swift in Sources */,
 				FB35BAC0299A331F00BA6A27 /* SearchAddressView.swift in Sources */,
 				FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */,
-				FB35BAB0299A2DB900BA6A27 /* ItemListVC.swift in Sources */,
 				FB35BAB8299A2E8800BA6A27 /* AddItemVC.swift in Sources */,
 				FB5EAA3F29B5D72400D29612 /* ChangeTypeFViewController.swift in Sources */,
+				FB43F8D829B73105000F16C1 /* ItemListTableView.m in Sources */,
 				FB23F870299E10ED0023C752 /* InformationView.swift in Sources */,
 				FB5EAA3129B5B52C00D29612 /* SettingViewController.swift in Sources */,
 				A7F116582998B52900905DAA /* NaverLogin.m in Sources */,
+				FB5EAA4729B6B75700D29612 /* ChangeLikeViewController.swift in Sources */,
 				FBEB6FDD29A743AD00445EF9 /* CREAViewController.swift in Sources */,
 				FB8505B929A89AE60053311D /* InfoMarkerTableViewCell.m in Sources */,
+				FB5EAA4F29B6B8A400D29612 /* ChangeTagViewController.swift in Sources */,
 				FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */,
 				FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */,
 				FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */,
 				FB5EAA4329B5DA4900D29612 /* ChangeTypeTViewController.swift in Sources */,
+				FB43F8CB29B714AC000F16C1 /* ItemListTableViewCell.m in Sources */,
 				FB23F87A299F4BC70023C752 /* InvestInputView.swift in Sources */,
 				FBBBD19029A8766100F6A0CA /* InfoMarkerViewController.m in Sources */,
 				FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */,

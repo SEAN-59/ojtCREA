@@ -12,7 +12,7 @@ import FirebaseCore
 import KakaoSDKAuth
 
 class SettingViewController: CREAViewController {
-    private var userType: Bool = false
+    var userType: Bool = false
     
     @IBOutlet weak var changeTypeBtn: UIButton!
     @IBOutlet weak var changeSomethingBtn: UIButton!
@@ -23,16 +23,15 @@ class SettingViewController: CREAViewController {
         super.viewDidLoad()
         self.initVC()
     }
-    func getUserType(type: Bool) { self.userType = type }
+//    func getUserType(type: Bool) { self.userType = type }
     
     func initVC() {
         if self.userType {
-            self.changeSomethingBtn.setTitle("명함 관리", for: .application)
-            self.changeSomethingBtn.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+            self.changeSomethingBtn.setTitle("명함 관리", for: .normal)
         } else {
-            self.changeSomethingBtn.setTitle("조건 변경", for: .application)
-            self.changeSomethingBtn.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+            self.changeSomethingBtn.setTitle("조건 변경", for: .normal)
         }
+        self.changeSomethingBtn.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         
     }
 }
@@ -43,10 +42,6 @@ extension SettingViewController {
     }
     
     @IBAction func tapChangeTypeBtn(_ sender: UIButton) {
-        
-        
-        
-        
         if self.userType {
             // 비즈니스 -> 일반
             let nextVC = ChangeTypeFViewController()
@@ -64,16 +59,34 @@ extension SettingViewController {
             }
             self.present(nextVC, animated: true, completion: nil)
         }
-        
-        
-        
-        
     }
     
     @IBAction func tapSomethingBtn(_ sender: UIButton) {
+        if self.userType {
+            let nextVC = ChangeTagViewController()
+            if let sheet = nextVC.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.delegate = self
+            }
+            self.present(nextVC, animated: true, completion: nil)
+            
+        } else {
+            let nextVC = ChangeLikeViewController()
+            if let sheet = nextVC.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.delegate = self
+            }
+            self.present(nextVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func tapChangeNameBtn(_ sender: UIButton) {
+        let nextVC = ChangeNameViewController()
+        if let sheet = nextVC.sheetPresentationController {
+            sheet.detents = [.medium()]
+            sheet.delegate = self
+        }
+        self.present(nextVC, animated: true, completion: nil)
     }
     
     @IBAction func tapSignOutBtn(_ sender: UIButton) {

@@ -162,12 +162,12 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Dhk-Fo-WVa" secondAttribute="trailing" constant="20" id="F7u-qd-JIb"/>
                             <constraint firstItem="Dhk-Fo-WVa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="WeR-GL-Daj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="akr-Su-X4W" secondAttribute="trailing" constant="10" id="Z91-1W-aWy"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MP9-id-czE" secondAttribute="trailing" id="aQr-df-Dsh"/>
                             <constraint firstItem="MP9-id-czE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="b6Q-9j-Y1T"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="MP9-id-czE" secondAttribute="bottom" constant="10" id="dam-Mp-erV"/>
                             <constraint firstItem="MP9-id-czE" firstAttribute="top" secondItem="HTI-2P-hLG" secondAttribute="bottom" constant="60" id="f6z-P1-NBF"/>
                             <constraint firstItem="PIU-8H-iv1" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="f8D-Ad-lnA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="MP9-id-czE" secondAttribute="bottom" constant="10" id="jJT-4z-E31"/>
                             <constraint firstItem="akr-Su-X4W" firstAttribute="top" secondItem="Dhk-Fo-WVa" secondAttribute="top" id="k17-RU-tQu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MP9-id-czE" secondAttribute="trailing" id="qeW-TJ-Vp7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PIU-8H-iv1" secondAttribute="trailing" id="rHw-gG-YXn"/>
                             <constraint firstItem="HTI-2P-hLG" firstAttribute="centerX" secondItem="wbg-li-4LG" secondAttribute="centerX" id="rkw-xz-Kc2"/>
                             <constraint firstItem="R2D-gc-zso" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="wQ8-C7-X40"/>
