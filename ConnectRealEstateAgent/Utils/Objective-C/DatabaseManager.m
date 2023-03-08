@@ -366,13 +366,13 @@
 }
 
 - (void)readItemData:(NSString *)itemCd {
-    NSString* path = [NSString stringWithFormat:@"/ItemData/%@",itemCd];
+    NSString* path = [NSString stringWithFormat:@"/ItemData/%@/",itemCd];
     [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
         if (error == nil) {
             if ([snapshot.value isKindOfClass:[NSNull class]]) {
-//                [self.delegate successReadItem:FALSE data:[NSDictionary new] number:0 itemCd:itemCd];
+                [self.delegate successReadItem:FALSE data:[NSDictionary new] code:itemCd];
             } else {
-//                [self.delegate successReadItem:TRUE data:snapshot.value number:number itemCd: itemCd];
+                [self.delegate successReadItem:TRUE data:snapshot.value code:itemCd];
             }
         }
     }];

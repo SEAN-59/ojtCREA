@@ -83,6 +83,10 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
+}
+
 //MARK: - DATABASE_DELEGATE
 - (void) successReadAreaLike:(BOOL)result data:(NSArray *)data {
     if (result) {

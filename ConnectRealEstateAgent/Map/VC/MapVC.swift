@@ -100,13 +100,25 @@ private extension MapVC {
     @IBAction func tapItemListBtn(_ sender: UIButton) {
         let listVC = ItemListViewController.init(nibName: "ItemListViewController", bundle: nil)
         guard let presentVC = self.presentingViewController else { return }
+        
         listVC.modalPresentationStyle = .fullScreen
-        self.present(listVC, animated: true, completion: {
-            presentVC.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: {
+            listVC.userType = self.userType
+            presentVC.present(listVC, animated: false, completion: nil)
         })
     }
     
     @IBAction func tapChatListBtn(_ sender: UIButton) {
+        let detailVC = ItemDetailViewController.init(nibName: "ItemDetailViewController", bundle: nil)
+        guard let presentVC = self.presentingViewController else { return }
+        
+        detailVC.modalPresentationStyle = .fullScreen
+        self.present(detailVC, animated: true, completion: nil)
+//        self.dismiss(animated: false, completion: {
+//
+//            presentVC.present(listVC, animated: false, completion: nil)
+//        })
+        
     }
     
 }

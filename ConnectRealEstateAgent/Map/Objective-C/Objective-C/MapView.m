@@ -91,12 +91,6 @@
 
 - (void)moveMap:(NMFMapView *)map lat:(double)lat lon:(double)lon {
     [self moveToMapCamera:map lat:lat lon:lon];
-    
-}
-
-
-- (void)sheetPresentationControllerDidChangeSelectedDetentIdentifier:(UISheetPresentationController *)sheetPresentationController {
-    
 }
 
 
