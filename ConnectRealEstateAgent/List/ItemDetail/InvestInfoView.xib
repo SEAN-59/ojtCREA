@@ -249,25 +249,25 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zm1-v0-DRu">
-                    <rect key="frame" x="156.5" y="404" width="241" height="110"/>
+                    <rect key="frame" x="156.5" y="404" width="241" height="214"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GdV-HS-UZL">
-                            <rect key="frame" x="0.0" y="0.0" width="241" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="241" height="102"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="실 투자비용 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA0-UQ-zCN">
-                                    <rect key="frame" x="0.0" y="10" width="120.5" height="40"/>
+                                    <rect key="frame" x="0.0" y="10" width="120.5" height="92"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="만원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hm-7a-evs">
-                                    <rect key="frame" x="187.5" y="15.5" width="42" height="29"/>
+                                    <rect key="frame" x="187.5" y="41.5" width="42" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFf-Pb-tZ1">
-                                    <rect key="frame" x="125.5" y="15.5" width="57" height="29"/>
+                                    <rect key="frame" x="125.5" y="41.5" width="57" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -286,22 +286,22 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWz-ll-WZ6">
-                            <rect key="frame" x="17" y="60" width="207.5" height="50"/>
+                            <rect key="frame" x="17" y="112" width="207.5" height="102"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="투자 수익률 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJh-k1-MIz">
-                                    <rect key="frame" x="0.0" y="0.0" width="120.5" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="120.5" height="102"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFs-wn-1Dq">
-                                    <rect key="frame" x="187.5" y="10.5" width="20" height="29"/>
+                                    <rect key="frame" x="187.5" y="36.5" width="20" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xk3-Z3-GMy">
-                                    <rect key="frame" x="125.5" y="10.5" width="57" height="29"/>
+                                    <rect key="frame" x="125.5" y="36.5" width="57" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -327,6 +327,7 @@
                 <constraint firstItem="zm1-v0-DRu" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Ih7-IX-k6k"/>
                 <constraint firstItem="Hu7-NE-Po1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="Lp9-e7-yBP"/>
                 <constraint firstItem="zm1-v0-DRu" firstAttribute="top" secondItem="Hu7-NE-Po1" secondAttribute="bottom" constant="5" id="P5T-Gn-uNL"/>
+                <constraint firstAttribute="bottom" secondItem="zm1-v0-DRu" secondAttribute="bottom" constant="5" id="Z8b-g9-o8s"/>
                 <constraint firstItem="Hu7-NE-Po1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="iDy-jz-e2S"/>
                 <constraint firstAttribute="trailing" secondItem="Hu7-NE-Po1" secondAttribute="trailing" constant="5" id="jXc-37-1GU"/>
             </constraints>

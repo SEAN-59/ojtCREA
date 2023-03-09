@@ -20,4 +20,12 @@ class CREAViewController: UIViewController {
         view.endEditing(true)
     }
     
+    
+    func numberFormatter(number: Double) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        return numberFormatter.string(from: NSNumber(value: Int(number)))!
+        
+    }
+    
 }

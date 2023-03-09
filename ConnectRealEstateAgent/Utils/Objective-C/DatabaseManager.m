@@ -128,45 +128,53 @@
     NSString* uid = [self currentUser];
     if (uid == nil) { return; }
     
+    NSString* areaCd = data[0];
+    NSDictionary* dataDict = data[1];
+    
     NSString* itemCd = self.ref.childByAutoId.key;
     NSString* path = [NSString stringWithFormat:@"/ItemData/%@/Information/",itemCd];
     
-    [[[[[self.ref child:@"ItemData"] child:itemCd] child:@"Information"] child:@"oldAddress"]setValue: [data objectForKey:@"oldAddress"]];
+    [[[[[self.ref child:@"ItemData"] child:itemCd] child:@"Information"] child:@"oldAddress"]setValue: [dataDict objectForKey:@"oldAddress"]];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"newAddress"].key]: [data objectForKey:@"newAddress"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"newAddress"].key]: [dataDict objectForKey:@"newAddress"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"platArea"].key]: [data objectForKey:@"platArea"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"platArea"].key]: [dataDict objectForKey:@"platArea"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"archArea"].key]: [data objectForKey:@"archArea"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"archArea"].key]: [dataDict objectForKey:@"archArea"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"totArea"].key]: [data objectForKey:@"totArea"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"totArea"].key]: [dataDict objectForKey:@"totArea"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"vlRat"].key]: [data objectForKey:@"vlRat"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"vlRat"].key]: [dataDict objectForKey:@"vlRat"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"purpsNm"].key]: [data objectForKey:@"purpsNm"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"purpsNm"].key]: [dataDict objectForKey:@"purpsNm"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"grndFlrCnt"].key]: [data objectForKey:@"grndFlrCnt"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"grndFlrCnt"].key]: [dataDict objectForKey:@"grndFlrCnt"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"ugrndFlrCnt"].key]: [data objectForKey:@"ugrndFlrCnt"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"ugrndFlrCnt"].key]: [dataDict objectForKey:@"ugrndFlrCnt"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"useAprDay"].key]: [data objectForKey:@"useAprDay"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"useAprDay"].key]: [dataDict objectForKey:@"useAprDay"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"newAddress"].key]: [data objectForKey:@"newAddress"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"newAddress"].key]: [dataDict objectForKey:@"newAddress"]}];
     
     path = [NSString stringWithFormat:@"/ItemData/%@/Invest/",itemCd];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"sell"].key]: [data objectForKey:@"sell"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"sell"].key]: [dataDict objectForKey:@"sell"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"deposit"].key]: [data objectForKey:@"deposit"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"deposit"].key]: [dataDict objectForKey:@"deposit"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"loan"].key]: [data objectForKey:@"loan"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"loan"].key]: [dataDict objectForKey:@"loan"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"loanRat"].key]: [data objectForKey:@"loanRat"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"loanRat"].key]: [dataDict objectForKey:@"loanRat"]}];
     
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"income"].key]: [data objectForKey:@"income"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"income"].key]: [dataDict objectForKey:@"income"]}];
+    
+    path = [NSString stringWithFormat:@"/ItemData/%@/",itemCd];
+    
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"areaCd"].key]: areaCd}];
+    
     
     /// AreaData_{addressCd}_Item 구성
-    path = [NSString stringWithFormat:@"/AreaData/%@/Item/",[data objectForKey:@"addressCd"]];
+    path = [NSString stringWithFormat:@"/AreaData/%@/Item/",[dataDict objectForKey:@"addressCd"]];
     
     [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
         // 처음 생성 되는 경우
@@ -185,7 +193,7 @@
     }];
     
     /// UserData_{UID}_Item_{addressCd}_{itemCd}  구성
-    path = [NSString stringWithFormat:@"/UserData/%@/Item/%@/",uid, [data objectForKey:@"addressCd"]];
+    path = [NSString stringWithFormat:@"/UserData/%@/Item/%@/",uid, [dataDict objectForKey:@"addressCd"]];
     
     /// 중복되는거를 이렇게 판단해서 끝내려고 했는데 중복을 일단은 배제를 하고 진행을 해야 다른걸 건들 수 있을것 같음
     [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
@@ -328,6 +336,17 @@
     [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"businessAddr"].key]: addr}];
     
     [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"businessName"].key]: name}];
+    
+}
+
+- (void)updateItemData:(NSString *)itemCd data:(NSDictionary *)data {
+    NSString* path = [NSString stringWithFormat:@"/ItemData/%@/Invest/", itemCd];
+    
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"deposit"].key]: [data objectForKey:@"deposit"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"income"].key]: [data objectForKey:@"income"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"loan"].key]: [data objectForKey:@"loan"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"loanRat"].key]: [data objectForKey:@"loanRat"]}];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child:@"sell"].key]: [data objectForKey:@"sell"]}];
     
 }
 

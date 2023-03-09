@@ -145,7 +145,7 @@
                             </stackView>
                             <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="AddressSearchView" translatesAutoresizingMaskIntoConstraints="NO" id="akr-Su-X4W" customClass="AddrSearchView" customModule="ConnectRealEstateAgent" customModuleProvider="target">
                                 <rect key="frame" x="10" y="54" width="394" height="260"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="260" id="ngz-ol-YC5"/>
                                 </constraints>
@@ -198,9 +198,6 @@
         <namedColor name="DeepBlue">
             <color red="0.12200000137090683" green="0.17299999296665192" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -120,8 +120,6 @@ extension EmailLoginVC {
         nextVC.modalPresentationStyle = .fullScreen
         self.present(nextVC, animated: true, completion: nil)
     }
-    
-    
 }
 
 extension EmailLoginVC: UITextFieldDelegate {

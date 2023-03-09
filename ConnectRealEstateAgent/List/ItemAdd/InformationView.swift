@@ -70,6 +70,7 @@ extension InformationView {
         self.mainPurpsLbl.text = "\(String(describing: self.apiData["purpsNm"]!))"
     }
     
+    
     private func dayChangeToString(day: String) -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")

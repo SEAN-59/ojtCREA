@@ -20,10 +20,11 @@
     // Configure the view for the selected state
 }
 
-- (void)initCellLbl:(NSString *)addr sell:(NSString *)sell income:(NSString *)income rat:(NSString *)rat {
+- (void)initCellLbl:(NSString *)addr sell:(NSString *)sell income:(NSString *)income year:(NSString *)year rat:(NSString *)rat {
     [self.addrLbl setText:addr];
     [self.sellLbl setText:sell];
     [self.incomeLbl setText:income];
+    [self.yearIncomeLbl setText:year];
     [self.ratLbl setText:rat];
     
 }

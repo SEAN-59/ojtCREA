@@ -62,21 +62,35 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.cellCount;
 }
-
+//
+//- (NSString *)numberFormatter:(double)number {
+//    NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc]init];
+//    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+//    return [numberFormatter stringFromNumber:[NSNumber numberWithInt:(int)number]];
+//}
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     InfoMarkerTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentity forIndexPath:indexPath];
     
+    NSString*(^numberFormatter)(double) = ^(double number) {
+        NSNumberFormatter* numberFormatter = [[NSNumberFormatter alloc]init];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        
+        NSString* result = [NSString stringWithFormat:@"%@ 만원",[numberFormatter stringFromNumber:[NSNumber numberWithInt:(int)number]]];
+        
+        return result;
+    };
+    
     
     if (self.cellCount > 0 ) {
         NSString* index = [NSString stringWithFormat:@"%ld", (long)indexPath.item];
-        
         NSDictionary* cellData = [tableViewDataDictionary objectForKey:index];
-        
+
         cell.addressLbl.text = [NSString stringWithFormat:@"%@", [cellData objectForKey:@"address"]];
-        cell.sellLbl.text = [NSString stringWithFormat:@"%@", [cellData objectForKey:@"sell"]];
-        cell.incomeLbl.text = [NSString stringWithFormat:@"%@", [cellData objectForKey:@"income"]];
-        cell.loanLbl.text = [NSString stringWithFormat:@"%@", [cellData objectForKey:@"loan"]];
+        cell.sellLbl.text = numberFormatter([[cellData objectForKey:@"sell"] doubleValue]);
+        cell.incomeLbl.text = numberFormatter([[cellData objectForKey:@"income"] doubleValue]);
+        cell.loanLbl.text = numberFormatter([[cellData objectForKey:@"loan"] doubleValue]);
+        cell.depositLbl.text = numberFormatter([[cellData objectForKey:@"deposit"] doubleValue]);
         cell.itemCd = [NSString stringWithFormat:@"%@", [cellData objectForKey:@"itemCd"]];
     }
     
@@ -116,6 +130,7 @@
         [dict setObject:[[data objectForKey:@"Invest"] objectForKey:@"sell"] forKey:@"sell"];
         [dict setObject:[[data objectForKey:@"Invest"] objectForKey:@"income"] forKey:@"income"];
         [dict setObject:[[data objectForKey:@"Invest"] objectForKey:@"loan"] forKey:@"loan"];
+        [dict setObject:[[data objectForKey:@"Invest"] objectForKey:@"deposit"] forKey:@"deposit"];
         [dict setObject:itemCd forKey:@"itemCd"];
         
         [tableViewDataDictionary setObject:dict forKey:[NSString stringWithFormat:@"%d", number]];
@@ -130,8 +145,5 @@
     }
 }
 
-//- (void)successReadAreaLike:(BOOL)result data:(NSArray *)data {
-//
-//}
 
 @end

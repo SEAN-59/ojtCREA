@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemListViewController" customModule="ConnectRealEstateAgent" customModuleProvider="target">
             <connections>
                 <outlet property="addrTitleLbl" destination="1gi-CM-xHc" id="H1s-mg-OIW"/>
+                <outlet property="drawCircleView" destination="VBj-p9-f4k" id="yKk-f0-pfu"/>
                 <outlet property="tableView" destination="lKJ-L1-hAE" id="K7r-RX-uLh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -95,22 +97,33 @@
                         <constraint firstAttribute="height" constant="50" id="zfb-D2-hTG"/>
                     </constraints>
                 </stackView>
+                <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBj-p9-f4k">
+                    <rect key="frame" x="0.0" y="94" width="394" height="394"/>
+                    <color key="backgroundColor" name="DeepBlue"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="394" id="A6c-aI-ERK"/>
+                    </constraints>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lKJ-L1-hAE">
-                    <rect key="frame" x="0.0" y="99" width="414" height="698"/>
+                    <rect key="frame" x="10" y="99" width="394" height="698"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="lKJ-L1-hAE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7Fb-AJ-t07"/>
+                <constraint firstItem="lKJ-L1-hAE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="7Fb-AJ-t07"/>
                 <constraint firstItem="lKJ-L1-hAE" firstAttribute="top" secondItem="wbP-Og-E1x" secondAttribute="bottom" constant="5" id="8Gs-E6-ZHQ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="VBj-p9-f4k" secondAttribute="trailing" constant="20" id="Abi-Ql-WRk"/>
+                <constraint firstItem="VBj-p9-f4k" firstAttribute="top" secondItem="wbP-Og-E1x" secondAttribute="bottom" id="Hax-pg-voA"/>
                 <constraint firstItem="wbP-Og-E1x" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="IYe-B6-Fgk"/>
+                <constraint firstItem="VBj-p9-f4k" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="OSN-6O-6WD"/>
                 <constraint firstItem="vPa-a5-G20" firstAttribute="top" secondItem="lKJ-L1-hAE" secondAttribute="bottom" constant="5" id="Rpb-YJ-qCU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wbP-Og-E1x" secondAttribute="trailing" id="XDt-qz-nbC"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lKJ-L1-hAE" secondAttribute="trailing" id="a6U-BX-xrh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lKJ-L1-hAE" secondAttribute="trailing" constant="10" id="a6U-BX-xrh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="vPa-a5-G20" secondAttribute="bottom" constant="10" id="epg-Dg-bKA"/>
                 <constraint firstItem="wbP-Og-E1x" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="h83-gb-Hpe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="wbP-Og-E1x" secondAttribute="bottom" constant="-50" id="jm7-MJ-Fug"/>
                 <constraint firstItem="vPa-a5-G20" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jut-oa-ccA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vPa-a5-G20" secondAttribute="trailing" id="s6z-6R-Jhd"/>
             </constraints>

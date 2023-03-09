@@ -22,6 +22,8 @@ class ItemListViewController: CREAViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addrTitleLbl: UILabel!
     
+    @IBOutlet weak var drawCircleView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dbManager.delegate = self
@@ -31,6 +33,7 @@ class ItemListViewController: CREAViewController {
     }
     
     private func layout() {
+        self.drawCircleView
     }
     
     private func loadData() {
@@ -128,13 +131,15 @@ extension ItemListViewController: UITableViewDataSource, UITableViewDelegate {
         let sell: Double = invest["sell"]!
         let loan: Double = invest["loan"]!
         let deposit: Double = invest["deposit"]!
+        let year: Double = income*12
         
         let rat: Double = self.calculateRat(income: income, sell: sell, loan: loan, deposit: deposit)
         
         cell.initCellLbl(information["oldAddress"] as! String,
-                         sell: "\(sell)",
-                         income: "\(income)",
-                         rat: "\(rat)")
+                         sell: "\(numberFormatter(number: sell)) 만원",
+                         income: "\(numberFormatter(number: income)) 만원",
+                         year: "\(numberFormatter(number: year)) 만원",
+                         rat: "\(rat) %")
         
         return cell
     }
@@ -154,7 +159,11 @@ extension ItemListViewController: UITableViewDataSource, UITableViewDelegate {
         
         detailVC.modalPresentationStyle = .fullScreen
         detailVC.dataDict = self.dataDict[self.sumItemArray[indexPath.item]] ?? Dictionary<String, Any>()
+        detailVC.dataCd = self.sumItemArray[indexPath.item]
         self.present(detailVC, animated: true, completion: nil)
     }
     
+}
+
+extension ItemListViewController {
 }

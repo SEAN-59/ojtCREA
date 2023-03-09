@@ -46,6 +46,7 @@ extension SimpleLoginVC {
     
     @IBAction func tapAppleLoginBtn(_ sender: UIButton) {
         let appleLogin = AppleLogin()
+        appleLogin.presentingVC = self
 //        appleLogin.delegate = self
 //        self.startIndicator()
         appleLogin.startSignInWithAppleFlow()
@@ -61,7 +62,7 @@ extension SimpleLoginVC {
     @IBAction func tapNaverLoginBtn(_ sender: UIButton) {
         let naverLogin = NaverLogin()
         naverLogin.delegate = self
-//        naverLogin.naverSignIn()
+        naverLogin.naverSignIn()
 //        self.startIndicator()
         
     }

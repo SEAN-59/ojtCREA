@@ -13,9 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *addrLbl;
 @property (weak, nonatomic) IBOutlet UILabel *sellLbl;
 @property (weak, nonatomic) IBOutlet UILabel *incomeLbl;
+@property (weak, nonatomic) IBOutlet UILabel *yearIncomeLbl;
 @property (weak, nonatomic) IBOutlet UILabel *ratLbl;
 
-- (void) initCellLbl: (NSString*) addr sell: (NSString*) sell income: (NSString*) income rat: (NSString*) rat NS_SWIFT_NAME(initCellLbl(addr:sell:income:rat));
+- (void) initCellLbl: (NSString*) addr sell: (NSString*) sell income: (NSString*) income year: (NSString*) year rat: (NSString*) rat NS_SWIFT_NAME(initCellLbl(addr:sell:income:year:rat));
 @end
 
 NS_ASSUME_NONNULL_END

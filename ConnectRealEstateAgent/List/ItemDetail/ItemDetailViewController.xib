@@ -59,8 +59,8 @@
                                 <action selector="tapChangeBtn:" destination="-1" eventType="touchUpInside" id="i74-xd-OWo"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="물건 등록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiM-2S-59U">
-                            <rect key="frame" x="60" y="14.5" width="294" height="25.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상세 정보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiM-2S-59U">
+                            <rect key="frame" x="60" y="14" width="294" height="26"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -88,13 +88,13 @@
                     <rect key="frame" x="30" y="134.5" width="354" height="120"/>
                     <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p5x-VK-efW" customClass="InvestInfoView" customModule="ConnectRealEstateAgent" customModuleProvider="target">
-                    <rect key="frame" x="30" y="420.5" width="354" height="421.5"/>
-                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
-                </view>
                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TqP-wc-9dt" userLabel="MapView" customClass="NMFMapView">
-                    <rect key="frame" x="30" y="259.5" width="354" height="120"/>
+                    <rect key="frame" x="30" y="259" width="354" height="120"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p5x-VK-efW" customClass="InvestInfoView" customModule="ConnectRealEstateAgent" customModuleProvider="target">
+                    <rect key="frame" x="30" y="421" width="354" height="201"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="투자 분석" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbg-G0-nkM">
                     <rect key="frame" x="30" y="389.5" width="354" height="21"/>
@@ -102,6 +102,10 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2L-dS-L9c">
+                    <rect key="frame" x="30" y="689" width="354" height="128"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -109,6 +113,8 @@
                 <constraint firstItem="p5x-VK-efW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="1EY-eH-BJd"/>
                 <constraint firstItem="oTg-kn-Vcn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="2AY-QR-ILT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="TqP-wc-9dt" secondAttribute="trailing" constant="30" id="45w-Vt-Fl7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="e2L-dS-L9c" secondAttribute="trailing" constant="30" id="58r-AR-4O2"/>
+                <constraint firstItem="e2L-dS-L9c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Azn-Jt-dTH"/>
                 <constraint firstItem="HBI-KF-GzG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Bvl-4r-5UQ"/>
                 <constraint firstAttribute="trailing" secondItem="eao-Ri-mIf" secondAttribute="trailing" id="ByJ-dX-rbm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HBI-KF-GzG" secondAttribute="trailing" constant="30" id="EEE-7W-lS9"/>
@@ -119,12 +125,13 @@
                 <constraint firstItem="Fbg-G0-nkM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="OYS-no-vgX"/>
                 <constraint firstItem="TqP-wc-9dt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="X6a-tP-BIa"/>
                 <constraint firstItem="oTg-kn-Vcn" firstAttribute="top" secondItem="eao-Ri-mIf" secondAttribute="bottom" constant="10" id="a00-Rk-Gkj"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="p5x-VK-efW" secondAttribute="bottom" constant="20" id="b5D-he-FAZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oTg-kn-Vcn" secondAttribute="trailing" constant="30" id="bQx-yZ-nfN"/>
                 <constraint firstItem="Fbg-G0-nkM" firstAttribute="top" secondItem="TqP-wc-9dt" secondAttribute="bottom" constant="10" id="c8m-WM-xh8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="p5x-VK-efW" secondAttribute="trailing" constant="30" id="fsx-EC-OUp"/>
+                <constraint firstAttribute="bottom" secondItem="e2L-dS-L9c" secondAttribute="bottom" constant="20" id="oEi-x3-vvO"/>
                 <constraint firstItem="HBI-KF-GzG" firstAttribute="top" secondItem="oTg-kn-Vcn" secondAttribute="bottom" constant="10" id="pRQ-sK-wYY"/>
                 <constraint firstItem="eao-Ri-mIf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="pyG-hS-QaJ"/>
+                <constraint firstItem="e2L-dS-L9c" firstAttribute="top" secondItem="p5x-VK-efW" secondAttribute="bottom" constant="10" id="uJx-cN-psA"/>
                 <constraint firstItem="eao-Ri-mIf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wEw-Od-D8J"/>
             </constraints>
             <point key="canvasLocation" x="153.62318840579712" y="97.767857142857139"/>

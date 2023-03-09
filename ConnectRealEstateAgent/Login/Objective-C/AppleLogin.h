@@ -8,7 +8,6 @@
 #import <UIKit/UIKit.h>
 #import "LoginProtocol.h"
 
-
 @import AuthenticationServices;
 @import CommonCrypto;
 
@@ -21,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AppleLogin : NSObject <ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding>
 
 @property NSString* currentNonce;
+@property UIViewController* presentingVC;
 @property (strong, nonatomic) id<SendLoginResultDelegate> delegate;
 
 - (NSString*) randomNonce: (NSInteger)length ;
