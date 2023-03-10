@@ -65,6 +65,9 @@ typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 - (void) updateUserDataTag:(NSString*) addr name: (NSString*) name NS_SWIFT_NAME(updateUserDataTag(addr:name:));
 - (void) updateItemData: (NSString*) itemCd data: (NSDictionary*) data NS_SWIFT_NAME(updateItemData(itemCd:data:));
 
+
+- (void) deleteUserDataItem: (NSString*) areaCd itemCd: (NSString*) itemCd itemCnt: (int) itemCnt NS_SWIFT_NAME(deleteUserDataItem(areaCd:itemCd:itemCnt:));
+
 @end
 
 NS_ASSUME_NONNULL_END

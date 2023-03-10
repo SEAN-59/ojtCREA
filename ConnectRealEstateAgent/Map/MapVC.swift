@@ -54,11 +54,6 @@ class MapVC: CREAViewController {
         self.mainMapView.layer.borderWidth = 1.0
         self.mainMapView.layer.cornerRadius = 5.0
         
-//        self.mainMapView.layer.addBorder([.bottom],
-//                                         color: UIColor.deepBlueColor!,
-//                                         width: 1.0)
-
-        
         if self.userType {
             /// add 버튼 색상 입힘
             self.addItemBtn.backgroundColor = UIColor.init(named: "DeepBlue")?.withAlphaComponent(0.4)
@@ -129,7 +124,6 @@ private extension MapVC {
     }
     
     @IBAction func tapChatListBtn(_ sender: UIButton) {
-//        let detailVC = ItemDetailViewController.init(nibName: "ItemDetailViewController", bundle: nil)
         guard let presentVC = self.presentingViewController else { return }
         print(presentVC)
         presentVC.dismiss(animated: false, completion: nil)

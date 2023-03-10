@@ -73,9 +73,9 @@
                                     <constraint firstItem="qVb-pt-qBD" firstAttribute="leading" secondItem="R9y-Sv-LnR" secondAttribute="leading" constant="20" id="kGC-bf-Ux9"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소 검색" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8g-Kp-16L">
-                                <rect key="frame" x="30" y="99" width="64" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="주소 검색" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G8g-Kp-16L">
+                                <rect key="frame" x="30" y="99" width="91" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -83,18 +83,18 @@
                                 <rect key="frame" x="30" y="135" width="354" height="150"/>
                                 <color key="backgroundColor" systemColor="separatorColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="부동산 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wms-lO-Yvn">
-                                <rect key="frame" x="30" y="295" width="354" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="부동산 정보" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wms-lO-Yvn">
+                                <rect key="frame" x="30" y="295" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKJ-51-MBZ" customClass="InformationView" customModule="ConnectRealEstateAgent" customModuleProvider="target">
                                 <rect key="frame" x="30" y="326" width="354" height="244"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="주소 검색" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWh-Rb-bn2">
-                                <rect key="frame" x="30" y="580" width="354" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="투자 정보" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWh-Rb-bn2">
+                                <rect key="frame" x="30" y="580" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -120,6 +120,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rYv-3A-dTG" secondAttribute="trailing" constant="30" id="0ZU-yU-MH5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="L4N-Q6-J2q" secondAttribute="trailing" constant="30" id="0oU-4X-pFE"/>
                             <constraint firstItem="G8g-Kp-16L" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="3VO-BA-Vvh"/>
+                            <constraint firstItem="G8g-Kp-16L" firstAttribute="trailing" secondItem="wms-lO-Yvn" secondAttribute="trailing" id="FDQ-S5-VGB"/>
                             <constraint firstItem="AKJ-51-MBZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Fip-Da-Kzy"/>
                             <constraint firstItem="NWh-Rb-bn2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="JSq-zk-J5w"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="0g8-Ke-1Qm" secondAttribute="trailing" constant="30" id="NbJ-T7-9TD"/>
@@ -128,7 +129,6 @@
                             <constraint firstItem="F3B-6w-peB" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="PPT-iw-2jF"/>
                             <constraint firstItem="rYv-3A-dTG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Paj-Jb-CNj"/>
                             <constraint firstItem="G8g-Kp-16L" firstAttribute="top" secondItem="R9y-Sv-LnR" secondAttribute="bottom" constant="5" id="SDH-z0-NRO"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NWh-Rb-bn2" secondAttribute="trailing" constant="30" id="T5W-0O-BPO"/>
                             <constraint firstItem="R9y-Sv-LnR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="T8q-au-wAD"/>
                             <constraint firstItem="R9y-Sv-LnR" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="WGe-4v-piG"/>
                             <constraint firstAttribute="bottom" secondItem="zlv-t3-oYc" secondAttribute="bottom" id="XCP-a9-Kfk"/>
@@ -140,12 +140,12 @@
                             <constraint firstItem="0g8-Ke-1Qm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="dTD-2M-H6l"/>
                             <constraint firstItem="R9y-Sv-LnR" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="f4j-ve-zlq"/>
                             <constraint firstItem="rYv-3A-dTG" firstAttribute="top" secondItem="L4N-Q6-J2q" secondAttribute="bottom" id="gO0-vW-Ihj"/>
+                            <constraint firstItem="NWh-Rb-bn2" firstAttribute="trailing" secondItem="wms-lO-Yvn" secondAttribute="trailing" id="iOE-jG-MYd"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="AKJ-51-MBZ" secondAttribute="trailing" constant="30" id="jtv-XF-nRC"/>
                             <constraint firstItem="L4N-Q6-J2q" firstAttribute="top" secondItem="NWh-Rb-bn2" secondAttribute="bottom" constant="10" id="liT-hG-wzG"/>
                             <constraint firstItem="L4N-Q6-J2q" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="mLh-nb-6sm"/>
                             <constraint firstItem="AKJ-51-MBZ" firstAttribute="top" secondItem="wms-lO-Yvn" secondAttribute="bottom" constant="10" id="oFh-QR-58n"/>
                             <constraint firstItem="wms-lO-Yvn" firstAttribute="top" secondItem="0g8-Ke-1Qm" secondAttribute="bottom" constant="10" id="ot8-gl-94Z"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wms-lO-Yvn" secondAttribute="trailing" constant="30" id="tpx-HQ-5hG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="rYv-3A-dTG" secondAttribute="bottom" id="v2L-Pu-tCY"/>
                         </constraints>
                     </view>
@@ -159,7 +159,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-48" y="5"/>
+            <point key="canvasLocation" x="-49.275362318840585" y="4.6875"/>
         </scene>
     </scenes>
     <resources>

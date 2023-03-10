@@ -49,6 +49,9 @@ class AddrSearchView: UIView {
         let list = korea.cityNm
         initDropdown(button: sender, data: list)
         dropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.cityCd = index
+            self?.sggCd = 0
+            self?.emdCd = 0
             self?.korea.selectCityNm = item
             self?.korea.selectSggNm = ""
             self?.korea.selectEmdNm = ""
@@ -61,6 +64,8 @@ class AddrSearchView: UIView {
         let list = korea.selectSgg()
         initDropdown(button: sender, data: list)
         dropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.sggCd = index
+            self?.emdCd = 0
             self?.korea.selectSggNm = item
             self?.korea.selectEmdNm = ""
             self?.setupTxf()
@@ -72,6 +77,7 @@ class AddrSearchView: UIView {
         let list = korea.selectEmd()
         initDropdown(button: sender, data: list)
         dropdown.selectionAction = { [weak self] (index: Int, item: String) in
+            self?.emdCd = index
             self?.korea.selectEmdNm = item
             self?.setupTxf()
             self?.dropdown.clearSelection()
@@ -79,15 +85,21 @@ class AddrSearchView: UIView {
     }
     
     @IBAction func tapSearchBtn(_ sender: UIButton) {
-        if !korea.selectCityNm.isEmpty {
-            if !korea.selectSggNm.isEmpty {
-                if !korea.selectEmdNm.isEmpty {
-                    self.searchAPI.checkGeocode("\(korea.selectCityNm) \(korea.selectSggNm) \(korea.selectEmdNm)",addrCd: "00")
-                    self.initTextfield()
-                    
+        if self.tag == 0 {
+            if !korea.selectCityNm.isEmpty {
+                if !korea.selectSggNm.isEmpty {
+                    if !korea.selectEmdNm.isEmpty {
+                        self.searchAPI.checkGeocode("\(korea.selectCityNm) \(korea.selectSggNm) \(korea.selectEmdNm)",addrCd: "00")
+                        self.initTextfield()
+                        
+                    }
                 }
             }
+        } else if self.tag == 1 {
+            /// areaCode 로 데이터를 받아와서 해당 데이터를
+            
         }
+        
     }
     
     

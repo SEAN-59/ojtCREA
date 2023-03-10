@@ -53,7 +53,7 @@ class AddItemVC: CREAViewController {
             self.investInputView.layer
         ].forEach({
             $0.borderWidth = 1
-            $0.borderColor = UIColor.lightGray.withAlphaComponent(0.2).cgColor
+            $0.borderColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
             $0.cornerRadius = 5
         })
         self.informationView.informationView.isHidden.toggle()

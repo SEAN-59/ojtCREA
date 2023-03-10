@@ -9,10 +9,14 @@ import UIKit
 
 class ItemDetailChangeViewController: CREAViewController {
     var infoDict = Dictionary<String, Any>()
+    var inveDict = Dictionary<String, Any>()
     var itemCd: String = ""
     var areaCd: String = ""
+    var lat: Double = 0.0
+    var lng: Double = 0.0
     
     private let dbManager = DatabaseManager()
+    private let mapView = MapView()
     
     @IBOutlet weak var informationView: InformationView!
     @IBOutlet weak var investInputView: InvestInputView!
@@ -36,10 +40,19 @@ class ItemDetailChangeViewController: CREAViewController {
         })
         self.dbManager.delegate = self
         self.enterLabel()
+        self.createMap(lat: self.lat, lng: self.lng)
+    }
+    
+    private func createMap(lat:Double, lng:Double) {
+        self.mapView.moveMap(map: self.includeMapView, lat: lat, lon: lng)
+        let marker = NMFMarker()
+        marker.position = NMGLatLng(lat: lat, lng: lng)
+        marker.mapView = self.includeMapView
     }
     
     private func enterLabel() {
         self.informationView.addressLbl.text = "\(String(describing: infoDict["oldAddress"]!))"
+        
         self.informationView.platAreaLbl.text = "\(String(describing:infoDict["platArea"]!)) ㎡"
         
         self.informationView.archAreaLbl.text = "\(String(describing: infoDict["archArea"]!)) ㎡"
@@ -56,6 +69,23 @@ class ItemDetailChangeViewController: CREAViewController {
         } else {
             self.informationView.useAprLbl.text = "확인 되지 않음"
         }
+        [
+            self.investInputView.sellValueTxf,
+            self.investInputView.depositValueTxf,
+            self.investInputView.loanRatTxf,
+            self.investInputView.loanValueTxf,
+            self.investInputView.incomeValueTxf
+        ].forEach{
+            $0?.delegate = self
+        }
+        
+        hideKeyboard()
+        
+        self.investInputView.sellValueTxf.text = "\(String(describing: self.inveDict["sell"]!))"
+        self.investInputView.depositValueTxf.text = "\(String(describing: self.inveDict["deposit"]!))"
+        self.investInputView.loanValueTxf.text = "\(String(describing: self.inveDict["deposit"]!))"
+        self.investInputView.loanRatTxf.text = "\(String(describing: self.inveDict["loanRat"]!))"
+        self.investInputView.incomeValueTxf.text = "\(String(describing: self.inveDict["income"]!))"
     }
     
     private func dayChangeToString(day: String) -> String {
@@ -76,24 +106,13 @@ class ItemDetailChangeViewController: CREAViewController {
     }
     
     @IBAction func tapSaveBtn(_ sender: UIButton) {
+        
         var actionArray: [UIAlertAction] = []
         
         let okAction = UIAlertAction(title: "저장",
                                      style: .destructive,
                                      handler: { _ in
-            
-            guard let sell = self.investInputView.sellValueTxf.text else { return }
-            guard let deposit = self.investInputView.depositValueTxf.text else { return }
-            guard let income = self.investInputView.incomeValueTxf.text else { return }
-            guard let loan = self.investInputView.loanValueTxf.text else { return }
-            guard let loanRat = self.investInputView.loanRatTxf.text else { return }
-            
-            
-            
-//            self.dbManager.updateItemData(itemCd: self.itemCd, data: <#T##[AnyHashable : Any]#>)
-            /// 아이템 변경시
-            /// 아이템 변경 시 Invest 부분만 따로 업데이트를 해주면 됨
-            
+            self.dbManager.updateItemData(itemCd: self.itemCd, data: self.makeSaveData())
         })
         
         let cancelAction = UIAlertAction(title: "취소",
@@ -109,17 +128,37 @@ class ItemDetailChangeViewController: CREAViewController {
         
     }
     
-    @IBAction func tapDelegateBtn(_ sender: UIButton) {
+    private func makeSaveData() -> Dictionary<String, String> {
+        guard let sell = self.investInputView.sellValueTxf.text else { return ["":""]}
+        guard let deposit = self.investInputView.depositValueTxf.text else { return ["":""]}
+        guard let income = self.investInputView.incomeValueTxf.text else { return ["":""] }
+        guard let loan = self.investInputView.loanValueTxf.text else { return ["":""]}
+        guard let loanRat = self.investInputView.loanRatTxf.text else { return ["":""]}
+        
+        return ["sell":sell, "deposit": deposit, "income": income, "loan":loan, "loanRat": loanRat]
+    }
+    
+    
+    
+    @IBAction func tapDeleteBtn(_ sender: UIButton) {
         var actionArray: [UIAlertAction] = []
         
         let okAction = UIAlertAction(title: "삭제",
                                      style: .destructive,
                                      handler: { _ in
             
+            
             /// 아이템 삭제시
             /// UserData/{UID}/Item/{AreaCd}/ 에서 해당 dataCd 찾아서 삭제
             /// AreaData/Item/ 에서 해당 dataCD 찾아서 삭제
             /// AreaData/Business/ 는 첫번 째 동작 후 해당 {AreaCd} 가 없을 경우 삭제
+//            self.dbManager.deleteUserDataItem(areaCd: self.areaCd, itemCd: self.itemCd)
+            self.dbManager.readUserData()
+            guard let presentVC = self.presentingViewController else { return }
+            self.dismiss(animated: true, completion: {
+                presentVC.dismiss(animated: true, completion: nil)
+            })
+            
         })
         
         let cancelAction = UIAlertAction(title: "취소",
@@ -137,5 +176,28 @@ class ItemDetailChangeViewController: CREAViewController {
     
 }
 extension ItemDetailChangeViewController: DatabaseCallDelegate {
+    func successReadUser(result: Bool, data: [AnyHashable : Any]) {
+        if result {
+            guard let Item = data["Item"] as? Dictionary<String, Any> else { return print("Item") }
+            guard let array = Item["\(self.areaCd)"] as? Array<Any> else { return }
+            if array.count > 1 {
+                for i in 0..<array.count {
+                    if array[i] as? String == self.itemCd {
+                        self.dbManager.deleteUserDataItem(areaCd: self.areaCd,
+                                                          itemCd: self.itemCd,
+                                                          itemCnt: Int32(i))
+                    }
+                }
+            } else {
+                self.dbManager.deleteUserDataItem(areaCd: self.areaCd,
+                                                  itemCd: self.itemCd,
+                                                  itemCnt: 0)
+            }
+        }
+    }
+    
+}
+
+extension ItemDetailChangeViewController: UITextFieldDelegate {
     
 }

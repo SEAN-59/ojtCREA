@@ -502,20 +502,23 @@
 }
 
 
+// MARK: - DELETE
 
-//- (void)readUserDataLike {
-//    NSString* uid = [self currentUser];
-//    NSString* path = [NSString stringWithFormat:@"/UserData/%@/", uid];
-//    [[self.ref child:path] getDataWithCompletionBlock:^(NSError * _Nullable error, FIRDataSnapshot * _Nullable snapshot) {
-//        if (error == nil) {
-//            if ([snapshot.value isKindOfClass: [NSNull class]]) {
-//                NSString* result = @"";
-//                [self.delegate successReadUserName:false data:result];
-//            } else {
-//                [self.delegate successReadUserName:TRUE data:snapshot.value];
-//            }
-//        }
-//    }];
-//}
+-(void)deleteUserDataItem:(NSString *)areaCd itemCd:(NSString *)itemCd itemCnt:(int)itemCnt {
+    NSString* uid = [self currentUser];
+    NSString* path = [NSString stringWithFormat:@"/UserData/%@/Item/%@/",uid,areaCd];
+//
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child: [NSString stringWithFormat:@"%i",itemCnt]].key]: [NSNull new]}];
+    
+    path = [NSString stringWithFormat:@"/AreaData/%@/Item/",areaCd];
 
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child: [NSString stringWithFormat:@"%@",itemCd]].key]: [NSNull new]}];
+    
+//    [[[[[[self.ref child:@"UserData"] child:[NSString stringWithFormat:@"%@",uid]] child:@"Item"] child:[NSString stringWithFormat:@"%@",areaCd]] child:[NSString stringWithFormat:@"%@", itemCd]] removeValue];
+//
+//    [[[[[self.ref child:@"AreaData"] child:[NSString stringWithFormat:@"%@",areaCd]] child:@"Item"] child:[NSString stringWithFormat:@"%@",itemCd]] removeValue];
+//
+//    [self.ref removeValue:@]
+}
+    
 @end

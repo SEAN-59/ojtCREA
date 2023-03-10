@@ -7,6 +7,7 @@
 
 import UIKit
 import SwiftUI
+import nanopb
 
 class ItemListViewController: CREAViewController {
     var userType: Bool = false
@@ -15,25 +16,33 @@ class ItemListViewController: CREAViewController {
     private let identifier = "ItemListTableViewCell"
     
     private var dataDict = [String:Dictionary<String, Any>]()
+    private var allDataDict = [String:Dictionary<String, Any>]()
     private var sumItemArray = [String]()
     
     private let dbManager = DatabaseManager()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addrTitleLbl: UILabel!
-    
-    @IBOutlet weak var drawCircleView: UIView!
+    @IBOutlet weak var addressSearchView: AddrSearchView!
+    @IBOutlet weak var backView: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dbManager.delegate = self
         self.tableViewInit()
         self.layout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.loadData()
     }
     
     private func layout() {
-        self.drawCircleView
+        self.addressSearchView.layer.borderColor = UIColor.init(named: "DeepBlue")?.cgColor
+        self.addressSearchView.layer.borderWidth = 1.0
+        self.addressSearchView.layer.cornerRadius = 5.0
+        
     }
     
     private func loadData() {
@@ -46,13 +55,22 @@ class ItemListViewController: CREAViewController {
         let nib = UINib(nibName: "ItemListTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: self.identifier)
     }
-    
 }
 
 extension ItemListViewController {
     
-    @IBAction func tapSearchAddrBtn(_ sender: UIButton) {
+    @IBAction func tapReturnBtn(_ sender: UIButton) {
         
+    }
+    
+    @IBAction func tapSearchAddrBtn(_ sender: UIButton) {
+        self.addressSearchView.isHidden = false
+        self.backView.isHidden = false
+    }
+    
+    @IBAction func tapBackBtn(_ sender: UIButton) {
+        self.addressSearchView.isHidden = true
+        self.backView.isHidden = true
     }
     
     @IBAction func tapGoHomeBtn(_ sender: UIButton) {
@@ -71,6 +89,8 @@ extension ItemListViewController {
         
     }
     
+    
+    
 }
 
 
@@ -79,11 +99,18 @@ extension ItemListViewController: DatabaseCallDelegate {
         if result {
             guard let item = data["Item"] as? Dictionary<String, Any> else { return print("Item") }
             
-            
-            
             for key in item.keys {
-                guard let itemArray = item[key] as? Array<String> else { return print("Array")}
-                self.sumItemArray += itemArray
+                if let itemArray = item[key] as? Array<Any> {
+                    if itemArray.count > 1 {
+                        for cnt in itemArray {
+                            if cnt as? String != nil {
+                                self.sumItemArray.append(cnt as! String)
+                            }
+                        }
+                    } else {
+                        self.sumItemArray += itemArray as! Array<String>
+                    }
+                }
             }
             
             self.cellCount = self.sumItemArray.count
@@ -101,6 +128,7 @@ extension ItemListViewController: DatabaseCallDelegate {
             self.dataDict[code] = data
             
             if dataDict.count == self.cellCount {
+                self.allDataDict = self.dataDict
                 self.tableView.reloadData()
             }
             
@@ -136,10 +164,10 @@ extension ItemListViewController: UITableViewDataSource, UITableViewDelegate {
         let rat: Double = self.calculateRat(income: income, sell: sell, loan: loan, deposit: deposit)
         
         cell.initCellLbl(information["oldAddress"] as! String,
-                         sell: "\(numberFormatter(number: sell)) 만원",
-                         income: "\(numberFormatter(number: income)) 만원",
-                         year: "\(numberFormatter(number: year)) 만원",
-                         rat: "\(rat) %")
+                         sell: numberFormatter(number: sell) ,
+                         income: numberFormatter(number: income),
+                         year: numberFormatter(number: year),
+                         rat: "\(rat)")
         
         return cell
     }

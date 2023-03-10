@@ -14,6 +14,8 @@ class ItemDetailViewController: CREAViewController {
     
     private let mapView = MapView()
     private let searchAPI = SearchAddress()
+    private var lat: Double = 0.0
+    private var lng: Double = 0.0
     
     
     @IBOutlet weak var informationView: InformationView!
@@ -81,9 +83,9 @@ extension ItemDetailViewController {
             self.informationView.useAprLbl.text = "확인 되지 않음"
         }
         
-        self.investInfoView.sellLbl.text = "\(String(describing: invest["sell"]!))"
-        self.investInfoView.depositLbl.text = "\(String(describing: invest["deposit"]!))"
-        self.investInfoView.loanLbl.text = "\(String(describing: invest["loan"]!))"
+        self.investInfoView.sellLbl.text = numberFormatter(number: invest["sell"] as! Double)
+        self.investInfoView.depositLbl.text = numberFormatter(number: invest["deposit"] as! Double)
+        self.investInfoView.loanLbl.text = numberFormatter(number: invest["loan"] as! Double)
         
         let monthInterest: Int = { () -> Int in
             let loan = invest["loan"] as! Double
@@ -91,29 +93,31 @@ extension ItemDetailViewController {
             let doubleResult = (loan * (loanRat/100)) / 12
             return Int(ceil(doubleResult))
         }()
-        self.investInfoView.interestLbl.text = "\(String(describing: monthInterest))"
+        self.investInfoView.interestLbl.text = numberFormatter(number: Double(monthInterest))
         
-        self.investInfoView.monthIncomeLbl.text = "\(String(describing: invest["income"]!))"
+        self.investInfoView.monthIncomeLbl.text = numberFormatter(number: invest["income"] as! Double)
         
-        let yearIncome: Int = { () -> Int in
+        let yearIncome: Double = { () -> Double in
             let income = invest["income"] as! Double
-            return Int(ceil(income*12))
+            return ceil(income*12)
         }()
-        self.investInfoView.yearIncomeLbl.text = "\(String(describing: yearIncome))"
         
-        let realInvest: Int = { () -> Int in
+        self.investInfoView.yearIncomeLbl.text = numberFormatter(number: yearIncome)
+        
+        let realInvest: Double = { () -> Double in
             let sell = invest["sell"] as! Double
             let deposit = invest["deposit"] as! Double
             let loan = invest["loan"] as! Double
-            return Int(ceil(sell - deposit - loan))
+            return ceil(sell - deposit - loan)
         }()
-        self.investInfoView.realInvestLbl.text = "\(String(describing: realInvest))"
+        self.investInfoView.realInvestLbl.text = numberFormatter(number: realInvest)
         
         let investRat: Double = { () -> Double in
             let investRat = Int((Double(yearIncome) / Double(realInvest)) * 1000)
             print(investRat)
             return Double(investRat) / 10
         }()
+        
         self.investInfoView.investRatLbl.text = "\(String(describing: investRat))"
     }
     
@@ -141,19 +145,18 @@ extension ItemDetailViewController {
         let changeVC = ItemDetailChangeViewController.init(nibName: "ItemDetailChangeViewController", bundle: nil)
         
         guard let information = dataDict["Information"] as? Dictionary<String, Any> else { return print("Information") }
+        guard let invest = dataDict["Invest"] as? Dictionary<String, Any> else { return print("Information") }
         guard let areaCd = dataDict["areaCd"] as? String else { return print("areaCd") }
         
         changeVC.infoDict = information
+        changeVC.inveDict = invest
         changeVC.areaCd = areaCd
         changeVC.itemCd = self.dataCd
+        changeVC.lat = self.lat
+        changeVC.lng = self.lng
     
         self.present(changeVC, animated: true, completion: nil)
         
-//        guard let presentVC = self.presentingViewController else { return }
-//
-//        self.dismiss(animated: false, completion: {
-//            presentVC.present(changeVC, animated: true, completion: nil)
-//        })
     }
     
 }
@@ -162,6 +165,8 @@ extension ItemDetailViewController: SendAPIDataDelegate {
     func getGeocodingAPI(geo data: [AnyHashable : Any], addrcd addrCd: String, address: String) {
         guard let lat = data["lat"] as? String else { return print("Convert Error lat") }
         guard let lng = data["lon"] as? String else { return print("Convert Error lon")}
-        self.createMap(lat: Double(lat)!, lng: Double(lng)!)
+        self.lat = Double(lat)!
+        self.lng = Double(lng)!
+        self.createMap(lat: self.lat, lng: self.lng)
     }
 }
