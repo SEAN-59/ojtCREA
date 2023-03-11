@@ -143,6 +143,7 @@ extension ItemDetailViewController {
     
     @IBAction func tapChangeBtn(_ sender: UIButton) {
         let changeVC = ItemDetailChangeViewController.init(nibName: "ItemDetailChangeViewController", bundle: nil)
+        changeVC.modalPresentationStyle = .fullScreen
         
         guard let information = dataDict["Information"] as? Dictionary<String, Any> else { return print("Information") }
         guard let invest = dataDict["Invest"] as? Dictionary<String, Any> else { return print("Information") }

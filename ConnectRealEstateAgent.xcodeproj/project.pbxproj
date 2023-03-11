@@ -11,7 +11,6 @@
 		A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */; };
 		A75FEBB42997DD28004F49DC /* FirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75FEBB32997DD28004F49DC /* FirstVC.swift */; };
 		A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F1164D2997E2F400905DAA /* LoginPage.storyboard */; };
-		A7F116522998B40400905DAA /* AppleLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F116512998B40400905DAA /* AppleLogin.m */; };
 		A7F116552998B4FE00905DAA /* GoogleLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F116542998B4FE00905DAA /* GoogleLogin.m */; };
 		A7F116582998B52900905DAA /* NaverLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F116572998B52900905DAA /* NaverLogin.m */; };
 		A7F1165B29991C7D00905DAA /* EmailLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = A7F1165A29991C7D00905DAA /* EmailLogin.m */; };
@@ -74,7 +73,6 @@
 		FB8505BA29A89AE60053311D /* InfoMarkerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8505B829A89AE60053311D /* InfoMarkerTableViewCell.xib */; };
 		FBB26DDF29B86E8500291567 /* ItemListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB26DDD29B86E8500291567 /* ItemListTableViewCell.m */; };
 		FBB26DE029B86E8500291567 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB26DDE29B86E8500291567 /* ItemListTableViewCell.xib */; };
-		FBB26DE229B95DF100291567 /* AppleLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB26DE129B95DF100291567 /* AppleLogin.swift */; };
 		FBB26DE529B9718500291567 /* ItemDetailChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB26DE329B9718500291567 /* ItemDetailChangeViewController.swift */; };
 		FBB26DE629B9718500291567 /* ItemDetailChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB26DE429B9718500291567 /* ItemDetailChangeViewController.xib */; };
 		FBB26DE829B973FD00291567 /* ChangeInvestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB26DE729B973FD00291567 /* ChangeInvestView.swift */; };
@@ -95,8 +93,6 @@
 		A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemPage.storyboard; sourceTree = "<group>"; };
 		A75FEBB32997DD28004F49DC /* FirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstVC.swift; sourceTree = "<group>"; };
 		A7F1164D2997E2F400905DAA /* LoginPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginPage.storyboard; sourceTree = "<group>"; };
-		A7F116502998B40400905DAA /* AppleLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleLogin.h; sourceTree = "<group>"; };
-		A7F116512998B40400905DAA /* AppleLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppleLogin.m; sourceTree = "<group>"; };
 		A7F116532998B4FE00905DAA /* GoogleLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleLogin.h; sourceTree = "<group>"; };
 		A7F116542998B4FE00905DAA /* GoogleLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoogleLogin.m; sourceTree = "<group>"; };
 		A7F116562998B52900905DAA /* NaverLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NaverLogin.h; sourceTree = "<group>"; };
@@ -166,7 +162,6 @@
 		FBB26DDC29B86E8500291567 /* ItemListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemListTableViewCell.h; sourceTree = "<group>"; };
 		FBB26DDD29B86E8500291567 /* ItemListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemListTableViewCell.m; sourceTree = "<group>"; };
 		FBB26DDE29B86E8500291567 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ItemListTableViewCell.xib; path = ItemDetail/ItemListTableViewCell.xib; sourceTree = "<group>"; };
-		FBB26DE129B95DF100291567 /* AppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogin.swift; sourceTree = "<group>"; };
 		FBB26DE329B9718500291567 /* ItemDetailChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailChangeViewController.swift; sourceTree = "<group>"; };
 		FBB26DE429B9718500291567 /* ItemDetailChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailChangeViewController.xib; sourceTree = "<group>"; };
 		FBB26DE729B973FD00291567 /* ChangeInvestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInvestView.swift; sourceTree = "<group>"; };
@@ -221,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				FB110C922990C66900C4EF53 /* KakaoLogin.swift */,
-				FBB26DE129B95DF100291567 /* AppleLogin.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -302,8 +296,6 @@
 			children = (
 				A7F1165929991C7D00905DAA /* EmailLogin.h */,
 				A7F1165A29991C7D00905DAA /* EmailLogin.m */,
-				A7F116502998B40400905DAA /* AppleLogin.h */,
-				A7F116512998B40400905DAA /* AppleLogin.m */,
 				A7F116532998B4FE00905DAA /* GoogleLogin.h */,
 				A7F116542998B4FE00905DAA /* GoogleLogin.m */,
 				A7F116562998B52900905DAA /* NaverLogin.h */,
@@ -685,7 +677,6 @@
 				FBE0F89429B57AC6008240C5 /* AddrSearchView.swift in Sources */,
 				A7F1165D2999242600905DAA /* SimpleAlert.swift in Sources */,
 				FB21D2B0299098DC00F1FA20 /* SceneDelegate.swift in Sources */,
-				A7F116522998B40400905DAA /* AppleLogin.m in Sources */,
 				A7F1165B29991C7D00905DAA /* EmailLogin.m in Sources */,
 				FBB26DE529B9718500291567 /* ItemDetailChangeViewController.swift in Sources */,
 				FBF52F5A2999B570006594D1 /* CreateAccountVC.swift in Sources */,
@@ -710,7 +701,6 @@
 				FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */,
 				FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */,
 				FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */,
-				FBB26DE229B95DF100291567 /* AppleLogin.swift in Sources */,
 				FB5EAA4329B5DA4900D29612 /* ChangeTypeTViewController.swift in Sources */,
 				FB23F87A299F4BC70023C752 /* InvestInputView.swift in Sources */,
 				FBBBD19029A8766100F6A0CA /* InfoMarkerViewController.m in Sources */,

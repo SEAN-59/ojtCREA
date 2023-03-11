@@ -154,10 +154,6 @@ class ItemDetailChangeViewController: CREAViewController {
             /// AreaData/Business/ 는 첫번 째 동작 후 해당 {AreaCd} 가 없을 경우 삭제
 //            self.dbManager.deleteUserDataItem(areaCd: self.areaCd, itemCd: self.itemCd)
             self.dbManager.readUserData()
-            guard let presentVC = self.presentingViewController else { return }
-            self.dismiss(animated: true, completion: {
-                presentVC.dismiss(animated: true, completion: nil)
-            })
             
         })
         
@@ -178,24 +174,45 @@ class ItemDetailChangeViewController: CREAViewController {
 extension ItemDetailChangeViewController: DatabaseCallDelegate {
     func successReadUser(result: Bool, data: [AnyHashable : Any]) {
         if result {
-            guard let Item = data["Item"] as? Dictionary<String, Any> else { return print("Item") }
-            guard let array = Item["\(self.areaCd)"] as? Array<Any> else { return }
+            guard let item = data["Item"] as? Dictionary<String, Any> else { return print("Item") }
+            guard let array = item["\(self.areaCd)"] as? Array<Any> else { return }
             if array.count > 1 {
                 for i in 0..<array.count {
                     if array[i] as? String == self.itemCd {
-                        self.dbManager.deleteUserDataItem(areaCd: self.areaCd,
+                        self.dbManager.deleteUserDataItem(isDel: false,
+                                                          areaCd: self.areaCd,
                                                           itemCd: self.itemCd,
                                                           itemCnt: Int32(i))
                     }
                 }
             } else {
-                self.dbManager.deleteUserDataItem(areaCd: self.areaCd,
+                self.dbManager.deleteUserDataItem(isDel: true,
+                                                  areaCd: self.areaCd,
                                                   itemCd: self.itemCd,
                                                   itemCnt: 0)
             }
         }
     }
     
+    func successReadAreaItem(result: Bool, data: [Any]) {
+        if result {
+            guard let item = data as? [NSString] else { return }
+            for i in 0 ..< item.count {
+                if item[i] as String == self.itemCd{
+                    self.dbManager.deleteAreaItem(Int32(i), areaCd: self.areaCd)
+                }
+            }
+        }
+    }
+    
+    func successDeleteData(_ result: Bool) {
+        if result {
+            guard let presentVC = self.presentingViewController else { return }
+            self.dismiss(animated: true, completion: {
+                presentVC.dismiss(animated: true, completion: nil)
+            })
+        }
+    }
 }
 
 extension ItemDetailChangeViewController: UITextFieldDelegate {

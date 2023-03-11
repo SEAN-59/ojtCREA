@@ -504,21 +504,44 @@
 
 // MARK: - DELETE
 
--(void)deleteUserDataItem:(NSString *)areaCd itemCd:(NSString *)itemCd itemCnt:(int)itemCnt {
+-(void)deleteUserDataItem:(BOOL)isDel areaCd:(NSString *)areaCd itemCd:(NSString *)itemCd itemCnt:(int)itemCnt {
     NSString* uid = [self currentUser];
     NSString* path = [NSString stringWithFormat:@"/UserData/%@/Item/%@/",uid,areaCd];
 //
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child: [NSString stringWithFormat:@"%i",itemCnt]].key]: [NSNull new]}];
-    
-    path = [NSString stringWithFormat:@"/AreaData/%@/Item/",areaCd];
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child: [NSString stringWithFormat:@"%i",itemCnt]].key]: [NSNull new]} withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        
+        if (error == nil){
+            if (isDel) {
+                NSString* path = [NSString stringWithFormat:@"/AreaData/"];
+                
+                [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child: [NSString stringWithFormat:@"%@",areaCd]].key]: [NSNull new]}withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+                    if (error == nil) {
+                        [self.delegate successDeleteData:TRUE];
+                    } else {
+                        [self.delegate successDeleteData:FALSE];
+                    }
+                }];
+                
+            } else {
+                [self readAreaDataItem:areaCd];
+            }
+        }
+    }];
 
-    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child: [NSString stringWithFormat:@"%@",itemCd]].key]: [NSNull new]}];
+}
+
+- (void)deleteAreaItem:(int)itemCnt areaCd:(NSString *)areaCd {
     
-//    [[[[[[self.ref child:@"UserData"] child:[NSString stringWithFormat:@"%@",uid]] child:@"Item"] child:[NSString stringWithFormat:@"%@",areaCd]] child:[NSString stringWithFormat:@"%@", itemCd]] removeValue];
-//
-//    [[[[[self.ref child:@"AreaData"] child:[NSString stringWithFormat:@"%@",areaCd]] child:@"Item"] child:[NSString stringWithFormat:@"%@",itemCd]] removeValue];
-//
-//    [self.ref removeValue:@]
+    NSString* path = [NSString stringWithFormat:@"/AreaData/%@/Item/",areaCd];
+    
+    [self.ref updateChildValues:@{[path stringByAppendingString:[self.ref child: [NSString stringWithFormat:@"%d",itemCnt]].key]: [NSNull new]} withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+        if (error == nil) {
+            [self.delegate successDeleteData:TRUE];
+        } else {
+            [self.delegate successDeleteData:FALSE];
+        }
+    }];
+    
 }
     
 @end

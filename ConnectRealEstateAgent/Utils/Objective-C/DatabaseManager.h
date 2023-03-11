@@ -16,23 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 
-//@protocol DatabaseCallDelegate <NSObject>
-//
-//@optional
-//- (void) successSaveDB: (BOOL)result NS_SWIFT_NAME(successSaveDB(result:));
-//- (void) successReadUser: (BOOL)result NS_SWIFT_NAME(successReadUser(result:));
-//- (void) successReadArea: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadArea(result:data:));
-//
-//- (void) successReadItemMarker: (BOOL)result data: (nullable NSDictionary*) data number: (int) number itemCd: (NSString*) itemCd NS_SWIFT_NAME(successReadItem(result:data:number:itemCd:));
-//
-//- (void) successReadUserItem: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadUserItem(result:data:));
-//- (void) successReadUserItemValue: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadUserItemValue(result:data:));
-//
-//- (void) successReadAreaLike: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadAreaLike(result:data:));
-//- (void) successReadAreaItem: (BOOL)result data: (NSArray*) data NS_SWIFT_NAME(successReadAreaItem(result:data:));
-//
-//@end
-
 @interface DatabaseManager : NSObject
 
 @property (strong, nonatomic) FIRDatabaseReference *ref;
@@ -66,7 +49,8 @@ typedef NS_ENUM(NSInteger, DatabaseType) { user, area, item, chat };
 - (void) updateItemData: (NSString*) itemCd data: (NSDictionary*) data NS_SWIFT_NAME(updateItemData(itemCd:data:));
 
 
-- (void) deleteUserDataItem: (NSString*) areaCd itemCd: (NSString*) itemCd itemCnt: (int) itemCnt NS_SWIFT_NAME(deleteUserDataItem(areaCd:itemCd:itemCnt:));
+- (void) deleteUserDataItem: (BOOL) isDel areaCd: (NSString*) areaCd itemCd: (NSString*) itemCd itemCnt: (int) itemCnt NS_SWIFT_NAME(deleteUserDataItem(isDel:areaCd:itemCd:itemCnt:));
+- (void) deleteAreaItem: (int) itemCnt areaCd: (NSString*) areaCd ;
 
 @end
 

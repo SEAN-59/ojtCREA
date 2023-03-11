@@ -15,6 +15,7 @@
 
 - (void)googleSignInWithFirebase:(UIViewController *)vc{
     
+    [self.delegate toggleIndiCator];
     GIDConfiguration *config = [[GIDConfiguration alloc] initWithClientID:[FIRApp defaultApp].options.clientID];
     [GIDSignIn.sharedInstance setConfiguration:config];
     [GIDSignIn.sharedInstance signInWithPresentingViewController: vc

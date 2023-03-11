@@ -14,6 +14,7 @@
 - (void) sendSignInResult: (BOOL) result NS_SWIFT_NAME(sendSignInResult(result:));
 - (BOOL) sendUserType: (NSString*) uid NS_SWIFT_NAME(sendUserType(uid:));
 - (void) sendCreateResult: (BOOL)result;
+- (void) toggleIndiCator;
 @end
 
 #endif /* LoginProtocol_h */

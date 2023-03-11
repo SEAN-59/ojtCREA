@@ -98,6 +98,7 @@ extension ItemListViewController: DatabaseCallDelegate {
     func successReadUser(result: Bool, data: [AnyHashable : Any]) {
         if result {
             guard let item = data["Item"] as? Dictionary<String, Any> else { return print("Item") }
+            // 여기서 아이템 없어서 return 되게 되는 경우에 alert 띄워서 경고문 호출 해주고 그거 받으면 그냥 dismiss 시켜버리자
             
             for key in item.keys {
                 if let itemArray = item[key] as? Array<Any> {
@@ -123,7 +124,6 @@ extension ItemListViewController: DatabaseCallDelegate {
     
     func successReadItem(result: Bool, data: [AnyHashable : Any], code: String) {
         if result {
-            
             guard let data = data as? Dictionary<String, Any> else {return print("data")}
             self.dataDict[code] = data
             
@@ -168,6 +168,8 @@ extension ItemListViewController: UITableViewDataSource, UITableViewDelegate {
                          income: numberFormatter(number: income),
                          year: numberFormatter(number: year),
                          rat: "\(rat)")
+        
+        
         
         return cell
     }

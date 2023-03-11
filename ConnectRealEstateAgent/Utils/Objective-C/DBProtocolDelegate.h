@@ -29,8 +29,9 @@
 - (void) successReadAreaItem: (BOOL)result data: (nonnull NSArray*) data NS_SWIFT_NAME(successReadAreaItem(result:data:));
 
 
--(void) successUpdateUserType: (BOOL) result;
-
+- (void) successUpdateUserType: (BOOL) result;
+- (void) successDeleteData:(BOOL) result;
+//- (void) checkAreaDataCnt;
 @end
 
 #endif /* DBProtocolDelegate_h */

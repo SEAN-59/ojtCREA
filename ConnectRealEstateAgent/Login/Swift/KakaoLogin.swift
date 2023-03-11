@@ -17,6 +17,7 @@ class KakaoLogin : NSObject{
     var delegate: SendLoginResultDelegate?
 
     func loginKakaoAccount() {
+        self.delegate?.toggleIndiCator?()
         UserApi.shared.loginWithKakaoAccount{(oauthToken, error) in
             if let error = error {
                 print(error)
