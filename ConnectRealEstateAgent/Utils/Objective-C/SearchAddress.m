@@ -36,6 +36,7 @@
 }
 
 - (void)choiceBuild:(NSDictionary *)param {
+    
     NSString*(^checkZero)(NSString*) =  ^(NSString* dictValue) {
         NSString* value = @"0000";
 
@@ -45,7 +46,6 @@
                 value = [@"0" stringByAppendingString:value];
             }
         }
-        
         return value;
     };
     

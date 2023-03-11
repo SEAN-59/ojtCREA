@@ -53,7 +53,7 @@ class AddItemVC: CREAViewController {
             self.investInputView.layer
         ].forEach({
             $0.borderWidth = 1
-            $0.borderColor = UIColor.lightGray.withAlphaComponent(0.2).cgColor
+            $0.borderColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
             $0.cornerRadius = 5
         })
         self.informationView.informationView.isHidden.toggle()
@@ -75,8 +75,12 @@ class AddItemVC: CREAViewController {
         /// self.addressCd 는 areaData 의 구분을 위해서 사용
         /// self.addressData 는 itemData 에 저장을 위해서 사용
         let allDict = self.addressData.merging(saveInvest, uniquingKeysWith: {(_, new) in new}).merging(["addressCd":self.addressCd], uniquingKeysWith: {(_, new) in new})
+        
+        let anyArray:[Any] = [self.addressCd, allDict]
+        
         dbManger.createData(type: .area, data: self.addressCd)
-        dbManger.createData(type: .item, data: allDict)
+        dbManger.createData(type: .item, data: anyArray)
+        
         
     }
     
@@ -112,6 +116,7 @@ extension AddItemVC: EndSearchAddress {
                                             handler: {_ in
                 self.searchView.initTextfield()
                 self.loadingAction()
+                
             })
             actionArray.append(errorAction)
             SimpleAlert().makeAlert(vc: self,
@@ -134,7 +139,16 @@ extension AddItemVC: DatabaseCallDelegate {
                                             style: .default,
                                             handler: {_ in
                 self.loadingAction()
+//                guard let presentVC = self.presentingViewController else {return}
+//                presentVC.dismiss(animated: false, completion: nil)
+                
+//                let storyBoard = UIStoryboard.init(name: "MapPage", bundle: nil)
+//                guard let nextVC =  storyBoard.instantiateViewController(withIdentifier: "MapVC") as? MapVC else { return }
+//                nextVC.modalPresentationStyle = .fullScreen
+//
                 self.dismiss(animated: true, completion: nil)
+//                self.present(nextVC, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+                
             })
             actionArray.append(errorAction)
             SimpleAlert().makeAlert(vc: self,

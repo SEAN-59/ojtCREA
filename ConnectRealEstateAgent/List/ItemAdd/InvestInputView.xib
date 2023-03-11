@@ -54,7 +54,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1sl-cM-P5F">
-                    <rect key="frame" x="5" y="40" width="664" height="30"/>
+                    <rect key="frame" x="5" y="44" width="664" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="보증금 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbN-sl-6VZ">
                             <rect key="frame" x="0.0" y="5" width="74" height="20.5"/>
@@ -85,7 +85,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3jU-oP-nmE">
-                    <rect key="frame" x="5" y="75" width="664" height="30"/>
+                    <rect key="frame" x="5" y="83" width="664" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="대출 금액 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FL-Wu-fpF">
                             <rect key="frame" x="0.0" y="5" width="74" height="20.5"/>
@@ -116,7 +116,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-Gm-Wfl">
-                    <rect key="frame" x="5" y="110" width="664" height="30"/>
+                    <rect key="frame" x="5" y="122" width="664" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="이자율 :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9g-sc-OE3">
                             <rect key="frame" x="0.0" y="5" width="74" height="20.5"/>
@@ -147,7 +147,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ocW-bp-152">
-                    <rect key="frame" x="5" y="145" width="664" height="30"/>
+                    <rect key="frame" x="5" y="161" width="664" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="수입 (월) :" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZx-gl-xjf">
                             <rect key="frame" x="0.0" y="5" width="74" height="20.5"/>
@@ -181,13 +181,13 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="1On-3X-FKR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="1xQ-di-Gs0"/>
-                <constraint firstAttribute="bottom" secondItem="ocW-bp-152" secondAttribute="bottom" constant="5" id="4Pn-Yp-9nP"/>
                 <constraint firstAttribute="trailing" secondItem="vXz-Gm-Wfl" secondAttribute="trailing" constant="5" id="8kL-Q4-z9T"/>
                 <constraint firstItem="3jU-oP-nmE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="ENU-UX-F5D"/>
                 <constraint firstAttribute="trailing" secondItem="ocW-bp-152" secondAttribute="trailing" constant="5" id="IQX-6M-VQF"/>
                 <constraint firstItem="vXz-Gm-Wfl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="LBu-cF-hDf"/>
                 <constraint firstItem="ocW-bp-152" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="SY2-t5-5ov"/>
                 <constraint firstItem="1sl-cM-P5F" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="5" id="WY5-uh-yHC"/>
+                <constraint firstAttribute="bottom" secondItem="ocW-bp-152" secondAttribute="bottom" constant="5" id="YU2-Bt-25l"/>
                 <constraint firstItem="1sl-cM-P5F" firstAttribute="top" secondItem="1On-3X-FKR" secondAttribute="bottom" constant="5" id="axb-xz-hdV"/>
                 <constraint firstAttribute="trailing" secondItem="3jU-oP-nmE" secondAttribute="trailing" constant="5" id="btT-JJ-xYH"/>
                 <constraint firstItem="1On-3X-FKR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="ftH-XE-Mvd"/>

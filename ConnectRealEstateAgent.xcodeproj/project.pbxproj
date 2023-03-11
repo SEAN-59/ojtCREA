@@ -48,12 +48,8 @@
 		FB42B1D7299B20E800CBADC9 /* SearchAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB42B1D6299B20E800CBADC9 /* SearchAddressView.xib */; };
 		FB42B1DA299B36A300CBADC9 /* AFNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = FB42B1D9299B36A300CBADC9 /* AFNetworking */; };
 		FB42B1DD299B36C600CBADC9 /* SearchAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = FB42B1DC299B36C600CBADC9 /* SearchAddress.m */; };
-		FB43F8CB29B714AC000F16C1 /* ItemListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB43F8C929B714AC000F16C1 /* ItemListTableViewCell.m */; };
-		FB43F8CC29B714AC000F16C1 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB43F8CA29B714AC000F16C1 /* ItemListTableViewCell.xib */; };
 		FB43F8CF29B7286C000F16C1 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB43F8CD29B7286C000F16C1 /* ItemListViewController.swift */; };
 		FB43F8D029B7286C000F16C1 /* ItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB43F8CE29B7286C000F16C1 /* ItemListViewController.xib */; };
-		FB43F8D829B73105000F16C1 /* ItemListTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB43F8D729B73105000F16C1 /* ItemListTableView.m */; };
-		FB43F8DA29B7310F000F16C1 /* ItemListTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB43F8D929B7310F000F16C1 /* ItemListTableView.xib */; };
 		FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */; };
 		FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB47B7A1299615EA006B8068 /* ImageExtension.swift */; };
 		FB5EAA3129B5B52C00D29612 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EAA2F29B5B52C00D29612 /* SettingViewController.swift */; };
@@ -68,10 +64,21 @@
 		FB5EAA4C29B6B77900D29612 /* ChangeNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5EAA4A29B6B77900D29612 /* ChangeNameViewController.xib */; };
 		FB5EAA4F29B6B8A400D29612 /* ChangeTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5EAA4D29B6B8A400D29612 /* ChangeTagViewController.swift */; };
 		FB5EAA5029B6B8A400D29612 /* ChangeTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB5EAA4E29B6B8A400D29612 /* ChangeTagViewController.xib */; };
+		FB6805AF29B84EC6006D2546 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6805AD29B84EC6006D2546 /* ItemDetailViewController.swift */; };
+		FB6805B029B84EC6006D2546 /* ItemDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6805AE29B84EC6006D2546 /* ItemDetailViewController.xib */; };
+		FB6805B429B853ED006D2546 /* InvestInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6805B329B853ED006D2546 /* InvestInfoView.swift */; };
+		FB6805B629B853F5006D2546 /* InvestInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB6805B529B853F5006D2546 /* InvestInfoView.xib */; };
 		FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7B3B8329A5D8FD00A58D8E /* MapView.m */; };
 		FB8505B529A8929F0053311D /* InfoMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8505B429A8929F0053311D /* InfoMarkerViewController.xib */; };
 		FB8505B929A89AE60053311D /* InfoMarkerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8505B729A89AE60053311D /* InfoMarkerTableViewCell.m */; };
 		FB8505BA29A89AE60053311D /* InfoMarkerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8505B829A89AE60053311D /* InfoMarkerTableViewCell.xib */; };
+		FBB26DDF29B86E8500291567 /* ItemListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB26DDD29B86E8500291567 /* ItemListTableViewCell.m */; };
+		FBB26DE029B86E8500291567 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB26DDE29B86E8500291567 /* ItemListTableViewCell.xib */; };
+		FBB26DE229B95DF100291567 /* AppleLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB26DE129B95DF100291567 /* AppleLogin.swift */; };
+		FBB26DE529B9718500291567 /* ItemDetailChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB26DE329B9718500291567 /* ItemDetailChangeViewController.swift */; };
+		FBB26DE629B9718500291567 /* ItemDetailChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB26DE429B9718500291567 /* ItemDetailChangeViewController.xib */; };
+		FBB26DE829B973FD00291567 /* ChangeInvestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB26DE729B973FD00291567 /* ChangeInvestView.swift */; };
+		FBB26DEA29B9740700291567 /* ChangeInvestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBB26DE929B9740700291567 /* ChangeInvestView.xib */; };
 		FBBBD19029A8766100F6A0CA /* InfoMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBBD18E29A8766100F6A0CA /* InfoMarkerViewController.m */; };
 		FBBBD19829A8826700F6A0CA /* DetailMarkerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBBBD19629A8826700F6A0CA /* DetailMarkerViewController.m */; };
 		FBBBD19929A8826700F6A0CA /* DetailMarkerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBBBD19729A8826700F6A0CA /* DetailMarkerViewController.xib */; };
@@ -128,14 +135,8 @@
 		FB42B1D6299B20E800CBADC9 /* SearchAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchAddressView.xib; sourceTree = "<group>"; };
 		FB42B1DB299B36C600CBADC9 /* SearchAddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchAddress.h; path = "ConnectRealEstateAgent/Utils/Objective-C/SearchAddress.h"; sourceTree = SOURCE_ROOT; };
 		FB42B1DC299B36C600CBADC9 /* SearchAddress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SearchAddress.m; path = "ConnectRealEstateAgent/Utils/Objective-C/SearchAddress.m"; sourceTree = SOURCE_ROOT; };
-		FB43F8C829B714AC000F16C1 /* ItemListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemListTableViewCell.h; sourceTree = "<group>"; };
-		FB43F8C929B714AC000F16C1 /* ItemListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemListTableViewCell.m; sourceTree = "<group>"; };
-		FB43F8CA29B714AC000F16C1 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableViewCell.xib; sourceTree = "<group>"; };
 		FB43F8CD29B7286C000F16C1 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		FB43F8CE29B7286C000F16C1 /* ItemListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListViewController.xib; sourceTree = "<group>"; };
-		FB43F8D629B73105000F16C1 /* ItemListTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemListTableView.h; sourceTree = "<group>"; };
-		FB43F8D729B73105000F16C1 /* ItemListTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemListTableView.m; sourceTree = "<group>"; };
-		FB43F8D929B7310F000F16C1 /* ItemListTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableView.xib; sourceTree = "<group>"; };
 		FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BJDAddressData.swift; sourceTree = "<group>"; };
 		FB47B7A1299615EA006B8068 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		FB5EAA2F29B5B52C00D29612 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +152,10 @@
 		FB5EAA4D29B6B8A400D29612 /* ChangeTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTagViewController.swift; sourceTree = "<group>"; };
 		FB5EAA4E29B6B8A400D29612 /* ChangeTagViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeTagViewController.xib; sourceTree = "<group>"; };
 		FB5EAA5129B6BDBB00D29612 /* DBProtocolDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBProtocolDelegate.h; sourceTree = "<group>"; };
+		FB6805AD29B84EC6006D2546 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
+		FB6805AE29B84EC6006D2546 /* ItemDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailViewController.xib; sourceTree = "<group>"; };
+		FB6805B329B853ED006D2546 /* InvestInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestInfoView.swift; sourceTree = "<group>"; };
+		FB6805B529B853F5006D2546 /* InvestInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvestInfoView.xib; sourceTree = "<group>"; };
 		FB7B3B8229A5D8FD00A58D8E /* MapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapView.h; sourceTree = "<group>"; };
 		FB7B3B8329A5D8FD00A58D8E /* MapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapView.m; sourceTree = "<group>"; };
 		FB8505B429A8929F0053311D /* InfoMarkerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoMarkerViewController.xib; sourceTree = "<group>"; };
@@ -158,6 +163,14 @@
 		FB8505B729A89AE60053311D /* InfoMarkerTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfoMarkerTableViewCell.m; sourceTree = "<group>"; };
 		FB8505B829A89AE60053311D /* InfoMarkerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoMarkerTableViewCell.xib; sourceTree = "<group>"; };
 		FB950B1029A4444800431FDA /* LoginProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginProtocol.h; sourceTree = "<group>"; };
+		FBB26DDC29B86E8500291567 /* ItemListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemListTableViewCell.h; sourceTree = "<group>"; };
+		FBB26DDD29B86E8500291567 /* ItemListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemListTableViewCell.m; sourceTree = "<group>"; };
+		FBB26DDE29B86E8500291567 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ItemListTableViewCell.xib; path = ItemDetail/ItemListTableViewCell.xib; sourceTree = "<group>"; };
+		FBB26DE129B95DF100291567 /* AppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogin.swift; sourceTree = "<group>"; };
+		FBB26DE329B9718500291567 /* ItemDetailChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailChangeViewController.swift; sourceTree = "<group>"; };
+		FBB26DE429B9718500291567 /* ItemDetailChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemDetailChangeViewController.xib; sourceTree = "<group>"; };
+		FBB26DE729B973FD00291567 /* ChangeInvestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeInvestView.swift; sourceTree = "<group>"; };
+		FBB26DE929B9740700291567 /* ChangeInvestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeInvestView.xib; sourceTree = "<group>"; };
 		FBBBD18B29A869F300F6A0CA /* URLData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = URLData.h; sourceTree = "<group>"; };
 		FBBBD18C29A86E6D00F6A0CA /* KEYData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KEYData.h; sourceTree = "<group>"; };
 		FBBBD18D29A8766100F6A0CA /* InfoMarkerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfoMarkerViewController.h; sourceTree = "<group>"; };
@@ -194,24 +207,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A7C443E8299D161C001EA428 /* xib */ = {
-			isa = PBXGroup;
-			children = (
-				FB42B1D6299B20E800CBADC9 /* SearchAddressView.xib */,
-				FB23F871299E119E0023C752 /* InformationView.xib */,
-				FB23F873299F04280023C752 /* InvestInputView.xib */,
-			);
-			path = xib;
-			sourceTree = "<group>";
-		};
 		A7C443E9299D1638001EA428 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				FB35BABF299A331F00BA6A27 /* SearchAddressView.swift */,
-				FB23F86F299E10ED0023C752 /* InformationView.swift */,
-				FB23F879299F4BC70023C752 /* InvestInputView.swift */,
-				FB43F8CD29B7286C000F16C1 /* ItemListViewController.swift */,
-				FB43F8CE29B7286C000F16C1 /* ItemListViewController.xib */,
+				FB6805B229B8524B006D2546 /* ItemAdd */,
+				FBDFB18029B80E87006F8DCD /* ItemList */,
+				FB6805AC29B84E9F006D2546 /* ItemDetail */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -220,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				FB110C922990C66900C4EF53 /* KakaoLogin.swift */,
+				FBB26DE129B95DF100291567 /* AppleLogin.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -268,11 +270,10 @@
 				FB21D2AD299098DC00F1FA20 /* AppDelegate.swift */,
 				FB21D2AF299098DC00F1FA20 /* SceneDelegate.swift */,
 				A75FEBB32997DD28004F49DC /* FirstVC.swift */,
-				FBEB6FDC29A743AD00445EF9 /* CREAViewController.swift */,
 				FB21D2B3299098DC00F1FA20 /* Main.storyboard */,
 				FB47B79E2995EF54006B8068 /* Utils */,
-				FB35BAAB299A2D5F00BA6A27 /* List */,
 				FB35BAA3299A2A4800BA6A27 /* Map */,
+				FB35BAAB299A2D5F00BA6A27 /* List */,
 				FB21D2F12990BF3700F1FA20 /* Login */,
 				FB21D2B8299098DD00F1FA20 /* LaunchScreen.storyboard */,
 				FB21D2B6299098DD00F1FA20 /* Assets.xcassets */,
@@ -286,6 +287,7 @@
 		FB21D2D82990A9E400F1FA20 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				FBEB6FDC29A743AD00445EF9 /* CREAViewController.swift */,
 				FB47B79A2995EF1C006B8068 /* BJDAddressData.swift */,
 				FB110C982990EEDB00C4EF53 /* ColorExtension.swift */,
 				FB47B7A1299615EA006B8068 /* ImageExtension.swift */,
@@ -314,7 +316,6 @@
 		FB21D2F12990BF3700F1FA20 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				A7F1164D2997E2F400905DAA /* LoginPage.storyboard */,
 				A7F1164F2998B3E000905DAA /* Swift */,
 				FB21D2D92990AA0200F1FA20 /* Objective-C */,
 				FB21D2F22990BF4800F1FA20 /* VC */,
@@ -325,6 +326,7 @@
 		FB21D2F22990BF4800F1FA20 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				A7F1164D2997E2F400905DAA /* LoginPage.storyboard */,
 				FB110C8E2990C12000C4EF53 /* SimpleLoginVC.swift */,
 				FB110C902990C20500C4EF53 /* EmailLoginVC.swift */,
 				FBF52F592999B570006594D1 /* CreateAccountVC.swift */,
@@ -358,51 +360,28 @@
 		FB35BAA3299A2A4800BA6A27 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				FB35BAA5299A2A6100BA6A27 /* MapVC.swift */,
 				FB35BAA7299A2A6B00BA6A27 /* MapPage.storyboard */,
 				FBE13B6A299B0FE6008FA404 /* Objective-C */,
-				FB35BAA4299A2A5600BA6A27 /* VC */,
-			);
-			path = Map;
-			sourceTree = "<group>";
-		};
-		FB35BAA4299A2A5600BA6A27 /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				FB35BAA5299A2A6100BA6A27 /* MapVC.swift */,
 				FBE0F88D29B56605008240C5 /* AddressSearch */,
 			);
-			path = VC;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		FB35BAAB299A2D5F00BA6A27 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				FB35BAB7299A2E8800BA6A27 /* AddItemVC.swift */,
 				A7394D7F299A94B0002FE2BA /* ItemPage.storyboard */,
-				A7C443E8299D161C001EA428 /* xib */,
 				FB43F8BD29B70F4E000F16C1 /* Objective-C */,
 				A7C443E9299D1638001EA428 /* Swift */,
-				FB35BAAC299A2D8700BA6A27 /* VC */,
 			);
 			path = List;
-			sourceTree = "<group>";
-		};
-		FB35BAAC299A2D8700BA6A27 /* VC */ = {
-			isa = PBXGroup;
-			children = (
-				FB35BAB7299A2E8800BA6A27 /* AddItemVC.swift */,
-			);
-			path = VC;
 			sourceTree = "<group>";
 		};
 		FB43F8BD29B70F4E000F16C1 /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
-				FB43F8C829B714AC000F16C1 /* ItemListTableViewCell.h */,
-				FB43F8C929B714AC000F16C1 /* ItemListTableViewCell.m */,
-				FB43F8CA29B714AC000F16C1 /* ItemListTableViewCell.xib */,
-				FB43F8D629B73105000F16C1 /* ItemListTableView.h */,
-				FB43F8D729B73105000F16C1 /* ItemListTableView.m */,
-				FB43F8D929B7310F000F16C1 /* ItemListTableView.xib */,
 			);
 			path = "Objective-C";
 			sourceTree = "<group>";
@@ -416,6 +395,42 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		FB6805AC29B84E9F006D2546 /* ItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FB6805AD29B84EC6006D2546 /* ItemDetailViewController.swift */,
+				FB6805AE29B84EC6006D2546 /* ItemDetailViewController.xib */,
+				FBB26DE329B9718500291567 /* ItemDetailChangeViewController.swift */,
+				FBB26DE429B9718500291567 /* ItemDetailChangeViewController.xib */,
+				FB6805B129B851AC006D2546 /* SubViews */,
+			);
+			path = ItemDetail;
+			sourceTree = "<group>";
+		};
+		FB6805B129B851AC006D2546 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				FB6805B329B853ED006D2546 /* InvestInfoView.swift */,
+				FB6805B529B853F5006D2546 /* InvestInfoView.xib */,
+				FBB26DE729B973FD00291567 /* ChangeInvestView.swift */,
+				FBB26DE929B9740700291567 /* ChangeInvestView.xib */,
+			);
+			name = SubViews;
+			sourceTree = "<group>";
+		};
+		FB6805B229B8524B006D2546 /* ItemAdd */ = {
+			isa = PBXGroup;
+			children = (
+				FB35BABF299A331F00BA6A27 /* SearchAddressView.swift */,
+				FB42B1D6299B20E800CBADC9 /* SearchAddressView.xib */,
+				FB23F86F299E10ED0023C752 /* InformationView.swift */,
+				FB23F871299E119E0023C752 /* InformationView.xib */,
+				FB23F879299F4BC70023C752 /* InvestInputView.swift */,
+				FB23F873299F04280023C752 /* InvestInputView.xib */,
+			);
+			path = ItemAdd;
+			sourceTree = "<group>";
+		};
 		FB8505BB29A89AEF0053311D /* InfoMarker */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +442,18 @@
 				FB8505B829A89AE60053311D /* InfoMarkerTableViewCell.xib */,
 			);
 			path = InfoMarker;
+			sourceTree = "<group>";
+		};
+		FBDFB18029B80E87006F8DCD /* ItemList */ = {
+			isa = PBXGroup;
+			children = (
+				FB43F8CD29B7286C000F16C1 /* ItemListViewController.swift */,
+				FB43F8CE29B7286C000F16C1 /* ItemListViewController.xib */,
+				FBB26DDC29B86E8500291567 /* ItemListTableViewCell.h */,
+				FBB26DDD29B86E8500291567 /* ItemListTableViewCell.m */,
+				FBB26DDE29B86E8500291567 /* ItemListTableViewCell.xib */,
+			);
+			name = ItemList;
 			sourceTree = "<group>";
 		};
 		FBE0F88629B565BA008240C5 /* Maker */ = {
@@ -452,14 +479,14 @@
 		FBE0F89729B59C77008240C5 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				FBE0F8A029B5A96B008240C5 /* subViews */,
+				FBE0F8A029B5A96B008240C5 /* SubViews */,
 				FB5EAA2F29B5B52C00D29612 /* SettingViewController.swift */,
 				FB5EAA3029B5B52C00D29612 /* SettingViewController.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
 		};
-		FBE0F8A029B5A96B008240C5 /* subViews */ = {
+		FBE0F8A029B5A96B008240C5 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
 				FB5EAA3D29B5D72300D29612 /* ChangeTypeFViewController.swift */,
@@ -473,7 +500,7 @@
 				FB5EAA4D29B6B8A400D29612 /* ChangeTagViewController.swift */,
 				FB5EAA4E29B6B8A400D29612 /* ChangeTagViewController.xib */,
 			);
-			path = subViews;
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		FBE13B6A299B0FE6008FA404 /* Objective-C */ = {
@@ -568,8 +595,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBB26DE029B86E8500291567 /* ItemListTableViewCell.xib in Resources */,
 				FB23F872299E119E0023C752 /* InformationView.xib in Resources */,
 				FB35BAA8299A2A6B00BA6A27 /* MapPage.storyboard in Resources */,
+				FB6805B629B853F5006D2546 /* InvestInfoView.xib in Resources */,
 				FB5EAA3229B5B52C00D29612 /* SettingViewController.xib in Resources */,
 				FB21D2BA299098DD00F1FA20 /* LaunchScreen.storyboard in Resources */,
 				FB43F8D029B7286C000F16C1 /* ItemListViewController.xib in Resources */,
@@ -577,19 +606,20 @@
 				FB23F874299F04280023C752 /* InvestInputView.xib in Resources */,
 				A7394D80299A94B0002FE2BA /* ItemPage.storyboard in Resources */,
 				FB8505B529A8929F0053311D /* InfoMarkerViewController.xib in Resources */,
+				FBB26DE629B9718500291567 /* ItemDetailChangeViewController.xib in Resources */,
 				FBE0F89629B57CE2008240C5 /* AddrSearchView.xib in Resources */,
 				FB5EAA5029B6B8A400D29612 /* ChangeTagViewController.xib in Resources */,
 				FB8505BA29A89AE60053311D /* InfoMarkerTableViewCell.xib in Resources */,
 				FB5EAA4429B5DA4900D29612 /* ChangeTypeTViewController.xib in Resources */,
 				A7F1164E2997E2F400905DAA /* LoginPage.storyboard in Resources */,
 				FB42B1D7299B20E800CBADC9 /* SearchAddressView.xib in Resources */,
-				FB43F8DA29B7310F000F16C1 /* ItemListTableView.xib in Resources */,
 				FB5EAA4829B6B75700D29612 /* ChangeLikeViewController.xib in Resources */,
 				FB21D2B7299098DD00F1FA20 /* Assets.xcassets in Resources */,
+				FB6805B029B84EC6006D2546 /* ItemDetailViewController.xib in Resources */,
 				FB5EAA4C29B6B77900D29612 /* ChangeNameViewController.xib in Resources */,
 				FB5EAA4029B5D72400D29612 /* ChangeTypeFViewController.xib in Resources */,
+				FBB26DEA29B9740700291567 /* ChangeInvestView.xib in Resources */,
 				FB21D2B5299098DC00F1FA20 /* Main.storyboard in Resources */,
-				FB43F8CC29B714AC000F16C1 /* ItemListTableViewCell.xib in Resources */,
 				FBBBD19929A8826700F6A0CA /* DetailMarkerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,31 +687,35 @@
 				FB21D2B0299098DC00F1FA20 /* SceneDelegate.swift in Sources */,
 				A7F116522998B40400905DAA /* AppleLogin.m in Sources */,
 				A7F1165B29991C7D00905DAA /* EmailLogin.m in Sources */,
+				FBB26DE529B9718500291567 /* ItemDetailChangeViewController.swift in Sources */,
 				FBF52F5A2999B570006594D1 /* CreateAccountVC.swift in Sources */,
 				FBF52F5C2999B65C006594D1 /* AccountAgreeVC.swift in Sources */,
+				FBB26DDF29B86E8500291567 /* ItemListTableViewCell.m in Sources */,
 				FB5EAA4B29B6B77900D29612 /* ChangeNameViewController.swift in Sources */,
 				FB35BAA6299A2A6100BA6A27 /* MapVC.swift in Sources */,
 				FB110C992990EEDB00C4EF53 /* ColorExtension.swift in Sources */,
 				FB35BAC0299A331F00BA6A27 /* SearchAddressView.swift in Sources */,
 				FB47B79C2995EF1C006B8068 /* BJDAddressData.swift in Sources */,
 				FB35BAB8299A2E8800BA6A27 /* AddItemVC.swift in Sources */,
+				FB6805AF29B84EC6006D2546 /* ItemDetailViewController.swift in Sources */,
 				FB5EAA3F29B5D72400D29612 /* ChangeTypeFViewController.swift in Sources */,
-				FB43F8D829B73105000F16C1 /* ItemListTableView.m in Sources */,
 				FB23F870299E10ED0023C752 /* InformationView.swift in Sources */,
 				FB5EAA3129B5B52C00D29612 /* SettingViewController.swift in Sources */,
 				A7F116582998B52900905DAA /* NaverLogin.m in Sources */,
 				FB5EAA4729B6B75700D29612 /* ChangeLikeViewController.swift in Sources */,
 				FBEB6FDD29A743AD00445EF9 /* CREAViewController.swift in Sources */,
 				FB8505B929A89AE60053311D /* InfoMarkerTableViewCell.m in Sources */,
+				FB6805B429B853ED006D2546 /* InvestInfoView.swift in Sources */,
 				FB5EAA4F29B6B8A400D29612 /* ChangeTagViewController.swift in Sources */,
 				FB110C8F2990C12000C4EF53 /* SimpleLoginVC.swift in Sources */,
 				FB7B3B8429A5D8FD00A58D8E /* MapView.m in Sources */,
 				FB110C912990C20500C4EF53 /* EmailLoginVC.swift in Sources */,
+				FBB26DE229B95DF100291567 /* AppleLogin.swift in Sources */,
 				FB5EAA4329B5DA4900D29612 /* ChangeTypeTViewController.swift in Sources */,
-				FB43F8CB29B714AC000F16C1 /* ItemListTableViewCell.m in Sources */,
 				FB23F87A299F4BC70023C752 /* InvestInputView.swift in Sources */,
 				FBBBD19029A8766100F6A0CA /* InfoMarkerViewController.m in Sources */,
 				FB47B7A2299615EA006B8068 /* ImageExtension.swift in Sources */,
+				FBB26DE829B973FD00291567 /* ChangeInvestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

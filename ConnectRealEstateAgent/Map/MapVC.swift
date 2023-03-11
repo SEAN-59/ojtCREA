@@ -7,6 +7,7 @@
 
 import UIKit
 import NMapsMap
+//import GoogleSignInSwift
 
 class MapVC: CREAViewController {
     /// 일반
@@ -15,9 +16,6 @@ class MapVC: CREAViewController {
     private let mapView = MapView()
     private let dbManager = DatabaseManager()
     private let searchAPI = SearchAddress()
-    
-    
-    
 
     @IBOutlet weak var addItemBtn: UIButton!
     @IBOutlet weak var ItemListBtn: UIButton!
@@ -32,10 +30,30 @@ class MapVC: CREAViewController {
         self.searchAPI.delegate = self
         self.addrSearchView.delegate = self
         self.layout()
-        self.mapView.moveToNowLocation(map: self.mainMapView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.loadMap()
+    }
+    
+    private func loadMap() {
+        if self.userType {
+            self.dbManager.readUserItemKeyData()
+        } else {
+            self.dbManager.readAreaData()
+        }
     }
     
     func layout() {
+        self.addrSearchView.layer.borderColor = UIColor.init(named: "DeepBlue")?.cgColor
+        self.addrSearchView.layer.borderWidth = 1.0
+        self.addrSearchView.layer.cornerRadius = 5.0
+        
+        self.mainMapView.layer.borderColor = UIColor.init(named: "DeepBlue")?.cgColor
+        self.mainMapView.layer.borderWidth = 1.0
+        self.mainMapView.layer.cornerRadius = 5.0
+        
         if self.userType {
             /// add 버튼 색상 입힘
             self.addItemBtn.backgroundColor = UIColor.init(named: "DeepBlue")?.withAlphaComponent(0.4)
@@ -46,18 +64,15 @@ class MapVC: CREAViewController {
             /// 요소 보이게 하기
             self.ItemListBtn.isHidden = false
             self.addItemBtn.isHidden = false
-            
-            
-            self.dbManager.readUserItemKeyData()
         } else {
             /// 요소 감추기
             self.ItemListBtn.isHidden = true
             self.addItemBtn.isHidden = true
             
-            self.dbManager.readAreaData()
         }
         
         self.mapView.userType = self.userType
+        self.mapView.moveToNowLocation(map: self.mainMapView)
         
         
     }
@@ -100,13 +115,27 @@ private extension MapVC {
     @IBAction func tapItemListBtn(_ sender: UIButton) {
         let listVC = ItemListViewController.init(nibName: "ItemListViewController", bundle: nil)
         guard let presentVC = self.presentingViewController else { return }
+        
         listVC.modalPresentationStyle = .fullScreen
-        self.present(listVC, animated: true, completion: {
-            presentVC.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: {
+            listVC.userType = self.userType
+            presentVC.present(listVC, animated: false, completion: nil)
         })
     }
     
     @IBAction func tapChatListBtn(_ sender: UIButton) {
+        guard let presentVC = self.presentingViewController else { return }
+        print(presentVC)
+        presentVC.dismiss(animated: false, completion: nil)
+//
+//        detailVC.modalPresentationStyle = .fullScreen
+//        self.present(detailVC, animated: true, completion: nil)
+        
+//        self.dismiss(animated: false, completion: {
+//
+//            presentVC.present(listVC, animated: false, completion: nil)
+//        })
+        
     }
     
 }

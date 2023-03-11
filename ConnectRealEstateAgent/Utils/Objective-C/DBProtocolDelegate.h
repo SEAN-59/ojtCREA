@@ -15,9 +15,10 @@
 
 - (void) successReadArea: (BOOL)result data: (nonnull NSArray*) data NS_SWIFT_NAME(successReadArea(result:data:));
 - (void) successReadUser: (BOOL)result data: (nonnull NSDictionary*) data NS_SWIFT_NAME(successReadUser(result:data:));
+- (void) successReadItem: (BOOL)result data: (nonnull NSDictionary*) data code: (nonnull NSString*) code NS_SWIFT_NAME(successReadItem(result:data:code:));
 
 
-- (void) successReadItemMarker: (BOOL)result data: (nullable NSDictionary*) data number: (int) number itemCd: (nonnull NSString*) itemCd NS_SWIFT_NAME(successReadItem(result:data:number:itemCd:));
+- (void) successReadItemMarker: (BOOL)result data: (nullable NSDictionary*) data number: (int) number itemCd: (nonnull NSString*) itemCd NS_SWIFT_NAME(successReadItemMarker(result:data:number:itemCd:));
 
 - (void) successReadUserType: (BOOL)result NS_SWIFT_NAME(successReadUserType(result:));
 - (void) successReadUserItem: (BOOL)result data: (nonnull NSArray*) data NS_SWIFT_NAME(successReadUserItem(result:data:));

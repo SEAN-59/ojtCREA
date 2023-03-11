@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemDetailChangeViewController" customModule="ConnectRealEstateAgent" customModuleProvider="target">
+            <connections>
+                <outlet property="includeMapView" destination="v6c-OX-ztb" id="TrM-16-zgt"/>
+                <outlet property="informationView" destination="Vze-Wv-sAI" id="3Mf-uc-5At"/>
+                <outlet property="investInputView" destination="Fnd-eT-OuQ" id="M1w-HS-MbB"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="URF-Yl-lCz">
+                    <rect key="frame" x="0.0" y="64" width="414" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hM-rJ-o8s">
+                            <rect key="frame" x="20" y="10" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="F6n-3Y-frZ"/>
+                                <constraint firstAttribute="height" constant="30" id="Q93-mO-N4Q"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <imageReference key="image" image="chevron.left" catalog="system" symbolScale="large"/>
+                                <backgroundConfiguration key="background"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="21"/>
+                                <color key="baseForegroundColor" name="DeepBlue"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="tapBackBtn:" destination="-1" eventType="touchUpInside" id="Enu-P9-9qt"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BUP-ge-iCN">
+                            <rect key="frame" x="324" y="10" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="86n-5C-fmN"/>
+                                <constraint firstAttribute="width" constant="30" id="g5V-Ir-UFn"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <imageReference key="image" image="folder.fill.badge.plus" catalog="system" symbolScale="large"/>
+                                <backgroundConfiguration key="background"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="21"/>
+                                <color key="baseForegroundColor" name="DeepBlue"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="tapSaveBtn:" destination="-1" eventType="touchUpInside" id="5Lw-Jk-GdD"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfW-Gr-GP0">
+                            <rect key="frame" x="364" y="10" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="d7F-wY-Slo"/>
+                                <constraint firstAttribute="height" constant="30" id="fTy-Ck-5zU"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain">
+                                <imageReference key="image" image="trash" catalog="system" symbolScale="large"/>
+                                <backgroundConfiguration key="background"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="21"/>
+                                <color key="baseForegroundColor" name="DeepBlue"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="tapDeleteBtn:" destination="-1" eventType="touchUpInside" id="YCw-Gz-iU9"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상세 정보 변경" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68R-B0-QAh">
+                            <rect key="frame" x="60" y="14" width="294" height="26"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="2hM-rJ-o8s" firstAttribute="top" secondItem="URF-Yl-lCz" secondAttribute="top" constant="10" id="4KQ-WZ-4ZH"/>
+                        <constraint firstAttribute="trailing" secondItem="cfW-Gr-GP0" secondAttribute="trailing" constant="20" id="9Qc-1R-ezN"/>
+                        <constraint firstAttribute="height" constant="50" id="Ajp-5t-xrp"/>
+                        <constraint firstItem="BUP-ge-iCN" firstAttribute="trailing" secondItem="cfW-Gr-GP0" secondAttribute="leading" constant="-10" id="HE1-1E-s2R"/>
+                        <constraint firstItem="cfW-Gr-GP0" firstAttribute="leading" secondItem="68R-B0-QAh" secondAttribute="trailing" constant="10" id="K5a-iD-i6H"/>
+                        <constraint firstItem="2hM-rJ-o8s" firstAttribute="leading" secondItem="URF-Yl-lCz" secondAttribute="leading" constant="20" id="UD8-nS-R8F"/>
+                        <constraint firstItem="BUP-ge-iCN" firstAttribute="centerY" secondItem="cfW-Gr-GP0" secondAttribute="centerY" id="jhE-1e-yxL"/>
+                        <constraint firstItem="68R-B0-QAh" firstAttribute="leading" secondItem="2hM-rJ-o8s" secondAttribute="trailing" constant="10" id="nwm-6k-Hce"/>
+                        <constraint firstAttribute="bottom" secondItem="68R-B0-QAh" secondAttribute="bottom" constant="10" id="yS0-nP-7Kc"/>
+                        <constraint firstItem="cfW-Gr-GP0" firstAttribute="top" secondItem="URF-Yl-lCz" secondAttribute="top" constant="10" id="zBC-GS-J7f"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="부동산 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9d-fE-B27">
+                    <rect key="frame" x="30" y="124" width="354" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" ambiguous="YES" restorationIdentifier="InformationView" translatesAutoresizingMaskIntoConstraints="NO" id="Vze-Wv-sAI" customClass="InformationView" customModule="ConnectRealEstateAgent" customModuleProvider="target">
+                    <rect key="frame" x="30" y="142" width="354" height="120"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6c-OX-ztb" userLabel="MapView" customClass="NMFMapView">
+                    <rect key="frame" x="30" y="284" width="354" height="120"/>
+                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="투자 분석 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceA-QM-DNF">
+                    <rect key="frame" x="30" y="437" width="354" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fnd-eT-OuQ" customClass="InvestInputView" customModule="ConnectRealEstateAgent" customModuleProvider="target">
+                    <rect key="frame" x="30" y="474" width="354" height="421.5"/>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="V9d-fE-B27" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="0at-FB-7Oc"/>
+                <constraint firstItem="V9d-fE-B27" firstAttribute="top" secondItem="URF-Yl-lCz" secondAttribute="bottom" constant="10" id="4Bd-Ob-Wuq"/>
+                <constraint firstItem="ceA-QM-DNF" firstAttribute="top" secondItem="v6c-OX-ztb" secondAttribute="bottom" constant="10" id="Bs7-wP-cNh"/>
+                <constraint firstItem="URF-Yl-lCz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DiG-V3-9EP"/>
+                <constraint firstItem="Fnd-eT-OuQ" firstAttribute="top" secondItem="ceA-QM-DNF" secondAttribute="bottom" constant="10" id="Ffk-dc-XfU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="V9d-fE-B27" secondAttribute="trailing" constant="30" id="G7l-H7-JA8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="v6c-OX-ztb" secondAttribute="trailing" constant="30" id="SDr-h1-qLF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Vze-Wv-sAI" secondAttribute="trailing" constant="30" id="X3x-z3-H3U"/>
+                <constraint firstItem="URF-Yl-lCz" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="daC-Hc-VcH"/>
+                <constraint firstItem="v6c-OX-ztb" firstAttribute="height" secondItem="Vze-Wv-sAI" secondAttribute="height" id="fYF-2p-FjR"/>
+                <constraint firstItem="Vze-Wv-sAI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="fw8-gq-BCB"/>
+                <constraint firstItem="URF-Yl-lCz" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="kAF-Zo-LWk"/>
+                <constraint firstItem="v6c-OX-ztb" firstAttribute="top" secondItem="Vze-Wv-sAI" secondAttribute="bottom" constant="5" id="qfH-03-O3Q"/>
+                <constraint firstItem="v6c-OX-ztb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="wcX-Sg-ld6"/>
+                <constraint firstItem="Vze-Wv-sAI" firstAttribute="top" secondItem="V9d-fE-B27" secondAttribute="bottom" constant="10" id="wmL-ze-Zf6"/>
+                <constraint firstItem="ceA-QM-DNF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="xVE-bG-mLl"/>
+                <constraint firstItem="Fnd-eT-OuQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="yLW-lb-3Ig"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ceA-QM-DNF" secondAttribute="trailing" constant="30" id="yP7-pw-VX9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Fnd-eT-OuQ" secondAttribute="trailing" constant="30" id="zKc-le-bqs"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="85"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="folder.fill.badge.plus" catalog="system" width="128" height="91"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+        <namedColor name="DeepBlue">
+            <color red="0.12200000137090683" green="0.17299999296665192" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
